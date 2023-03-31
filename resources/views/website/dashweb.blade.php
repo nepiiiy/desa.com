@@ -326,8 +326,8 @@ img {
                                         
                                    
                                     <br>
-                                      <h3 style="color: rgb(64, 63, 63);margin-bottom:7px">{{$berita->judul}}</h3>
-                                      <p style="color: black">{{$berita->subjudul}}</p>
+                                      <h3 style="color: rgb(64, 63, 63);margin-bottom:7px">{{ Str::limit($berita->judul, 25) }}</h3>
+                                      <p style="color: black; margin-bottom: 15px;">{{ Str::limit($berita->judul, 35) }}</p>
                                   </div>
                                   <input type="hidden" value="" name="id">
                                   <div class="popular-listing-add ">

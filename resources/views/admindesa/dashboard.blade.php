@@ -206,7 +206,7 @@
         <i class="bi bi-currency-dollar"></i>
       </div>
        <div class="ps-3">
-        <a href="berita.html"> <h6>Berita Desa</h6></a>
+        <a href="{{ route('berita') }}"> <h6>Berita Desa</h6></a>
         <h3>{{ $jumlah_berita }}</h3>
       </div>
     </div>
@@ -234,7 +234,7 @@
         ></span>
       </div>
       <div class="ps-3">
-       <a href="peraturan.html"> <h6>Peraturan Desa</h6></a>
+       <a href="{{ route('peraturan') }}"> <h6>Peraturan Desa</h6></a>
        <h3>{{ $jumlah_peraturan }}</h3>
       </div>
     </div>

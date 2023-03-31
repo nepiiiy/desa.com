@@ -57,18 +57,9 @@
                                     <label for="judul" class="form-label fw-bold">Judul Pariwisata</label>
                                     <input type="text" class="form-control" name="judul" id="judul" value="{{ $data->judul }}">
                                 </div>
-
                                 <div class="col-12">
-                                    <label for="subjudul" class="form-label fw-bold">Subjudul Pariwisata</label>
-                                    <input type="text" class="form-control" name="subjudul" id="subjudul" value="{{ $data->subjudul }}">
-                                </div>
-                                <div class="col-12">
-                                    <label for="koordinat" class="form-label fw-bold">Koordinat Pariwisata</label>
-                                    <input type="text" class="form-control" name="koordinat" id="koordinat" value="{{ $data->koordinat }}">
-                                </div>
-                                <div class="col-12 mb-4">
-                                    <label for="tanggal" class="form-label fw-bold">Tanggal</label>
-                                    <input type="date" class="form-control" name="tanggal" id="tanggal" value="{{ $data->tanggal }}">
+                                    <label for="koordinat" class="form-label fw-bold">Alamat Pariwisata</label>
+                                    <textarea type="text" class="form-control" name="alamat" id="alamat" required>{{$data->alamat}}</textarea>
                                 </div>
 
                                 <!-- Quill Editor Default -->

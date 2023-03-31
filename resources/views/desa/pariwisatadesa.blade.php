@@ -1,112 +1,77 @@
 @extends('desa.nav')
 @section('isi')
-<body class="">
-<div id="wrapper" class="clearfix">
-<section class="inner-header divider layer-overlay overlay-dark-8" data-bg-img="https://i.postimg.cc/02JFzHcf/ce3a746513e5cfcec3f7fa6e88ef0b391.jpg"">
-    <div class="container pt-200 pb-40">
-      <!-- Section Content -->
-      <div class="section-content">
-        <div class="row"> 
-          <div class="col-md-6">
-            <h3 class="text-white font-36">Pariwisata</h3>
-            <h1 class="text-white font-45">Nama Desa</h1>
-            <ol class="breadcrumb text-left mt-10 white">
-              <li><a href="dashboard-desa.html">Beranda</a></li>
-              <li class="active" style="color: #F26522;">Wisata Desa</li>
-            </ol>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-      <!-- Section: Causes -->
-    <div>
-    <section id="about">
-      <div class="container pb-40">
-        <div class="row multi-row-clearfix">
-          @foreach ($collection as $item)
-              
-          @endforeach
-          <div class="col-sm-6 col-md-3">
-            <div class="causes bg-silver-light maxwidth500 mb-30">
-              <div class="thumb" style="height: 180px;">
-                <img src="https://i.postimg.cc/FFMGTWCB/wisataa.jpg" alt="" class="img-fullwidth">
-              </div>
-              <div class="causes-details border-1px bg-white clearfix p-20 pt-10 pb-20">
-                <h4 class="text-uppercase"><a href="lihatpariwisata.html">Nama Pariwisata</a></h4>
-                
-                <p class="mt-20" style="text-align: justify;">Ya, tak lengkap rasanya kalau tidak ke Gunung Bromo jika bertandang ke Malang. Gunung ini selalu menarik banyak perhatian para pecinta alam karena</p>
-                <a href="lihatpariwisata.html" class="btn btn-default btn-xs font-16 mt-10" style="color: #F26522">Lihat</a>
-              </div>
+
+    <body class="">
+        <div id="wrapper" class="clearfix">
+
+            @foreach ($profil as $gambar)
+                <section class="inner-header divider layer-overlay overlay-dark-8"
+                    data-bg-img="{{ asset('storage/' . $gambar->gambar1) }}">
+            @endforeach
+            <div class="container pt-90 pb-40">
+                <!-- Section Content -->
+                <div class="section-content">
+                    <div class="row">
+                        <div class="col-md-6">
+                            @foreach ($data_user as $data_u)
+                                <h2 class="text-uppercase text-white font-36">DESA {{ $data_u->name }}</h2>
+                                <ol class="breadcrumb text-left mt-10 white">
+                                    <li><a href="dashboard-desa.html">Beranda</a></li>
+                                    <li class="active" style="color: #fca311;">Berita Desa</li>
+                                </ol>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-  
-        </div>
-      </div>
-    
-    
+            </section>
+
+            <section id="about">
+                <div class="container pb-40">
+                    <div class="section-title text-center">
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2">
+                                <h2 class="text-uppercase line-bottom-center mt-0">Pariwisata <br><span class="text-uppercase"
+                                        style="color: #F26522">DESA {{ $data_u->name }}
+                                        @endforeach
+                                    </span></h2>
+                            </div>
+                        </div>
+                    </div>
 
 
-    
-      <div class="container pb-40">
-        <div class="section-title text-center">
-          
-        <div class="row multi-row-clearfix">
-          <div class="col-sm-6 col-md-3">
-            <div class="causes bg-silver-light maxwidth500 mb-30">
-              <div class="thumb" style="height: 180px;">
-                <img src="https://i.postimg.cc/FFMGTWCB/wisataa.jpg" alt="" class="img-fullwidth">
-              </div>
-              <div class="causes-details border-1px bg-white clearfix p-20 pt-10 pb-20">
-                <h4 class="text-uppercase"><a href="lihatpariwisata.html">Nama Pariwisata</a></h4>
-                
-                <p class="mt-20" style="text-align: justify;">Ya, tak lengkap rasanya kalau tidak ke Gunung Bromo jika bertandang ke Malang. Gunung ini selalu menarik banyak perhatian para pecinta alam karena</p>
-                <a href="lihatpariwisata.html" class="btn btn-default btn-xs font-16 mt-10" style="color: #F26522">Lihat</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-3">
-            <div class="causes bg-silver-light maxwidth500 mb-30">
-              <div class="thumb" style="height: 180px;">
-                <img src="https://i.postimg.cc/hvT8FnZ3/wisataa2.jpg" alt="" class="img-fullwidth">
-              </div>
-              <div class="causes-details border-1px bg-white clearfix p-20 pt-10 pb-20">
-                <h4 class="text-uppercase"><a href="lihatpariwisata.html">Nama Pariwisata</a></h4>
-                
-                <p class="mt-20" style="text-align: justify;">Ya, tak lengkap rasanya kalau tidak ke Gunung Bromo jika bertandang ke Malang. Gunung ini selalu menarik banyak perhatian para pecinta alam karena</p>
-                <a href="lihatpariwisata.html" class="btn btn-default btn-xs font-16 mt-10" style="color: #F26522">Lihat</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-3">
-            <div class="causes bg-silver-light maxwidth500 mb-30">
-              <div class="thumb" style="height: 180px;">
-                <img src="https://i.postimg.cc/DfL1w25x/wisata3.jpg" alt="" class="img-fullwidth">
-              </div>
-              <div class="causes-details border-1px bg-white clearfix p-20 pt-10 pb-20">
-                <h4 class="text-uppercase"><a href="lihatpariwisata.html">Nama Pariwisata</a></h4>
-     
-                <p class="mt-20" style="text-align: justify;">Ya, tak lengkap rasanya kalau tidak ke Gunung Bromo jika bertandang ke Malang. Gunung ini selalu menarik banyak perhatian para pecinta alam karena</p>
-                <a href="lihatpariwisata.html" class="btn btn-default btn-xs font-16 mt-10" style="color: #F26522">Lihat</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-3">
-            <div class="causes bg-silver-light maxwidth500 mb-30">
-              <div class="thumb" style="height: 180px;">
-                <img src="https://i.postimg.cc/FFMGTWCB/wisataa.jpg" alt="" class="img-fullwidth">
-              </div>
-              <div class="causes-details border-1px bg-white clearfix p-20 pt-10 pb-20">
-                <h4 class="text-uppercase"><a href="lihatpariwisata.html">Nama Pariwisata</a></h4>
-                
-                <p class="mt-20" style="text-align: justify;">Ya, tak lengkap rasanya kalau tidak ke Gunung Bromo jika bertandang ke Malang. Gunung ini selalu menarik banyak perhatian para pecinta alam karena</p>
-                <a href="lihatpariwisata.html" class="btn btn-default btn-xs font-16 mt-10" style="color: #F26522">Lihat</a>
-              </div>
-            </div>
-          </div>
+                    <div>
+                        <section>
+
+                            <div class="row multi-row-clearfix">
+                                @foreach ($tour as $row)
+                                    <div class="col-sm-6 col-md-3" style="margin-top: 30px">
+                                        <div class="causes bg-silver-light maxwidth300 mb-30">
+                                            <div class="thumb" style="height: 200px;">
+                                                <img src="{{ asset('storage/' . $row->cover) }}" alt=""
+                                                    class="img-fullwidth">
+                                            </div>
+                                            <div class="causes-details border-1px bg-white clearfix p-20 pt-10 pb-20">
+                                                <h4 class="text-uppercase"><a
+                                                        href="/lihatpar/{{ $row->id }}/{{ $data_user[0]->id }}">{{ Str::limit($row->judul, 15) }}</a>
+                                                </h4>
+
+                                                <p class="mt-20" style="text-align: justify;">{{ Str::limit($row->alamat, 25  ) }}</p>
+                                                <a href="/lihatpar/{{ $row->id }}/{{ $data_user[0]->id }}"
+                                                    class="btn btn-default btn-xs font-16 mt-10" style="color: #F26522">Baca
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+
+                        </section>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        {{ $tour->links('pagination::bootstrap-4') }}
+                    </div>
+                </div>
+            </section>
         </div>
-      </div>
-    </section>
-    </div>
+    </body>
 @endsection

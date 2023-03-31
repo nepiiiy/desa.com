@@ -124,7 +124,9 @@ Route::get('/peraturandesa/{id}',[PeraturanDesaController::class,'peraturandesa'
 Route::get('/keperaturan',[PeraturanDesaController::class,'keperaturan'])->name('keperaturan');
 //pariwisata
 Route::get('/pariwisatadesa/{id}',[PariwisataDesaController::class,'pwdesa'])->name('pwdesa');
+Route::get('/lihatpar/{id_pariwisata}/{id}',[PariwisataDesaController::class,'lihatpar'])->name('lihatpar');
 Route::get('/kepw',[PariwisataDesaController::class,'kepw'])->name('kepw');
+Route::get('/par',[PariwisataController::class,'par'])->name('par');
 
 
 

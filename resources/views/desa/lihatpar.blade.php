@@ -551,16 +551,17 @@ background-position: center;">
                     <div class="col-md-6">
                         {{-- @dd($data_user) --}}
                         @foreach ($berita as $item)
-                            <form action="{{ Route('kepenghargaan') }}">
+                            <form action="{{ Route('kepw') }}">
                                 <input type="hidden" value="{{ $item->user->id }}" name="id">
                                 <button style="margin-bottom: 50px; background-color:transparent; border:none;"><img
-                                  src="https://i.postimg.cc/gctp9m1b/left-arrow-removebg-preview.png"
-                                  style="width: 35px;"></button>
-                                </form>
-                                @endforeach
-                            @foreach ($berita as $penghargaan)
-                            <h1 class="text-white font-40 text-uppercase">{{ $penghargaan->user->name }}</h1>
-@endforeach
+                                        src="https://i.postimg.cc/gctp9m1b/left-arrow-removebg-preview.png"
+                                        style="width: 35px;"></button>
+                            </form>
+                        @endforeach
+                        @foreach ($berita as $berita)
+                            {{-- @dd($berita) --}}
+                            <h1 class="text-white font-40 text-uppercase">{{ $berita->user->name }}</h1>
+
                     </div>
                 </div>
             </div>
@@ -568,180 +569,188 @@ background-position: center;">
     </section>
 
     <!-- Section: Causes -->
-    {{-- @dd($penghargaan) --}}
+    {{-- @dd($berita) --}}
     <section>
         <div class="col-sm-6 col-md-3" style="margin-top: 30px">
-    <div class="container mt-30 mb-30" style="margin-left: -80px;">
-        <center>
-            @foreach ($berita as $peng)
-            <div style="background-color: #f6f6f6; max-width: 850px; border-radius: 10px;">
-                <h3>{{ $peng->judul }}</h3>
+            <div class="container mt-30 mb-30" style="margin-left: -80px;">
+                <center>
+                    <div style="background-color: #f6f6f6; max-width: 850px; border-radius: 10px;">
+                        <h3>{{ $berita->judul }}</h3>
 
-                <div class="car pt-20 pb-20">
+                        <div class="car pt-20 pb-20">
 
-                    <section id="home" class="divider" style="width: 110vh; border-radius: 10px; height: 70vh;">
+                            <section id="home" class="divider"
+                                style="width: 110vh; border-radius: 10px; height: 70vh;">
 
-                        <div class="fullwidth-carousel" data-nav="true">
-                            @foreach (json_decode($peng->gambar) as $gambar)
-                                <div class="carousel-item bg-img-cover"> <img
-                                        src="{{ asset('storage/imgpenghargaan/' . $gambar) }}">
+                                <div class="fullwidth-carousel" data-nav="true">
+                                    @foreach (json_decode($berita->gambar) as $gambar)
+                                        <div class="carousel-item bg-img-cover"> <img
+                                                src="{{ asset('public/imgpariwisata/' . $gambar) }}">
+                                        </div>
+                                    @endforeach
+
                                 </div>
-                            @endforeach
+                            </section>
+                            <script>
+                                $(document).ready(function() {
+                                    $('.slider').slick({
+                                        infinite: true,
+                                        slidesToShow: 3,
+                                        slidesToScroll: 1
+                                    });
+                                });
+                            </script>
 
                         </div>
-                    </section>
-                    <script>
-                        $(document).ready(function() {
-                            $('.slider').slick({
-                                infinite: true,
-                                slidesToShow: 3,
-                                slidesToScroll: 1
-                            });
-                        });
-                    </script>
-
-                    <p>{{ $peng->tanggal }}</p>
-                </div>
-            </center>
+                    </div>
+                </center>
             </div>
             <div class="section mt-50 mb-50"
-                style="background-color: #f6f6f6; padding: 20px; border-radius: 10px; width: 923px; margin-left: 25px;">
-                {!! $peng->isi !!}
+                style="background-color: #f6f6f6; padding: 20px; border-radius: 10px; width: 923px; margin-left: 25px;"><b>Lokasi : </b>{{$berita->alamat}}<br>
+                {!! $berita->isi !!}
             </div>
-            @endforeach
-    </div>
         </div>
-    {{-- @dd($berita) --}}
-        <div class="col-sm-6 col-md-3" style="margin-top: 25px;">
-    <div id='sidebar-wrapper' style="margin-left: 650px;">
-        <div class="sidebar1-wrapper">
-            <div class="sidebar1 section" id="sidebar1">
-                <div class="widget HTML" id="HTML2">
-                    <h2 class="title" style="height: 60px; font-size: 14px;">Post Terakhir <br>
-                        Berita Desa Ngijo
-                    </h2>
+
+        <div class="col-sm-6 col-md-3">
+            <tamvan>
+                <p><a style="color: rgb(255, 255, 255); " href="https://www.mastamvan.blogspot.com"
+                        class="pen-owner-link">Back To Tutorials</a></p>
+            </tamvan>
+            <div id='sidebar-wrapper' style="margin-left: 650px;">
+                <div class="sidebar1-wrapper">
+                    <div class="sidebar1 section" id="sidebar1">
+                        <div class="widget HTML" id="HTML2">
+                            <h2 class="title" style="height: 60px; font-size: 14px;">Post Terakhir <br>
+                                Berita Desa Ngijo
+                            </h2>
+                            @endforeach
 
 
-                    <div class="widget-content">
-                        <script style="text/javascript">
-                            var posts_no = 5;
-                            var showpoststhumbs = false;
-                            var readmorelink = true;
-                            var showcommentslink = true;
-                            var posts_date = true;
-                        </script>
-                        <script src="/feeds/posts/default?orderby=published&amp;alt=json-in-script&amp;callback=showlatestpostswiththumbs">
-                        </script>
-                        <ul class="recent-posts-container">
-                            <li class="recent-posts-list">
-                                <div class="recent-post-title"><a
-                                        href="https://mastamvan.blogspot.com/2016/01/aplikasi-membuat-screenshot-format-gif.html"
-                                        target="_top"><img
-                                            src="https://i.postimg.cc/Twwv9ytN/waketum-apdesi-sunan-bukhari-169.jpg"
-                                            style="width: 90px;">
-                                        <div style="margin-left: 100px; margin-top: -69px;">Apdesi dkk Bikin Poros,
-                                            Ancam Geruduk DPR Jika <div></div>
-                                    </a></div>
-                                <div style="margin-left: 100px;">Asosiasi Pemerintah Desa Seluruh Indonesia<br><br>
-                                </div>
-                                <div class="recent-posts-details">
-                                    <div class="post-date">Jan 05 2016</div><a class="readmorelink"
-                                        href="https://mastamvan.blogspot.com/2016/01/aplikasi-membuat-screenshot-format-gif.html"
-                                        target="_top">Selengkapnya</a>
-                                </div>
-                            </li>
-                            <li class="recent-posts-list">
-                                <div class="recent-post-title"><a
-                                        href="https://mastamvan.blogspot.com/2016/01/aplikasi-membuat-screenshot-format-gif.html"
-                                        target="_top"><img
-                                            src="https://i.postimg.cc/rsDJQcXL/Oknum-kades-asal-Kabupaten-Bengkayang-bersama-rekannya-di-amankan-Satres-Narkoba.jpg"
-                                            style="width: 90px;">
-                                        <div style="margin-left: 100px; margin-top: -69px;">Kepala Desa Ditangkap Jual
-                                            10 Kg Sabu Senilai Rp 3,2 Miliar<div></div>
-                                    </a></div>
-                                <div style="margin-left: 100px;">Seorang kepala desa di wilayah perbatasan
-                                    Indonesia-Malaysia<br><br></div>
-                                <div class="recent-posts-details">
-                                    <div class="post-date">Jan 05 2016</div><a class="readmorelink"
-                                        href="https://mastamvan.blogspot.com/2016/01/aplikasi-membuat-screenshot-format-gif.html"
-                                        target="_top">Selengkapnya</a>
-                                </div>
-                            </li>
-                            <li class="recent-posts-list">
-                                <div class="recent-post-title"><a
-                                        href="https://mastamvan.blogspot.com/2016/01/aplikasi-membuat-screenshot-format-gif.html"
-                                        target="_top"><img
-                                            src="https://i.postimg.cc/MX2zG6z6/Whats-App-Image-2023-02-07-at-18-01-14-jpeg.webp"
-                                            style="width: 90px;">
-                                        <div style="margin-left: 100px; margin-top: -69px;">Jaksa Agung Burhanuddin
-                                            instruksikan jajaran <div></div>
-                                    </a></div>
-                                <div style="margin-left: 100px;">Jaksa Agung ST Burhanuddin menginstruksikan kepada
-                                    jajaran<br><br></div>
-                                <div class="recent-posts-details">
-                                    <div class="post-date">Jan 05 2016</div><a class="readmorelink"
-                                        href="https://mastamvan.blogspot.com/2016/01/aplikasi-membuat-screenshot-format-gif.html"
-                                        target="_top">Selengkapnya</a>
-                                </div>
-                            </li>
-                            <li class="recent-posts-list">
-                                <div class="recent-post-title"><a
-                                        href="https://mastamvan.blogspot.com/2016/01/aplikasi-membuat-screenshot-format-gif.html"
-                                        target="_top"><img src="https://i.postimg.cc/vZLMhwtj/dana-desa.jpg"
-                                            style="width: 90px;">
-                                        <div style="margin-left: 100px; margin-top: -69px;">Bupati Kudus HM Hartopo
-                                            berharap penggunaan dana<div></div>
-                                    </a></div>
-                                <div style="margin-left: 100px;">Bupati Kudus HM Hartopo berharap penggunaan dana
-                                    <br><br></div>
-                                <div class="recent-posts-details">
-                                    <div class="post-date">Jan 05 2016</div><a class="readmorelink"
-                                        href="https://mastamvan.blogspot.com/2016/01/aplikasi-membuat-screenshot-format-gif.html"
-                                        target="_top">Selengkapnya</a>
-                                </div>
-                            </li>
-                            <li class="recent-posts-list">
-                                <div class="recent-post-title"><a
-                                        href="https://mastamvan.blogspot.com/2016/01/aplikasi-membuat-screenshot-format-gif.html"
-                                        target="_top"><img
-                                            src="https://i.postimg.cc/NM7g0ydd/ae4ed218e99b9636f0b927e77116eb07.jpg"
-                                            style="width: 90px;">
-                                        <div style="margin-left: 100px; margin-top: -69px;">Camat Minta Dana Desa untuk
-                                            Pasang Patok<div></div>
-                                    </a></div>
-                                <div style="margin-left: 100px;">Camat Lebong Saktu Sabirin S.Sos meminta
-                                    seluruh<br><br></div>
-                                <div class="recent-posts-details">
-                                    <div class="post-date">Jan 05 2016</div><a class="readmorelink"
-                                        href="https://mastamvan.blogspot.com/2016/01/aplikasi-membuat-screenshot-format-gif.html"
-                                        target="_top">Selengkapnya</a>
-                                </div>
-                            </li>
-                            <li class="recent-posts-list">
+                            <div class="widget-content">
+                                <script style="text/javascript">
+                                    var posts_no = 5;
+                                    var showpoststhumbs = false;
+                                    var readmorelink = true;
+                                    var showcommentslink = true;
+                                    var posts_date = true;
+                                </script>
+                                <script src="/feeds/posts/default?orderby=published&amp;alt=json-in-script&amp;callback=showlatestpostswiththumbs">
+                                </script>
+                                <ul class="recent-posts-container">
+                                    <li class="recent-posts-list">
+                                        <div class="recent-post-title"><a
+                                                href="https://mastamvan.blogspot.com/2016/01/aplikasi-membuat-screenshot-format-gif.html"
+                                                target="_top"><img
+                                                    src="https://i.postimg.cc/Twwv9ytN/waketum-apdesi-sunan-bukhari-169.jpg"
+                                                    style="width: 90px;">
+                                                <div style="margin-left: 100px; margin-top: -69px;">Apdesi dkk Bikin
+                                                    Poros, Ancam Geruduk DPR Jika <div></div>
+                                            </a></div>
+                                        <div style="margin-left: 100px;">Asosiasi Pemerintah Desa Seluruh
+                                            Indonesia<br><br></div>
+                                        <div class="recent-posts-details">
+                                            <div class="post-date">Jan 05 2016</div><a class="readmorelink"
+                                                href="https://mastamvan.blogspot.com/2016/01/aplikasi-membuat-screenshot-format-gif.html"
+                                                target="_top">Selengkapnya</a>
+                                        </div>
+                                    </li>
+                                    <li class="recent-posts-list">
+                                        <div class="recent-post-title"><a
+                                                href="https://mastamvan.blogspot.com/2016/01/aplikasi-membuat-screenshot-format-gif.html"
+                                                target="_top"><img
+                                                    src="https://i.postimg.cc/rsDJQcXL/Oknum-kades-asal-Kabupaten-Bengkayang-bersama-rekannya-di-amankan-Satres-Narkoba.jpg"
+                                                    style="width: 90px;">
+                                                <div style="margin-left: 100px; margin-top: -69px;">Kepala Desa
+                                                    Ditangkap Jual 10 Kg Sabu Senilai Rp 3,2 Miliar<div></div>
+                                            </a></div>
+                                        <div style="margin-left: 100px;">Seorang kepala desa di wilayah perbatasan
+                                            Indonesia-Malaysia<br><br></div>
+                                        <div class="recent-posts-details">
+                                            <div class="post-date">Jan 05 2016</div><a class="readmorelink"
+                                                href="https://mastamvan.blogspot.com/2016/01/aplikasi-membuat-screenshot-format-gif.html"
+                                                target="_top">Selengkapnya</a>
+                                        </div>
+                                    </li>
+                                    <li class="recent-posts-list">
+                                        <div class="recent-post-title"><a
+                                                href="https://mastamvan.blogspot.com/2016/01/aplikasi-membuat-screenshot-format-gif.html"
+                                                target="_top"><img
+                                                    src="https://i.postimg.cc/MX2zG6z6/Whats-App-Image-2023-02-07-at-18-01-14-jpeg.webp"
+                                                    style="width: 90px;">
+                                                <div style="margin-left: 100px; margin-top: -69px;">Jaksa Agung
+                                                    Burhanuddin instruksikan jajaran <div></div>
+                                            </a></div>
+                                        <div style="margin-left: 100px;">Jaksa Agung ST Burhanuddin menginstruksikan
+                                            kepada jajaran<br><br></div>
+                                        <div class="recent-posts-details">
+                                            <div class="post-date">Jan 05 2016</div><a class="readmorelink"
+                                                href="https://mastamvan.blogspot.com/2016/01/aplikasi-membuat-screenshot-format-gif.html"
+                                                target="_top">Selengkapnya</a>
+                                        </div>
+                                    </li>
+                                    <li class="recent-posts-list">
+                                        <div class="recent-post-title"><a
+                                                href="https://mastamvan.blogspot.com/2016/01/aplikasi-membuat-screenshot-format-gif.html"
+                                                target="_top"><img src="https://i.postimg.cc/vZLMhwtj/dana-desa.jpg"
+                                                    style="width: 90px;">
+                                                <div style="margin-left: 100px; margin-top: -69px;">Bupati Kudus HM
+                                                    Hartopo berharap penggunaan dana<div></div>
+                                            </a></div>
+                                        <div style="margin-left: 100px;">Bupati Kudus HM Hartopo berharap penggunaan
+                                            dana <br><br></div>
+                                        <div class="recent-posts-details">
+                                            <div class="post-date">Jan 05 2016</div><a class="readmorelink"
+                                                href="https://mastamvan.blogspot.com/2016/01/aplikasi-membuat-screenshot-format-gif.html"
+                                                target="_top">Selengkapnya</a>
+                                        </div>
+                                    </li>
+                                    <li class="recent-posts-list">
+                                        <div class="recent-post-title"><a
+                                                href="https://mastamvan.blogspot.com/2016/01/aplikasi-membuat-screenshot-format-gif.html"
+                                                target="_top"><img
+                                                    src="https://i.postimg.cc/NM7g0ydd/ae4ed218e99b9636f0b927e77116eb07.jpg"
+                                                    style="width: 90px;">
+                                                <div style="margin-left: 100px; margin-top: -69px;">Camat Minta Dana
+                                                    Desa untuk Pasang Patok<div></div>
+                                            </a></div>
+                                        <div style="margin-left: 100px;">Camat Lebong Saktu Sabirin S.Sos meminta
+                                            seluruh<br><br></div>
+                                        <div class="recent-posts-details">
+                                            <div class="post-date">Jan 05 2016</div><a class="readmorelink"
+                                                href="https://mastamvan.blogspot.com/2016/01/aplikasi-membuat-screenshot-format-gif.html"
+                                                target="_top">Selengkapnya</a>
+                                        </div>
+                                    </li>
+                                    <li class="recent-posts-list">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar2-wrapper">
+                    <div class="sidebar2 section" id="sidebar2">
+                        <div class="widget PopularPosts" id="PopularPosts1">
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    
-    <script>
-        //<![CDATA[
-        $(function() {
-            $('#sidebar-wrapper .widget-content').hide();
-            $('#sidebar-wrapper h2:first').addClass('active').next().slideDown('slow');
-            $('#sidebar-wrapper  h2').css('cursor', 'pointer').click(function() {
-                if ($(this).next().is(':hidden')) {
-                    $('#sidebar-wrapper h2').removeClass('active').next().slideUp('slow');
-                    $(this).toggleClass('active').next().slideDown('slow');
-                }
-            });
-        });
-        //]]>
-    </script>
+            <script>
+                //<![CDATA[
+                $(function() {
+                    $('#sidebar-wrapper .widget-content').hide();
+                    $('#sidebar-wrapper h2:first').addClass('active').next().slideDown('slow');
+                    $('#sidebar-wrapper  h2').css('cursor', 'pointer').click(function() {
+                        if ($(this).next().is(':hidden')) {
+                            $('#sidebar-wrapper h2').removeClass('active').next().slideUp('slow');
+                            $(this).toggleClass('active').next().slideDown('slow');
+                        }
+                    });
+                });
+                //]]>
+            </script>
         </div>
     </section>
-        
-    
+
     <!--END Section: Causes -->
 
     <footer id="footer" class="footer divider">
@@ -796,6 +805,8 @@ background-position: center;">
             </div>
         </div>
     </footer>
+    <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
+    </div>
     <!-- end wrapper -->
 
     <!-- Footer Scripts -->

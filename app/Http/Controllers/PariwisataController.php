@@ -37,10 +37,8 @@ class PariwisataController extends Controller
         // $fotoside = implode(',',$files);
         $model  = new tour();
         $model->judul = $request->judul;
-        $model->subjudul = $request->subjudul;
-        $model->tanggal = $request->tanggal;
+        $model->alamat = $request->alamat;
         $model->isi = $request->isi;
-        $model->koordinat = $request->koordinat;
         $model->cover=$cover;
         $model->gambar = json_encode($files);
         $model->user_id = Auth::user()->id;
@@ -50,7 +48,6 @@ class PariwisataController extends Controller
             [
                 'cover'     => 'required|image|mimes:png,jpeg,jpg,webp|max:2048',
                 'judul'     => 'required',
-                'subjudul'  => 'required',
                 'gambar'    => 'required',
                 'gambar'    => 'max:3|min:3'
             ]
@@ -70,8 +67,7 @@ class PariwisataController extends Controller
         $data->update([
 
             "judul" => $request->judul,
-            "subjudul" => $request->subjudul,
-            "tanggal" => $request->tanggal,
+            "subjudul" => $request->alamat,
             "isi" => $request->isi,
             "koordinat" => $request->koordinat,
 

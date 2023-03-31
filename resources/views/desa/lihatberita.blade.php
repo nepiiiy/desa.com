@@ -200,7 +200,8 @@ background-position: center;">
   
       <!-- Section: Causes --> 
       {{-- @dd($berita) --}}
-          
+      <section>
+      <div class="col-sm-6 col-md-3" style="margin-top: 30px">
         <div class="container mt-30 mb-30" style="margin-left: -80px;">
             <center>
               <div style="background-color: #f6f6f6; max-width: 850px; border-radius: 10px;">
@@ -237,17 +238,18 @@ background-position: center;">
                {!!$berita->isi!!}
             </div>
         </div>
-        
+        @endforeach
+      </div>
+      <div class="col-sm-6 col-md-3">
         <tamvan >
           <p><a style="color: rgb(255, 255, 255); " href="https://www.mastamvan.blogspot.com" class="pen-owner-link">Back To Tutorials</a></p>
           </tamvan>
-          <div id='sidebar-wrapper' style="margin-top: -770px; margin-left: 1000px;">
+          <div id='sidebar-wrapper' style=" margin-left: 650px;">
           <div class="sidebar1-wrapper">
           <div class="sidebar1 section" id="sidebar1"><div class="widget HTML" id="HTML2">
           <h2 class="title" style="height: 60px; font-size: 14px;">Post Terakhir <br>
           Berita Desa Ngijo
           </h2>
-      @endforeach
 
           
           <div class="widget-content">
@@ -272,7 +274,6 @@ background-position: center;">
           </div>
           </div></div>
           </div>
-          </div>
           <script>
             //<![CDATA[
             $(function() {
@@ -288,6 +289,8 @@ background-position: center;">
             //]]>
             
             </script>
+            </div>
+      </section>
        
 <!--END Section: Causes -->
 

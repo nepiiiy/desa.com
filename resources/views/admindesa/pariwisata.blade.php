@@ -23,11 +23,11 @@
 
         <!-- Card with an image on top -->
         <div class="card me-2 col-4">
-            <div class="card">
+            <div class="card" style="margin-bottom: -30px;">
                 <img src="{{ asset('storage/' . $row->cover) }}" class="card-img-top" alt="..." style="height: 180px">
             <div class="card-body">
-              <h5 class="card-title">{{ $row->judul }}</h5>
-              <p class="card-text">{{ $row->subjudul }}</p>
+              <h5 class="card-title">{{ Str::limit($row->judul, 15) }}</h5>
+              <p class="card-text">{!! Str::limit($row->alamat, 30) !!}</p>
               <div class="d-flex">
               <a href="/editpar/{{ $row->id }}" style="margin-left: 50px;" type="button" class="btn btn-primary btn-sm  ">Edit</a>
               <a href="#" data-id="{{ $row->id }}" data-nama="{{ $row->judul }}" style="margin-left: 8px;" type="button" class="btn btn-primary btn-sm delete">Hapus</a>
@@ -42,7 +42,8 @@
 
 
         </div>
-        <div class="d-flex justify-content-center">
+        <br>
+        <div class="d-flex justify-content-center" style="margin-top: 20px;">
             {{ $data->links('pagination::bootstrap-4') }}
       </div>
     </section>

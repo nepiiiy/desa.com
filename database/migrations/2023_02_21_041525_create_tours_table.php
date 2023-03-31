@@ -21,12 +21,11 @@ return new class extends Migration
             ->onDelete('cascade')
             ->onUpdate('cascade');
             $table->string('judul');
-            $table->string('subjudul');
             $table->date('tanggal');
             $table->string('gambar');
             $table->string('cover');
             $table->text('isi');
-            $table->string('koordinat');
+            $table->text('alamat');
             $table->timestamps();
         });
     }

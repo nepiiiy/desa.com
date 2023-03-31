@@ -30,7 +30,7 @@
                     <div class="section-title text-center">
                         <div class="row">
                             <div class="col-md-8 col-md-offset-2">
-                                <h2 class="text-uppercase line-bottom-center mt-0">berita <br><span class="text-uppercase"
+                                <h2 class="text-uppercase line-bottom-center mt-0">Penghargaan <br><span class="text-uppercase"
                                         style="color: #F26522">DESA {{ $data_u->name }}
                                         @endforeach
                                     </span></h2>

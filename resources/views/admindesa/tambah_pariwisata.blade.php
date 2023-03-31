@@ -64,16 +64,8 @@
                                     <input type="text" class="form-control" name="judul" id="judul" required>
                                 </div>
                                 <div class="col-12">
-                                    <label for="subjudul" class="form-label fw-bold">Subjudul pariwisata</label>
-                                    <input type="text" class="form-control" name="subjudul" id="subjudul" required>
-                                </div>
-                                <div class="col-12">
-                                    <label for="koordinat" class="form-label fw-bold">Koordinat pariwisata</label>
-                                    <input type="text" class="form-control" name="koordinat" id="koordinat" required>
-                                </div>
-                                <div class="col-12 mb-4">
-                                    <label for="tanggal" class="form-label fw-bold">Tanggal</label>
-                                    <input type="date" class="form-control" name="tanggal" id="tanggal" required>
+                                    <label for="koordinat" class="form-label fw-bold">Alamat Pariwisata</label>
+                                    <textarea type="text" class="form-control" name="alamat" id="alamat" required></textarea>
                                 </div>
                                 <div class="col-12">
                                 <label for="isipariwisata" class="col-sm-2 col-form-label fw-bold">Isi pariwisata</label>

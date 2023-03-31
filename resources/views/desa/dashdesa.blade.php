@@ -471,7 +471,7 @@
                 <div class="section-title text-center">
 
                     <h2 class="text-uppercase line-bottom-center mt-0">Penghargaan<span class=""
-                            style="color: #F26522"> Desa</span></h2>
+                            style="color: #F26522"> Desa</span></h2><br>
                     <div class="row multi-row-clearfix">
 
                         @foreach ($award->take(3) as $award)
