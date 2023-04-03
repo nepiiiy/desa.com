@@ -250,12 +250,22 @@
               </ul>
               <div class="tab-content pt-2">
   
-                <div style="margin-left: 120px;" class="tab-pane fade show active profile-overview" id="profile-overview">
-                  <div class="alert alert-danger" role="alert" style="width: 107%; font-size: 13px; margin-left:-14%; "><b style="font-size: 15px;">Kesalahan : </b><div style="margin-left:16%; margin-top:-3%; font-size:13px; text-align:justify">{{$data->komen}}</div>
+                <div style="margin-left: 85px;" class="tab-pane fade show active profile-overview" id="profile-overview">
+                <h5 class="card-title" style="font-size:30px; margin-left:-12%"><center><b>Data Desa {{ $data->name }}</b></center></h5>
+                 
+                <div class="alert alert-danger" role="alert" style="width: 105%; font-size: 13px; margin-left:-10%;margin-top:-2%"><b style="font-size: 15px;">Kesalahan : </b><div style="margin-left:16%; margin-top:-3%; font-size:13px; text-align:justify">{{$data->komen}}</div>
                     
                   </div>
+                  <div style=" margin-left:-10%;">
+                  <img src="https://i.postimg.cc/s21RBbBH/666.jpg" class="img-thumbnail rounded mx-auto d-block" style=" width:32%">
+                  
+                  <center><input style="width: 430px;margin-left:20px" type="file" class="form-control mt-3" name="logo" id="gambar"
+                                        value="{{ $data->logo }}"><center></div>
+                    <div class="col-lg-9 col-md-8" style="margin-top: 40px; margin-right: 60px;"><iframe src="https://docdro.id/hnUmriX" width="100%" height="600px"></iframe></div>
+                    <input style="width: 430px;margin-left:20px" type="file" class="form-control mt-3" name="gambar" id="gambar"
+                                        value="{{ $data->gambar }}">
+<br>
                   {{-- @dd($data) --}}
-                  <h5 class="card-title">Data Desa {{ $data->name }}</h5>
                   <div  >
                     @if ($errors->any())
                             <div class="alert alert-danger" style="width: 450px;">
@@ -268,6 +278,7 @@
                         @endif
                   <div class="row">
                         <br>
+                        
                     <div class="col-lg-3 col-md-4 label ">Nama Desa</div>
                     <input type="text" class="form-control" style="width: 300px" id="nama" name="name"
                     value="{{ $data->name }}">
@@ -305,7 +316,7 @@
                     <input type="text" class="form-control" style="width: 300px" id="nama" name="kode_pos"
                     value="{{ $data->kode_pos }}" >
                   </div>
-  
+<!--   
                   <div class="row">
                     <div class="col-lg-4 col-md-4 label">Gambar Persetujuan Desa</div>
                     <div class="col-lg-9 col-md-8" style="margin-top: 40px; margin-right: 60px;"><iframe src="https://docdro.id/hnUmriX" width="100%" height="600px"></iframe></div>
@@ -317,7 +328,7 @@
                     <div class="col-lg-4 col-md-4 label">Logo Desa</div>
                     <div class="col-lg-9 col-md-8" style="margin-top: 40px; margin-right: 60px;"><img style="height:450px;width:450px;" src="https://i.postimg.cc/s21RBbBH/666.jpg" alt=""></div>
                     <input style="width: 430px;margin-left:20px" type="file" class="form-control mt-3" name="logo" id="gambar"
-                                        value="{{ $data->logo }}">
+                                        value="{{ $data->logo }}"> -->
                   </div>
                   <button class="button-79 ms-0 mb-3" type="submit" role="button">Kirim</button>
                 </div>
