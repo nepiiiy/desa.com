@@ -21,7 +21,17 @@ class PeraturanController extends Controller
     }
 
     public function insertperaturan(Request $request){
-
+    $this->validate($request,[
+    'nomor'=>'required',
+    'tentang'=>'required',
+    'peraturan'=>'required|mimetypes:application/pdf|max:10000',
+],[
+    'nomor.required'=>'Nomor & Tanggal Penetapan tidak boleh kosong',
+    'tentang.required'=>'Tentang tidak boleh kosong',
+    'peraturan.required'=>'Peraturan tidak boleh kosong',
+    'peraturan.mimetypes'=>'File harus berekstensi PDF',
+    'peraturan.max'=>'Ukuran file tidak lebih dari 10 MB',
+]);
         $data=desa_rule::create($request -> all());
         $data->user_id = Auth::user()->id;
         $data->save();
@@ -34,6 +44,16 @@ class PeraturanController extends Controller
     }
     public function updateperaturan(Request $request, $id){
         $data = desa_rule::find($id);
+        $request->validate([
+            'nomor'=>'required',
+            'tentang'=>'required',
+            'peraturan'=>'nullable|mimetypes:application/pdf|max:10000',
+        ],[
+            'nomor.required'=>'Nomor & Tanggal Penetapan tidak boleh kosong',
+            'tentang.required'=>'Tentang tidak boleh kosong',
+            'peraturan.mimetypes'=>'File harus berekstensi PDF',
+            'peraturan.max'=>'Ukuran file tidak lebih dari 10 MB',
+        ]);
         $data -> update($request -> all());
         alert()->success('Sukses','Peraturan berhasil di edit');
         return redirect('peraturan');

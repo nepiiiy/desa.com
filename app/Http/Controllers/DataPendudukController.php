@@ -26,10 +26,27 @@ class DataPendudukController extends Controller
 
 
     public function insertpenduduk (Request $request){
+        $request->validate([
+            'nama'=>'required',
+            'tanggal'=>'required',
+            'agama'=>'required',
+            'jk'=>'required',
+            'pendidikan'=>'required',
+            'status'=>'required',
+            'alamat'=>'required',
+        ],[
+            'nama.required'=>'Nama harus di isi',
+            'tanggal.required'=>'Tanggal Lahir tidak boleh kosong',
+            'agama.required'=>'Anda harus memilih salah satu',
+            'jk.required'=>'Jenis Kelamin tidak boleh kosong',
+            'pendidikan.required'=>'Anda harus memilih salah satu',
+            'status.required'=>'Status tidak boleh kosong',
+            'alamat.required'=>'Alamat tidak boleh kosong',
+        ]);
         $data = resident::create($request -> all());
         $data->user_id = Auth::user()->id;
         $data->save();
-        alert()->success('Sukses','Data berhasil di tambahakan');
+        alert()->success('Sukses','Data berhasil di tambahkan');
         return redirect('data_penduduk');
     }
 
@@ -53,6 +70,23 @@ class DataPendudukController extends Controller
     }
     public function updatependuduk(Request $request, $id){
         $data = resident::find($id);
+        $request->validate([
+            'nama'=>'required',
+            'tanggal'=>'required',
+            'agama'=>'required',
+            'jk'=>'required',
+            'pendidikan'=>'required',
+            'status'=>'required',
+            'alamat'=>'required',
+        ],[
+            'nama.required'=>'Nama harus di isi',
+            'tanggal.required'=>'Tanggal Lahir tidak boleh kosong',
+            'agama.required'=>'Anda harus memilih salah satu',
+            'jk.required'=>'Jenis Kelamin tidak boleh kosong',
+            'pendidikan.required'=>'Anda harus memilih salah satu',
+            'status.required'=>'Status tidak boleh kosong',
+            'alamat.required'=>'Alamat tidak boleh kosong',
+        ]);
         $data -> update($request -> all());
         alert()->success('Sukses','Data berhasil di edit');
         return redirect('data_penduduk');

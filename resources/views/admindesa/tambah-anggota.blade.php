@@ -20,7 +20,15 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Tambah Anggota</h5>
-
+                        @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                         <!-- Vertical Form -->
                         <form class="row g-3" action="/insertanggota" method="POST" enctype="multipart/form-data">
                             @csrf
@@ -32,12 +40,12 @@
                             <input type="hidden" name="id_jabatan" value="{{ $jabatan->id }}">
                             <div class="col-12">
                                 <label for="inputNanme4" class="form-label fw-bold">Nama Lengkap</label>
-                                <input type="text" class="form-control" id="nama" name="nama" required>
+                                <input type="text" class="form-control" id="nama" name="nama" >
                             </div>
                             <div class="col-12 mb-3">
-                                <label>Gambar</label>
+                                <label class="fw-bold">Gambar</label>
                                 <div class="input-group mb-3">
-                                    <input type="file" class="form-control" name="gambar" id="gambar" required>
+                                    <input type="file" class="form-control" name="gambar" id="gambar" >
                                 </div>
 
                             </div>

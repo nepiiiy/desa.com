@@ -24,11 +24,31 @@
                     <div class="card-body">
                         <h5 class="card-title">Tambah Peraturan</h5>
                         <!-- Vertical Form -->
+                        @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                         <form class="row g-3" action="/insertperaturan" method="POST">
                             @csrf
                             <div class="col-12">
-                                <label for="inputNanme4" class="form-label fw-bold">Peraturan</label>
-                                <textarea class="form-control" id="editor" name="peraturan" cols="30" rows="10"></textarea>
+                                <label for="inputNanme4" class="form-label fw-bold">Nomor & Tanggal Penetapan</label>
+                                <input type="text" class="form-control" id="nama" name="nomor" >
+                            </div>
+                            <div class="col-12">
+                                <label for="inputNanme4" class="form-label fw-bold">Tentang</label>
+                                <input type="text" class="form-control" id="nama" name="tentang" >
+                            </div>
+                            <div class="col-12 mb-3">
+                                <label class="fw-bold">Peraturan</label>
+                                <div class="input-group mb-3">
+                                    <input type="file" class="form-control" name="peraturan" id="gambar" >
+                                </div>
+
                             </div>
                             <div class="text-center">
                                 <button type="submit" class="btn btn-primary">Tambahkan</button>

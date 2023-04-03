@@ -30,7 +30,14 @@ class StrukturKarangController extends Controller
 
     public function insertanggota(Request $request){
         $request->validate([
+            'nama'=>'required',
             'gambar' => 'required|image|mimes:png,jpeg,jpg,webp|max:2048'
+        ],[
+            'nama.required'=>'Nama tidak boleh kosong',
+            'gambar.required'=>'Gambar tidak boleh kosong',
+            'gambar.image'=>'Yang di inputkan harus berupa gambar',
+            'gambar.mimes'=>'File harus berekstensi PNG, JPEG, JPG, WEBP',
+            'gambar.max'=>'Ukuran file tidak lebih dari 2 MB',
         ]);
 
         $nama = $request->nama;
@@ -54,9 +61,14 @@ class StrukturKarangController extends Controller
     }
     public function updatekt(Request $request, $id){
         $request->validate([
-            'gambar' => 'required|image|mimes:png,jpeg,jpg,webp|max:2048',
-        ],
-        ['gambar.mimes'=>'format harus jpeg,png,jpg,webp']);
+            'nama'=>'required',
+            'gambar' => 'nullable|image|mimes:png,jpeg,jpg,webp|max:2048'
+        ],[
+            'nama.required'=>'Nama tidak boleh kosong',
+            'gambar.image'=>'Yang di inputkan harus berupa gambar',
+            'gambar.mimes'=>'File harus berekstensi PNG, JPEG, JPG, WEBP',
+            'gambar.max'=>'Ukuran file tidak lebih dari 2 MB',
+        ]);
         $kt = kt_structure::find($id);
         if($request->hasFile('gambar')){
             $data = DB::table('kt_structures')->where('id',$id)->get();

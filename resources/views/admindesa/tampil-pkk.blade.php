@@ -20,19 +20,27 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Edit PKK</h5>
-
+                        @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                         <!-- Vertical Form -->
                         <form class="row g-3" action="/updatepkk/{{ $data->id }}" method="POST"
                             enctype="multipart/form-data">
                             @csrf
 
                             <div class="col-12">
-                                <label for="inputNanme4" class="form-label">Nama Lengkap</label>
+                                <label for="inputNanme4" class="form-label fw-bold">Nama Lengkap</label>
                                 <input type="text" class="form-control" id="nama" name="nama"
                                     value="{{ $data->nama }}">
                             </div>
                             <div class="col-12">
-                                <label for="inputNanme4" class="form-label">Gambar</label><br><br>
+                                <label for="inputNanme4" class="form-label fw-bold">Gambar</label><br><br>
                                 <img src="{{ asset('storage/' . $data->gambar) }}" alt="" title=""
                                     width="200px"> <br><br>
                                 <div class="col-12">

@@ -19,7 +19,9 @@ return new class extends Migration
             ->on('users')
             ->onDelete('cascade')
             ->onUpdate('cascade');
-            $table->text('peraturan');
+            $table->varchar('nomor');
+            $table->varchar('tentang');
+            $table->varchar('peraturan');
             $table->timestamps();
         });
     }

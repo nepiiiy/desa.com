@@ -21,11 +21,17 @@ class ProfilDesaController extends Controller
         
         $data=desa_profile::find($id);
         $request->validate([
+            'visi'=>'required',
+            'misi'=>'required',
+            'sejarah'=>'required',
             'gambar1' => 'nullable|image|mimes:png,jpeg,jpg,jfif,webp|max:2048',
             'gambar2' => 'nullable|image|mimes:png,jpeg,jpg,jfif,webp|max:2048',
             'gambar3' => 'nullable|image|mimes:png,jpeg,jpg,jfif,webp|max:2048',
         ],
         [
+            'visi.required'=>'Visi tidak boleh kosong',
+            'misi.required'=>'Misi tidak boleh kosong',
+            'sejarah.required'=>'Sejarah tidak boleh kosong',
         'gambar1.mimes'=>'Format gambar harus PNG, JPEG, JPG, JFIF, WEBP',
         'gambar2.mimes'=>'Format gambar harus PNG, JPEG, JPG, JFIF, WEBP',
         'gambar3.mimes'=>'Format gambar harus PNG, JPEG, JPG, JFIF, WEBP',

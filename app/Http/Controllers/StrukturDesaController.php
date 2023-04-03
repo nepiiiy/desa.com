@@ -24,6 +24,14 @@ class StrukturDesaController extends Controller
     public function updatestrukturdesa(Request $request)
     {
         $data = lembaga_structure::where('user_id',Auth::user()->id)->first();
+        $request->validate([
+            'gambar'=>'required|image|mimes:jpeg,jpg,png|max:2048',
+        ],[
+            'gambar.required'=>'Gambar tidak boleh kosong',
+            'gambar.image'=>'Yang di inputkan harus gambar',
+            'gambar.mimes'=>'File harus berekstensi JPEG, JPG, PNG',
+            'gambar.max'=>'Ukuran gambar tidak lebih dari 2 mb',
+        ]);
         if($request->hasFile('gambar')){
             Storage::delete('public/'.$data->gambar);
             $gambar = Storage::disk('public')->put('strukturdesa', $request->file('gambar'));

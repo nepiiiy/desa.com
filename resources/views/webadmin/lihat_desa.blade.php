@@ -319,25 +319,20 @@
                   <div class="col-lg-3 col-md-4 label">Kode Pos</div>
                   <div class="col-lg-9 col-md-8">: {{ $data->kode_pos }}</div>
                 </div>
-               
-                <!-- <div class="row">
-                  <div class="col-lg-4 col-md-4 label">Gambar Persetujuan Desa</div>
-                  <div class="col-lg-9 col-md-8" style="margin-top: 40px; margin-right: 60px;"><img style="height:450px;width:450px;" src="{{ asset('storage/' . $data->gambar) }}" alt=""></div>
-                </div> -->
-
-                <!-- <div class="row">  
-                  <div class="col-lg-4 col-md-4 label">Logo Desa</div>
-                  <div class="col-lg-9 col-md-8" style="margin-top: 40px; margin-right: 60px;"><img style="height:450px;width:450px;" src="{{ asset('storage/' . $data->logo) }}" alt=""></div>
-                </div> -->
                 <form action="/komen/{{ $data->id }}" method="post">
                   @csrf
                   <div class="row"><br>
-                  <label for="komen" class="col-lg-3 col-md-4 label">Masukan Comment</label><br>
-                  <textarea type="text" id="komen" name="komen" style="width:65%; margin-left:27%; margin-top:-4%;"></textarea><br>
-                  </div>
+                    <label for="komen" class="col-lg-3 col-md-4 label">Masukkan
+                        Komen</label><br>
+                        <div class="col-lg-9 col-md-8"><textarea type="text" id="editor" name="komen" ></textarea></div>
+                    {{-- <textarea type="text" id="editor" name="komen"></textarea><br> --}}
+                </div>
                   <a href="" style="margin-left:87% "><button type="submit" class="button-79 ms-0 mb-3 mt-2">Kirim</button></a>                
                 </form>
-                
+                <script src="{{ asset('assets/js/ckeditor/ckeditor.js') }}"></script>
+    <script>
+        CKEDITOR.replace('editor');
+    </script>
 
               </div>
               </div>

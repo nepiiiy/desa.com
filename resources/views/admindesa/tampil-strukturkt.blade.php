@@ -20,7 +20,15 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Edit Karang Taruna</h5>
-
+                        @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                         <!-- Vertical Form -->
                         <form class="row g-3" action="/updatekt/{{ $data->id }}" method="POST"
                             enctype="multipart/form-data">

@@ -30,17 +30,25 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Edit Penduduk</h5>
-
+                        @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                         <!-- Vertical Form -->
                         <form class="row g-3" action="/updatependuduk/{{ $data->id }}" method="POST">
                             @csrf
                             <div class="col-12">
-                                <label for="inputNanme4" class="form-label">Nama Lengkap</label>
+                                <label for="inputNanme4" class="form-label fw-bold">Nama Lengkap</label>
                                 <input type="text" class="form-control" id="nama" name="nama"
                                     value="{{ $data->nama }}">
                             </div>
                             <div class="col-12 mb-2">
-                                <label for="inputEmail4" class="form-label">TTL</label>
+                                <label for="inputEmail4" class="form-label fw-bold">TTL</label>
                                 <input type="date" class="form-control" id="tanggal" name="tanggal"
                                     value="{{ $data->tanggal }}">
                             </div>
@@ -62,7 +70,7 @@
                             </div>
 
                             <fieldset class="row mb-3">
-                                <legend class="col-form-label col-sm-2 pt-0">Jenis Kelamin</legend>
+                                <legend class="col-form-label col-sm-2 pt-0 fw-bold">Jenis Kelamin</legend>
                                 <div class="col-sm-10">
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="jk" id="jk"
@@ -97,7 +105,7 @@
                             </div>
 
                             <fieldset class="row mb-3">
-                                <legend class="col-form-label col-sm-2 pt-0">Sudah Menikah</legend>
+                                <legend class="col-form-label col-sm-2 pt-0 fw-bold">Sudah Menikah</legend>
                                 <div class="col-sm-10">
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="status" id="status"
@@ -118,7 +126,7 @@
                             </fieldset>
 
                             <div class="col-12">
-                                <label for="inputAddress" class="form-label">Alamat</label>
+                                <label for="inputAddress" class="form-label fw-bold">Alamat</label>
                                 <input type="text" class="form-control" id="alamat" placeholder="Alamat Rumah"
                                     name="alamat" value=" {{ $data->alamat }}">
                             </div>
