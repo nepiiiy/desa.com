@@ -41,7 +41,7 @@ class RegisterController extends Controller
                 'kode_pos.max'=>'Kode pos minimal 8 angka',
                 'email.unique'=>'Email ada yang sama',
                 'gambar.mimetypes'=>'Persetujuan harus dalam bentuk pdf max 10000kb',
-                'gambar.image'=>'Yang di inputkan harus pdf',
+                'gambar.image'=>'Persetujuan harus berekstensi pdf',
                 'logo.mimes'=>'Logo harus dalam bentuk JPEG, PNG, JPG, SVG',
                 'logo.image'=>'Logo yang di inputkan harus gambar',
                 

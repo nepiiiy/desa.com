@@ -38,7 +38,7 @@ class LoginController extends Controller
         $user_id = Auth::id();
         $request->session()->put('id', $user_id);
         
-        return redirect()->intended(route('kepending'));
+        return redirect()->intended(route('kepending',['id' => Auth()->user()->id]));
     }
 
     // Jika email tidak ditemukan atau akun telah dihapus
@@ -47,14 +47,6 @@ class LoginController extends Controller
     }
 
     // Jika password salah
-   
-       
-
-
-
-
-
-
         
     $credentials = $request->only('email', 'password');
     

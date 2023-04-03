@@ -41,18 +41,21 @@ class ProfilDesaController extends Controller
         ]);
 
         if($request->hasFile('gambar1')){
+            Storage::delete('public/'.$data->gambar1);
             $gambar1 = Storage::disk('public')->put('gambarprof', $request->file('gambar1'));
             $data->update([
                 'gambar1'=>$gambar1,
             ]);
         }
         if($request->hasFile('gambar2')){
+            Storage::delete('public/'.$data->gambar);
             $gambar2 = Storage::disk('public')->put('gambarprof', $request->file('gambar2'));
             $data->update([
                 'gambar2'=>$gambar2,
             ]);
         }
         if($request->hasFile('gambar3')){
+            Storage::delete('public/'.$data->gambar3);
             $gambar3 = Storage::disk('public')->put('gambarprof', $request->file('gambar3'));
             $data->update([
                 'gambar3'=>$gambar3,

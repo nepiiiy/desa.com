@@ -251,21 +251,23 @@
               <div class="tab-content pt-2">
   
                 <div style="margin-left: 120px;" class="tab-pane fade show active profile-overview" id="profile-overview">
-                  <div class="alert alert-danger" role="alert" style="width: 450px;">
+                  <div class="alert alert-danger" role="alert" style="width: 450px; font-size: 13px;"><b style="font-size: 15px;">Kesalahan : </b><br>
                     {{$data->komen}}
                   </div>
                   {{-- @dd($data) --}}
                   <h5 class="card-title">Data Desa {{ $data->name }}</h5>
-                  <div class="row">
-                    
-                    <div class="col-lg-3 col-md-4 label ">Comment Admin </div>
-                    
-                    <textarea class="form-control" style="width:300px;height:100px;"  readonly>{{$data->komen}}</textarea>
-                    
-                    
-                  </div>
                   <div  >
+                    @if ($errors->any())
+                            <div class="alert alert-danger" style="width: 450px;">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                   <div class="row">
+                        <br>
                     <div class="col-lg-3 col-md-4 label ">Nama Desa</div>
                     <input type="text" class="form-control" style="width: 300px" id="nama" name="name"
                     value="{{ $data->name }}">
@@ -301,7 +303,7 @@
                   <div class="row"><br>
                     <div class="col-lg-3 col-md-4 label">Kode Pos</div>
                     <input type="text" class="form-control" style="width: 300px" id="nama" name="kode_pos"
-                    value="{{ $data->kode_pos }}">
+                    value="{{ $data->kode_pos }}" >
                   </div>
   
                   <div class="row">
