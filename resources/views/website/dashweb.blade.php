@@ -184,14 +184,14 @@ img {
                   <div class="navbar-header">
                       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu"> <i class="fa fa-bars"></i>
                       </button>
-                      <a class="navbar-brand" href="dash-desa.html"><img src="https://i.postimg.cc/cLTKXqpZ/logo-removebg-preview.png" class="logo" alt="" style="width: 230px;">
+                      <a class="navbar-brand" href="/"><img src="https://i.postimg.cc/XvrB6m2Z/logo-desa1-removebg-preview.png" class="logo" alt="" style="width: 230px;">
                       </a>
                   </div>
                   <!-- End Header Navigation -->
                   <div class="collapse navbar-collapse" id="navbar-menu">
                       <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
 
-                          <li > <a href="/dashweb" style="background-color: #F26522; padding: 8px; border-radius: 5px; color: #fff; margin-top: 20px;">Beranda</a>
+                          <li > <a href="/" style="background-color: #F26522; padding: 8px; border-radius: 5px; color: #fff; margin-top: 20px;">Beranda</a>
                           </li>
 
                           <li> <a href="/about">Tentang</a>

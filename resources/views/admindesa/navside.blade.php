@@ -173,7 +173,7 @@
     <meta content="" name="keywords" />
 
     <!-- Favicons -->
-    <link href="https://i.postimg.cc/wj308LVk/images.png" rel="shortcut icon" type="image/png">
+    <link href="https://i.postimg.cc/SKnd1ZCd/logo-desa2-removebg-preview.png" rel="shortcut icon" type="image/png">
 
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect" />
@@ -213,7 +213,7 @@
     <header id="header" class="header fixed-top d-flex align-items-center">
       <div class="d-flex align-items-center justify-content-between">
         <a href="dashboard.html" class="logo d-flex align-items-center">
-          <img src="https://i.postimg.cc/qq1MKvgD/logo-removebg-preview.png" alt="" />
+          <img src="https://i.postimg.cc/XvrB6m2Z/logo-desa1-removebg-preview.png" alt="" />
         </a>
         <i class="bi bi-list toggle-sidebar-btn"></i>
       </div>

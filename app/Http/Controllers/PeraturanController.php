@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\desa_rule;
-use RealRashid\SweetAlert\Facades\Alert;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PeraturanController extends Controller
 {
@@ -21,7 +22,7 @@ class PeraturanController extends Controller
     }
 
     public function insertperaturan(Request $request){
-    $this->validate($request,[
+$request->validate([
     'nomor'=>'required',
     'tentang'=>'required',
     'peraturan'=>'required|mimetypes:application/pdf|max:10000',
@@ -32,7 +33,16 @@ class PeraturanController extends Controller
     'peraturan.mimetypes'=>'File harus berekstensi PDF',
     'peraturan.max'=>'Ukuran file tidak lebih dari 10 MB',
 ]);
-        $data=desa_rule::create($request -> all());
+
+$peraturan = Storage::disk('public')->put('peraturan', $request->file('peraturan'));
+$data = desa_rule::create([
+            
+        
+    'nomor' => $request->nomor,
+    'tentang' => $request->tentang,
+    'peraturan' => $peraturan,
+    
+]);
         $data->user_id = Auth::user()->id;
         $data->save();
         alert()->success('Sukses','Peraturan berhasil di tambahakan');

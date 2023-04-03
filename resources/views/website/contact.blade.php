@@ -132,7 +132,7 @@
         <div class="container">
           <nav id="menuzord" class="menuzord default" style="background-color: #fca311 ;">             
             <ul class="menuzord-menu">
-              <li ><a href="/dashweb">Beranda</a>
+              <li ><a href="/">Beranda</a>
                 <li ><a href="/about">Tentang</a>
                     <li class="active"><a href="/contact">Kontak</a>
                   
