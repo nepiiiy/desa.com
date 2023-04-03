@@ -242,7 +242,7 @@
               <ul class="nav nav-tabs nav-tabs-bordered">
   
                 <li class="nav-item">
-                  <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button>
+                  <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Pratinjau</button>
                 </li>
   
                 
@@ -251,8 +251,8 @@
               <div class="tab-content pt-2">
   
                 <div style="margin-left: 120px;" class="tab-pane fade show active profile-overview" id="profile-overview">
-                  <div class="alert alert-danger" role="alert" style="width: 450px; font-size: 13px;"><b style="font-size: 15px;">Kesalahan : </b><br>
-                    {{$data->komen}}
+                  <div class="alert alert-danger" role="alert" style="width: 107%; font-size: 13px; margin-left:-14%; "><b style="font-size: 15px;">Kesalahan : </b><div style="margin-left:16%; margin-top:-3%; font-size:13px; text-align:justify">{{$data->komen}}</div>
+                    
                   </div>
                   {{-- @dd($data) --}}
                   <h5 class="card-title">Data Desa {{ $data->name }}</h5>
@@ -308,14 +308,14 @@
   
                   <div class="row">
                     <div class="col-lg-4 col-md-4 label">Gambar Persetujuan Desa</div>
-                    <div class="col-lg-9 col-md-8" style="margin-top: 40px; margin-right: 60px;"><iframe src="{{  asset('storage/' . $data->gambar) }}" width="100%" height="600px"></iframe></div>
+                    <div class="col-lg-9 col-md-8" style="margin-top: 40px; margin-right: 60px;"><iframe src="https://docdro.id/hnUmriX" width="100%" height="600px"></iframe></div>
                     <input style="width: 430px;margin-left:20px" type="file" class="form-control mt-3" name="gambar" id="gambar"
                                         value="{{ $data->gambar }}">
                   </div>
   
                   <div class="row">
                     <div class="col-lg-4 col-md-4 label">Logo Desa</div>
-                    <div class="col-lg-9 col-md-8" style="margin-top: 40px; margin-right: 60px;"><img style="height:450px;width:450px;" src="{{ asset('storage/' . $data->logo) }}" alt=""></div>
+                    <div class="col-lg-9 col-md-8" style="margin-top: 40px; margin-right: 60px;"><img style="height:450px;width:450px;" src="https://i.postimg.cc/s21RBbBH/666.jpg" alt=""></div>
                     <input style="width: 430px;margin-left:20px" type="file" class="form-control mt-3" name="logo" id="gambar"
                                         value="{{ $data->logo }}">
                   </div>

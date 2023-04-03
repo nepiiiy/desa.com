@@ -172,7 +172,7 @@
             <!-- End Messages Dropdown Items -->
           </li>
           <!-- End Messages Nav -->
-          <a href="/dataadmin/" ><button class="button-79 ms-0 mb-3 mt-4" role="button">Kembali</button></a>&ensp;&ensp;&ensp;
+          <a href="/dataadmin/" ><button class="button-79 ms-0 mb-3 mt-3" role="button" style="width: 65px; height:25px;padding:5%">Kembali</button></a>&ensp;&ensp;&ensp;
           <li class="nav-item dropdown pe-3">
             <a
               class="nav-link nav-profile d-flex align-items-center pe-0"
@@ -262,31 +262,23 @@
 
                                 <img src="{{ asset('storage/' . $data->logo) }}" class="img-thumbnail rounded mx-auto d-block">
                                 <!-- <button class="button-79 ms-0 mb-3 mt-4" style="width:100%"role="button"><center>Lihat Persetujuan</center></button> --><br>
-                                <a data-toggle="modal"  class="clickLink btn btn-danger" data-id="test-Doc1.pdf" href="#myModal" style="color:#fff;">Lihat Persetujuan</a>
-                                <div class="modal" id="myModal">
-    <div class="modal-dialog"  style="max-width: 80% !important;" role="document">
-    <div class="modal-content">
+                                <a data-toggle="modal"  class="clickLink btn btn-danger"href="#myModal" style="color:#fff;">Lihat Persetujuan</a>
+                                <div class="modal fade" id="myModal" role="dialog">
+                                <div class="modal-dialog modal-lg" >
+                                <div class="modal-content">
     
     <!-- Modal Header -->
-    <div class="modal-header">
-    <h4 class="modal-title"><center>Surat Persetujan Desa</center></h4>
-    <button type="button" class="close" data-dismiss="modal">&times;</button>
-    </div>
+    
     
     <!-- Modal body -->
-    <div class="modal-body">
+
     
-        <embed src="{{ asset('storage/' . $data->gambar) }}"
-        frameborder="0" width="100%" height="400px">
-    </div>
+        <embed src="{{  asset('storage/' . $data->gambar) }}"
+        frameborder="0" width="100%" height="573px">
+
     
     <!-- Modal footer -->
-    <div class="modal-footer">
-    <button type="button" class="btn btn-danger" data-dismiss="modal" style="color:#fff;">Close</button>
-    </div>
-    
-    </div>
-    </div>
+
     </div>                   
                         </div>
 
@@ -333,7 +325,7 @@
                   <div class="col-lg-9 col-md-8" style="margin-top: 40px; margin-right: 60px;"><img style="height:450px;width:450px;" src="{{ asset('storage/' . $data->gambar) }}" alt=""></div>
                 </div> -->
 
-                <!-- <div class="row">
+                <!-- <div class="row">  
                   <div class="col-lg-4 col-md-4 label">Logo Desa</div>
                   <div class="col-lg-9 col-md-8" style="margin-top: 40px; margin-right: 60px;"><img style="height:450px;width:450px;" src="{{ asset('storage/' . $data->logo) }}" alt=""></div>
                 </div> -->

@@ -54,7 +54,7 @@
     }
 
     button {
-      background-color: var(--custom-color-table);
+  
       color: white;
       padding: 0.4rem 0.8rem;
       border: none;
@@ -295,21 +295,16 @@
   </section>
 
   <div id="myModal" class="modal fade" role="dialog">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-lg" >
 
         <!-- Modal content-->
         <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Surat Persetujan Desa</h4>
-            </div>
-            <div class="modal-body">
+            
+            
 
-                <embed src="{{  asset('storage/' . $item->gambar) }}"
-                       frameborder="0" width="100%" height="400px">
+        <embed src="{{  asset('storage/' . $item->gambar) }}"
+                       frameborder="0" width="100%" height="573px" >
 
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
             </div>
 
         </div>
