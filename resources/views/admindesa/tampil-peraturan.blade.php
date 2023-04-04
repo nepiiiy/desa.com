@@ -20,7 +20,7 @@
                         <h5 class="card-title">Edit Peraturan</h5>
 
                         <!-- Vertical Form -->
-                        <form class="row g-3" action="/updateperaturan/{{ $data->id }}" method="POST">
+                        <form class="row g-3" action="/updateperaturan/{{ $data->id }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="col-12">
                                 <label for="inputNanme4" class="form-label fw-bold">Nomor & Tanggal Penetapan</label>
@@ -34,8 +34,13 @@
                             </div>
                             <div class="col-12 mb-3">
                                 <label class="fw-bold">Peraturan</label>
+                                <div class="col-4 mb-2">
+                                        
+                                    <iframe src="{{asset('storage/'.$data->peraturan)}}" alt=""
+                                        title="" width="200px"></iframe> <br><br>
+                                </div>
                                 <div class="input-group mb-3">
-                                    <input type="file" class="form-control" name="peraturan" id="">
+                                    <input type="file" class="form-control" name="peraturan" id="peraturan">
                                 </div>
 
                             </div>

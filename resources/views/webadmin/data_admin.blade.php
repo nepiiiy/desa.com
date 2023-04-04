@@ -188,6 +188,21 @@
 
 <!-- Trigger the modal with a button -->
 <a href="#myModal" data-toggle="modal" >Lihat Persetujuan</a>
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg" >
+
+      <!-- Modal content-->
+      <div class="modal-content">
+          
+          
+
+      <embed src="{{  asset('storage/' . $item->gambar) }}"
+                     frameborder="0" width="100%" height="573px" >
+
+          </div>
+
+      </div>
+  </div>
 <!-- Modal -->
 </td>   
 

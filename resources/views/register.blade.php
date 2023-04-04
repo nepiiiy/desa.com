@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DESA.COM</title>
-    <link href="https://i.postimg.cc/wj308LVk/images.png" rel="shortcut icon" type="image/png">
+    <title>DESAKITA</title>
+    <link href="https://i.postimg.cc/SKnd1ZCd/logo-desa2-removebg-preview.png" rel="shortcut icon" type="image/png">
     <link rel="stylesheet" type="text/css" href="reg/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="reg/css/fontawesome-all.min.css">
     <link rel="stylesheet" type="text/css" href="reg/css/iofrm-style.css">
@@ -15,7 +15,7 @@
 <body>
 <div class="form-body on-top-mobile">
         <div class="website-logo">
-                    <div><img src="https://i.postimg.cc/hGBKT07K/logo-removebg-preview.png" alt="" style="width:200px;"></div>
+                    <div><img src="https://i.postimg.cc/XvrB6m2Z/logo-desa1-removebg-preview.png" alt="" style="width:200px;"></div>
         </div>
         <div class="row">
             <div class="img-holder">

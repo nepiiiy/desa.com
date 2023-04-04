@@ -49,7 +49,7 @@
     <!-- ======= Header ======= -->
     <header id="header" class="header fixed-top d-flex align-items-center">
       <div class="d-flex align-items-center justify-content-between">
-        <a href="/dashwebadmin" class="logo d-flex align-items-center">
+        <a href="/dataadmin" class="logo d-flex align-items-center">
           <img src="https://i.postimg.cc/XvrB6m2Z/logo-desa1-removebg-preview.png" alt="" />
         </a>
       </div>

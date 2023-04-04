@@ -40,7 +40,7 @@ class PendingController extends Controller
             'email' => 'required',
             'kode_pos' => 'required|min:5|max:8',
             'gambar' => 'nullable|mimetypes:application/pdf|max:10000',
-            'logo' => 'nullable|image|mimes:jpeg, jpg, png',
+            'logo' => 'nullable|image|mimes:jpeg,jpg,png',
         ], [
                 'name.required' => 'Nama harus di isi',
                 'provinsi.required' => 'Provinsi tidak boleh kosong',

@@ -312,7 +312,7 @@
 
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label">Kesalahan yang ada</div>
-                  <div class="col-lg-9 col-md-8"> {{ $data->komen }}</div>
+                  <div class="col-lg-9 col-md-8">: {!! $data->komen !!}</div>
                 </div>
 
                 <div class="row"><br>
@@ -321,11 +321,11 @@
                 </div>
                 <form action="/komen/{{ $data->id }}" method="post">
                   @csrf
-                  <div class="row"><br>
+                  <div class="row"><br><br>
                     <label for="komen" class="col-lg-3 col-md-4 label">Masukkan
                         Komen</label><br>
-                        <div class="col-lg-9 col-md-8"><textarea type="text" id="editor" name="komen" ></textarea></div>
-                    {{-- <textarea type="text" id="editor" name="komen"></textarea><br> --}}
+                        {{-- <div class="col-lg-9 col-md-8"><textarea type="text" id="editor" name="komen" ></textarea></div> --}}
+                    <textarea type="text" id="editor" name="komen"></textarea><br>
                 </div>
                   <a href="" style="margin-left:87% "><button type="submit" class="button-79 ms-0 mb-3 mt-2">Kirim</button></a>                
                 </form>

@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string("kecamatan")->nullable();
             $table->string("kode_pos");
             $table->string("koordinat");
-            $table->string('komen')->nullable();
+            $table->text('komen')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

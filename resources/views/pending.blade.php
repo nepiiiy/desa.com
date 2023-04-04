@@ -4,13 +4,13 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-    <title>Dashboard - NiceAdmin Bootstrap Template</title>
+    <title>DESAKITA</title>
     <meta content="" name="description" />
     <meta content="" name="keywords" />
 
     <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon" />
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+    <link href="https://i.postimg.cc/SKnd1ZCd/logo-desa2-removebg-preview.png" rel="icon" />
+    <link href="https://i.postimg.cc/SKnd1ZCd/logo-desa2-removebg-preview.png" rel="apple-touch-icon" />
 
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect" />
@@ -49,8 +49,8 @@
     <!-- ======= Header ======= -->
     <header id="header" class="header fixed-top d-flex align-items-center">
       <div class="d-flex align-items-center justify-content-between">
-        <a href="/dashwebadmin" class="logo d-flex align-items-center">
-          <img src="https://i.postimg.cc/qq1MKvgD/logo-removebg-preview.png" alt="" />
+        <a href="/dataadmin" class="logo d-flex align-items-center">
+          <img src="https://i.postimg.cc/XvrB6m2Z/logo-desa1-removebg-preview.png" alt="" />
         </a>
       </div>
       <!-- End Logo -->
@@ -231,7 +231,7 @@
   
     <section class="section profile">
       
-        <form action="/editpending/{{$data->id}}" enctype="multipart/form-data">
+        <form action="/editpending/{{$data->id}}" method="POST" enctype="multipart/form-data">
           @csrf
     <input type="hidden" name="id" value="{{ $data->id }}">
         <div class="col-xl-7" style="margin-left: 300px;">
@@ -249,33 +249,33 @@
   
               </ul>
               <div class="tab-content pt-2">
-  
+                
                 <div style="margin-left: 85px;" class="tab-pane fade show active profile-overview" id="profile-overview">
-                <h5 class="card-title" style="font-size:30px; margin-left:-12%"><center><b>Data Desa {{ $data->name }}</b></center></h5>
-                 
-                <div class="alert alert-danger" role="alert" style="width: 105%; font-size: 13px; margin-left:-10%;margin-top:-2%"><b style="font-size: 15px;">Kesalahan : </b><div style="margin-left:16%; margin-top:-3%; font-size:13px; text-align:justify">{{$data->komen}}</div>
-                    
-                  </div>
+                  <h5 class="card-title" style="font-size:30px; margin-left:-12%"><center><b>Data Desa {{ $data->name }}</b></center></h5>
+                  
+                  <div class="alert alert-danger" role="alert" style="width: 105%; font-size: 13px; margin-left:-10%;margin-top:-2%"><b style="font-size: 15px;">Kesalahan : </b><div style="margin-left:16%; margin-top:-3%; font-size:13px; text-align:justify">{!!$data->komen!!}</div>
+                  
+                </div>
+                @if ($errors->any())
+                        <div class="alert alert-danger" style="width: 105%; font-size: 13px; margin-left:-10%;margin-top:-2%">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                   <div style=" margin-left:-10%;">
-                  <img src="https://i.postimg.cc/s21RBbBH/666.jpg" class="img-thumbnail rounded mx-auto d-block" style=" width:32%">
+                  <img src="{{asset('storage/'.$data->logo)}}" class="img-thumbnail rounded mx-auto d-block" style=" width:32%">
                   
                   <center><input style="width: 430px;margin-left:20px" type="file" class="form-control mt-3" name="logo" id="gambar"
                                         value="{{ $data->logo }}"><center></div>
-                    <div class="col-lg-9 col-md-8" style="margin-top: 40px; margin-right: 60px;"><iframe src="https://docdro.id/hnUmriX" width="100%" height="600px"></iframe></div>
+                    <div class="col-lg-9 col-md-8" style="margin-top: 40px; margin-right: 60px;"><iframe src="{{asset('storage/'.$data->gambar)}}" width="100%" height="600px"></iframe></div>
                     <input style="width: 430px;margin-left:20px" type="file" class="form-control mt-3" name="gambar" id="gambar"
                                         value="{{ $data->gambar }}">
 <br>
                   {{-- @dd($data) --}}
                   <div  >
-                    @if ($errors->any())
-                            <div class="alert alert-danger" style="width: 450px;">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
                   <div class="row">
                         <br>
                         

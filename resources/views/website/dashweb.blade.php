@@ -6,9 +6,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href="https://i.postimg.cc/wj308LVk/images.png" rel="shortcut icon" type="image/png">
+    <link href="https://i.postimg.cc/SKnd1ZCd/logo-desa2-removebg-preview.png" rel="shortcut icon" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <title>DESA.COM</title>
+    <title>DESAKITA</title>
     <link rel="stylesheet" type="text/css" href="css/master.css">
   <link rel="stylesheet" type="text/css" href="css/color/color-1.css" id="color" />
 

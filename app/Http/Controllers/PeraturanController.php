@@ -43,8 +43,8 @@ $data = desa_rule::create([
     'peraturan' => $peraturan,
     
 ]);
-        $data->user_id = Auth::user()->id;
-        $data->save();
+$data->user_id = Auth::user()->id;
+$data->save();
         alert()->success('Sukses','Peraturan berhasil di tambahakan');
         return redirect('peraturan');
     }
@@ -64,12 +64,24 @@ $data = desa_rule::create([
             'peraturan.mimetypes'=>'File harus berekstensi PDF',
             'peraturan.max'=>'Ukuran file tidak lebih dari 10 MB',
         ]);
-        $data -> update($request -> all());
+        $data->update([
+            'nomor' => $request->nomor,
+            'tentang' => $request->tentang,
+        ]);
+        if($request->hasFile('peraturan')){
+            Storage::delete('public/'.$data->peraturan);
+            $peraturan = Storage::disk('public')->put('peraturan', $request->file('peraturan'));
+            $data->update([
+                'peraturan'=>$peraturan,
+            ]);
+        }   
         alert()->success('Sukses','Peraturan berhasil di edit');
         return redirect('peraturan');
     }
     public function deleteperaturan($id){
         $data = desa_rule::find($id);
+        $per=$data->peraturan;
+        Storage::delete('public/'.$per);
         $data -> delete();
         return redirect('peraturan');
     }

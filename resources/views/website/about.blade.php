@@ -14,10 +14,10 @@
 <meta name="author" content="ThemeMascot" />
 
 <!-- Page Title -->
-<title>DESA.COM</title>
+<title>DESAKITA</title>
 
 <!-- Favicon and Touch Icons -->
-<link href="https://i.postimg.cc/wj308LVk/images.png" rel="shortcut icon" type="image/png">
+<link href="https://i.postimg.cc/SKnd1ZCd/logo-desa2-removebg-preview.png" rel="shortcut icon" type="image/png">
 <link href="images/apple-touch-icon.png" rel="apple-touch-icon">
 <link href="images/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72">
 <link href="images/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">
@@ -111,13 +111,15 @@
         <div class="container">
           <nav id="menuzord" class="menuzord default" style="background-color: #fca311 ;">             
             <ul class="menuzord-menu">
-              <li ><a href="/">Beranda</a>
-                <li class="active"><a href="/about">Tentang</a>
-                    <li ><a href="/contact">Kontak</a>
+              <li style="pointer-events: none;"><a href="/"><img src="https://i.postimg.cc/XvrB6m2Z/logo-desa1-removebg-preview.png" class="logo" alt="" style="width: 230px;">
+              </a></li>
+              <li style="margin-left: 570px; margin-top:10px;"><a href="/">Beranda</a>
+                <li class="active" style="margin-top:10px;"><a href="/about">Tentang</a>
+                    <li style="margin-top:10px;"><a href="/contact">Kontak</a>
                   
 </li>
-<div class="pull-right flip hidden-sm hidden-xs mt-20 pt-5" style="margin-right: -900px;">
-  <a class="btn btn-colored btn-flat" href="reg/login.html" style="background-color:#F26522; color:#fff; border-radius: 5px;" ><b>Daftar</b></a>
+<div class="pull-right flip hidden-sm hidden-xs mt-20 pt-5" style="margin-right: -100px; ">
+  <a class="btn btn-colored btn-flat" href="/masuk" style="background-color:#F26522; color:#fff; border-radius: 5px; margin-top:10px;" ><b>Login</b></a>
  </div>
 </ul>
 </nav>

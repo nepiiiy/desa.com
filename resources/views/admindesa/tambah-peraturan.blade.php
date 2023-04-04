@@ -33,7 +33,7 @@
                             </ul>
                         </div>
                     @endif
-                        <form class="row g-3" action="/insertperaturan" method="POST">
+                        <form class="row g-3" action="/insertperaturan" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="col-12">
                                 <label for="inputNanme4" class="form-label fw-bold">Nomor & Tanggal Penetapan</label>

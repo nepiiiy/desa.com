@@ -55,7 +55,7 @@ use App\Http\Controllers\GrafikPendidikanDesaController;
 Route::middleware(['auth:sanctum','verified','admindesa','pending'])->group(function(){
     Route::get('/kepending',[PendingController::class,'show'])->name('kepending');
     Route::get('/ppending/{id}',[PendingController::class,'tampilpending'])->name('pending');
-    Route::get('/editpending/{id}',[PendingController::class,'updatepending'])->name('updatepending');
+    Route::post('/editpending/{id}',[PendingController::class,'updatepending'])->name('updatepending');
 });
 
 
