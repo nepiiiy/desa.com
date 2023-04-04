@@ -130,10 +130,10 @@
     }
   </style>
 </head>
-<main id="main" class="main">
+<main id="main" class="main" style="background-color:#0375b4">
 
-  <div class="pagetitle">
-    <h1>Data Daftar Admin Desa</h1>
+  <div class="pagetitle" >
+    <h1 style="color:#fff;">Data Daftar Admin Desa</h1>
     <nav >
       <ol class="breadcrumb" style="background-color:;">
         <li class="breadcrumb-item"><a href="/dashwebadmin">Dashboard</a></li>
@@ -142,12 +142,12 @@
     </nav>
   </div><!-- End Page Title -->
 <script></script>
-  <section class="section">
-    <div class="row">
+  <section class="section" >
+    <div class="row" >
       <div class="col-lg-18 ms-auto me-auto">
 
 
-        <div class="card">
+        <div class="card"    >
 
           <div class="card-body">
             <h5 class="card-title">Terima Pendaftaran</h5> 
@@ -159,8 +159,8 @@
 
     <div >
       <table class="rtr-table" cellpadding="0" cellspacing="0" border="0" bgcolor="#eeeeee" align="left" valign="center"
-        width="100%">
-        <thead>
+        width="100%" style="background-color:#d1cfe2">
+        <thead >
           <tr>
           <th scope="col">No.</th>
                   <th scope="col">Nama Desa</th>
@@ -190,14 +190,17 @@
 <a href="#myModal" data-toggle="modal" >Lihat Persetujuan</a>
 <!-- Modal -->
 </td>   
+
                   <td><img style="margin-left: 0px;"  src="{{ asset('storage/' . $item->logo) }}" width="120px" height="120px" alt=""></td>   
-                  <td> <a href="{{ route('user.show', $item->id) }}"><button class="button-79 ms-0 mb-3" style="font-size: 15px;margin-bottom:7px" role="button">Lihat</button></a>
+                  <td> <a href="{{ route('user.show', $item->id) }}"><button class="btn btn-warning" role="button" ><i class="bi bi-eye-fill"></i></button></a><br>
                     <form action="{{ route('update.status', $item->id) }}" method="post">
                       @csrf
-                    <button type="submit" style="font-size: 15px;margin-bottom:7px" class="button-79 ms-0 mb-3">Terima</button>
+                    <button type="submit" style="font-size: 15px;margin-bottom:7px" class="btn btn-success"><i class="bi bi-check-circle"></i></button>
                     </form>  
                       
-                  <a href="#" data-id="{{ $item->id }}" data-nama="{{ $item->name }}" class="delete"><button style="font-size: 15px" class="button-79 ms-0 mb-3" type="submit" role="button">Hapus</button></a>
+                    <a href="#" type="submit" class="button-79 mb-1 delete" style="background-color:red;" data-id="{{ $item->id }}" data-nama="{{ $item->name }}" role="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                      <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
+                      </svg></a>
                 </tr>
               @endforeach
 
@@ -233,7 +236,7 @@
 
             <!-- Primary Color Bordered Table -->
             <table class="rtr-table" cellpadding="0" cellspacing="0" border="0" bgcolor="#eeeeee" align="left" valign="center"
-        width="100%">
+        width="100%" style="background-color:#d1cfe2">
         <thead>
                 <tr>
                   <th scope="col">No.</th>

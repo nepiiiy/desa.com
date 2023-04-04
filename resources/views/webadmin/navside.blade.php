@@ -9,7 +9,7 @@
     <meta content="" name="keywords" />
 
     <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon" />
+    <link href="https://i.postimg.cc/SKnd1ZCd/logo-desa2-removebg-preview.png" rel="icon" />
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
 
     <!-- Google Fonts -->
@@ -50,7 +50,7 @@
     <header id="header" class="header fixed-top d-flex align-items-center">
       <div class="d-flex align-items-center justify-content-between">
         <a href="/dashwebadmin" class="logo d-flex align-items-center">
-          <img src="https://i.postimg.cc/qq1MKvgD/logo-removebg-preview.png" alt="" />
+          <img src="https://i.postimg.cc/XvrB6m2Z/logo-desa1-removebg-preview.png" alt="" />
         </a>
       </div>
       <!-- End Logo -->
@@ -208,7 +208,7 @@
     <!-- End #main -->
 
     <!-- ======= Footer ======= -->
-    <footer id="footer" class="footer">
+    <footer id="footer" class="footer" style="background-color:#0375b4;border-top:none;"> 
       <div class="copyright">
         &copy; Copyright <strong><span>NiceAdmin</span></strong
         >. All Rights Reserved
