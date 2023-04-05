@@ -222,12 +222,12 @@
         <main id="main" class="main" style="background-color:#0375b4">
     
   <div class="pagetitle">
-    <h1>Lihat Data</h1>
+    <h1 style="color:#fff;">Lihat Data</h1>
     <nav>
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/dashwebadmin">Beranda</a></li>
+      <ol class="breadcrumb" style="color:#fff;">
+        <li class="breadcrumb-item"><a href="/dashwebadmin" style="color:#fff;">Beranda</a></li>
         <li class="breadcrumb-item">Pengguna</li>
-        <li class="breadcrumb-item active">Lihat Data</li>
+        <li class="breadcrumb-item active" style="color:#fff;">Lihat Data</li>
       </ol>
     </nav>
   </div><!-- End Page Title -->
@@ -354,16 +354,16 @@
 
 </main>
 <footer id="footer" class="footer" style="background-color:#0375b4;border-top:none;">
-      <div class="copyright">
+      <div class="copyright" style="color:#fff;">
         &copy; Copyright <strong><span>NiceAdmin</span></strong
         >. All Rights Reserved
       </div>
-      <div class="credits">
+      <div class="credits" style="color:#fff;">
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        Designed by <a href="https://bootstrapmade.com/" style="color:#fff;">BootstrapMade</a>
       </div>
     </footer>
     <!-- End Footer -->
