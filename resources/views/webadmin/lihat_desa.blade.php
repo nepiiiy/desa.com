@@ -9,7 +9,7 @@
     <meta content="" name="keywords" />
 
     <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon" />
+    <link href="https://i.postimg.cc/SKnd1ZCd/logo-desa2-removebg-preview.png" rel="icon" />
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
 
     <!-- Google Fonts -->
@@ -69,7 +69,7 @@
     <header id="header" class="header fixed-top d-flex align-items-center">
       <div class="d-flex align-items-center justify-content-between">
         <a href="/dashwebadmin" class="logo d-flex align-items-center">
-          <img src="https://i.postimg.cc/qq1MKvgD/logo-removebg-preview.png" alt="" />
+          <img src="https://i.postimg.cc/XvrB6m2Z/logo-desa1-removebg-preview.png" alt="" />
         </a>
       </div>
       <!-- End Logo -->
@@ -219,7 +219,7 @@
     {{-- cdn sweetalert --}}
         <script src="https://code.jquery.com/jquery-3.6.3.slim.js"integrity="sha256-DKU1CmJ8kBuEwumaLuh9Tl/6ZB6jzGOBV/5YpNE2BWc=" crossorigin="anonymous"></script>
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-        <main id="main" class="main">
+        <main id="main" class="main" style="background-color:#0375b4">
     
   <div class="pagetitle">
     <h1>Lihat Data</h1>
@@ -312,7 +312,7 @@
 
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label">Kesalahan yang ada</div>
-                  <div class="col-lg-9 col-md-8">: {!! $data->komen !!}</div>
+                  <div class="col-lg-9 col-md-8"> {!! $data->komen !!}</div>
                 </div>
 
                 <div class="row"><br>
@@ -321,7 +321,7 @@
                 </div>
                 <form action="/komen/{{ $data->id }}" method="post">
                   @csrf
-                  <div class="row"><br><br>
+                  <div class="row"><br>
                     <label for="komen" class="col-lg-3 col-md-4 label">Masukkan
                         Komen</label><br>
                         {{-- <div class="col-lg-9 col-md-8"><textarea type="text" id="editor" name="komen" ></textarea></div> --}}
@@ -353,7 +353,7 @@
   </section>
 
 </main>
-<footer id="footer" class="footer">
+<footer id="footer" class="footer" style="background-color:#0375b4;border-top:none;">
       <div class="copyright">
         &copy; Copyright <strong><span>NiceAdmin</span></strong
         >. All Rights Reserved

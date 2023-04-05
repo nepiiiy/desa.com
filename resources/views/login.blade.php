@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DESAKITA</title>
+    <title>DESA.COM</title>
 
-<link href="https://i.postimg.cc/SKnd1ZCd/logo-desa2-removebg-preview.png" rel="shortcut icon" type="image/png">
+<link href="https://i.postimg.cc/wj308LVk/images.png" rel="shortcut icon" type="image/png">
     <link rel="stylesheet" type="text/css" href="reg/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="reg/css/fontawesome-all.min.css">
     <link rel="stylesheet" type="text/css" href="reg/css/iofrm-style.css">
@@ -15,13 +15,13 @@
 <body>
 <div class="form-body on-top-mobile">
 <div class="website-logo" style="margin-left: 1050px;">
-                    <div><img src="https://i.postimg.cc/XvrB6m2Z/logo-desa1-removebg-preview.png" alt="" style="width:200px;"></div>
+                    <div><img src="" alt="" style="width:200px;"></div>
         </div>
         <div class="row">
-            <div class="img-holder" style="margin-left: 800px;">
+            <div class="img-holder" style="margin-left: 800px;" >
                 <div class="bg"></div>
                 <div class="info-holder simple-info" >
-                    <div><img src="reg/image-reg/graphic6.svg" alt=""></div>
+                    <div><img src="https://i.postimg.cc/vZgQ5BNW/Logo-Putih.png" alt="" style="width: 100%"></div>
 
                     <div><h3>Login</h3></div>
                     <div><p>Masukkan email dan password untuk login</p></div>
@@ -46,7 +46,7 @@
         {{ session('status') }}
     </div>
 @endif
-                        <div class="form-items" style="margin-left: 250px;">
+                        <div class="form-items" style="margin-left: 250px;"><img src="https://i.postimg.cc/XvrB6m2Z/logo-desa1-removebg-preview.png" alt="" style="width: 50%; margin-left:-100px;margin-bottom:25px">
 
 
 
@@ -71,7 +71,7 @@
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <div class="form-button text-right">
-                                        <button id="submit" type="submit" class="ibtn less-padding" style="background-color: #F26522; color: #ffffff">Login</button>
+                                        <button id="submit" type="submit" class="ibtn less-padding" style="background-color: #0375b4; color: #ffffff">Login</button>
                                     </div>
                                 </div>
                             </div>
