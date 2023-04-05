@@ -172,7 +172,7 @@
             <!-- End Messages Dropdown Items -->
           </li>
           <!-- End Messages Nav -->
-          <a href="/dataadmin/" ><button class="button-79 ms-0 mb-3 mt-3" role="button" style="width: 65px; height:25px;padding:5%">Kembali</button></a>&ensp;&ensp;&ensp;
+          <a href="/dataadmin" ><button class="button-79 ms-0 mb-3 mt-3" role="button" style="width: 130%; height:100%;padding:17%; background-color:#0375b4">Kembali</button></a>&ensp;&ensp;&ensp;
           <li class="nav-item dropdown pe-3">
             <a
               class="nav-link nav-profile d-flex align-items-center pe-0"
@@ -262,7 +262,7 @@
 
                                 <img src="{{ asset('storage/' . $data->logo) }}" class="img-thumbnail rounded mx-auto d-block">
                                 <!-- <button class="button-79 ms-0 mb-3 mt-4" style="width:100%"role="button"><center>Lihat Persetujuan</center></button> --><br>
-                                <a data-toggle="modal"  class="clickLink btn btn-danger"href="#myModal" style="color:#fff;">Lihat Persetujuan</a>
+                                <a data-toggle="modal"  class="clickLink btn btn-danger"href="#myModal" style="color:#fff; font-size:80%">Lihat Persetujuan</a>
                                 <div class="modal fade" id="myModal" role="dialog">
                                 <div class="modal-dialog modal-lg" >
                                 <div class="modal-content">
@@ -284,7 +284,7 @@
 
 </center> 
              
-                <div  ><br>
+                <div  ><br><br>
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label ">Nama Desa</div>
                   <div class="col-lg-9 col-md-8">: {{ $data->name }}</div>
@@ -312,7 +312,7 @@
 
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label">Kesalahan yang ada</div>
-                  <div class="col-lg-9 col-md-8"> {!! $data->komen !!}</div>
+                  <div class="col-lg-9 col-md-8" style="text-align:justify " > {!! $data->komen !!}</div>
                 </div>
 
                 <div class="row"><br>
@@ -323,11 +323,11 @@
                   @csrf
                   <div class="row"><br>
                     <label for="komen" class="col-lg-3 col-md-4 label">Masukkan
-                        Komen</label><br>
+                        Komen</label><br><br>
                         {{-- <div class="col-lg-9 col-md-8"><textarea type="text" id="editor" name="komen" ></textarea></div> --}}
                     <textarea type="text" id="editor" name="komen"></textarea><br>
                 </div>
-                  <a href="" style="margin-left:87% "><button type="submit" class="button-79 ms-0 mb-3 mt-2">Kirim</button></a>                
+                  <a href="" style="margin-left:87% "><button type="submit" class="button-79 ms-0 mb-3 mt-2" style=" background-color:#0375b4">Kirim</button></a>                
                 </form>
                 <script src="{{ asset('assets/js/ckeditor/ckeditor.js') }}"></script>
     <script>

@@ -137,7 +137,7 @@
           <div class="card-body">
             <h5 class="card-title">Terima Pendaftaran</h5> 
             <form class="form" method="get" action="{{ route('search1') }}">
-              <button type="submit" class="button-79" style="margin-left: 95%; margin-bottom: 7px;">Cari</button>
+              <button type="submit" class="button-79" style="margin-left: 95%; margin-bottom: 7px;  background-color:#0375b4">Cari</button>
             <input type="text" class="form-control mb-3" name="search1" id="search1" placeholder="Cari&hellip;" style="">
             </form>
             <!-- Primary Color Bordered Table -->
@@ -229,7 +229,7 @@
           <div class="card-body">
             <h5 class="card-title">Edit Admin Desa</h5>  
             <form class="form" method="get" action="{{ route('search2') }}">
-              <button type="submit" class="button-79" style="margin-left: 95%; margin-bottom: 7px;">Cari</button>
+              <button type="submit" class="button-79" style="margin-left: 95%; margin-bottom: 7px; background-color:#0375b4">Cari</button>
             <input type="text" class="form-control mb-3" name="search2" id="search1" placeholder="Cari&hellip;">
             </form>
 
