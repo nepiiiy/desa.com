@@ -173,7 +173,7 @@
 
 <!-- Trigger the modal with a button -->
 <a href="#myModal" data-toggle="modal" ><center>Lihat Persetujuan</center></a>
-<div id="myModal" class="modal fade" role="dialog">
+<div id="myModal" class="modal fade" role="dialog"  style="margin-top:-30px">
   <div class="modal-dialog modal-lg" >
 
       <!-- Modal content-->
@@ -182,7 +182,7 @@
           
 
       <embed src="{{  asset('storage/' . $item->gambar) }}"
-                     frameborder="0" width="100%" height="573px" >
+                     width="100%" height="599px" >
 
           </div>
 
@@ -297,7 +297,7 @@
 
   </section>
 
-  <div id="myModal" class="modal fade" role="dialog">
+  <div id="myModal" class="modal fade" role="dialog" style="margin-top:-30px">
     <div class="modal-dialog modal-lg" >
 
         <!-- Modal content-->
@@ -306,7 +306,7 @@
             
 
         <embed src="{{  asset('storage/' . $item->gambar) }}"
-                       frameborder="0" width="100%" height="573px" >
+                       frameborder="0" width="100%" height="599px">
 
             </div>
 

@@ -263,7 +263,7 @@
                                 <img src="{{ asset('storage/' . $data->logo) }}" class="img-thumbnail rounded mx-auto d-block">
                                 <!-- <button class="button-79 ms-0 mb-3 mt-4" style="width:100%"role="button"><center>Lihat Persetujuan</center></button> --><br>
                                 <a data-toggle="modal"  class="clickLink btn btn-danger"href="#myModal" style="color:#fff; font-size:80%">Lihat Persetujuan</a>
-                                <div class="modal fade" id="myModal" role="dialog">
+                                <div class="modal fade" id="myModal" role="dialog" style="margin-top:-30px">
                                 <div class="modal-dialog modal-lg" >
                                 <div class="modal-content">
     
@@ -274,7 +274,7 @@
 
     
         <embed src="{{  asset('storage/' . $data->gambar) }}"
-        frameborder="0" width="100%" height="573px">
+        frameborder="0" width="100%" height="599px">
 
     
     <!-- Modal footer -->

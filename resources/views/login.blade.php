@@ -23,8 +23,8 @@
                 <div class="info-holder simple-info" >
                     <div><img src="https://i.postimg.cc/vZgQ5BNW/Logo-Putih.png" alt="" style="width: 100%"></div>
 
-                    <div><h3>Login</h3></div>
-                    <div><p>Masukkan email dan password untuk login</p></div>
+                    <div style="margin-top:-25px"><h3>Login</h3></div>
+                    <div style="margin-top:-15px"><p>Masukkan email dan password untuk login</p></div>
                 </div>
             </div>
 
