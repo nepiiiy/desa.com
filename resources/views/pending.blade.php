@@ -258,7 +258,7 @@
                   <div class="alert alert-danger" role="alert" style="width: 105%; font-size: 13px; margin-left:-10%;margin-top:-2%"><b style="font-size: 15px;">Kesalahan : </b><div style="margin-left:16%; margin-top:-3%; font-size:13px; text-align:justify">{!!$data->komen!!}</div>
                   
                 </div>
-                @if ($errors->any())
+                <!-- @if ($errors->any())
                         <div class="alert alert-danger" style="width: 105%; font-size: 13px; margin-left:-10%;margin-top:-2%">
                             <ul>
                                 @foreach ($errors->all() as $error)
@@ -266,12 +266,16 @@
                                 @endforeach
                             </ul>
                         </div>
-                    @endif
-                  <div class="col-6"><div style=" margin-left:-10%;"><div class=" label"><center>Logo Desa</center></div><br>
+                    @endif -->
+                  <div class="col-6"><div style=" margin-left:-20%;"><div class=" label"><center>Logo Desa</center></div><br>
                   <img src="{{asset('storage/'.$data->logo)}}" class="img-thumbnail rounded mx-auto d-block" style=" width:35%">
                   
-                  <center><input style="width: 250px;" type="file" class="form-control mt-3" name="logo" id="gambar"
-                                        value="{{ $data->logo }}"><center></div><br>
+                  <center><input style="width: 250px;" type="file" class="form-control mt-3 @error('logo') is-invalid @enderror" name="logo" id="gambar"
+                                        value="{{ $data->logo }}"> 
+                                        @error('logo')
+                      <div class="invalid-feedback" >{{ $message }}</div>
+                    @enderror<center> </div><br>
+                                       
                                         <div style=" margin-left:90%; margin-top:-245px;" class="col-12"><div class=" label"><center>Persetujuan Desa</center></div><br><br><br>
                                         <center><a data-toggle="modal"  class="clickLink btn btn-danger"href="#myModal" style="color:#fff; font-size:80%; margin-bottom:13px;">Lihat Persetujuan</a></center>
                                         <div class="modal fade" id="myModal" role="dialog" >
@@ -286,55 +290,74 @@
     </div>                   
                         </div>
       </div><br>
-                    <center><input style="width: 250px; " type="file" class="form-control mt-3" name="gambar" id="gambar"
-                                        value="{{ $data->gambar }}"></center></div></div><br><br>
+                    <center><input style="width: 250px; " type="file" class="form-control mt-3 @error('gambar') is-invalid @enderror" name="gambar" id="gambar"
+                                        value="{{ $data->gambar }}">@error('gambar')
+                      <div class="invalid-feedback" >{{ $message }}</div>
+                    @enderror</center></div></div><br><br>
                                         
 <br>
                   {{-- @dd($data) --}}
                   <div  >
                   <div class="row">
                         <br>
-                        
+                  
                     <div class="col-lg-3 col-md-4 label ">Nama Desa</div>
-                    <input type="text" class="form-control" style="width: 300px" id="nama" name="name"
+                    <input type="text" class="form-control @error('name') is-invalid @enderror" style="width: 300px" id="nama" name="name"
                     value="{{ $data->name }}">
-                    
+                    @error('name')
+                      <div class="invalid-feedback" style="margin-left:25%">{{ $message }}</div>
+                    @enderror
                   </div>
 
                   
   
                   <div class="row" >
                     <div class="col-lg-3 col-md-4 label">Provinsi</div>
-                    <input type="text" class="form-control" style="width: 300px" id="nama" name="provinsi"
+                    <input type="text" class="form-control @error('provinsi') is-invalid @enderror" style="width: 300px" id="nama" name="provinsi"
                     value="{{ $data->provinsi }}">
+                   @error('provinsi')
+                      <div class="invalid-feedback" style="margin-left:25%">{{ $message }}</div>
+                    @enderror
                   </div>
   
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Kabupaten</div>
-                    <input type="text" class="form-control" style="width: 300px" id="nama" name="kabupaten"
+                    <input type="text" class="form-control @error('kabupaten') is-invalid @enderror" style="width: 300px" id="nama" name="kabupaten"
                     value="{{ $data->kabupaten }}">
+                    @error('kabupaten')
+                      <div class="invalid-feedback" style="margin-left:25%">{{ $message }}</div>
+                    @enderror
                   </div>
   
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Kecamatan</div>
-                    <input type="text" class="form-control" style="width: 300px" id="nama" name="kecamatan"
+                    <input type="text" class="form-control @error('kecamatan') is-invalid @enderror" style="width: 300px" id="nama" name="kecamatan"
                     value="{{ $data->kecamatan }}">
+                    @error('kecamatan')
+                      <div class="invalid-feedback" style="margin-left:25%">{{ $message }}</div>
+                    @enderror
                   </div>
   
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Email</div>
-                    <input type="text" class="form-control" style="width: 300px" id="nama" name="email"
+                    <input type="text" class="form-control @error('email') is-invalid @enderror" style="width: 300px" id="nama" name="email"
                     value="{{ $data->email }}">
+                    @error('email')
+                      <div class="invalid-feedback" style="margin-left:25%">{{ $message }}</div>
+                    @enderror
                   </div>
   
                   <div class="row"><br>
                     <div class="col-lg-3 col-md-4 label">Kode Pos</div>
-                    <input type="text" class="form-control" style="width: 300px" id="nama" name="kode_pos"
+                    <input type="text" class="form-control @error('kode_pos') is-invalid @enderror" style="width: 300px" id="nama" name="kode_pos"
                     value="{{ $data->kode_pos }}" >
+                    @error('kode_pos')
+                      <div class="invalid-feedback" style="margin-left:25%">{{ $message }}</div>
+                    @enderror
                   </div>
-                  <button class="button-79 ms-0 mb-3" type="submit" role="button">Kirim</button>
                 </div>
-                </div>
+              </div>
+              <div style="margin-left:85%"><button class="button-79 ms-0 mb-3" type="submit" role="button" style="background-color:#0375b4; ">Kirim</button></div>
   
                 <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
   
