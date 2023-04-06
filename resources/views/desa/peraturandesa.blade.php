@@ -1,6 +1,53 @@
 @extends('desa.nav')
 
 @section('isi')
+<head>
+  <style>
+    .content-table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        width: 1000px;
+        border-radius: 5px 5px 0 0;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .content-table thead tr {
+        background-color: #F26522;
+        color: #ffffff;
+        text-align: left;
+        font-weight: bold;
+    }
+
+    .content-table th,
+    .content-table td {
+        padding: 12px 15px;
+    }
+
+    .content-table tbody tr {
+        border-bottom: 1px solid #dddddd;
+    }
+
+    .content-table tbody tr:nth-of-type(even) {
+        background-color: #f3f3f3;
+    }
+
+    .content-table tbody tr:last-of-type {
+        border-bottom: 2px solid #F26522;
+        ;
+    }
+
+    .content-table tbody tr.active-row {
+        font-weight: bold;
+        color: #F26522;
+        ;
+    }
+    td a:hover{
+      text-decoration: underline;
+    }
+</style>
+</head>
 
 <body class="">  
   <!-- image header -->
@@ -27,23 +74,34 @@
                 <h2 class="text-uppercase line-bottom-center mt-0">PERATURAN<br><span
                         class="" style="color: #F26522">Desa {{ $data_u->name }}</h2>
                         @endforeach
-            </center>
-            <p>Dalam Peraturan Desa ini yang dimaksud dengan :</p>
-            <table style="text-align: justify;">
-              @php
+                        <table style="text-align: justify;">
+                          <table class="content-table" >
+                            <thead>
+                    <tr>
+                      <th>No</th>
+                      <th style="text-align:center;">Nomor & Tanggal Penetapan</th>
+                      <th style="text-align:center;">Tentang</th>
+                      <th style="text-align:center;">Peraturan</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @php
                   $no=1;
               @endphp
-                <tr>
-                    <th style="width: 50px; "> </th>
-                    <th > </th>
-                </tr>
-                @foreach($data as $row)
-                <tr>
-                    <td >{{$no++}}.</td>
-                    <td >{!!$row->peraturan!!}</td>
-                </tr>
-                @endforeach
-            </table>
+                    @foreach($data as $row)
+                    <tr>
+                      <td>{{$no++}}</td>
+                      <td>{{$row->nomor}}</td>
+                      <td>{{$row->tentang}}</td>
+                      <td style="text-align:center;">
+                        <a href="{{asset('storage/'.$row->peraturan)}}" target="_blank">Lihat</a>
+                        </td> 
+                      @endforeach
+                    </tr>
+                  </tbody>
+                </table>
+              </table>
+            </center>
         </div>
     </div>
 <!--END Section: Causes -->

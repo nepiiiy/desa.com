@@ -172,8 +172,8 @@
                   <td style=" border: 1px solid black;">
 
 <!-- Trigger the modal with a button -->
-<a href="#myModal" data-toggle="modal" ><center>Lihat Persetujuan</center></a>
-<div id="myModal" class="modal fade" role="dialog"  style="margin-top:-30px">
+<a href="#modal-atas-{{$item->id}}" data-toggle="modal" ><center>Lihat Persetujuan</center></a>
+<div id="modal-atas-{{$item->id}}" class="modal fade" role="dialog"  >
   <div class="modal-dialog modal-lg" >
 
       <!-- Modal content-->
@@ -260,7 +260,22 @@
                 <td style=" border: 1px solid black;"><center>{{$item->kode_pos}}</center></td>
                 
                 <td style=" border: 1px solid black;">
-                <a href="#myModal" data-toggle="modal" ><center>Lihat Persetujuan</center></a>
+                  <a href="#modal-bawah-{{$item->id}}" data-toggle="modal" ><center>Lihat Persetujuan</center></a>
+                  <div id="modal-bawah-{{$item->id}}" class="modal fade" role="dialog" >
+                    <div class="modal-dialog modal-lg" >
+                
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            
+                            
+                
+                        <embed src="{{  asset('storage/' . $item->gambar) }}"
+                                       frameborder="0" width="100%" height="599px">
+                
+                            </div>
+                
+                        </div>
+                    </div>
             </td>
 
 
@@ -297,21 +312,6 @@
 
   </section>
 
-  <div id="myModal" class="modal fade" role="dialog" style="margin-top:-30px">
-    <div class="modal-dialog modal-lg" >
-
-        <!-- Modal content-->
-        <div class="modal-content">
-            
-            
-
-        <embed src="{{  asset('storage/' . $item->gambar) }}"
-                       frameborder="0" width="100%" height="599px">
-
-            </div>
-
-        </div>
-    </div>
 </div>
 </div>
 

@@ -69,7 +69,7 @@ class RegisterController extends Controller
             'password' => Hash::make($request->password),
             
         ]);
-        return redirect('masuk')->with('status', 'Tunggu akun anda akan aktif ketika sudah di kirim email');
+        return redirect('masuk')->with('status', 'Tunggu akun Anda akan aktif ketika sudah di kirim email');
     }
     // public function actionregister(Request $request)
     // {

@@ -1,6 +1,18 @@
 @extends('admindesa.navside')
 @section('isi')
 @include('sweetalert::alert')
+<head>
+  <style>
+      td a{
+          font-size: 15px;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          text-align: center;
+      }
+      td a:hover{
+          text-decoration: underline;
+      }
+  </style>
+</head>
 <main id="main" class="main">
 
     <div class="pagetitle">
@@ -26,10 +38,10 @@
                 <thead>
                   <tr>
                     <th scope="col">No.</th>
-                    <th scope="col">Nomor & Tanggal Penetapan</th>
-                    <th scope="col">Tentang</th>
-                    <th scope="col">Peraturan</th>
-                    <th>Aksi</th>
+                    <th scope="col" style="text-align: center;">Nomor & Tanggal Penetapan</th>
+                    <th scope="col" style="text-align: center;">Tentang</th>
+                    <th scope="col" style="text-align: center;">Peraturan</th>
+                    <th style="text-align: center;">Aksi</th>
 
                   </tr>
                 </thead>
@@ -43,10 +55,10 @@
                     <th> {{ $index + $data->firstItem()}} </th>
                     <td> {{$row->nomor}} </td>
                     <td> {{$row->tentang}} </td>
-                    <td>
-                      <a href="#myModal" data-toggle="modal" >Lihat Peraturan</a>
+                    <td style="text-align: center; font-size: 15px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                      <a href="{{asset('storage/'.$row->peraturan)}}" target="_blank">Lihat</a>
                       </td> 
-                    <td>
+                    <td style="text-align: center;">
                       <a href="#" data-id="{{ $row->id }}" data-nama="{{ $row->peraturan }}" type="submit" class="button-79 mb-1 delete" role="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
                         <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
                       </svg></a>

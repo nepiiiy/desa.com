@@ -1,15 +1,26 @@
 @extends('admindesa.navside')
 
 @section('isi')
+{{-- <head>
+    <style>
+        a{
+            font-size: 15px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+    </style>
+</head> --}}
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Tambah Peraturan</h1>
+            <h1>Edit Peraturan</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="dashboardadmindesa">Home</a></li>
                     <li class="breadcrumb-item"><a href="data-penduduk.html">Data Peraturan</a></li>
-                    <li class="breadcrumb-item active">Tambah Peraturan</li>
+                    <li class="breadcrumb-item active">Edit Peraturan</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
@@ -33,11 +44,9 @@
                                     value="{{ $data->tentang }}">
                             </div>
                             <div class="col-12 mb-3">
-                                <label class="fw-bold">Peraturan</label>
+                                <label class="fw-bold">Peraturan</label><br><br>
                                 <div class="col-4 mb-2">
-                                        
-                                    <iframe src="{{asset('storage/'.$data->peraturan)}}" alt=""
-                                        title="" width="200px"></iframe> <br><br>
+                                    <a href="{{asset('storage/'.$data->peraturan)}}" target="_blank" class="clickLink btn btn-success btn-sm">Pratinjau Disini</a> <br><br>
                                 </div>
                                 <div class="input-group mb-3">
                                     <input type="file" class="form-control" name="peraturan" id="peraturan">

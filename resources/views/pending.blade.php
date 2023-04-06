@@ -268,16 +268,16 @@
                         </div>
                     @endif
                   <div class="col-6"><div style=" margin-left:-10%;"><div class=" label"><center>Logo Desa</center></div><br>
-                  <img src="https://i.postimg.cc/K8qLQSxw/666.jpg" class="img-thumbnail rounded mx-auto d-block" style=" width:35%">
+                  <img src="{{asset('storage/'.$data->logo)}}" class="img-thumbnail rounded mx-auto d-block" style=" width:35%">
                   
                   <center><input style="width: 250px;" type="file" class="form-control mt-3" name="logo" id="gambar"
                                         value="{{ $data->logo }}"><center></div><br>
-                                        <div style=" margin-left:90%; margin-top:-231px" class="col-12"><div class=" label"><center>Logo Desa</center></div><br><br><br>
-                                        <center><a data-toggle="modal"  class="clickLink btn btn-danger"href="#myModal" style="color:#fff; font-size:80%; ">Lihat Persetujuan</a></center>
+                                        <div style=" margin-left:90%; margin-top:-245px;" class="col-12"><div class=" label"><center>Persetujuan Desa</center></div><br><br><br>
+                                        <center><a data-toggle="modal"  class="clickLink btn btn-danger"href="#myModal" style="color:#fff; font-size:80%; margin-bottom:13px;">Lihat Persetujuan</a></center>
                                         <div class="modal fade" id="myModal" role="dialog" >
                                 <div class="modal-dialog modal-lg" >
                                 <div class="modal-content">
-                                   <embed src="https://docdro.id/nJpJFHk"
+                                   <embed src="{{asset('storage/'.$data->gambar)}}"
         frameborder="0" width="100%" height="599px">
 
     
@@ -331,20 +331,6 @@
                     <div class="col-lg-3 col-md-4 label">Kode Pos</div>
                     <input type="text" class="form-control" style="width: 300px" id="nama" name="kode_pos"
                     value="{{ $data->kode_pos }}" >
-                  </div>
-<!--   
-                  <div class="row">
-                    <div class="col-lg-4 col-md-4 label">Gambar Persetujuan Desa</div>
-                    <div class="col-lg-9 col-md-8" style="margin-top: 40px; margin-right: 60px;"><iframe src="https://docdro.id/hnUmriX" width="100%" height="600px"></iframe></div>
-                    <input style="width: 430px;margin-left:20px" type="file" class="form-control mt-3" name="gambar" id="gambar"
-                                        value="{{ $data->gambar }}">
-                  </div>
-  
-                  <div class="row">
-                    <div class="col-lg-4 col-md-4 label">Logo Desa</div>
-                    <div class="col-lg-9 col-md-8" style="margin-top: 40px; margin-right: 60px;"><img style="height:450px;width:450px;" src="https://i.postimg.cc/s21RBbBH/666.jpg" alt=""></div>
-                    <input style="width: 430px;margin-left:20px" type="file" class="form-control mt-3" name="logo" id="gambar"
-                                        value="{{ $data->logo }}"> -->
                   </div>
                   <button class="button-79 ms-0 mb-3" type="submit" role="button">Kirim</button>
                 </div>
