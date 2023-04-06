@@ -43,6 +43,24 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+  <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{{asset('css/bootstrap3.min.css')}}">
+        <script src="{{asset('js/jquery.slim.min.js')}}"></script>
+        <script src="{{asset('js/popper.min.js')}}"></script>
+        <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script> 
+        <script>
+            $(document).on("click", ".clickLink", function () {
+        var fileName = $(this).data('id');
+    
+        path = "pdfs//"+fileName+"#toolbar=0";  // To Hide Toolbar
+        var src = $('#myframe').attr('src'); ;
+    
+        $(".modal-body #filename").text(fileName);   //sets filename in modal 
+        $('.modal-body #myframe').attr('src', path);   //sets src value in  in modal iframe
+    
+        });
+        </script>
   </head>
 
   <body>
@@ -249,14 +267,28 @@
                             </ul>
                         </div>
                     @endif
-                  <div style=" margin-left:-10%;">
-                  <img src="{{asset('storage/'.$data->logo)}}" class="img-thumbnail rounded mx-auto d-block" style=" width:32%">
+                  <div class="col-6"><div style=" margin-left:-10%;"><div class=" label"><center>Logo Desa</center></div><br>
+                  <img src="https://i.postimg.cc/K8qLQSxw/666.jpg" class="img-thumbnail rounded mx-auto d-block" style=" width:35%">
                   
-                  <center><input style="width: 430px;margin-left:20px" type="file" class="form-control mt-3" name="logo" id="gambar"
-                                        value="{{ $data->logo }}"><center></div>
-                    <div class="col-lg-9 col-md-8" style="margin-top: 40px; margin-right: 60px;"><iframe src="{{asset('storage/'.$data->gambar)}}" width="100%" height="600px"></iframe></div>
-                    <input style="width: 430px;margin-left:20px" type="file" class="form-control mt-3" name="gambar" id="gambar"
-                                        value="{{ $data->gambar }}">
+                  <center><input style="width: 250px;" type="file" class="form-control mt-3" name="logo" id="gambar"
+                                        value="{{ $data->logo }}"><center></div><br>
+                                        <div style=" margin-left:90%; margin-top:-231px" class="col-12"><div class=" label"><center>Logo Desa</center></div><br><br><br>
+                                        <center><a data-toggle="modal"  class="clickLink btn btn-danger"href="#myModal" style="color:#fff; font-size:80%; ">Lihat Persetujuan</a></center>
+                                        <div class="modal fade" id="myModal" role="dialog" >
+                                <div class="modal-dialog modal-lg" >
+                                <div class="modal-content">
+                                   <embed src="https://docdro.id/nJpJFHk"
+        frameborder="0" width="100%" height="599px">
+
+    
+    <!-- Modal footer -->
+
+    </div>                   
+                        </div>
+      </div><br>
+                    <center><input style="width: 250px; " type="file" class="form-control mt-3" name="gambar" id="gambar"
+                                        value="{{ $data->gambar }}"></center></div></div><br><br>
+                                        
 <br>
                   {{-- @dd($data) --}}
                   <div  >
