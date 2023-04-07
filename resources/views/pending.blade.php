@@ -276,8 +276,8 @@
                       <div class="invalid-feedback" >{{ $message }}</div>
                     @enderror<center> </div><br>
                                        
-                                        <div style=" margin-left:90%; margin-top:-245px;" class="col-12"><div class=" label"><center>Persetujuan Desa</center></div><br><br><br>
-                                        <center><a data-toggle="modal"  class="clickLink btn btn-danger"href="#myModal" style="color:#fff; font-size:80%; margin-bottom:13px;">Lihat Persetujuan</a></center>
+                                        <div style=" margin-left:90%; margin-top:-260px;" class="col-12"><div class=" label"><center>Persetujuan Desa</center></div><br><br><br>
+                                        <center><a data-toggle="modal"  class="clickLink btn btn-danger"href="#myModal" style="color:#fff; font-size:80%; margin-bottom:29px;">Lihat Persetujuan</a></center>
                                         <div class="modal fade" id="myModal" role="dialog" >
                                 <div class="modal-dialog modal-lg" >
                                 <div class="modal-content">

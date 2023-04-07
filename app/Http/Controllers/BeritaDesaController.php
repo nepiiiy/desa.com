@@ -17,10 +17,11 @@ class BeritaDesaController extends Controller
         return Redirect('beritadesa/'.$searchTerm);
     }
 
-    public function lihat($id)
+    public function lihat($uid,$id)
     {
-         $data_user = User::where('id',$id)->get();
-        $berita = desa_new::where('id',$id)->get();
+         $data_user = User::where('id',$uid)->get();
+        $berita = desa_new::where('id',$uid)->get();
+        $news = desa_new::where('user_id',$id)->orderBy('created_at', 'desc')->get();
         // $profile = desa_profile::where('user_id',$id)->get();
         // $berita = desa_new::find($id);
 

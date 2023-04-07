@@ -27,8 +27,8 @@
                     <div class="card" style="margin-bottom: -30px;">
                         <img src="{{ asset('storage/' . $row->cover) }}" class="card-img-top" alt="..."
                             style="height: 180px">
-                        <div class="card-body"> 
-                            <h5 class="card-title">{{ Str::limit($row->judul, 20) }}</h5>
+                        <div class="card-body" style="height:180px;"> 
+                            <h5 class="card-title">{{ Str::limit($row->judul, 15) }}</h5>
                             <p class="card-text" >{{ Str::limit($row->subjudul, 35) }}</p>
                             <div class="d-flex">
                                 <a href="/edit/{{ $row->id }}" style="margin-left: 50px;" type="button"

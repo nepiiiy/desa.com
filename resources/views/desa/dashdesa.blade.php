@@ -448,12 +448,12 @@
                         <div class="col-sm-6 col-md-4">
                             <div class="causes bg-silver-light maxwidth500 mb-30">
                                 <div class="thumb" style="height: 200px;">
-                                    <img src="{{asset('storage/'.$item->cover)}}">
+                                    <img src="{{asset('storage/'.$item->cover)}}" style="width:100%; height: 100%;">
                                 </div>
-                                <div class="causes-details border-1px bg-white clearfix p-20 pt-10 pb-20">
-                                    <h4 class="text-uppercase"><a href="/lihatberita/{id}">{{ Str::limit($item->judul, 30) }}</a></h4>
+                                <div class="causes-details border-1px bg-white clearfix p-20 pt-10 pb-20" style=" height:205px;">
+                                    <h4 class="text-uppercase"><a href="/lihatberita/{id}">{{ Str::limit($item->judul, 45) }}</a></h4>
 
-                                    <p class="mt-20" style="text-align: justify;">{{ Str::limit($item->subjudul, 60) }}</p>
+                                    <p class="mt-20" style="text-align: justify;">{{ Str::limit($item->subjudul, 80) }}</p>
                                     <a href="/lihatberita/{id}" class="btn btn-default btn-xs font-16 mt-10"
                                         style="color: #F26522">Baca </a>
                                 </div>
@@ -478,13 +478,13 @@
                             <div class="col-sm-6 col-md-4">
                                 <div class="causes bg-silver-light maxwidth500 mb-30">
                                     <div class="thumb" style="height: 200px;">
-                                        <img src="{{asset('storage/'.$award->cover)}}" alt="" class="img-fullwidth">
+                                        <img src="{{asset('storage/'.$award->cover)}}" alt="" class="img-fullwidth" style="width:100%; height: 100%;">
                                     </div>
-                                    <div class="causes-details border-1px bg-white clearfix p-20 pt-10 pb-20">
-                                        <h4 class="text-uppercase"><a href="/lihatpeng/{id}">{{ Str::limit($award->judul, 30) }}</a>
+                                    <div class="causes-details border-1px bg-white clearfix p-20 pt-10 pb-20" style=" height:205px;">
+                                        <h4 class="text-uppercase"><a href="/lihatpeng/{id}">{{ Str::limit($award->judul, 40) }}</a>
                                         </h4>
 
-                                        <p class="mt-20" style="text-align: justify;">{{ Str::limit($award->subjudul, 60) }}</p>
+                                        <p class="mt-20" style="text-align: justify;">{{ Str::limit($award->subjudul, 70) }}</p>
                                         <a href="/lihatpeng/{id}" class="btn btn-default btn-xs font-16 mt-10"
                                             style="color: #F26522">Baca </a>
                                     </div>

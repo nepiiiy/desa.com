@@ -32,10 +32,11 @@ class PenghargaanDesaController extends Controller
 
     }
 
-    public function lihatpeng($id)
+    public function lihatpeng($uid, $id)
     {
-        $data_user = User::where('id',$id)->get();
-        $berita = desa_award::where('id',$id)->get();
-        return view('desa.lihatpenghargaan',['data_user'=>$data_user,'berita'=>$berita]);
+        $data_user = User::where('id',$uid)->get();
+        $berita = desa_award::where('id',$uid)->get();
+        $peng = desa_award::where('user_id',$id)->orderBy('created_at', 'desc')->get();
+        return view('desa.lihatpenghargaan',['data_user'=>$data_user,'berita'=>$berita, 'peng'=>$peng]);
     }
 }

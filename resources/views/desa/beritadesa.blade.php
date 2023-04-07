@@ -45,17 +45,17 @@
                             <div class="row multi-row-clearfix">
                                 @foreach ($berita as $row)
                                     <div class="col-sm-6 col-md-3" style="margin-top: 30px">
-                                        <div class="causes bg-silver-light maxwidth300 mb-30">
+                                        <div class="causes bg-silver-light maxwidth500 mb-30">
                                             <div class="thumb" style="height: 200px;">
-                                                <img src="{{ asset('storage/' . $row->cover) }}" alt=""
+                                                <img src="{{ asset('storage/' . $row->cover) }}" alt="" style="width:100%; height: 100%;"
                                                     class="img-fullwidth">
                                             </div>
-                                            <div class="causes-details border-1px bg-white clearfix p-20 pt-10 pb-20">
+                                            <div class="causes-details border-1px bg-white clearfix p-20 pt-10 pb-20" style=" height:205px;">
                                                 <h4 class="text-uppercase"><a
                                                         href="/lihat/{{ $row->id }}/{{ $data_user[0]->id }}">{{ Str::limit($row->judul, 30) }}</a>
                                                 </h4>
 
-                                                <p class="mt-20" style="text-align: justify;">{{ Str::limit($row->subjudul, 60) }}</p>
+                                                <p class="mt-20" style="text-align: justify;">{{ Str::limit($row->subjudul, 55) }}</p>
                                                 <a href="/lihat/{{ $row->id }}/{{ $data_user[0]->id }}"
                                                     class="btn btn-default btn-xs font-16 mt-10" style="color: #F26522">Baca
                                                 </a>
