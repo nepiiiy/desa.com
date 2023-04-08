@@ -20,7 +20,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Edit PKK</h5>
-                        @if ($errors->any())
+                        {{-- @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>
                                 @foreach ($errors->all() as $error)
@@ -28,7 +28,7 @@
                                 @endforeach
                             </ul>
                         </div>
-                    @endif
+                    @endif --}}
                         <!-- Vertical Form -->
                         <form class="row g-3" action="/updatepkk/{{ $data->id }}" method="POST"
                             enctype="multipart/form-data">
@@ -36,16 +36,22 @@
 
                             <div class="col-12">
                                 <label for="inputNanme4" class="form-label fw-bold">Nama Lengkap</label>
-                                <input type="text" class="form-control" id="nama" name="nama"
+                                <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama"
                                     value="{{ $data->nama }}">
+                                    @error('nama')
+                                <div class="invalid-feedback" >{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="col-12">
                                 <label for="inputNanme4" class="form-label fw-bold">Gambar</label><br><br>
                                 <img src="{{ asset('storage/' . $data->gambar) }}" alt="" title=""
                                     width="200px"> <br><br>
                                 <div class="col-12">
-                                    <input type="file" class="form-control" name="gambar" id="gambar"
+                                    <input type="file" class="form-control @error('gambar') is-invalid @enderror" name="gambar" id="gambar"
                                         value="{{ $data->gambar }}">
+                                        @error('gambar')
+                                <div class="invalid-feedback" >{{ $message }}</div>
+                                @enderror
                                 </div>
                             </div>
 

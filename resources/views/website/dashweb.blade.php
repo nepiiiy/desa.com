@@ -317,7 +317,7 @@ img {
                               <div class="popular-listing-box">
                                   <div class="popular-listing-img" style="height: 200px;">
                                     {{-- width="620px"; height="349px" --}}
-                                      <figure class="effect-ming"> <img  style="width:620px;height:349" src="https://i.postimg.cc/k5DfLZr3/berita.jpg" alt="image">
+                                      <figure class="effect-ming" style="width:100%;height:100%;"> <img  style="width:100%;height:100%;" src="{{asset('storage/'.$berita->cover)}}" alt="image">
                                       </figure>
                                   </div>
                                   <div class="popular-listing-detail">

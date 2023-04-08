@@ -1,8 +1,8 @@
 @extends('admindesa.navside')
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/quill.snow.css') }}" rel="stylesheet">
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/quill.js') }}"></script>
+<link href="{{ asset('css/quill.snow.css') }}" rel="stylesheet">
+<script src="{{ asset('js/app.js') }}" defer></script>
+<script src="{{ asset('js/quill.js') }}"></script>
 @section('isi')
     <main id="main" class="main">
 
@@ -47,11 +47,11 @@
                                                 <p style="color:red" class="mb-0">(tidak lebih/kurang dari 3)</p>
                                                 <input name="gambar[]" type="file" multiple="" data-max_length="20"
                                                     class="upload__inputfile" required>
-                                                    @error('gambar')
+                                                @error('gambar')
                                                     <span class="invalid-feedback" role="alert">
-                                                      <strong>{{ $message }}</strong>
+                                                        <strong>{{ $message }}</strong>
                                                     </span>
-                                                  @enderror
+                                                @enderror
                                             </label>
                                         </div>
                                         <div class="upload__img-wrap"></div>
@@ -60,24 +60,44 @@
                                 <label>
                                     <p class="mb-0 fw-bold">Masukkan Cover</p>
                                     <div class="input-group mb-3">
-                                        <input type="file" class="form-control" name="cover" id="cover" required min="3" max="3">
+                                        <input type="file" class="form-control @error('cover') is-invalid @enderror"
+                                            name="cover" id="cover">
+                                        @error('cover')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </label>
                                 <div class="col-12">
                                     <label for="judul" class="form-label fw-bold">Judul Berita</label>
-                                    <input type="text" class="form-control" name="judul" id="judul" required min="3" max="3">
+                                    <input type="text" class="form-control @error('judul') is-invalid @enderror"
+                                        name="judul" id="judul">
+                                    @error('judul')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="col-12">
                                     <label for="subjudul" class="form-label fw-bold">Subjudul Berita</label>
-                                    <input type="text" class="form-control" name="subjudul" id="subjudul" required min="3" max="3">
+                                    <input type="text" class="form-control @error('subjudul') is-invalid @enderror"
+                                        name="subjudul" id="subjudul">
+                                    @error('subjudul')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="col-12">
                                     <label for="tanggal" class="form-label fw-bold">Tanggal Berita</label>
-                                    <input type="date" class="form-control" name="tanggal" id="tanggal" required min="3" max="3">
+                                    <input type="date" class="form-control @error('tanggal') is-invalid @enderror"
+                                        name="tanggal" id="tanggal">
+                                    @error('tanggal')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="col-12">
                                     <label for="isi" class="form-label fw-bold">Isi Berita</label>
-                                    <textarea class="form-control" id="editor" name="isi" cols="30" rows="10" placeholder="Tuliskan isi berita disini" required min="3" max="3"></textarea>
+                                    <textarea class="form-control @error('isi') is-invalid @enderror" id="editor" name="isi" cols="30"
+                                        rows="10" placeholder="Tuliskan isi berita disini"></textarea>
+                                    @error('isi')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="text-center mt-4">
                                     <button type="submit" class="btn btn-primary">Tambahkan</button>
@@ -99,18 +119,18 @@
             const minFileCount = 1;
 
             fileUpload.addEventListener('change', function() {
-              const selectedFiles = this.files;
-              const fileCount = selectedFiles.length;
-              if (fileCount > maxFileCount) {
-                alert(`Jumlah file yang diunggah terlalu banyak. Maksimal ${maxFileCount} file.`);
-                this.value = '';
-              } else if (fileCount < minFileCount) {
-                alert(`Jumlah file yang diunggah terlalu sedikit. Minimal ${minFileCount} file.`);
-                this.value = '';
-              }
+                const selectedFiles = this.files;
+                const fileCount = selectedFiles.length;
+                if (fileCount > maxFileCount) {
+                    alert(`Jumlah file yang diunggah terlalu banyak. Maksimal ${maxFileCount} file.`);
+                    this.value = '';
+                } else if (fileCount < minFileCount) {
+                    alert(`Jumlah file yang diunggah terlalu sedikit. Minimal ${minFileCount} file.`);
+                    this.value = '';
+                }
             });
-          </script>
-         
+        </script>
+
 
         <script>
             jQuery(document).ready(function() {
@@ -190,21 +210,21 @@
 @endsection
 
 @section('scripts')
-  <script>
-    $(document).ready(function() {
-      var quill = new Quill('#editor', {
-        theme: 'snow'
-      });
-      $('form').on('submit', function() {
-        var content = quill.getContents();
-        $('input[name="content"]').val(JSON.stringify(content));
-      });
-    });
-  </script>
+    <script>
+        $(document).ready(function() {
+            var quill = new Quill('#editor', {
+                theme: 'snow'
+            });
+            $('form').on('submit', function() {
+                var content = quill.getContents();
+                $('input[name="content"]').val(JSON.stringify(content));
+            });
+        });
+    </script>
 @endsection
 @section('editor')
     <script src="{{ asset('assets/js/ckeditor/ckeditor.js') }}"></script>
     <script>
-       CKEDITOR.replace('editor');
+        CKEDITOR.replace('editor');
     </script>
 @endsection

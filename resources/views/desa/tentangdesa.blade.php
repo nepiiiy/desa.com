@@ -18,7 +18,7 @@
                                         {{-- <form action="{{Route('dashwebinput')}}" method="get">
                                 @csrf
                                 <input type="hidden" value="{{$data_u->id}}" name="id" > --}}
-                                        <li><a href="">Beranda</a></li>
+                                        <li><a href="/dashweb/{{ $data_user[0]->id }}">Beranda</a></li>
                                         {{-- </form> --}}
                                         <li><a href="#">Profil Desa</a></li>
                                         <li class="active" style="color: #fca311;">Tentang Desa</li>

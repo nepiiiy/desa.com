@@ -35,13 +35,19 @@
                             @csrf
                             <div class="col-12">
                                 <label for="inputNanme4" class="form-label fw-bold">Nomor & Tanggal Penetapan</label>
-                                <input type="text" class="form-control" id="nama" name="nomor"
+                                <input type="text" class="form-control @error('nomor') is-invalid @enderror" id="nama" name="nomor"
                                     value="{{ $data->nomor }}">
+                                    @error('nomor')
+                                <div class="invalid-feedback" >{{ $message }}</div>
+                                @enderror 
                             </div>
                             <div class="col-12">
                                 <label for="inputNanme4" class="form-label fw-bold">Tentang</label>
-                                <input type="text" class="form-control" id="nama" name="tentang"
+                                <input type="text" class="form-control @error('tentang') is-invalid @enderror" id="nama" name="tentang"
                                     value="{{ $data->tentang }}">
+                                    @error('tentang')
+                                <div class="invalid-feedback" >{{ $message }}</div>
+                                @enderror 
                             </div>
                             <div class="col-12 mb-3">
                                 <label class="fw-bold">Peraturan</label><br><br>
@@ -49,7 +55,10 @@
                                     <a href="{{asset('storage/'.$data->peraturan)}}" target="_blank" class="clickLink btn btn-success btn-sm">Pratinjau Disini</a> <br><br>
                                 </div>
                                 <div class="input-group mb-3">
-                                    <input type="file" class="form-control" name="peraturan" id="peraturan">
+                                    <input type="file" class="form-control @error('peraturan') is-invalid @enderror" name="peraturan" id="peraturan">
+                                    @error('peraturan')
+                                    <div class="invalid-feedback" >{{ $message }}</div>
+                                    @enderror 
                                 </div>
 
                             </div>

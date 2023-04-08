@@ -450,11 +450,11 @@
                                 <div class="thumb" style="height: 200px;">
                                     <img src="{{asset('storage/'.$item->cover)}}" style="width:100%; height: 100%;">
                                 </div>
-                                <div class="causes-details border-1px bg-white clearfix p-20 pt-10 pb-20" style=" height:205px;">
-                                    <h4 class="text-uppercase"><a href="/lihatberita/{id}">{{ Str::limit($item->judul, 45) }}</a></h4>
+                                <div class="causes-details border-1px bg-white clearfix p-20 pt-10 pb-20" style=" height:205px; text-align: justify;">
+                                    <h4 class="text-uppercase"><a href="/lihat/{{ $item->id }}/{{ $data_user[0]->id }}">{{ Str::limit($item->judul, 45) }}</a></h4>
 
                                     <p class="mt-20" style="text-align: justify;">{{ Str::limit($item->subjudul, 80) }}</p>
-                                    <a href="/lihatberita/{id}" class="btn btn-default btn-xs font-16 mt-10"
+                                    <a href="/lihat/{{ $item->id }}/{{ $data_user[0]->id }}" class="btn btn-default btn-xs font-16 mt-10"
                                         style="color: #F26522">Baca </a>
                                 </div>
                             </div>
@@ -480,12 +480,12 @@
                                     <div class="thumb" style="height: 200px;">
                                         <img src="{{asset('storage/'.$award->cover)}}" alt="" class="img-fullwidth" style="width:100%; height: 100%;">
                                     </div>
-                                    <div class="causes-details border-1px bg-white clearfix p-20 pt-10 pb-20" style=" height:205px;">
-                                        <h4 class="text-uppercase"><a href="/lihatpeng/{id}">{{ Str::limit($award->judul, 40) }}</a>
+                                    <div class="causes-details border-1px bg-white clearfix p-20 pt-10 pb-20" style=" height:205px; text-align: justify;">
+                                        <h4 class="text-uppercase"><a href="/lihatpeng/{{ $award->id }}/{{ $data_user[0]->id }}">{{ Str::limit($award->judul, 45) }}</a>
                                         </h4>
 
                                         <p class="mt-20" style="text-align: justify;">{{ Str::limit($award->subjudul, 70) }}</p>
-                                        <a href="/lihatpeng/{id}" class="btn btn-default btn-xs font-16 mt-10"
+                                        <a href="/lihatpeng/{{ $award->id }}/{{ $data_user[0]->id }}" class="btn btn-default btn-xs font-16 mt-10"
                                             style="color: #F26522">Baca </a>
                                     </div>
                                 </div>

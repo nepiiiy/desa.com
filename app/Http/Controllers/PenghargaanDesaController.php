@@ -37,6 +37,6 @@ class PenghargaanDesaController extends Controller
         $data_user = User::where('id',$uid)->get();
         $berita = desa_award::where('id',$uid)->get();
         $peng = desa_award::where('user_id',$id)->orderBy('created_at', 'desc')->get();
-        return view('desa.lihatpenghargaan',['data_user'=>$data_user,'berita'=>$berita, 'peng'=>$peng]);
+        return view('desa.lihatpenghargaan',['data_user'=>$data_user,'berita'=>$berita, 'penghargaaaan'=>$peng]);
     }
 }

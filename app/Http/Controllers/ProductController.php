@@ -46,6 +46,16 @@ class ProductController extends Controller
             'no_tlp' => 'required',
             'link' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ],[
+            'name.required'=>'Nama produk tidak boleh kosong',
+            'detail.required'=>'Jenis produk tidak boleh kosong',
+            'no_tlp'=>'Nomor telpon harus di isi',
+            'link'=>'Link harus di isi',
+            'image.required'=>'Gambar tidak boleh kosong',
+            'image.image'=>'File yang di inputkan harus berupa gambar',
+            'image.mimes'=>'File harus berekstensi JPG, JPEG, PNG',
+            'image.max'=>'Besar file tidak lebih dari 2 MB',
+
         ]);
         $name = $request->name;
         $detail = $request->detail;
@@ -109,6 +119,16 @@ class ProductController extends Controller
             'detail' => 'required',
             'no_tlp' => 'required',
             'link' => 'required',
+            'image'=>'nullable|image|mimes:jpg,png,jpeg|max:2048',
+        ],[
+            'name.required'=>'Nama produk tidak boleh kosong',
+            'detail.required'=>'Jenis produk tidak boleh kosong',
+            'no_tlp'=>'Nomor telpon harus di isi',
+            'link'=>'Link harus di isi',
+            'image.image'=>'File yang di inputkan harus berupa gambar',
+            'image.mimes'=>'File harus berekstensi JPG, JPEG, PNG',
+            'image.max'=>'Besar file tidak lebih dari 2 MB',
+
         ]);
 
         $input = $request->all();

@@ -22,7 +22,7 @@
 
                         <div class="card-body">
                             <h5 class="card-title">Struktur Desa</h5>
-                            @if ($errors->any())
+                            {{-- @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>
                                 @foreach ($errors->all() as $error)
@@ -30,7 +30,7 @@
                                 @endforeach
                             </ul>
                         </div>
-                    @endif
+                    @endif --}}
 
                             <!-- Primary Color Bordered Table -->
                             <form action="/updatestrukturdesa" method="POST" enctype="multipart/form-data">
@@ -44,7 +44,10 @@
                                     </div>
                                     <div class="col-12">
                                         <label for="inputNanme4" class="form-label fw-bold">Upload Gambar Struktur</label>
-                                        <input type="file" class="form-control" name="gambar" id="gambar">
+                                        <input type="file" class="form-control @error('gambar') is-invalid @enderror" name="gambar" id="gambar">
+                                        @error('gambar')
+                                        <div class="invalid-feedback">{{$message}}</div>
+                                        @enderror
                                     </div>
                                 </table>
                                 <!-- End Primary Color Bordered Table -->

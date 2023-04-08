@@ -27,6 +27,25 @@ class BeritaController extends Controller
 
     public function uploadberita(Request $request)
     {
+        $request->validate(
+            [
+                'judul'     => 'required',
+                'subjudul'  => 'required',
+                'tanggal' => 'required',
+                'isi' => 'required',
+                'cover' => 'required',
+                'gambar' => 'required|min:3|max:3',
+            ],[
+                'judul.required'=>'Judul harus di isi',
+                'subjudul.required'=>'Subjudul harus di isi',
+                'tanggal.required'=>'Tanggal harus di isi',
+                'isi.required' => 'Masukkan isi berita',
+                'cover.required'=>'Cover harus diisi',
+                'gambar.required'=>'Gambar harus diisi',
+                'gambar.max'=>'Gambar yang diperbolehkan hanya 3',
+                'gambar.min'=>'Gambar yang diperbolehkan hanya 3',
+            ]
+        );
         $files = [];
         $cover = Storage::disk('public')->put('coverberita', $request->file('cover'));
         if ($request->hasfile('gambar')) {
@@ -46,26 +65,6 @@ class BeritaController extends Controller
         $model->gambar = json_encode($files);
         $model->user_id = Auth::user()->id;
         $model->save();
-        $this->validate(
-            $request,
-            [
-                'judul'     => 'required',
-                'subjudul'  => 'required',
-                'tanggal' => 'required',
-                'isi' => 'required',
-                'cover' => 'required',
-                'gambar' => 'required|min:3|max:3',
-            ],[
-                'judul.required'=>'Judul harus di isi',
-                'subjudul.required'=>'Subjudul harus di isi',
-                'tanggal.required'=>'Tanggal harus di isi',
-                'isi.required' => 'Masukkan isi berita',
-                'cover.required'=>'Cover harus diisi',
-                'gambar.required'=>'Gambar harus diisi',
-                'gambar.max'=>'Gambar yang diperbolehkan hanya 3',
-                'gambar.min'=>'Gambar yang diperbolehkan hanya 3',
-            ]
-        );
         alert()->success('Sukses','Berita berhasil di tambahakan');
         return redirect('berita')->with('success', 'Images uploaded successfully.');
     }

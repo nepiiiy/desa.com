@@ -20,7 +20,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Tambah Anggota</h5>
-                        @if ($errors->any())
+                        {{-- @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>
                                 @foreach ($errors->all() as $error)
@@ -28,7 +28,7 @@
                                 @endforeach
                             </ul>
                         </div>
-                    @endif
+                    @endif --}}
                         <!-- Vertical Form -->
                         <form class="row g-3" action="/insertanggota" method="POST" enctype="multipart/form-data">
                             @csrf
@@ -40,12 +40,18 @@
                             <input type="hidden" name="id_jabatan" value="{{ $jabatan->id }}">
                             <div class="col-12">
                                 <label for="inputNanme4" class="form-label fw-bold">Nama Lengkap</label>
-                                <input type="text" class="form-control" id="nama" name="nama" >
+                                <inputB type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama" >
+                                @error('nama')
+                                <div class="invalid-feedback" >{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="col-12 mb-3">
                                 <label class="fw-bold">Gambar</label>
                                 <div class="input-group mb-3">
-                                    <input type="file" class="form-control" name="gambar" id="gambar" >
+                                    <input type="file" class="form-control @error('gambar') is-invalid @enderror" name="gambar" id="gambar" >
+                                    @error('gambar')
+                                    <div class="invalid-feedback" >{{ $message }}</div>
+                                    @enderror
                                 </div>
 
                             </div>

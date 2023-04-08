@@ -554,13 +554,13 @@ background-position: center;">
                             <form action="{{ Route('kepenghargaan') }}">
                                 <input type="hidden" value="{{ $item->user->id }}" name="id">
                                 <button style="margin-bottom: 50px; background-color:transparent; border:none;"><img
-                                  src="https://i.postimg.cc/gctp9m1b/left-arrow-removebg-preview.png"
-                                  style="width: 35px;"></button>
-                                </form>
-                                @endforeach
-                            @foreach ($berita as $penghargaan)
+                                        src="https://i.postimg.cc/gctp9m1b/left-arrow-removebg-preview.png"
+                                        style="width: 35px;"></button>
+                            </form>
+                        @endforeach
+                        @foreach ($berita as $penghargaan)
                             <h1 class="text-white font-40 text-uppercase">{{ $penghargaan->user->name }}</h1>
-@endforeach
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -571,110 +571,114 @@ background-position: center;">
     {{-- @dd($penghargaan) --}}
     <section>
         <div class="col-sm-6 col-md-3" style="margin-top: 30px">
-    <div class="container mt-30 mb-30" style="margin-left: -80px;">
-        <center>
-            @foreach ($berita as $peng)
-            <div style="background-color: #f6f6f6; max-width: 850px; border-radius: 10px;">
-                <h3>{{ $peng->judul }}</h3>
+            <div class="container mt-30 mb-30" style="margin-left: -80px;">
+                <center>
+                    @foreach ($berita as $peng)
+                        <div style="background-color: #f6f6f6; max-width: 850px; border-radius: 10px;">
+                            <h3>{{ $peng->judul }}</h3>
 
-                <div class="car pt-20 pb-20">
+                            <div class="car pt-20 pb-20">
 
-                    <section id="home" class="divider" style="width: 110vh; border-radius: 10px; height: 70vh;">
+                                <section id="home" class="divider"
+                                    style="width: 110vh; border-radius: 10px; height: 70vh;">
 
-                        <div class="fullwidth-carousel" data-nav="true">
-                            @foreach (json_decode($peng->gambar) as $gambar)
-                                <div class="carousel-item bg-img-cover"> <img
-                                        src="{{ asset('storage/imgpenghargaan/' . $gambar) }}">
-                                </div>
-                            @endforeach
+                                    <div class="fullwidth-carousel" data-nav="true">
+                                        @foreach (json_decode($peng->gambar) as $gambar)
+                                            <div class="carousel-item bg-img-cover"> <img
+                                                    src="{{ asset('storage/imgpenghargaan/' . $gambar) }}">
+                                            </div>
+                                        @endforeach
 
-                        </div>
-                    </section>
-                    <script>
-                        $(document).ready(function() {
-                            $('.slider').slick({
-                                infinite: true,
-                                slidesToShow: 3,
-                                slidesToScroll: 1
-                            });
-                        });
-                    </script>
+                                    </div>
+                                </section>
+                                <script>
+                                    $(document).ready(function() {
+                                        $('.slider').slick({
+                                            infinite: true,
+                                            slidesToShow: 3,
+                                            slidesToScroll: 1
+                                        });
+                                    });
+                                </script>
 
-                    <p>{{ $peng->tanggal }}</p>
-                </div>
-            </center>
+                                <p>{{ $peng->tanggal }}</p>
+                            </div>
+                </center>
             </div>
             <div class="section mt-50 mb-50"
                 style="background-color: #f6f6f6; padding: 20px; border-radius: 10px; width: 923px; margin-left: 25px;">
                 {!! $peng->isi !!}
             </div>
             @endforeach
-    </div>
         </div>
-    {{-- @dd($berita) --}}
+        </div>
+        {{-- @dd($berita) --}}
         <div class="col-sm-6 col-md-3" style="margin-top: 25px;">
-    <div id='sidebar-wrapper' style="margin-left: 650px;">
-        <div class="sidebar1-wrapper">
-            <div class="sidebar1 section" id="sidebar1">
-                <div class="widget HTML" id="HTML2">
-                    <h2 class="title" style="height: 60px; font-size: 14px;">Post Terakhir <br>
-                        Penghargaan Desa {{ $berita->user->name }}
-                    </h2>
+            <div id='sidebar-wrapper' style="margin-left: 650px;">
+                <div class="sidebar1-wrapper">
+                    <div class="sidebar1 section" id="sidebar1">
+                        <div class="widget HTML" id="HTML2">
+                            <h2 class="title" style="height: 60px; font-size: 14px;">Post Terakhir <br>
+                                Penghargaan Desa {{ $penghargaan->user->name }}
+                            </h2>
 
 
-                    <div class="widget-content">
-                        <script style="text/javascript">
-                            var posts_no = 5;
-                            var showpoststhumbs = false;
-                            var readmorelink = true;
-                            var showcommentslink = true;
-                            var posts_date = true;
-                        </script>
-                        <script src="/feeds/posts/default?orderby=published&amp;alt=json-in-script&amp;callback=showlatestpostswiththumbs">
-                        </script>
-                        <ul class="recent-posts-container">
-                            @foreach($peng->take(5) as $award)
-                            <li class="recent-posts-list">
-                                <div class="recent-post-title"><a
-                                        href="/lihatpeng/{{ $award->id }}/{{ $data_user[0]->id }}"
-                                        target="_top"><img
-                                            src="{{asset('storage/'.$award->cover)}}"
-                                            style="width: 90px;">
-                                        <div style="margin-left: 100px; margin-top: -69px;">{{ Str::limit($award->judul, 15) }}</div>
-                                    </a></div>
-                                <div style="margin-left: 100px;">{{ Str::limit($award->alamat, 15) }}<br><br>
-                                </div>
-                                <div class="recent-posts-details">
-                                    <a class="readmorelink"
-                                        href="/lihatpeng/{{ $award->id }}/{{ $data_user[0]->id }}"
-                                        target="_top">Selengkapnya</a>
-                                </div>
-                            </li>
-                        </ul>
+                            <div class="widget-content">
+                                <script style="text/javascript">
+                                    var posts_no = 5;
+                                    var showpoststhumbs = false;
+                                    var readmorelink = true;
+                                    var showcommentslink = true;
+                                    var posts_date = true;
+                                </script>
+                                <script src="/feeds/posts/default?orderby=published&amp;alt=json-in-script&amp;callback=showlatestpostswiththumbs">
+                                </script>
+                                <ul class="recent-posts-container">
+                                    {{-- @dd($peng) --}}
+                                    @foreach ($penghargaaaan as $award)
+                                        <li class="recent-posts-list">
+                                            <div class="recent-post-title"><a
+                                                    href="/lihatpeng/{{ $award->id }}/{{ $data_user[0]->id }}"
+                                                    target="_top"><img src="{{ asset('storage/' . $award->cover) }}"
+                                                        style="width: 90px; height:65px;">
+                                                    <div style="margin-left: 100px; margin-top: -69px;">
+                                                        {{ Str::limit($award->judul, 15) }}</div>
+                                                </a></div>
+                                            <div style="margin-left: 100px;">
+                                                {{ Str::limit($award->subjudul, 20) }}<br><br></div>
+                                            <div class="recent-posts-details">
+                                                <div class="post-date">{{ $award->tanggal }}</div><a
+                                                    class="readmorelink"
+                                                    href="/lihatpeng/{{ $award->id }}/{{ $data_user[0]->id }}"
+                                                    target="_top">Selengkapnya</a>
+                                            </div>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    
-    <script>
-        //<![CDATA[
-        $(function() {
-            $('#sidebar-wrapper .widget-content').hide();
-            $('#sidebar-wrapper h2:first').addClass('active').next().slideDown('slow');
-            $('#sidebar-wrapper  h2').css('cursor', 'pointer').click(function() {
-                if ($(this).next().is(':hidden')) {
-                    $('#sidebar-wrapper h2').removeClass('active').next().slideUp('slow');
-                    $(this).toggleClass('active').next().slideDown('slow');
-                }
-            });
-        });
-        //]]>
-    </script>
+
+            <script>
+                //<![CDATA[
+                $(function() {
+                    $('#sidebar-wrapper .widget-content').hide();
+                    $('#sidebar-wrapper h2:first').addClass('active').next().slideDown('slow');
+                    $('#sidebar-wrapper  h2').css('cursor', 'pointer').click(function() {
+                        if ($(this).next().is(':hidden')) {
+                            $('#sidebar-wrapper h2').removeClass('active').next().slideUp('slow');
+                            $(this).toggleClass('active').next().slideDown('slow');
+                        }
+                    });
+                });
+                //]]>
+            </script>
         </div>
     </section>
-        
-    
+
+
     <!--END Section: Causes -->
 
     <footer id="footer" class="footer divider">

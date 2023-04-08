@@ -25,11 +25,11 @@ class StrukturDesaController extends Controller
     {
         $data = lembaga_structure::where('user_id',Auth::user()->id)->first();
         $request->validate([
-            'gambar'=>'required|image|mimes:jpeg,jpg,png|max:2048',
+            'gambar'=>'required|image|mimes:jpeg,jpg,png,jfif|max:2048',
         ],[
             'gambar.required'=>'Gambar tidak boleh kosong',
-            'gambar.image'=>'Yang di inputkan harus gambar',
-            'gambar.mimes'=>'File harus berekstensi JPEG, JPG, PNG',
+            'gambar.image'=>'File yang di inputkan harus gambar',
+            'gambar.mimes'=>'File harus berekstensi JPEG, JPG, PNG, JFIF',
             'gambar.max'=>'Ukuran gambar tidak lebih dari 2 mb',
         ]);
         if($request->hasFile('gambar')){

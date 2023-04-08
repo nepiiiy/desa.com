@@ -16,8 +16,8 @@
                             @foreach ($data_user as $data_u)
                                 <h2 class="text-uppercase text-white font-36">DESA {{ $data_u->name }}</h2>
                                 <ol class="breadcrumb text-left mt-10 white">
-                                    <li><a href="dashboard-desa.html">Beranda</a></li>
-                                    <li class="active" style="color: #fca311;">Berita Desa</li>
+                                    <li><a href="/dashweb/{{ $data_user[0]->id }}">Beranda</a></li>
+                                    <li class="active" style="color: #fca311;">Penghargaan Desa</li>
                                 </ol>
                         </div>
                     </div>
@@ -52,7 +52,7 @@
                                             </div>
                                             <div class="causes-details border-1px bg-white clearfix p-20 pt-10 pb-20" style=" height:205px;">
                                                 <h4 class="text-uppercase"><a
-                                                        href="lihatberita.html">{{ Str::limit($row->judul, 30) }}</a>
+                                                        href="/lihatpeng/{{ $row->id }}/{{ $data_user[0]->id }}">{{ Str::limit($row->judul, 30) }}</a>
                                                 </h4>
 
                                                 <p class="mt-20" style="text-align: justify;">{{ Str::limit($row->subjudul, 55) }}</p>

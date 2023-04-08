@@ -24,7 +24,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Tambah Peraturan</h5>
                         <!-- Vertical Form -->
-                        @if ($errors->any())
+                        {{-- @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>
                                 @foreach ($errors->all() as $error)
@@ -32,21 +32,30 @@
                                 @endforeach
                             </ul>
                         </div>
-                    @endif
+                    @endif --}}
                         <form class="row g-3" action="/insertperaturan" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="col-12">
                                 <label for="inputNanme4" class="form-label fw-bold">Nomor & Tanggal Penetapan</label>
-                                <input type="text" class="form-control" id="nama" name="nomor" >
+                                <input type="text" class="form-control @error('nomor') is-invalid @enderror" id="nama" name="nomor" >
+                                @error('nomor')
+                                <div class="invalid-feedback" >{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="col-12">
                                 <label for="inputNanme4" class="form-label fw-bold">Tentang</label>
-                                <input type="text" class="form-control" id="nama" name="tentang" >
+                                <input type="text" class="form-control @error('tentang') is-invalid @enderror" id="nama" name="tentang" >
+                                @error('tentang')
+                                <div class="invalid-feedback" >{{ $message }}</div>
+                                @enderror                            
                             </div>
                             <div class="col-12 mb-3">
                                 <label class="fw-bold">Peraturan</label>
                                 <div class="input-group mb-3">
-                                    <input type="file" class="form-control" name="peraturan" id="gambar" >
+                                    <input type="file" class="form-control @error('peraturan') is-invalid @enderror" name="peraturan" id="gambar" >
+                                    @error('peraturan')
+                                    <div class="invalid-feedback" >{{ $message }}</div>
+                                    @enderror
                                 </div>
 
                             </div>

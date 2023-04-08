@@ -36,7 +36,7 @@
           <div class="col-md-6">
             <h1 class="text-white font-45">PKK</h1>
             <ol class="breadcrumb text-left mt-10 white">
-              <li><a href="dashboard-desa.html">Beranda</a></li>
+              <li><a href="/dashweb/{{ $data_user[0]->id }}">Beranda</a></li>
               <li><a href="#">Organisasi</a></li>
               <li class="active" style="color: #fca311;">PKK</li>
             </ol>

@@ -25,7 +25,7 @@ class BeritaDesaController extends Controller
         // $profile = desa_profile::where('user_id',$id)->get();
         // $berita = desa_new::find($id);
 
-        return view('desa.lihatberita',['data_user'=>$data_user,'berita'=>$berita]);
+        return view('desa.lihatberita',['data_user'=>$data_user,'berita'=>$berita, 'news'=>$news]);
 
     }
 

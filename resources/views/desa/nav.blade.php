@@ -16,7 +16,7 @@
     <title>DESA.COM</title>
 
     <!-- Favicon and Touch Icons -->
-    <link href="https://i.postimg.cc/wj308LVk/images.png" rel="shortcut icon" type="image/png">
+    <link href="https://i.postimg.cc/SKnd1ZCd/logo-desa2-removebg-preview.png" rel="shortcut icon" type="image/png">
     <link href="images/apple-touch-icon.png" rel="apple-touch-icon">
     <link href="images/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72">
     <link href="images/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">

@@ -211,7 +211,7 @@ a.buy-btn{
                 @foreach($data_user as $data_u)
                 <h2 class="text-uppercase text-white font-36">DESA {{ $data_u->name }}</h2>
                 <ol class="breadcrumb text-left mt-10 white">
-                  <li><a href="dashboard-desa.html">Beranda</a></li>
+                  <li><a href="/dashweb/{{ $data_user[0]->id }}">Beranda</a></li>
                   <li><a href="#">Potensi Desa</a></li>
                   <li class="active">UMKM</li>
                 </ol>

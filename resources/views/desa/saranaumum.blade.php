@@ -62,8 +62,8 @@
                                 @foreach($data_user as $data_u)
                                 <h2 class="text-uppercase text-white font-36">DESA {{ $data_u->name }}</h2>
                                 <ol class="breadcrumb text-left mt-10 white">
-                                    <li><a href="dashboard-desa.html">Beranda</a></li>
-                                    <li><a href="#">Profil Desa</a></li>
+                                    <li><a href="/dashweb/{{ $data_user[0]->id }}">Beranda</a></li>
+                                    <li><a href="">Data</a></li>
                                     <li class="active" style="color: #fca311;">Sarana Umum</li>
                                 </ol>
                             </div>
