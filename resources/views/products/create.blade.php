@@ -20,7 +20,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Tambah UMKM</h5>
 
-                        {{-- @if ($errors->any())
+                        <!-- {{-- @if ($errors->any())
     <div class="alert alert-danger">
         <strong>Whoops!</strong> There were some problems with your input.<br><br>
         <ul>
@@ -29,7 +29,7 @@
             @endforeach
         </ul>
     </div>
-@endif --}}
+@endif --}} -->
 
                         <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf

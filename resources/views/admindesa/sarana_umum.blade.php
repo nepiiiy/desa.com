@@ -38,99 +38,141 @@
                     <th scope="row">1</th>
                     <td>Balai RW</td>
                     <td>
-                    <input type="number" class="form-control" id="rw" name="rw"  value="{{ $data->rw }}">
-                    </td>
+                    <input type="number" class="form-control @error('rw') is-invalid @enderror" id="rw" name="rw"  value="{{ $data->rw }}">
+                    @error('rw')
+                      <div class="invalid-feedback" >{{ $message }}</div>
+                    @enderror
+                      </td>
                   </tr>
                   <tr>
                     <th scope="row">2</th>
                     <td>Balai RT</td>
                     <td>
-                    <input type="number" class="form-control" id="rt" name="rt" value="{{ $data->rt }}">
+                    <input type="number" class="form-control @error('rt') is-invalid @enderror" id="rt" name="rt" value="{{ $data->rt }}">
+                    @error('rt')
+                      <div class="invalid-feedback" >{{ $message }}</div>
+                    @enderror
                     </td>
                   </tr>
                   <tr>
                     <th scope="row">3</th>
                     <td>PAUD</td>
                     <td>
-                    <input type="number" class="form-control" id="paud" name="paud" value="{{ $data->paud }}">
+                    <input type="number" class="form-control @error('paud') is-invalid @enderror" id="paud" name="paud" value="{{ $data->paud }}">
+                    @error('paud')
+                      <div class="invalid-feedback" >{{ $message }}</div>
+                    @enderror
                     </td>
                   </tr>
                   <tr>
                     <th scope="row">4</th>
                     <td>TK</td>
                     <td>
-                    <input type="number" class="form-control" id="tk" name="tk" value="{{ $data->tk }}">
-                    </td>
+                    <input type="number" class="form-control @error('tk') is-invalid @enderror" id="tk" name="tk" value="{{ $data->tk }}">
+                    @error('tk')
+                      <div class="invalid-feedback" >{{ $message }}</div>
+                    @enderror
+                  </td>
                   </tr>
                   <tr>
                     <th scope="row">5</th>
                     <td>SD</td>
                     <td>
-                    <input type="number" class="form-control" id="sd" name="sd" value="{{ $data->sd }}">
-                    </td>
+                    <input type="number" class="form-control @error('sd') is-invalid @enderror" id="sd" name="sd" value="{{ $data->sd }}">
+                    @error('sd')
+                      <div class="invalid-feedback" >{{ $message }}</div>
+                    @enderror
+                  </td>
                   </tr>
                   <tr>
                     <th scope="row">6</th>
                     <td>SMP</td>
                     <td>
-                    <input type="number" class="form-control" id="smp" name="smp" value="{{ $data->smp }}">
-                    </td>
+                    <input type="number" class="form-control @error('smp') is-invalid @enderror" id="smp" name="smp" value="{{ $data->smp }}">
+                    @error('smp')
+                      <div class="invalid-feedback" >{{ $message }}</div>
+                    @enderror
+                  </td>
                   </tr>
                   <tr>
                     <th scope="row">7</th>
                     <td>SMA/SMK</td>
                     <td>
-                    <input type="number" class="form-control" id="sma" name="sma" value="{{ $data->sma }}">
-                    </td>
+                    <input type="number" class="form-control @error('sma') is-invalid @enderror" id="sma" name="sma" value="{{ $data->sma }}">
+                    @error('sma')
+                      <div class="invalid-feedback" >{{ $message }}</div>
+                    @enderror
+                  </td>
                   </tr>
                   <tr>
                     <th scope="row">8</th>
                     <td>Rumah Sakit</td>
                     <td>
-                    <input type="number" class="form-control" id="rumah" name="rumah" value="{{ $data->rumah }}">
-                    </td>
+                    <input type="number" class="form-control @error('rumah') is-invalid @enderror" id="rumah" name="rumah" value="{{ $data->rumah }}">
+                    @error('rumah')
+                      <div class="invalid-feedback" >{{ $message }}</div>
+                    @enderror
+                  </td>
                   </tr>
                   <tr>
                     <th scope="row">9</th>
                     <td>Puskesmas</td>
                     <td>
-                    <input type="number" class="form-control" id="puskesmas" name="puskesmas" value="{{ $data->puskesmas }}">
-                    </td>
+                    <input type="number" class="form-control @error('puskesmas') is-invalid @enderror" id="puskesmas" name="puskesmas" value="{{ $data->puskesmas }}">
+                    @error('puskesmas')
+                      <div class="invalid-feedback" >{{ $message }}</div>
+                    @enderror  
+                  </td>
                   </tr>
                   <tr>
                     <th scope="row">10</th>
                     <td>Pos Kesehatan Desa</td>
                     <td>
-                    <input type="number" class="form-control" id="kesehatan" name="kesehatan" value="{{ $data->kesehatan }}">
-                    </td>
+                    <input type="number" class="form-control @error('kesehatan') is-invalid @enderror" id="kesehatan" name="kesehatan" value="{{ $data->kesehatan }}">
+                    @error('kesehatan')
+                      <div class="invalid-feedback" >{{ $message }}</div>
+                    @enderror
+                  </td>
                   </tr>
                   <tr>
                     <th scope="row">11</th>
                     <td>Posyandu</td>
                     <td>
-                    <input type="number" class="form-control" id="posyandu" name="posyandu" value="{{ $data->posyandu }}">
-                    </td>
+                    <input type="number" class="form-control @error('posyandu') is-invalid @enderror" id="posyandu" name="posyandu" value="{{ $data->posyandu }}">
+                    @error('posyandu')
+                      <div class="invalid-feedback" >{{ $message }}</div>
+                    @enderror
+                  </td>
                   </tr>
                   <tr>
                     <th scope="row">12</th>
                     <td>Pos KB</td>
                     <td>
-                    <input type="number" class="form-control" id="kb" name="kb" value="{{ $data->kb }}">
-                    </td>
+                    <input type="number" class="form-control @error('kb') is-invalid @enderror" id="kb" name="kb" value="{{ $data->kb }}">
+                    @error('kb')
+                      <div class="invalid-feedback" >{{ $message }}</div>
+                    @enderror
+                  </td>
                   </tr>
                   <tr>
                     <th scope="row">13</th>
                     <td>Praktik Dokter</td>
                     <td>
-                    <input type="number" class="form-control" id="dokter" name="dokter" value="{{ $data->dokter }}">
-                    </td>
+                    <input type="number" class="form-control @error('dokter') is-invalid @enderror" id="dokter" name="dokter" value="{{ $data->dokter }}">
+                    @error('dokter')
+                      <div class="invalid-feedback" >{{ $message }}</div>
+                    @enderror
+                  </td>
                   </tr>
                   <tr>
                     <th scope="row">14</th>
                     <td>Praktik Bidan</td>
                     <td>
-                    <input type="number" class="form-control" id="bidan" name="bidan" value="{{ $data->bidan }}">
-                    </td>
+                    <input type="number" class="form-control @error('bidan') is-invalid @enderror" id="bidan" name="bidan" value="{{ $data->bidan }}">
+                    @error('bidan')
+                      <div class="invalid-feedback" >{{ $message }}</div>
+                    @enderror
+                  </td>
                   </tr>
 
 

@@ -17,6 +17,37 @@ class SaranaUmumController extends Controller
     {
 
         $data=public_facility::find($id);
+        $request->validate([
+            'rw' => 'required',
+            'rt' => 'required',
+            'paud' => 'required',
+            'tk' => 'required',
+            'sd' => 'required',
+            'smp' => 'required',
+            'sma' => 'required',
+            'rumah' => 'required',
+            'puskesmas' => 'required',
+            'kesehatan' => 'required',
+            'kesehatan' => 'required',
+            'kb' => 'required',
+            'dokter' => 'required',
+            'bidan' => 'required',
+        ],[
+            'rw.required' => 'Rw tidak boleh kosong',
+            'rt.required' => 'Rt tidak boleh kosong',
+            'paud.required' => 'Paud tidak boleh kosong',
+            'tk.required' => 'Tk tidak boleh kosong',
+            'sd.required' => 'Sd tidak boleh kosong',
+            'smp.required' => 'Smp tidak boleh kosong',
+            'sma.required' => 'Sma tidak boleh kosong',
+            'rumah.required' => 'Rumah tidak boleh kosong',
+            'puskesmas.required' => 'Puskesmas tidak boleh kosong',
+            'kesehatan.required' => 'Kesehatan tidak boleh kosong',
+            'posyandu.required' => 'Posyandu tidak boleh kosong',
+            'kb.required' => 'Kb tidak boleh kosong',
+            'dokter.required' => 'Dokter tidak boleh kosong',
+            'bidan.required' => 'Bidan tidak boleh kosong'
+        ]);
         $data->update([
             'rw'=>$request->rw,
             'rt'=>$request->rt,

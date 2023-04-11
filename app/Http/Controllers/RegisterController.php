@@ -71,6 +71,12 @@ class RegisterController extends Controller
         ]);
         return redirect('masuk')->with('status', 'Tunggu akun Anda akan aktif ketika sudah di kirim email');
     }
+
+    public function peta()
+    {
+             
+        return view('peta');
+    }
     // public function actionregister(Request $request)
     // {
     //     $user = User::create([
