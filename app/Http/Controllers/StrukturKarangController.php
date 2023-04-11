@@ -70,6 +70,10 @@ class StrukturKarangController extends Controller
             'gambar.max'=>'Ukuran file tidak lebih dari 2 MB',
         ]);
         $kt = kt_structure::find($id);
+        $data =kt_structure::find($id);
+        $data->update ([
+            'nama'=>$request->nama
+        ]);
         if($request->hasFile('gambar')){
             $data = DB::table('kt_structures')->where('id',$id)->get();
             foreach($data as $datas){

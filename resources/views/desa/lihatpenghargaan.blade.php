@@ -638,7 +638,7 @@ background-position: center;">
                                     @foreach ($penghargaaaan as $award)
                                         <li class="recent-posts-list">
                                             <div class="recent-post-title"><a
-                                                    href="/lihatpeng/{{ $award->id }}/{{ $data_user[0]->id }}"
+                                                    href="/lihatpeng/{{ $award->id }}/{{ $award->user_id }}"
                                                     target="_top"><img src="{{ asset('storage/' . $award->cover) }}"
                                                         style="width: 90px; height:65px;">
                                                     <div style="margin-left: 100px; margin-top: -69px;">
@@ -649,7 +649,7 @@ background-position: center;">
                                             <div class="recent-posts-details">
                                                 <div class="post-date">{{ $award->tanggal }}</div><a
                                                     class="readmorelink"
-                                                    href="/lihatpeng/{{ $award->id }}/{{ $data_user[0]->id }}"
+                                                    href="/lihatpeng/{{ $award->id }}/{{ $award->user_id }}"
                                                     target="_top">Selengkapnya</a>
                                             </div>
                                         </li>

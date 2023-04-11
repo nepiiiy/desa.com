@@ -1,7 +1,7 @@
 @extends('admindesa.navside')
 
 @section('isi')
-{{-- <head>
+    {{-- <head>
     <style>
         a{
             font-size: 15px;
@@ -31,34 +31,37 @@
                         <h5 class="card-title">Edit Peraturan</h5>
 
                         <!-- Vertical Form -->
-                        <form class="row g-3" action="/updateperaturan/{{ $data->id }}" method="POST" enctype="multipart/form-data">
+                        <form class="row g-3" action="/updateperaturan/{{ $data->id }}" method="POST"
+                            enctype="multipart/form-data">
                             @csrf
                             <div class="col-12">
                                 <label for="inputNanme4" class="form-label fw-bold">Nomor & Tanggal Penetapan</label>
-                                <input type="text" class="form-control @error('nomor') is-invalid @enderror" id="nama" name="nomor"
-                                    value="{{ $data->nomor }}">
-                                    @error('nomor')
-                                <div class="invalid-feedback" >{{ $message }}</div>
-                                @enderror 
+                                <input type="text" class="form-control @error('nomor') is-invalid @enderror"
+                                    id="nama" name="nomor" value="{{ $data->nomor }}">
+                                @error('nomor')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="col-12">
                                 <label for="inputNanme4" class="form-label fw-bold">Tentang</label>
-                                <input type="text" class="form-control @error('tentang') is-invalid @enderror" id="nama" name="tentang"
-                                    value="{{ $data->tentang }}">
-                                    @error('tentang')
-                                <div class="invalid-feedback" >{{ $message }}</div>
-                                @enderror 
+                                <input type="text" class="form-control @error('tentang') is-invalid @enderror"
+                                    id="nama" name="tentang" value="{{ $data->tentang }}">
+                                @error('tentang')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="col-12 mb-3">
                                 <label class="fw-bold">Peraturan</label><br><br>
                                 <div class="col-4 mb-2">
-                                    <a href="{{asset('storage/'.$data->peraturan)}}" target="_blank" class="clickLink btn btn-success btn-sm">Pratinjau Disini</a> <br><br>
+                                    <a href="{{ asset('storage/' . $data->peraturan) }}" target="_blank"
+                                        class="clickLink btn btn-success btn-sm">Pratinjau Disini</a> <br><br>
                                 </div>
                                 <div class="input-group mb-3">
-                                    <input type="file" class="form-control @error('peraturan') is-invalid @enderror" name="peraturan" id="peraturan">
+                                    <input type="file" class="form-control @error('peraturan') is-invalid @enderror"
+                                        name="peraturan" id="peraturan">
                                     @error('peraturan')
-                                    <div class="invalid-feedback" >{{ $message }}</div>
-                                    @enderror 
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
 
                             </div>
@@ -67,7 +70,8 @@
                         <button type="submit" class="btn btn-primary">Ubah</button>
                     </div>
                     </form><!-- Vertical Form -->
-                    <a href="/peraturan"> <button type="submit" class="btn btn-danger" style="margin-bottom: 30px; margin-left:20px;">Kembali</button></a>
+                    <a href="/peraturan"> <button type="submit" class="btn btn-danger"
+                            style="margin-bottom: 30px; margin-left:20px;">Kembali</button></a>
 
                 </div>
             </div>

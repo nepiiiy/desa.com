@@ -1,6 +1,5 @@
 @extends('admindesa.navside')
 @section('isi')
-
     <main id="main" class="main">
 
         <div class="pagetitle">
@@ -27,45 +26,60 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Edit Pariwisata</h5>
-                        <form class="row g-3" action ="/editpariwisata/{{ $data -> id }}" method="POST" enctype="multipart/form-data">
+                        <form class="row g-3" action="/editpariwisata/{{ $data->id }}" method="POST"
+                            enctype="multipart/form-data">
                             @csrf
                             <!-- Vertical Form -->
                             <form class="row g-3">
                                 <label for="defaultFormControlInput" class="form-label fw-bold mb-3">Gambar</label>
                                 <div class="mb-3 row">
-                                    <?php $key = 0; ?>
-                                    @foreach (json_decode($data->gambar) as $gambar)
-                                    <div class="col-4">
-                                        <img src="{{ asset('storage/imppariwisata/'.$gambar) }}" alt="" width="200px"
+                                    <div class="col-12">
+                                        <img src="{{ asset('storage/' . $data->gambar) }}" alt="" width="200px"
                                             height="200px" class="my-3">
-                                        <input type="file" name="gambar[{{ $key++ }}]" class="form-control w-75"
-                                            id="defaultFormControlInput" aria-describedby="defaultFormControlHelp"
-                                            value="{{ $data->judul }}"/>
+                                        <input type="file" class="form-control @error('gambar') is-invalid @enderror"
+                                            name="gambar" id="gambar" value="{{ $data->gambar }}">
+                                        @error('gambar')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
                                     </div>
-                                @endforeach
                                 </div>
                                 <div class="col-12">
                                     <label for="inputNanme4" class="form-label fw-bold">Cover</label><br><br>
                                     <img src="{{ asset('storage/' . $data->cover) }}" alt="" title=""
                                         width="200px"> <br><br>
                                     <div class="col-12">
-                                        <input type="file" class="form-control" name="cover" id="cover"
-                                            value="{{ $data->cover }}">
+                                        <input type="file" class="form-control @error('cover') is-invalid @enderror"
+                                            name="cover" id="cover" value="{{ $data->cover }}">
+                                        @error('cover')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <label for="judul" class="form-label fw-bold">Judul Pariwisata</label>
-                                    <input type="text" class="form-control" name="judul" id="judul" value="{{ $data->judul }}">
+                                    <input type="text" class="form-control @error('judul') is-invalid @enderror"
+                                        name="judul" id="judul" value="{{ $data->judul }}">
+                                    @error('judul')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="col-12">
                                     <label for="koordinat" class="form-label fw-bold">Alamat Pariwisata</label>
-                                    <textarea type="text" class="form-control" name="alamat" id="alamat" required>{{$data->alamat}}</textarea>
+                                    <textarea type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat" id="alamat"
+                                        required>{{ $data->alamat }}</textarea>
+                                    @error('alamat')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
 
                                 <!-- Quill Editor Default -->
                                 <div class="col-12">
                                     <label for="isi" class="form-label fw-bold">Isi Pariwisata</label>
-                                    <textarea class="form-control" id="editor" name="isi" cols="30" rows="10">{!!$data->isi!!}</textarea>
+                                    <textarea class="form-control @error('isi') is-invalid @enderror" id="editor" name="isi" cols="30"
+                                        rows="10">{!! $data->isi !!}</textarea>
+                                    @error('isi')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="text-center mt-4">
                                     <button type="submit" class="btn btn-primary">Ubah</button>
@@ -150,41 +164,41 @@
                 });
             }
         </script>
-<script>
-    var quill = new Quill('#editor', {
-        theme: 'snow'
-    });
+        <script>
+            var quill = new Quill('#editor', {
+                theme: 'snow'
+            });
 
-    quill.root.innerHTML = document.querySelector('#content').value;
+            quill.root.innerHTML = document.querySelector('#content').value;
 
-    var form = document.querySelector('form');
-    form.onsubmit = function() {
-        // Update hidden input with content from Quill editor
-        var contentInput = document.querySelector('#content');
-        contentInput.value = quill.root.innerHTML;
+            var form = document.querySelector('form');
+            form.onsubmit = function() {
+                // Update hidden input with content from Quill editor
+                var contentInput = document.querySelector('#content');
+                contentInput.value = quill.root.innerHTML;
 
-        // Submit form
-        return true;
-    };
-</script>
+                // Submit form
+                return true;
+            };
+        </script>
     </main>
 @endsection
 @section('scripts')
-  <script>
-    $(document).ready(function() {
-      var quill = new Quill('#editor', {
-        theme: 'snow'
-      });
-      $('form').on('submit', function() {
-        var content = quill.getContents();
-        $('input[name="content"]').val(JSON.stringify(content));
-      });
-    });
-  </script>
+    <script>
+        $(document).ready(function() {
+            var quill = new Quill('#editor', {
+                theme: 'snow'
+            });
+            $('form').on('submit', function() {
+                var content = quill.getContents();
+                $('input[name="content"]').val(JSON.stringify(content));
+            });
+        });
+    </script>
 @endsection
 @section('editor')
     <script src="{{ asset('assets/js/ckeditor/ckeditor.js') }}"></script>
     <script>
-       CKEDITOR.replace('editor');
+        CKEDITOR.replace('editor');
     </script>
 @endsection

@@ -158,7 +158,7 @@
             <a
               class="nav-link nav-profile d-flex align-items-center pe-0"
               href="#"
-              data-bs-toggle="dropdown"
+              data-bs-toggle="dropdown"style="text-decoration: none;""
             >
              
               <span class="d-none d-md-block dropdown-toggle ps-2"
@@ -183,7 +183,7 @@
 
                   <x-dropdown-link :href="route('destroy')"
                           onclick="event.preventDefault();
-                                      this.closest('form').submit();">
+                                      this.closest('form').submit();" style="text-decoration: none;">
                       {{ __('Keluar') }}
                   </x-dropdown-link>
               </form>

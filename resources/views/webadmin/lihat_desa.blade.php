@@ -225,7 +225,7 @@
     <h1 style="color:#fff;">Lihat Data</h1>
     <nav>
       <ol class="breadcrumb" style="color:#fff;">
-        <li class="breadcrumb-item"><a href="/dashwebadmin" style="color:#fff;">Beranda</a></li>
+        <li class="breadcrumb-item"><a href="/dataadmin" style="color:#fff;">Beranda</a></li>
         <li class="breadcrumb-item">Pengguna</li>
         <li class="breadcrumb-item active" style="color:#fff;">Lihat Data</li>
       </ol>

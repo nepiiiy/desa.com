@@ -637,7 +637,7 @@ background-position: center;">
                                   @foreach($news->take(5) as $new)
                                     <li class="recent-posts-list">
                                         <div class="recent-post-title"><a
-                                                href="/lihat/{{ $new->id }}/{{ $data_user[0]->id }}"
+                                                href="/lihat/{{ $new->id }}/{{ $new->user_id }}"
                                                 target="_top"><img
                                                     src="{{asset('storage/'.$new->cover)}}"
                                                     style="width: 90px; height:65px;">
@@ -646,7 +646,7 @@ background-position: center;">
                                         <div style="margin-left: 100px;">{{ Str::limit($new->subjudul, 20) }}<br><br></div>
                                         <div class="recent-posts-details">
                                             <div class="post-date">{{$new->tanggal}}</div><a class="readmorelink"
-                                                href="/lihat/{{ $new->id }}/{{ $data_user[0]->id }}"
+                                                href="/lihat/{{ $new->id }}/{{ $new->user_id }}"
                                                 target="_top">Selengkapnya</a>
                                         </div>
                                     </li>

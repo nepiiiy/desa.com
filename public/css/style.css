@@ -628,7 +628,7 @@ nav.navbar.bootsnav li.dropdown ul.dropdown-menu > li a{
   width: 5%;
 }
 .search-btn > button .fa {
-  padding-left: 7px;
+  padding-left: 0px;
 }
 .more-filter:hover,
 .more-filter:focus{
@@ -636,11 +636,12 @@ nav.navbar.bootsnav li.dropdown ul.dropdown-menu > li a{
 }
 .search-btn {
   float: right;
-  width: 17%;
+  width: 80%;
+  margin-top: -3%;
 }
 .dir-search {
   float: left;
-  width: 75%;
+  width: 100%;
 }
 .single-query .keyword-input {
   background: #fff;
@@ -665,12 +666,12 @@ nav.navbar.bootsnav li.dropdown ul.dropdown-menu > li a{
 }
 .single-query {
   float: left;
-  width: 33.33%;
+  width: 100%;
 }
 .intro .zelect {
     display: inline-block;
     background-color: #fff;
-    min-width: 100%;
+    width: 100%;
     cursor: pointer;
     border: 1px solid #dbdece;
     border-radius: 0;
@@ -738,7 +739,7 @@ nav.navbar.bootsnav li.dropdown ul.dropdown-menu > li a{
   font-size: 16px;
   font-weight: 500;
   height: 47px;
-  width: 100%;
+  width: 50%;
 }
 .advance-search {
   background:rgba(255,255,255,0.9);

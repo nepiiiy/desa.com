@@ -18,7 +18,7 @@ class DashWebController extends Controller
         $diti = User::where('status', 'aktif')->where('role','admindesa')->orderBy('created_at', 'desc')->get();
         //$last_desa = User::latest()->first(); // mengambil data terakhir dari tabel User
         //$diti->push($last_desa); // menambahkan data terakhir ke dalam array $beritas
-        $berita = desa_new::orderBy('created_at', 'desc')->get();
+        $berita = desa_new::orderBy('created_at', 'desc')->take(9)->get();
         return view('website.dashweb', ['diti'=>$diti,'news'=>$berita]);
     }
 

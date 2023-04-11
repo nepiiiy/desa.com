@@ -23,7 +23,7 @@
 
         <!-- Card with an image on top -->
         <div class="card me-2 col-4">
-            <div class="card">
+            <div class="card" style="margin-bottom: -30px;">
                 <img src="{{ asset('storage/' . $row->cover) }}" class="card-img-top" alt="..." style="height: 180px">
             <div class="card-body">
               <h5 class="card-title">{{ $row->judul }}</h5>

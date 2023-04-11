@@ -27,15 +27,31 @@ class PenghargaanController extends Controller
 
     public function uploadpenghargaan(Request $request)
     {
-        $files = [];
+        $request->validate(
+            [
+                'judul'     => 'required',
+                'subjudul'  => 'required',
+                'tanggal' => 'required',
+                'isi' => 'required',
+                'cover' => 'required|image|mimes:png,jpg,jpeg|max:2048',
+                'gambar' => 'required|image|mimes:png,jpg,jpeg|max:2048',
+            ],[
+                'judul.required'=>'Judul harus di isi',
+                'subjudul.required'=>'Subjudul harus di isi',
+                'tanggal.required'=>'Tanggal harus di isi',
+                'isi.required' => 'Masukkan isi berita',
+                'cover.required'=>'Cover harus di isi',
+                'cover.image'=>'File yang upload harus berupa gambar',
+                'cover.mimes'=>'File yang di upload harus berekstensi JPG, JPEG, PNG',
+                'cover.max'=>'File yang di upload tidak lebih dari 2 MB',
+                'gambar.required'=>'Gambar harus di isi',
+                'gambar.image'=>'File yang upload harus berupa gambar',
+                'gambar.mimes'=>'File yang di upload harus berekstensi JPG, JPEG, PNG',
+                'gambar.max'=>'File yang di upload tidak lebih dari 2 MB',
+            ]
+        );
+        $gambar = Storage::disk('public')->put('imgpenghargaan', $request->file('gambar'));
         $cover = Storage::disk('public')->put('coverpenghargaan', $request->file('cover'));
-        if ($request->hasfile('gambar')) {
-            foreach ($request->gambar as $file) {
-                $name = Str::random(10) . '.' . $file->getClientOriginalExtension();
-                $file->storeAs('public/imgpenghargaan/', $name);
-                $files[] = $name;
-            }
-        }
 
         $model  = new desa_award();
         $model->judul = $request->judul;
@@ -43,29 +59,9 @@ class PenghargaanController extends Controller
         $model->tanggal = $request->tanggal;
         $model->isi = $request->isi;
         $model->cover = $cover;
-        $model->gambar = json_encode($files);
+        $model->gambar = $gambar;
         $model->user_id = Auth::user()->id;
         $model->save();
-        $this->validate(
-            $request,
-            [
-                'judul'     => 'required',
-                'subjudul'  => 'required',
-                'tanggal' => 'required',
-                'isi' => 'required',
-                'cover' => 'required',
-                'gambar' => 'required|min:3|max:3',
-            ],[
-                'judul.required'=>'Judul harus di isi',
-                'subjudul.required'=>'Subjudul harus di isi',
-                'tanggal.required'=>'Tanggal harus di isi',
-                'isi.required' => 'Masukkan isi berita',
-                'cover.required'=>'Cover harus diisi',
-                'gambar.required'=>'Gambar harus diisi',
-                'gambar.max'=>'Gambar yang diperbolehkan hanya 3',
-                'gambar.min'=>'Gambar yang diperbolehkan hanya 3',
-            ]
-        );
         alert()->success('Sukses', 'Penghargaan berhasil di tambahakan');
         return redirect('penghargaan')->with('success', 'Images uploaded successfully.');
     }
@@ -83,7 +79,27 @@ class PenghargaanController extends Controller
     public function editpenghargaan(Request $request, $id)
     {
         $data = desa_award::findOrfail($id);
-
+        $request->validate(
+            [
+                'judul'     => 'required',
+                'subjudul'  => 'required',
+                'tanggal' => 'required',
+                'isi' => 'required',
+                'cover' => 'nullable|image|mimes:png,jpg,jpeg|max:2048',
+                'gambar' => 'nullable|image|mimes:png,jpg,jpeg|max:2048',
+            ],[
+                'judul.required'=>'Judul harus di isi',
+                'subjudul.required'=>'Subjudul harus di isi',
+                'tanggal.required'=>'Tanggal harus di isi',
+                'isi.required' => 'Masukkan isi berita',
+                'cover.image'=>'File yang upload harus berupa gambar',
+                'cover.mimes'=>'File yang di upload harus berekstensi JPG, JPEG, PNG',
+                'cover.max'=>'File yang di upload tidak lebih dari 2 MB',
+                'gambar.image'=>'File yang upload harus berupa gambar',
+                'gambar.mimes'=>'File yang di upload harus berekstensi JPG, JPEG, PNG',
+                'gambar.max'=>'File yang di upload tidak lebih dari 2 MB',
+            ]
+        );
         $data->update([
 
             "judul" => $request->judul,
@@ -100,40 +116,12 @@ class PenghargaanController extends Controller
             ]);
         }
 
-
-
-        elseif (is_object($data) && property_exists($data, 'gambar')) {
-            foreach ($data->gambar as $datas) {
-                $gambar = $datas;
-                Storage::delete('public/imgpenghargaan/' . $gambar);
-            }
-        }
-
-
-
-        elseif ($request->hasfile('gambar')) {
-            $keyarray1 =  array_keys($request->gambar);
-            $gambar = [];
-
-            $i = 0;
-
-            foreach ($request->gambar as $file) {
-
-                $name = Str::random(10) . '.' . $file->getClientOriginalExtension();
-                $file->storeAs('public/imgpenghargaan/', $name);
-                $gambar[$keyarray1[$i]] = $name;
-                $i++;
-            }
-
-
-            $fotoin = json_decode($data->gambar);
-           // dd($gambar);
-            foreach ($keyarray1 as $key) {
-                $fotoin[$key] = $gambar[$key];
-            }
-
-            $data->gambar = $fotoin;
-            $data->save();
+        if($request->hasFile('gambar')){
+            Storage::delete('public/'.$data->gambar);
+            $gambar = Storage::disk('public')->put('imgpenghargaan', $request->file('gambar'));
+            $data->update([
+                'gambar'=>$gambar,
+            ]);
         }
         $data->update();
         alert()->success('Sukses', 'penghargaan berhasil di edit');

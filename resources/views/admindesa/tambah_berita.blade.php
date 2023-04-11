@@ -40,21 +40,16 @@
                             <!-- Vertical Form -->
                             <form class="row g-3">
                                 <div class="mb-3">
-                                    <div class="upload__box">
-                                        <div class="upload__btn-box">
-                                            <label class="upload__btn">
-                                                <p class="mb-0 fw-bold">Masukkan Gambar</p>
-                                                <p style="color:red" class="mb-0">(tidak lebih/kurang dari 3)</p>
-                                                <input name="gambar[]" type="file" multiple="" data-max_length="20"
-                                                    class="upload__inputfile" required>
-                                                @error('gambar')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                                            </label>
+                                    <div class="col-12 mb-3">
+                                        <label class="fw-bold">Masukkan Gambar</label>
+                                        <div class="input-group mb-3">
+                                            <input type="file" class="form-control @error('gambar') is-invalid @enderror"
+                                                name="gambar" id="gambar">
+                                            @error('gambar')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
                                         </div>
-                                        <div class="upload__img-wrap"></div>
+
                                     </div>
                                 </div>
                                 <label>

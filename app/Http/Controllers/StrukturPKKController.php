@@ -67,6 +67,11 @@ class StrukturPKKController extends Controller
             'gambar.max'=>'Ukuran file tidak lwbih dari 2 MB',
         ]);
         $pkk = pkk_structure::find($id);
+        $data = pkk_structure::find($id);
+        $data->update ([
+            'nama'=>$request->nama
+        ]);
+        
         if($request->hasFile('gambar')){
             $data = DB::table('pkk_structures')->where('id',$id)->get();
             foreach($data as $datas){

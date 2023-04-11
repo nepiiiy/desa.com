@@ -35,22 +35,24 @@
                             <div class="col-12">
                                 <label class="fw-bold">Jabatan</label>
                                 <input class="form-control" name="id_jabatan" id="jabatan" disabled
-                                    value="{{$jabatan->jabatan}}">
+                                    value="{{ $jabatan->jabatan }}">
                             </div>
                             <input type="hidden" name="id_jabatan" value="{{ $jabatan->id }}">
                             <div class="col-12">
                                 <label for="inputNanme4" class="form-label fw-bold">Nama Lengkap</label>
-                                <inputB type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama" >
-                                @error('nama')
-                                <div class="invalid-feedback" >{{ $message }}</div>
-                                @enderror
+                                <inputB type="text" class="form-control @error('nama') is-invalid @enderror"
+                                    id="nama" name="nama">
+                                    @error('nama')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                             </div>
                             <div class="col-12 mb-3">
                                 <label class="fw-bold">Gambar</label>
                                 <div class="input-group mb-3">
-                                    <input type="file" class="form-control @error('gambar') is-invalid @enderror" name="gambar" id="gambar" >
+                                    <input type="file" class="form-control @error('gambar') is-invalid @enderror"
+                                        name="gambar" id="gambar">
                                     @error('gambar')
-                                    <div class="invalid-feedback" >{{ $message }}</div>
+                                        <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
 

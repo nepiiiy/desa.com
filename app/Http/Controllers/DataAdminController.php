@@ -95,35 +95,35 @@ class DataAdminController extends Controller
             'user_id' => $id,
             'id_jabatan' => '1',
             'nama' => 'contoh nama',
-            'gambar' => 'gambarpkk/contoh.png',
+            'gambar' => 'gambarpkk/contoh1.png',
             
         ]);
         $user = pkk_structure::create([
             'user_id' => $id,
             'id_jabatan' => '2',
             'nama' => 'contoh nama',
-            'gambar' => 'gambarpkk/contoh.png',
+            'gambar' => 'gambarpkk/contoh2.png',
             
         ]);
         $user = pkk_structure::create([
             'user_id' => $id,
             'id_jabatan' => '3',
             'nama' => 'contoh nama',
-            'gambar' => 'gambarpkk/contoh.png',
+            'gambar' => 'gambarpkk/contoh3.png',
             
         ]);
         $user = pkk_structure::create([
             'user_id' => $id,
             'id_jabatan' => '4',
             'nama' => 'contoh nama',
-            'gambar' => 'gambarpkk/contoh.png',
+            'gambar' => 'gambarpkk/contoh4.png',
             
         ]);
         $user = pkk_structure::create([
             'user_id' => $id,
             'id_jabatan' => '5',
             'nama' => 'contoh nama',
-            'gambar' => 'gambarpkk/contoh.png',
+            'gambar' => 'gambarpkk/contoh5.png',
             
         ]);
 
@@ -143,31 +143,31 @@ class DataAdminController extends Controller
             'user_id' => $id,
             'id_jabatan' => '1',
             'nama' => 'contoh nama',
-            'gambar' => 'gambarkt/contohgam.jpeg',
+            'gambar' => 'gambarkt/contohgam1.jpeg',
         ]);
         $user = kt_structure::create([
             'user_id' => $id,
             'id_jabatan' => '2',
             'nama' => 'contoh nama',
-            'gambar' => 'gambarkt/contohgam.jpeg',
+            'gambar' => 'gambarkt/contohgam2.jpeg',
         ]);
         $user = kt_structure::create([
             'user_id' => $id,
             'id_jabatan' => '3',
             'nama' => 'contoh nama',
-            'gambar' => 'gambarkt/contohgam.jpeg',
+            'gambar' => 'gambarkt/contohgam3.jpeg',
         ]);
         $user = kt_structure::create([
             'user_id' => $id,
             'id_jabatan' => '4',
             'nama' => 'contoh nama',
-            'gambar' => 'gambarkt/contohgam.jpeg',
+            'gambar' => 'gambarkt/contohgam4.jpeg',
         ]);
         $user = kt_structure::create([
             'user_id' => $id,
             'id_jabatan' => '5',
             'nama' => 'contoh nama',
-            'gambar' => 'gambarkt/contohgam.jpeg',
+            'gambar' => 'gambarkt/contohgam5.jpeg',
         ]);
 
        

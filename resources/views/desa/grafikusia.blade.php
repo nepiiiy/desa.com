@@ -58,6 +58,8 @@
     <body class="">
 
         <!-- Section: Causes -->
+        <div class="row">
+            <div class="col-2 col-md-12">
         <div class="container pb-40">
             <div class="section-title text-center">
                 <div class="row">
@@ -68,6 +70,7 @@
                 </div>
             </div>
         </div>
+            </div>
         <!-- Section: Causes -->
 
         <script src="https://www.amcharts.com/lib/3/amcharts.js" style="color:#fff"></script>
@@ -142,4 +145,6 @@
                       
                     </tbody>
                     </table>
+        </div>
+    </body>
     @endsection

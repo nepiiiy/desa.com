@@ -32,7 +32,7 @@ class GaleriController extends Controller
         if ($request->hasfile('gambar')) {
             foreach ($request->gambar as $file) {
                 $name = Str::random(10) . '.' . $file->getClientOriginalExtension();
-                $file->storeAs('public/galeri/', $name);
+                $file->storeAs('public/imggaleri/', $name);
                 $files[] = $name;
             }
         }
@@ -70,6 +70,7 @@ class GaleriController extends Controller
         $data = gallery::findorfail($id);
         // dd($data);
         return view('admindesa.tampil_galeri', compact('data'));
+
     }
 
     public function tampilgaleri(Request $request, $id)
@@ -93,7 +94,7 @@ class GaleriController extends Controller
         elseif (is_object($data) && property_exists($data, 'gambar')) {
             foreach ($data->gambar as $datas) {
                 $gambar = $datas;
-                Storage::delete('public/galeri/' . $gambar);
+                Storage::delete('public/imggaleri/' . $gambar);
             }
         }
 
@@ -108,7 +109,7 @@ class GaleriController extends Controller
             foreach ($request->gambar as $file) {
 
                 $name = Str::random(10) . '.' . $file->getClientOriginalExtension();
-                $file->storeAs('public/galeri/', $name);
+                $file->storeAs('public/imggaleri/', $name);
                 $gambar[$keyarray1[$i]] = $name;
                 $i++;
             }

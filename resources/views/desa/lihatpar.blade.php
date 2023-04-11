@@ -611,17 +611,13 @@ background-position: center;">
             </div>
         </div>
 
-        <div class="col-sm-6 col-md-3">
-            <tamvan>
-                <p><a style="color: rgb(255, 255, 255); " href="https://www.mastamvan.blogspot.com"
-                        class="pen-owner-link">Back To Tutorials</a></p>
-            </tamvan>
+        <div class="col-sm-6 col-md-3" style="margin-top: 23px;">
             <div id='sidebar-wrapper' style="margin-left: 650px;">
                 <div class="sidebar1-wrapper">
                     <div class="sidebar1 section" id="sidebar1">
                         <div class="widget HTML" id="HTML2">
                             <h2 class="title" style="height: 60px; font-size: 14px;">Post Terakhir <br>
-                                Berita Desa Ngijo
+                                Pariwisata Desa {{ $berita->user->name }}
                             </h2>
                             @endforeach
 
@@ -637,91 +633,24 @@ background-position: center;">
                                 <script src="/feeds/posts/default?orderby=published&amp;alt=json-in-script&amp;callback=showlatestpostswiththumbs">
                                 </script>
                                 <ul class="recent-posts-container">
+                                    @foreach($par->take(5) as $pariwisata)
                                     <li class="recent-posts-list">
                                         <div class="recent-post-title"><a
-                                                href="https://mastamvan.blogspot.com/2016/01/aplikasi-membuat-screenshot-format-gif.html"
+                                                href="/lihatpar/{{ $pariwisata->id }}/{{ $pariwisata->user_id }}"
                                                 target="_top"><img
-                                                    src="https://i.postimg.cc/Twwv9ytN/waketum-apdesi-sunan-bukhari-169.jpg"
+                                                    src="{{asset('storage/'.$pariwisata->cover)}}"
                                                     style="width: 90px;">
-                                                <div style="margin-left: 100px; margin-top: -69px;">Apdesi dkk Bikin
-                                                    Poros, Ancam Geruduk DPR Jika <div></div>
+                                                <div style="margin-left: 100px; margin-top: -69px;">{{ Str::limit($pariwisata->judul, 15) }}<div></div>
                                             </a></div>
-                                        <div style="margin-left: 100px;">Asosiasi Pemerintah Desa Seluruh
-                                            Indonesia<br><br></div>
+                                        <div style="margin-left: 100px;">{{ Str::limit($pariwisata->alamat, 35) }}<br><br></div>
                                         <div class="recent-posts-details">
-                                            <div class="post-date">Jan 05 2016</div><a class="readmorelink"
-                                                href="https://mastamvan.blogspot.com/2016/01/aplikasi-membuat-screenshot-format-gif.html"
+                                            <a class="readmorelink"
+                                                href="/lihatpar/{{ $pariwisata->id }}/{{ $pariwisata->user_id }}"
                                                 target="_top">Selengkapnya</a>
                                         </div>
                                     </li>
-                                    <li class="recent-posts-list">
-                                        <div class="recent-post-title"><a
-                                                href="https://mastamvan.blogspot.com/2016/01/aplikasi-membuat-screenshot-format-gif.html"
-                                                target="_top"><img
-                                                    src="https://i.postimg.cc/rsDJQcXL/Oknum-kades-asal-Kabupaten-Bengkayang-bersama-rekannya-di-amankan-Satres-Narkoba.jpg"
-                                                    style="width: 90px;">
-                                                <div style="margin-left: 100px; margin-top: -69px;">Kepala Desa
-                                                    Ditangkap Jual 10 Kg Sabu Senilai Rp 3,2 Miliar<div></div>
-                                            </a></div>
-                                        <div style="margin-left: 100px;">Seorang kepala desa di wilayah perbatasan
-                                            Indonesia-Malaysia<br><br></div>
-                                        <div class="recent-posts-details">
-                                            <div class="post-date">Jan 05 2016</div><a class="readmorelink"
-                                                href="https://mastamvan.blogspot.com/2016/01/aplikasi-membuat-screenshot-format-gif.html"
-                                                target="_top">Selengkapnya</a>
-                                        </div>
-                                    </li>
-                                    <li class="recent-posts-list">
-                                        <div class="recent-post-title"><a
-                                                href="https://mastamvan.blogspot.com/2016/01/aplikasi-membuat-screenshot-format-gif.html"
-                                                target="_top"><img
-                                                    src="https://i.postimg.cc/MX2zG6z6/Whats-App-Image-2023-02-07-at-18-01-14-jpeg.webp"
-                                                    style="width: 90px;">
-                                                <div style="margin-left: 100px; margin-top: -69px;">Jaksa Agung
-                                                    Burhanuddin instruksikan jajaran <div></div>
-                                            </a></div>
-                                        <div style="margin-left: 100px;">Jaksa Agung ST Burhanuddin menginstruksikan
-                                            kepada jajaran<br><br></div>
-                                        <div class="recent-posts-details">
-                                            <div class="post-date">Jan 05 2016</div><a class="readmorelink"
-                                                href="https://mastamvan.blogspot.com/2016/01/aplikasi-membuat-screenshot-format-gif.html"
-                                                target="_top">Selengkapnya</a>
-                                        </div>
-                                    </li>
-                                    <li class="recent-posts-list">
-                                        <div class="recent-post-title"><a
-                                                href="https://mastamvan.blogspot.com/2016/01/aplikasi-membuat-screenshot-format-gif.html"
-                                                target="_top"><img src="https://i.postimg.cc/vZLMhwtj/dana-desa.jpg"
-                                                    style="width: 90px;">
-                                                <div style="margin-left: 100px; margin-top: -69px;">Bupati Kudus HM
-                                                    Hartopo berharap penggunaan dana<div></div>
-                                            </a></div>
-                                        <div style="margin-left: 100px;">Bupati Kudus HM Hartopo berharap penggunaan
-                                            dana <br><br></div>
-                                        <div class="recent-posts-details">
-                                            <div class="post-date">Jan 05 2016</div><a class="readmorelink"
-                                                href="https://mastamvan.blogspot.com/2016/01/aplikasi-membuat-screenshot-format-gif.html"
-                                                target="_top">Selengkapnya</a>
-                                        </div>
-                                    </li>
-                                    <li class="recent-posts-list">
-                                        <div class="recent-post-title"><a
-                                                href="https://mastamvan.blogspot.com/2016/01/aplikasi-membuat-screenshot-format-gif.html"
-                                                target="_top"><img
-                                                    src="https://i.postimg.cc/NM7g0ydd/ae4ed218e99b9636f0b927e77116eb07.jpg"
-                                                    style="width: 90px;">
-                                                <div style="margin-left: 100px; margin-top: -69px;">Camat Minta Dana
-                                                    Desa untuk Pasang Patok<div></div>
-                                            </a></div>
-                                        <div style="margin-left: 100px;">Camat Lebong Saktu Sabirin S.Sos meminta
-                                            seluruh<br><br></div>
-                                        <div class="recent-posts-details">
-                                            <div class="post-date">Jan 05 2016</div><a class="readmorelink"
-                                                href="https://mastamvan.blogspot.com/2016/01/aplikasi-membuat-screenshot-format-gif.html"
-                                                target="_top">Selengkapnya</a>
-                                        </div>
-                                    </li>
-                                    <li class="recent-posts-list">
+                                    @endforeach
+                                </ul>
                             </div>
                         </div>
                     </div>

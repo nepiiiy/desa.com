@@ -1,8 +1,8 @@
 @extends('admindesa.navside')
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/quill.snow.css') }}" rel="stylesheet">
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/quill.js') }}"></script>
+<link href="{{ asset('css/quill.snow.css') }}" rel="stylesheet">
+<script src="{{ asset('js/app.js') }}" defer></script>
+<script src="{{ asset('js/quill.js') }}"></script>
 @section('isi')
     <main id="main" class="main">
 
@@ -40,45 +40,60 @@
                             <!-- Vertical Form -->
                             <form class="row g-3">
                                 <div class="mb-3">
-                                    <div class="upload__box">
-                                        <div class="upload__btn-box">
-                                            <label class="upload__btn">
-                                                <p class="mb-0 fw-bold">Masukkan Gambar</p>
-                                                <p style="color:red" class="mb-0">(tidak lebih/kurang dari 3)</p>
-                                                <input name="gambar[]" type="file" multiple="" data-max_length="20"
-                                                    class="upload__inputfile" required>
-                                                    @error('gambar')
-                                                    <span class="invalid-feedback" role="alert">
-                                                      <strong>{{ $message }}</strong>
-                                                    </span>
-                                                  @enderror
-                                            </label>
+                                    <div class="col-12 mb-3">
+                                        <label class="fw-bold">Masukkan Gambar</label>
+                                        <div class="input-group mb-3">
+                                            <input type="file" class="form-control @error('gambar') is-invalid @enderror"
+                                                name="gambar" id="gambar">
+                                            @error('gambar')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
                                         </div>
-                                        <div class="upload__img-wrap"></div>
+
                                     </div>
                                 </div>
                                 <label>
                                     <p class="mb-0 fw-bold">Masukkan Cover</p>
                                     <div class="input-group mb-3">
-                                        <input type="file" class="form-control" name="cover" id="cover" required>
+                                        <input type="file" class="form-control @error('gambar') is-invalid @enderror"
+                                            name="cover" id="cover">
+                                        @error('gambar')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </label>
                                 <div class="col-12">
                                     <label for="judul" class="form-label fw-bold">Judul Penghargaan</label>
-                                    <input type="text" class="form-control" name="judul" id="judul" required>
+                                    <input type="text" class="form-control @error('judul') is-invalid @enderror"
+                                        name="judul" id="judul">
+                                    @error('judul')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="col-12">
                                     <label for="subjudul" class="form-label fw-bold">Subjudul Penghargaan</label>
-                                    <input type="text" class="form-control" name="subjudul" id="subjudul" required>
+                                    <input type="text" class="form-control @error('subjudul') is-invalid @enderror"
+                                        name="subjudul" id="subjudul">
+                                    @error('subjudul')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="col-12 mb-4">
                                     <label for="tanggal" class="form-label fw-bold">Tanggal</label>
-                                    <input type="date" class="form-control" name="tanggal" id="tanggal" required>
+                                    <input type="date" class="form-control @error('tanggal') is-invalid @enderror"
+                                        name="tanggal" id="tanggal">
+                                    @error('tanggal')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
-                                    <div class="col-12">
-                                        <label for="isi" class="form-label fw-bold">Isi Penghargaan</label>
-                                        <textarea class="form-control" id="editor" name="isi" cols="30" rows="10" placeholder="Tuliskan isi berita disini" required ></textarea>
-                                    </div>
+                                <div class="col-12">
+                                    <label for="isi" class="form-label fw-bold">Isi Penghargaan</label>
+                                    <textarea class="form-control @error('isi') is-invalid @enderror" id="editor" name="isi" cols="30"
+                                        rows="10" placeholder="Tuliskan isi berita disini"></textarea>
+                                    @error('isi')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
 
                                 <div class="text-center mt-4">
                                     <button type="submit" class="btn btn-primary">Tambahkan</button>
@@ -100,17 +115,17 @@
             const minFileCount = 1;
 
             fileUpload.addEventListener('change', function() {
-              const selectedFiles = this.files;
-              const fileCount = selectedFiles.length;
-              if (fileCount > maxFileCount) {
-                alert(`Jumlah file yang diunggah terlalu banyak. Maksimal ${maxFileCount} file.`);
-                this.value = '';
-              } else if (fileCount < minFileCount) {
-                alert(`Jumlah file yang diunggah terlalu sedikit. Minimal ${minFileCount} file.`);
-                this.value = '';
-              }
+                const selectedFiles = this.files;
+                const fileCount = selectedFiles.length;
+                if (fileCount > maxFileCount) {
+                    alert(`Jumlah file yang diunggah terlalu banyak. Maksimal ${maxFileCount} file.`);
+                    this.value = '';
+                } else if (fileCount < minFileCount) {
+                    alert(`Jumlah file yang diunggah terlalu sedikit. Minimal ${minFileCount} file.`);
+                    this.value = '';
+                }
             });
-          </script>
+        </script>
 
         <script>
             jQuery(document).ready(function() {
@@ -190,21 +205,21 @@
 @endsection
 
 @section('scripts')
-  <script>
-    $(document).ready(function() {
-      var quill = new Quill('#editor', {
-        theme: 'snow'
-      });
-      $('form').on('submit', function() {
-        var content = quill.getContents();
-        $('input[name="content"]').val(JSON.stringify(content));
-      });
-    });
-  </script>
+    <script>
+        $(document).ready(function() {
+            var quill = new Quill('#editor', {
+                theme: 'snow'
+            });
+            $('form').on('submit', function() {
+                var content = quill.getContents();
+                $('input[name="content"]').val(JSON.stringify(content));
+            });
+        });
+    </script>
 @endsection
 @section('editor')
     <script src="{{ asset('assets/js/ckeditor/ckeditor.js') }}"></script>
     <script>
-       CKEDITOR.replace('editor');
+        CKEDITOR.replace('editor');
     </script>
 @endsection

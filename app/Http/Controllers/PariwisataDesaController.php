@@ -26,14 +26,12 @@ public function kepw(Request $request)
     $searchTerm = $request->id;
     return Redirect('pariwisatadesa/'.$searchTerm);
 }
-public function lihatpar($id)
+public function lihatpar($uid, $id)
     {
-         $data_user = User::where('id',$id)->get();
-        $berita = tour::where('id',$id)->get();
-        // $profile = desa_profile::where('user_id',$id)->get();
-        // $berita = desa_new::find($id);
-
-        return view('desa.lihatpar',['data_user'=>$data_user,'berita'=>$berita]);
+         $data_user = User::where('id',$uid)->get();
+        $berita = tour::where('id',$uid)->get();
+        $news = tour::where('user_id',$id)->orderBy('created_at', 'desc')->get();
+        return view('desa.lihatpar',['data_user'=>$data_user,'berita'=>$berita, 'par'=>$news]);
 
     }
 }

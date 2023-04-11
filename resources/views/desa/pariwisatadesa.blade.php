@@ -51,7 +51,7 @@
                                                 <img src="{{ asset('storage/' . $row->cover) }}" alt="" style="width:100%; height: 100%;"
                                                     class="img-fullwidth">
                                             </div>
-                                            <div class="causes-details border-1px bg-white clearfix p-20 pt-10 pb-20" style=" height:205px;">
+                                            <div class="causes-details border-1px bg-white clearfix p-20 pt-10 pb-20" style=" height:180px;">
                                                 <h4 class="text-uppercase"><a
                                                         href="/lihatpar/{{ $row->id }}/{{ $data_user[0]->id }}">{{ Str::limit($row->judul, 15) }}</a>
                                                 </h4>

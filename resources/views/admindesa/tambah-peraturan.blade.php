@@ -37,24 +37,27 @@
                             @csrf
                             <div class="col-12">
                                 <label for="inputNanme4" class="form-label fw-bold">Nomor & Tanggal Penetapan</label>
-                                <input type="text" class="form-control @error('nomor') is-invalid @enderror" id="nama" name="nomor" >
+                                <input type="text" class="form-control @error('nomor') is-invalid @enderror"
+                                    id="nama" name="nomor">
                                 @error('nomor')
-                                <div class="invalid-feedback" >{{ $message }}</div>
+                                    <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="col-12">
                                 <label for="inputNanme4" class="form-label fw-bold">Tentang</label>
-                                <input type="text" class="form-control @error('tentang') is-invalid @enderror" id="nama" name="tentang" >
+                                <input type="text" class="form-control @error('tentang') is-invalid @enderror"
+                                    id="nama" name="tentang">
                                 @error('tentang')
-                                <div class="invalid-feedback" >{{ $message }}</div>
-                                @enderror                            
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="col-12 mb-3">
                                 <label class="fw-bold">Peraturan</label>
                                 <div class="input-group mb-3">
-                                    <input type="file" class="form-control @error('peraturan') is-invalid @enderror" name="peraturan" id="gambar" >
+                                    <input type="file" class="form-control @error('peraturan') is-invalid @enderror"
+                                        name="peraturan" id="gambar">
                                     @error('peraturan')
-                                    <div class="invalid-feedback" >{{ $message }}</div>
+                                        <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
 
@@ -78,6 +81,6 @@
 @section('editor')
     <script src="{{ asset('assets/js/ckeditor/ckeditor.js') }}"></script>
     <script>
-       CKEDITOR.replace('editor');
+        CKEDITOR.replace('editor');
     </script>
 @endsection

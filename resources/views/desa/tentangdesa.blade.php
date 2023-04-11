@@ -61,7 +61,7 @@
 
                                                 <h3 style="text-align: left; margin-left: 50px;">A. Biodata Desa</h3>
                                                 <p
-                                                    style="text-align: justify; margin-left: 83px; text-indent: 3em; font-size: 17px;">
+                                                    style="text-align: justify; margin-left: 83px; text-indent: 3em; font-size: 15px;">
                                                     {{ $data_u->name }} adalah salah satu desa di Kecamatan
                                                     {{ $data_u->kecamatan }}, Kabupaten {{ $data_u->kabupaten }}, Provinsi
                                                     {{ $data_u->provinsi }},
@@ -70,10 +70,10 @@
                                             @endforeach
                                         </div>
                                         <div class="card-body">
-                                            <div class="mb-0 content-color-secondary">
-                                                <h3 style="text-align: left; margin-left: 50px;">B. Sejarah Desa</h3>
+                                            <div class="mb-0 content-color-secondary" style="text-align: justify; margin-left:83px;text-indent: 3em;">
+                                                <h3 style="text-align: left; text-indent:0em; margin-left:-33px;">B. Sejarah Desa</h3>
                                                 <p
-                                                    style="text-align: justify; margin-left: 83px; text-indent: 3em; font-size: 17px;">
+                                                style="text-align: justify; margin-left: 83px; text-indent: 3em; font-size: 17px;">
                                                     {!! $data->sejarah !!}</p>
                                             </div>
                                         </div>

@@ -8,12 +8,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Str;
 
 class PariwisataController extends Controller
 {
     public function pariwisata()
     {
-        $data = tour::where('user_id',Auth::user()->id)->paginate(3);
+        $data = tour::where('user_id',Auth::user()->id)->paginate(4);
         return view('admindesa.pariwisata', ['data' => $data]);
     }
 
@@ -25,33 +26,39 @@ class PariwisataController extends Controller
 
     public function uploadpariwisata(Request $request)
     {
-        $files = [];
+        $request->validate(
+            [
+                'cover'     => 'required|image|mimes:png,jpeg,jpg,webp|max:2048',
+                'judul'     => 'required',
+                'gambar'    => 'required|image|mimes:png,jpeg,jpg,webp|max:2048',
+                'alamat'=>'required',
+                'isi'=>'required',
+
+            ],[
+                'cover.required'=>'Cover tidak boleh kosong',
+                'cover.image'=>'File yang di upload harus berupa gambar',
+                'cover.mimes'=>'File yang di upload harus berekstensi JPG, JPEG, PNG',
+                'cover.max'=>'File yang di upload tidak lebih dari 2 MB',
+                'judul.required'=>'Judul tidak boleh kosong',
+                'gambar.required'=>'Gambar tidak boleh kosong',
+                'gambar.image'=>'File yang di upload harus berupa gambar',
+                'gambar.mimes'=>'File yang di upload harus berekstensi JPG, JPEG, PNG',
+                'gambar.max'=>'File yang di upload tidak lebih dari 2 MB',
+                'alamat.required'=>'Alamat tidak boleh kosong',
+                'isi.required'=>'Isi Pariwisata tiak boleh kosong',
+            ]
+        );
+        $gambar = Storage::disk('public')->put('coverpariwisata', $request->file('gambar'));
         $cover = Storage::disk('public')->put('coverpariwisata', $request->file('cover'));
-        if ($request->hasfile('gambar')) {
-            foreach ($request->gambar as $file) {
-                $name = $file->getClientOriginalName();
-                $file->move(public_path('/public/imgpariwisata/'), $name);
-                $files[] = $name;
-            }
-        }
         // $fotoside = implode(',',$files);
         $model  = new tour();
         $model->judul = $request->judul;
         $model->alamat = $request->alamat;
         $model->isi = $request->isi;
         $model->cover=$cover;
-        $model->gambar = json_encode($files);
+        $model->gambar = $gambar;
         $model->user_id = Auth::user()->id;
         $model->save();
-        $this->validate(
-            $request,
-            [
-                'cover'     => 'required|image|mimes:png,jpeg,jpg,webp|max:2048',
-                'judul'     => 'required',
-                'gambar'    => 'required',
-                'gambar'    => 'max:3|min:3'
-            ]
-        );
         alert()->success('Sukses','Pariwisata berhasil di tambahakan');
         return redirect('pariwisata')->with('success', 'Images uploaded successfully.');
     }
@@ -64,44 +71,48 @@ class PariwisataController extends Controller
     {
 
         $data = tour::findOrfail($id);
+        $request->validate(
+            [
+                'cover'     => 'nullable|image|mimes:png,jpeg,jpg,webp|max:2048',
+                'judul'     => 'required',
+                'gambar'    => 'nullable|image|mimes:png,jpeg,jpg,webp|max:2048',
+                'alamat'=>'required',
+                'isi'=>'required',
+
+            ],[
+                'cover.image'=>'File yang di upload harus berupa gambar',
+                'cover.mimes'=>'File yang di upload harus berekstensi JPG, JPEG, PNG',
+                'cover.max'=>'File yang di upload tidak lebih dari 2 MB',
+                'judul.required'=>'Judul tidak boleh kosong',
+                'gambar.image'=>'File yang di upload harus berupa gambar',
+                'gambar.mimes'=>'File yang di upload harus berekstensi JPG, JPEG, PNG',
+                'gambar.max'=>'File yang di upload tidak lebih dari 2 MB',
+                'alamat.required'=>'Alamat tidak boleh kosong',
+                'isi.required'=>'Isi Pariwisata tidak boleh kosong',
+            ]
+        );
         $data->update([
 
             "judul" => $request->judul,
-            "subjudul" => $request->alamat,
+            "alamat"=>$request->alamat,
             "isi" => $request->isi,
-            "koordinat" => $request->koordinat,
 
         ]);
 
-        if($request->hasFile('cover')){
+        if ($request->hasFile('cover')) {
+            Storage::delete('public/'.$data->cover);
             $cover = Storage::disk('public')->put('coverpariwisata', $request->file('cover'));
             $data->update([
-                'cover'=>$cover,
+                'cover' => $cover,
             ]);
         }
-
-
-        if ($request->hasfile('gambar')) {
-            $keyarray1 =  array_keys($request->gambar);
-            $gambar = [];
-            // $hasil = array_combine($tes,$foto);
-            $i = 0;
-            foreach ($request->gambar as $file) {
-                $name = $file->getClientOriginalName();
-                $file->move(public_path('/public/imgpariwisata/'), $name);
-                $gambar[$keyarray1[$i]] = $name;
-                $i++;
-            }
-            $fotoin = json_decode($data->gambar);
-            // dd($foto);
-            foreach ($keyarray1 as $key) {
-                $fotoin[$key] = $gambar[$key];
-            }
-            $data->gambar = $fotoin;
-            $data->save();
+        if ($request->hasFile('gambar')) {
+            Storage::delete('public/'.$data->gambar);
+            $gambar = Storage::disk('public')->put('imgpariwisata', $request->file('gambar'));
+            $data->update([
+                'gambar' => $gambar,
+            ]);
         }
-
-
         $data->update();
         alert()->success('Sukses','Pariwisata berhasil di edit');
         return redirect('pariwisata')->with('success', 'Images Update Successfully');
@@ -109,6 +120,10 @@ class PariwisataController extends Controller
     public function deletepariwisata($id)
     {
         $data = tour::find($id);
+        $gambar = $data->gambar;
+        Storage::delete('public/' . $gambar);
+        $cover = $data->cover;
+        Storage::delete('public/' . $cover);
         $data->delete();
         return redirect('pariwisata');
     }

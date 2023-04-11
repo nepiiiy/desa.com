@@ -235,7 +235,11 @@
                                         <input type="hidden" value="{{$data_user->id}}" name="id" >
                                         <button style="margin-left: 9%;font-weight: 550; font-size: 13px; font-family: 'Open Sans', sans-serif; color: #585656;" type="submit"><div style="background-color:#fff">Penghargaan</div></button>
                                     </form></li>
-                                    <li><a href="{{ route('galeridesa') }}">Galeri</a></li>
+                                    <li><form action="{{Route('kegaleri')}}" method="get">
+                                        @csrf
+                                        <input type="hidden" value="{{$data_user->id}}" name="id" >
+                                        <button style="margin-left: 9%;font-weight: 550; font-size: 13px; font-family: 'Open Sans', sans-serif; color: #585656;" type="submit"><div style="background-color:#fff">Galeri</div></button>
+                                    </form></li>
                                 </ul>
                             </li>
                             </ul>

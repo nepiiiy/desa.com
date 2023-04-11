@@ -32,29 +32,32 @@
                         <h5 class="card-title">Edit Galeri</h5>
 
                         <!-- Vertical Form -->
-                        <form class="row g-3" action ="/tampilgaleri/{{ $data -> id }}" method="POST" enctype="multipart/form-data">
+                        <form class="row g-3" action="/tampilgaleri/{{ $data->id }}" method="POST"
+                            enctype="multipart/form-data">
                             @csrf
                             <div class="col-12">
                                 <label for="inputNanme4" class="form-label fw-bold">Judul</label>
-                                <input type="text" class="form-control" id="nama" name="judul" value="{{ $data->judul}}">
+                                <input type="text" class="form-control" id="nama" name="judul"
+                                    value="{{ $data->judul }}">
                             </div>
                             <div class="col-12 mb-2">
                                 <label for="inputEmail4" class="form-label fw-bold">Tanggal</label>
-                                <input type="date" class="form-control" id="tanggal" name="tanggal" value="{{$data->tanggal}}">
+                                <input type="date" class="form-control" id="tanggal" name="tanggal"
+                                    value="{{ $data->tanggal }}">
                             </div>
 
                             <label for="defaultFormControlInput" class="form-label mb-3 fw-bold">Gambar</label>
                             <div class="mb-3 row">
                                 <?php $key = 0; ?>
                                 @foreach (json_decode($data->gambar) as $gambar)
-                                <div class="col-4">
-                                    <img src="{{ asset('storage/galeri'.$gambar) }}" alt="" width="200px"
-                                        height="200px" class="my-3">
-                                    <input type="file" name="gambar[{{ $key++ }}]" class="form-control w-75"
-                                        id="defaultFormControlInput" aria-describedby="defaultFormControlHelp"
-                                        value="{{ $data->judul }}"/>
-                                </div>
-                            @endforeach
+                                    <div class="col-4">
+                                        <img src="{{ asset('storage/imggaleri/' . $gambar) }}" alt="" width="200px"
+                                            height="200px" class="my-3">
+                                        <input type="file" name="gambar[{{ $key++ }}]" class="form-control w-75"
+                                            id="defaultFormControlInput" aria-describedby="defaultFormControlHelp"
+                                            value="{{ $data->judul }}" />
+                                    </div>
+                                @endforeach
                             </div>
                             <div class="col-12">
                                 <label for="inputNanme4" class="form-label fw-bold fw-bold">Cover</label><br><br>

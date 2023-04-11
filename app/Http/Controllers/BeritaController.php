@@ -33,28 +33,26 @@ class BeritaController extends Controller
                 'subjudul'  => 'required',
                 'tanggal' => 'required',
                 'isi' => 'required',
-                'cover' => 'required',
-                'gambar' => 'required|min:3|max:3',
+                'cover' => 'required|image|mimes:png,jpg,jpeg|max:2048',
+                'gambar' => 'required|image|mimes:png,jpg,jpeg|max:2048',
             ],[
                 'judul.required'=>'Judul harus di isi',
                 'subjudul.required'=>'Subjudul harus di isi',
                 'tanggal.required'=>'Tanggal harus di isi',
-                'isi.required' => 'Masukkan isi berita',
-                'cover.required'=>'Cover harus diisi',
-                'gambar.required'=>'Gambar harus diisi',
-                'gambar.max'=>'Gambar yang diperbolehkan hanya 3',
-                'gambar.min'=>'Gambar yang diperbolehkan hanya 3',
+                'isi.required' => 'Isi berita tidak boleh kosong',
+                'cover.required'=>'Cover harus di isi',
+                'cover.image'=>'File yang di inputkan harus berupa gambar',
+                'cover.mimes'=>'File yang di inputkan harus berekstensi JPG, JPEG, PNG',
+                'cover.max'=>'File yang di inputkan tidak lebih dari 2 MB',
+                'gambar.required'=>'Gambar harus di isi',
+                'gambar.image'=>'File yang di inputkan harus berupa gambar',
+                'gambar.mimes'=>'File yang di inputkan harus berekstensi JPG, JPEG, PNG',
+                'gambar.max'=>'File yang di inputkan tidak lebih dari 2 MB',
             ]
         );
-        $files = [];
+        $gambar = Storage::disk('public')->put('imgberita', $request->file('gambar'));
         $cover = Storage::disk('public')->put('coverberita', $request->file('cover'));
-        if ($request->hasfile('gambar')) {
-            foreach ($request->gambar as $file) {
-                $name = Str::random(10) . '.' . $file->getClientOriginalExtension();
-                $file->storeAs('public/imgberita/', $name);
-                $files[] = $name;
-            }
-        }
+
         // $fotoside = implode(',',$files);
         $model  = new desa_new();
         $model->judul = $request->judul;
@@ -62,7 +60,7 @@ class BeritaController extends Controller
         $model->tanggal = $request->tanggal;
         $model->isi = $request->isi;
         $model->cover = $cover;
-        $model->gambar = json_encode($files);
+        $model->gambar = $gambar;
         $model->user_id = Auth::user()->id;
         $model->save();
         alert()->success('Sukses','Berita berhasil di tambahakan');
@@ -80,6 +78,27 @@ class BeritaController extends Controller
     {
 
         $data = desa_new::findOrfail($id);
+        $request->validate(
+            [
+                'judul'     => 'required',
+                'subjudul'  => 'required',
+                'tanggal' => 'required',
+                'isi' => 'required',
+                'cover' => 'nullable|image|mimes:png,jpg,jpeg|max:2048',
+                'gambar' => 'nullable|image|mimes:png,jpg,jpeg|max:2048',
+            ],[
+                'judul.required'=>'Judul harus di isi',
+                'subjudul.required'=>'Subjudul harus di isi',
+                'tanggal.required'=>'Tanggal harus di isi',
+                'isi.required' => 'Masukkan isi berita',
+                'cover.image'=>'File yang di inputkan harus berupa gambar',
+                'cover.mimes'=>'File yang di inputkan harus berekstensi JPG, JPEG, PNG',
+                'cover.max'=>'File yang di inputkan tidak lebih dari 2 MB',
+                'gambar.image'=>'File yang di inputkan harus berupa gambar',
+                'gambar.mimes'=>'File yang di inputkan harus berekstensi JPG, JPEG, PNG',
+                'gambar.max'=>'File yang di inputkan tidak lebih dari 2 MB',
+            ]
+        );
         $data->update([
 
             "judul" => $request->judul,
@@ -90,44 +109,19 @@ class BeritaController extends Controller
         ]);
 
         if($request->hasFile('cover')){
+            Storage::delete('public/'.$data->cover);
             $cover = Storage::disk('public')->put('coverberita', $request->file('cover'));
             $data->update([
                 'cover'=>$cover,
             ]);
         }
 
-        elseif (is_object($data) && property_exists($data, 'gambar')) {
-            foreach ($data->gambar as $datas) {
-                $gambar = $datas;
-                Storage::delete('public/imgberita/' . $gambar);
-            }
-        }
-
-
-
-        elseif ($request->hasfile('gambar')) {
-            $keyarray1 =  array_keys($request->gambar);
-            $gambar = [];
-
-            $i = 0;
-
-            foreach ($request->gambar as $file) {
-
-                $name = Str::random(10) . '.' . $file->getClientOriginalExtension();
-                $file->storeAs('public/imgberita/', $name);
-                $gambar[$keyarray1[$i]] = $name;
-                $i++;
-            }
-
-
-            $fotoin = json_decode($data->gambar);
-           // dd($gambar);
-            foreach ($keyarray1 as $key) {
-                $fotoin[$key] = $gambar[$key];
-            }
-
-            $data->gambar = $fotoin;
-            $data->save();
+        if($request->hasFile('gambar')){
+            Storage::delete('public/'.$data->gambar);
+            $gambar = Storage::disk('public')->put('imgberita', $request->file('gambar'));
+            $data->update([
+                'gambar'=>$gambar,
+            ]);
         }
         $data->update();
         alert()->success('Sukses','Galeri berhasil di edit');

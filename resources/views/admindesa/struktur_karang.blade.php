@@ -23,9 +23,10 @@
                         <div class="card-body">
                             <h5 class="card-title">Struktur Karang Taruna </h5>
                             <form class="form" method="get" action="{{ route('cari') }}">
-                                <button type="submit" class="button-79" style="margin-left: 95%; margin-bottom: 7px;">Cari</button>
-                                    <input type="text" class="form-control mb-3" name="cari" id="search"
-                                        placeholder="Cari&hellip;">
+                                <button type="submit" class="button-79"
+                                    style="margin-left: 95%; margin-bottom: 7px;">Cari</button>
+                                <input type="text" class="form-control mb-3" name="cari" id="search"
+                                    placeholder="Cari&hellip;">
                             </form>
 
                             <td><a href="/tambahanggota"><button class="button-79 ms-0 mb-3" role="button">Tambah
@@ -101,7 +102,7 @@
                     dangerMode: true,
                 })
 
-                
+
                 .then((willDelete) => {
                     if (willDelete) {
                         window.location = "/deletekt/" + ktid + ""
