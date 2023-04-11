@@ -160,6 +160,7 @@ Route::post('/mauk',[LoginController::class,'store'])->name('mauk');
 Route::post('/destroy',[LoginController::class,'destroy'])->name('destroy');
 Route::get('/daftar',[RegisterController::class,'create'])->name('daftar');
 Route::post('/create',[RegisterController::class,'simpan'])->name('create');
+Route::get('/peta',[RegisterController::class,'peta'])->name('peta');
 
 
 

@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Models\public_facility;
 use Illuminate\Http\Request;
+use App\Models\public_facility;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class SaranaUmumController extends Controller
 {
     public function sarana()
     {
-        $data=public_facility::first();
+        $data=public_facility::where('user_id',Auth::user()->id)->first();
         return view('admindesa.sarana_umum', compact('data'));
     }
     public function updatesarana(Request $request, $id)
@@ -27,7 +28,6 @@ class SaranaUmumController extends Controller
             'sma' => 'required',
             'rumah' => 'required',
             'puskesmas' => 'required',
-            'kesehatan' => 'required',
             'kesehatan' => 'required',
             'kb' => 'required',
             'dokter' => 'required',
