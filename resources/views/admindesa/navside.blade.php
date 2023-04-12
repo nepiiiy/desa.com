@@ -199,6 +199,8 @@
 
     <!-- Template Main CSS File -->
     <link href="{{asset('assets/css/style.css')}}" rel="stylesheet" />
+      {{-- Maps leaflet --}}
+      @yield('maps')
 
     <!-- =======================================================
   * Template Name: NiceAdmin - v2.5.0

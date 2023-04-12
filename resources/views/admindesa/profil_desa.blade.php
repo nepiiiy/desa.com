@@ -1,6 +1,22 @@
 @extends('admindesa.navside')
+@section('maps')
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+@endsection
 @section('isi')
+
 @include('sweetalert::alert')
+<style>
+    #map {
+        height: 400px;
+
+        border: 0px solid #ffffff;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px 0px rgba(101, 95, 83, 0.5);
+    }
+</style>
     <main id="main" class="main">
 
         <div class="pagetitle">
@@ -92,13 +108,12 @@
                                                     <label for="inputNumber"
                                                         class="col-sm-2 col-form-label"><b>Maps</b></label>
                                                     <div class="d-flex">
-                                                        <iframe class="col-7 mx-auto"
-                                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.9521455536983!2d112.60469731437782!3d-7.900068680795382!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7881c2c4637501%3A0x10433eaf1fb2fb4c!2sHummasoft%20Technology!5e0!3m2!1sid!2sid!4v1676113690021!5m2!1sid!2sid"
-                                                            style="border:1px solid rgb(255, 255, 255); margin-left: 189px;height: 300px;"
-                                                            allowfullscreen="" loading="lazy"
-                                                            referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                                        <br>
-                                                    </div>
+                                                        <a href="#" onclick="window.open(googleMapsUrl, '_blank')"><button
+                                                            type="button" class="btn btn-primary btn-block mt-1">Klik di
+                                                            sini</button></a>
+                                                            <br>
+                                                        </div>
+                                                        <div id="map"></div>
                                                 </div>
                                             </div>
                                             <br>
@@ -126,6 +141,29 @@
         </section>
 
     </main><!-- End #main -->
+@endsection
+@section('script')
+    <script>
+        var map = L.map('map').setView([{{ $data->user->latitude }}, {{ $data->user->longtitude }}], 13);
+
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+        var marker = L.marker([{{ $data->user->latitude }}, {{ $data->user->longtitude }}]).addTo(map);
+        marker.bindPopup("<b>Desa " + "{{ $data->user->name }}</b>").openPopup();
+
+        var lat = {{ $data->user->latitude }};
+        var lng = {{ $data->user->longtitude }};
+        var googleMapsUrl = "https://www.google.com/maps?q=" + lat + "," + lng;
+
+        tekan.on('click', function(e) {
+            var lat = {{ $data->user->latitude }};
+            var lng = {{ $data->user->longtitude }};
+            var googleMapsUrl = "https://www.google.com/maps?q=" + lat + "," + lng;
+            window.open(googleMapsUrl, '_blank');
+        });
+    </script>
 @endsection
 @section('editor')
     <script src="{{ asset('assets/js/ckeditor/ckeditor.js') }}"></script>
