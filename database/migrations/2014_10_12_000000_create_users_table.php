@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
            
-            $table->string('name');
+            $table->string('name', 50);
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('role')->default('admindesa');
@@ -22,11 +22,9 @@ return new class extends Migration
             $table->string('password');
             $table->string("gambar");
             $table->string("logo");
-            $table->string("provinsi")->nullable();
-            $table->string("kabupaten")->nullable();
-            $table->string("kecamatan")->nullable();
+            $table->string("longtitude");
+            $table->string("latitude");
             $table->string("kode_pos");
-            $table->string("koordinat");
             $table->text('komen')->nullable();
             $table->rememberToken();
             $table->timestamps();

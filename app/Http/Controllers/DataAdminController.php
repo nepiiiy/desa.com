@@ -25,11 +25,12 @@ class DataAdminController extends Controller
 {  
     public function DataAdmin()
     {
-          $pending = User::where('status', 'pending')->paginate(4);
-        $pending1 = User::where('status', 'aktif')->paginate(4);
-        
-        return view ('webadmin.data_admin',['data'=>$pending,'data2'=>$pending1 ]);
+        $data = User::where('status', 'pending')->with('provinsi','kabupaten','kecamatan')->paginate(4);
 
+
+        $data2 = User::where('status', 'aktif')->with('provinsi','kabupaten','kecamatan')->paginate(4);
+
+        return view('webadmin.data_admin',compact('data', 'data2'));
 
     }
 

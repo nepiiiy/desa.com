@@ -21,7 +21,28 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap" rel="stylesheet">
 	<!-- Custom CSS -->
 	<link rel="stylesheet" href="log/style.css">
+
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+	integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+	crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin="">
+	</script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.css" />
+    <script src="https://unpkg.com/leaflet-geosearch@3.1.0/dist/geosearch.umd.js"></script>
 </head>
+
+<style>
+	#leafletMap-registration {
+		height: 430px;
+		width: 500px;
+	
+		border-radius: 10px;
+		box-shadow: 0px 0px 10px 0px rgba(101, 95, 83, 0.5);
+		/* The height is 400 pixels */
+	}
+	</style>
 
 <body>
 	<!--[if lt IE 8]>
@@ -43,21 +64,20 @@
 					<div class="fxt-content">
 						<div class="fxt-header">
                         <center><img src="https://i.postimg.cc/XvrB6m2Z/logo-desa1-removebg-preview.png" alt="" style="width: 50%;margin-top:-15%"></center>
+						<div style="margin-bottom: 20px" id="leafletMap-registration"></div>
 						</div>
 							
-							<form href="" method="post" enctype="multipart/form-data">
+						<form action="/kekoordinat" method="post" enctype="multipart/form-data" >
                             @csrf
                          
-
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.9521455537033!2d112.60469731415559!3d-7.900068680794848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7881c2c4637501%3A0x10433eaf1fb2fb4c!2sHummasoft%20Technology!5e0!3m2!1sid!2sid!4v1681183221299!5m2!1sid!2sid" style="margin-left:-30%" width="160%" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>								
 
     <div class="form-group">
 	<div class="row" style="width:160%; margin-left:-30%" >							
     <div class="col-md-6 col-12">
-										<input type="password" name="password" class="form-control" style="text-indent:1em" placeholder="Koordinat 1" Disabled>
+		<input type="text"  name="longtitude" id="longtitude" placeholder="longtitude">
 									</div>
                                     <div class="col-md-6 col-12">
-										<input type="password" name="password" class="form-control" style="text-indent:1em" placeholder="Koordinat 2" Disabled>
+										<input type="text"  name="latitude" id="latitude" placeholder="latitude">
 		
 									</div>
 								</div>
@@ -90,6 +110,59 @@
 	<script src="log/js/main.js"></script>
 
 </body>
+<script>
+    // you want to get it of the window global
+    const providerOSM = new GeoSearch.OpenStreetMapProvider();
+
+    //leaflet map
+    var leafletMap = L.map('leafletMap-registration', {
+    fullscreenControl: true,
+    // OR
+    fullscreenControl: {
+        pseudoFullscreen: false // if true, fullscreen to page width and height
+    },
+    minZoom: 5
+    }).setView([-7.9786395, 112.5617421], 2);
+
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(leafletMap);
+    
+    let theMarker = {};
+
+    leafletMap.on('click',function(e) {
+        let latitude  = e.latlng.lat.toString().substring(0,15);
+        let longitude = e.latlng.lng.toString().substring(0,15);
+        // document.getElementById("latitude").value = latitude;
+        // document.getElementById("longitude").value = longitude;
+        let popup = L.popup()
+            .setLatLng([latitude,longitude])
+            .setContent("Kordinat : " + latitude +" - "+  longitude )
+            .openOn(leafletMap);
+
+        if (theMarker != undefined) {
+            leafletMap.removeLayer(theMarker)
+        }
+        
+        theMarker = L.marker([latitude,longitude]).addTo(leafletMap);  
+
+        document.querySelector("#longtitude").value = longitude;
+        document.querySelector("#latitude").value = latitude;
+    });
+
+    
+    var search = new GeoSearch.GeoSearchControl({
+        provider: providerOSM,
+        style: 'bar',
+        showMarker: false,
+        autoClose: true,
+        retainZoomLevel: false,
+        searchLabel: 'Cari....',
+    });leafletMap.addControl(search);
+    
+
+
+</script>
 
 
 <!-- Mirrored from affixtheme.com/html/xmee/demo/register-15.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 10 Apr 2023 03:38:05 GMT -->

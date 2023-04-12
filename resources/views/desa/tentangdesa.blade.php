@@ -1,6 +1,20 @@
 @extends('desa.nav')
-
+@section('maps')
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+@endsection
 @section('isi')
+    <style>
+        #map {
+            height: 400px;
+
+            border: 0px solid #ffffff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(101, 95, 83, 0.5);
+        }
+    </style>
     {{-- @foreach ($data_user as $data_u) --}}
     <div class="main-content">
         @foreach ($profil as $data)
@@ -18,7 +32,7 @@
                                         {{-- <form action="{{Route('dashwebinput')}}" method="get">
                                 @csrf
                                 <input type="hidden" value="{{$data_u->id}}" name="id" > --}}
-                                        <li><a href="/dashweb/{{ $data_user[0]->id }}">Beranda</a></li>
+                                        <li><a href="">Beranda</a></li>
                                         {{-- </form> --}}
                                         <li><a href="#">Profil Desa</a></li>
                                         <li class="active" style="color: #fca311;">Tentang Desa</li>
@@ -61,19 +75,19 @@
 
                                                 <h3 style="text-align: left; margin-left: 50px;">A. Biodata Desa</h3>
                                                 <p
-                                                    style="text-align: justify; margin-left: 83px; text-indent: 3em; font-size: 15px;">
+                                                    style="text-align: justify; margin-left: 83px; text-indent: 3em; font-size: 17px;">
                                                     {{ $data_u->name }} adalah salah satu desa di Kecamatan
-                                                    {{ $data_u->kecamatan }}, Kabupaten {{ $data_u->kabupaten }}, Provinsi
-                                                    {{ $data_u->provinsi }},
+                                                    {{ $data_u->kecamatan->name }}, Kabupaten {{ $data_u->kabupaten->name }}, Provinsi
+                                                    {{ $data_u->provinsi->name }},
                                                     Indonesia.</p>
                                             </div>
                                             @endforeach
                                         </div>
                                         <div class="card-body">
-                                            <div class="mb-0 content-color-secondary" style="text-align: justify; margin-left:83px;text-indent: 3em;">
-                                                <h3 style="text-align: left; text-indent:0em; margin-left:-33px;">B. Sejarah Desa</h3>
+                                            <div class="mb-0 content-color-secondary">
+                                                <h3 style="text-align: left; margin-left: 50px;">B. Sejarah Desa</h3>
                                                 <p
-                                                style="text-align: justify; margin-left: 83px; text-indent: 3em; font-size: 17px;">
+                                                    style="text-align: justify; margin-left: 83px; text-indent: 3em; font-size: 17px;">
                                                     {!! $data->sejarah !!}</p>
                                             </div>
                                         </div>
@@ -122,11 +136,10 @@
                                         </div>
                                     </div>
                                     <div class="card-body">
-                                        <iframe
-                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31668.027706724726!2d109.35274030377245!3d-7.183246168073183!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6feffdb0412969%3A0x5027a76e3564d90!2sKuta%2C%20Kec.%20Belik%2C%20Kabupaten%20Pemalang%2C%20Jawa%20Tengah!5e0!3m2!1sid!2sid!4v1676349979848!5m2!1sid!2sid"
-                                            width="600" height="450" style="border:0;" allowfullscreen=""
-                                            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></style>
-                                        <button class="btn btn-primary btn-block mt-1">Buka Peta</button>
+                                        <div id="map"></div>
+                                        <a href="#" onclick="window.open(googleMapsUrl, '_blank')">
+                                            <button type="button" class="btn btn-primary btn-block mt-1">Klik di
+                                                sini</button></a>
                                         </a>
                                     </div>
                                 </div>
@@ -171,8 +184,34 @@
                         });
                     </script>
                     @endforeach
-                </body>
-            </section>
-        </div>
-    </body>
+                @section('script')
+                    @foreach ($profil as $item)
+                        <script>
+                            var map = L.map('map').setView([{{ $item->user->latitude }}, {{ $item->user->longtitude }}], 13);
+
+                            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                maxZoom: 19,
+                                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                            }).addTo(map);
+                            var marker = L.marker([{{ $item->user->latitude }}, {{ $item->user->longtitude }}]).addTo(map);
+                            marker.bindPopup("<b>Desa " + "{{ $item->user->name }}</b>").openPopup();
+                            var lat = {{ $item->user->latitude }};
+                            var lng = {{ $item->user->longtitude }};
+
+
+                            var googleMapsUrl = "https://www.google.com/maps?q=" + lat + "," + lng;
+
+                            tekan.on('click', function(e) {
+                                var lat = {{ $item->user->latitude }};
+                                var lng = {{ $item->user->longtitude }};
+                                var googleMapsUrl = "https://www.google.com/maps?q=" + lat + "," + lng;
+                                window.open(googleMapsUrl, '_blank');
+                            });
+                        </script>
+                    @endforeach
+                @endsection
+            </body>
+        </section>
+    </div>
+</body>
 @endsection

@@ -47,6 +47,7 @@
 
     <!-- CSS | Theme Color -->
     <link href="{{asset('css/colors/theme-skin-orange.css')}}" rel="stylesheet" type="text/css">
+    @yield('maps')
 
     <!-- external javascripts -->
     <script src="{{asset('js/jquery-2.2.4.min.js')}}"></script>
@@ -260,7 +261,7 @@
         </header>
 
     @yield('isi')
-
+    
     <footer  id="footer" class="footer divider">
         <div  class="footer-top layer-overlay overlay-dark-8">
             <div class="container pt-60 pb-30">
@@ -335,7 +336,7 @@
 <script type="text/javascript" src="{{asset('js/revolution-slider/js/extensions/revolution.extension.parallax.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/revolution-slider/js/extensions/revolution.extension.slideanims.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/revolution-slider/js/extensions/revolution.extension.video.min.js')}}"></script>
-
+@yield('script')
 </body>
 
 <!-- Mirrored from kodesolution.com/html/2017/helpingpro-html/demo/index-mp-layout2.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 08 Feb 2023 08:58:55 GMT -->

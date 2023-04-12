@@ -164,9 +164,9 @@
           <tr>
             <td onclick="" style=" border: 1px solid black;"><center>{{$loop->iteration}}</center></td>
             <td style=" border: 1px solid black;"><center>{{$item->name}}</center></td>
-                  <td style=" border: 1px solid black;"><center>{{$item->provinsi}}</center></td>                       
-                  <td style=" border: 1px solid black;"><center>{{$item->kabupaten}}</center></td>                       
-                  <td style=" border: 1px solid black;"><center>{{$item->kecamatan}}</center></td>                       
+                  <td style=" border: 1px solid black;"><center>{{$item->provinsi->name}}</center></td>                       
+                  <td style=" border: 1px solid black;"><center>{{$item->kabupaten->name}}</center></td>                       
+                  <td style=" border: 1px solid black;"><center>{{$item->kecamatan->name}}</center></td>                       
                   <td style=" border: 1px solid black;"><center>{{$item->kode_pos}}</center></td>                       
                     
                   <!-- <td><img style="margin-left:8px ;" class=""  src="{{ asset('storage/' . $item->logo) }}" width="120px" height="120px" alt=""></td>    -->
@@ -255,9 +255,9 @@
           <tr >
           <td onclick=""  style=" border: 1px solid black;"><center>{{$loop->iteration}}</center></td>
           <td style=" border: 1px solid black;"><center>{{$item->name}}</center></td>
-                <td style=" border: 1px solid black;"><center>{{$item->provinsi}}</center></td>
-                <td style=" border: 1px solid black;"><center>{{$item->kabupaten}}</center></td>
-                <td style=" border: 1px solid black;"><center>{{$item->kecamatan}}</center></td>
+                <td style=" border: 1px solid black;"><center>{{$item->provinsi->name}}</center></td>
+                <td style=" border: 1px solid black;"><center>{{$item->kabupaten->name}}</center></td>
+                <td style=" border: 1px solid black;"><center>{{$item->kecamatan->name}}</center></td>
                 <td style=" border: 1px solid black;"><center>{{$item->kode_pos}}</center></td>
                 
                 <td style=" border: 1px solid black;">

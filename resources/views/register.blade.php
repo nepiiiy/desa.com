@@ -21,6 +21,11 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap" rel="stylesheet">
 	<!-- Custom CSS -->
 	<link rel="stylesheet" href="log/style.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    {{-- <meta name="csrf-token" content="{{csrf_token()}}"/> --}}
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 	<style>
 		form input+i{
   position:absolute;
@@ -120,12 +125,12 @@
 								<br>
 								<div class="form-group">
 									<div class="fxt-transformY-50 fxt-transition-delay-2">
-									<select style="text-indent:2em; color:#777;" class="form-control @error('provinsi') is-invalid @enderror" name="cars" id="cars">
-										<option value="volvo" >Provinsi</option>
-										<option value="saab">Saab</option>
-										<option value="opel">Opel</option>
-										<option value="audi">Audi</option>
-									</select>
+                                        <select class="form-control" name="province_id" id="provinsi">
+                                            <option value="">Pilih Provinsi...</option>
+                                            @foreach ($provinsi as $item)
+                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                            @endforeach
+                                        </select>
 									<svg style=" position:absolute;
   left:3%;
   top:9px;
@@ -144,12 +149,9 @@
 								<br>
 								<div class="form-group">
 									<div class="fxt-transformY-50 fxt-transition-delay-2">
-                                    <select style="text-indent:2em; color:#777;" class="form-control @error('provinsi') is-invalid @enderror" name="cars" id="cars">
-										<option value="volvo" >Kabupaten</option>
-										<option value="saab">Saab</option>
-										<option value="opel">Opel</option>
-										<option value="audi">Audi</option>
-									</select>
+                                        <select class="form-control" name="regency_id" id="kabupaten">
+                                          
+                                        </select>
 									
 									<svg style=" position:absolute;
   left:3%;
@@ -168,12 +170,9 @@
 								</div>
 								<br><div class="form-group">
 									<div class="fxt-transformY-50 fxt-transition-delay-2">
-									<select style="text-indent:2em; color:#777;" class="form-control @error('provinsi') is-invalid @enderror" name="cars" id="cars">
-										<option value="volvo" >Kecamatan</option>
-										<option value="saab">Saab</option>
-										<option value="opel">Opel</option>
-										<option value="audi">Audi</option>
-									</select>
+                                        <select class="form-control" name="district_id" id="kecamatan">
+                                          
+                                        </select>
 									<svg style=" position:absolute;
   left:3%;
   top:9px;
@@ -208,18 +207,7 @@
 								<br>
 
 							
-							<div class="form-group">
-									<div class="fxt-transformY-50 fxt-transition-delay-2">
-									<input type="text" style="text-indent:2em" value="{{ old('koordinat') }}" class="form-control @error('koordinat') is-invalid @enderror" name="koordinat" placeholder="Titik Koordinat">
-									<svg style=" position:absolute;
-  left:3%;
-  top:9px;
-  color:#777;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pin-map" viewBox="0 0 16 16">
-  <path fill-rule="evenodd" d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8l3-4z"/>
-  <path fill-rule="evenodd" d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"/>
-</svg>	
-								</div>
-								</div>
+						
 								<br>
 
 								
@@ -236,11 +224,15 @@
                                         <input type="file" class="" style="" name="logo" >
                                     </div>
                                 </div>
+                            
+                                <input type="hidden" name="longtitude" value="{{ request()->query('latitude') }}">
+                                <input type="hidden" name="latitude" value=" {{ request()->query('longtitude') }}`">
                                 
                            
 							
 								<div class="form-group">
 									<div class="fxt-transformY-50 fxt-transition-delay-3">
+                                        <a href="/peta">back</a>
 										<button id="submit" type="submit" class="fxt-btn-fill" style="background-color:#0375b4; margin-left:66%; font-size:95%">Daftar</button>
 									</div>
 								</div>
@@ -264,6 +256,62 @@
 	<script src="log/js/main.js"></script>
 
 </body>
+<script>
+    $(function() {
+
+        $.ajaxSetup({
+
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+
+        });
+
+
+        $('#provinsi').on('change', function() {
+            let id_provinsi = $('#provinsi').val();
+            $.ajax({
+                type: 'POST',
+                url: "{{ route('getkabupaten') }}",
+                cache: false,
+                data: {
+                    id_provinsi: id_provinsi
+                },
+                success: function(msg) {
+                    $('#kabupaten').html(msg);
+                    $('#kecamatan').html('');
+                   
+                },
+                error: function(data) {
+                    console.log('error:', data)
+                },
+            })
+        })
+
+        $('#kabupaten').on('change', function() {
+            let id_kabupaten = $('#kabupaten').val();
+            $.ajax({
+                type: 'POST',
+                url: "{{ route('getkecamatan') }}",
+                cache: false,
+                data: {
+                    id_kabupaten: id_kabupaten
+                },
+                success: function(msg) {
+                    $('#kecamatan').html(msg);
+                   
+                },
+                error: function(data) {
+                    console.log('error:', data)
+                },
+            })
+        })
+
+
+
+
+    });
+</script>
 
 
 <!-- Mirrored from affixtheme.com/html/xmee/demo/register-15.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 10 Apr 2023 03:38:05 GMT -->

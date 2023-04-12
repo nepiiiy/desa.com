@@ -77,7 +77,7 @@ Route::get('/tampiltentang/{id}',[TentangDesaController::class,'tampiltentang'])
 //struktur desa
 Route::get('/kestdesa',[LembagaDesaController::class,'kestdesa'])->name('kestdesa');
 Route::get('/stdesa/{id}',[LembagaDesaController::class,'stdesa'])->name('stdesa'); 
-
+    
 //karang taruna
 Route::get('/kesttaruna',[KarangTarunaDesaController::class,'kesttaruna'])->name('kesttaruna');
 Route::get('/sttaruna/{id}',[KarangTarunaDesaController::class,'sttaruna'])->name('sttaruna'); 
@@ -158,9 +158,15 @@ Route::get('/galeridesa2',[GaleriDesaController::class,'galeridesa2'])->name('ga
 Route::get('/masuk',[LoginController::class,'login'])->name('masuk');
 Route::post('/mauk',[LoginController::class,'store'])->name('mauk');
 Route::post('/destroy',[LoginController::class,'destroy'])->name('destroy');
+Route::post('/kekoordinat', [RegisterController::class, 'kekoordinat'])->name('kekoordinat');
 Route::get('/daftar',[RegisterController::class,'create'])->name('daftar');
+Route::post('/daftar',[RegisterController::class,'create'])->name('daftar');
 Route::post('/create',[RegisterController::class,'simpan'])->name('create');
 Route::get('/peta',[RegisterController::class,'peta'])->name('peta');
+
+Route::post('/getkabupaten', [RegisterController::class, 'getkabupaten'])->name('getkabupaten');
+Route::post('/getkecamatan', [RegisterController::class, 'getkecamatan'])->name('getkecamatan');
+
 
 
 

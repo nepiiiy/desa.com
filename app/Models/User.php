@@ -24,4 +24,19 @@ class User extends Authenticatable
         return $this->belongsTo(desa_profile::class);
     }
 
+    public function kecamatan()
+    {
+        return $this->belongsTo(District::class, 'district_id');
+    }
+
+    public function kabupaten()
+    {
+        return $this->belongsTo(Regency::class, 'regency_id');
+    }
+
+    public function provinsi()
+    {
+        return $this->belongsTo(Province::class, 'province_id');
+    }
+
 }
