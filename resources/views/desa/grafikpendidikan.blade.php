@@ -2,58 +2,59 @@
 
 @section('isi')
 
-    <head>
+<head>
+    <style>
+        #chartdiv {
+            width: 200%;
+            height: 750px;
+            font-size: 11px;
+        }
+    </style>
 
-        <style>
-            #chartdiv {
-                width: 100%;
-                height: 500px;
-                font-size: 11px;
-            }
-        </style>
-        <style>
-            .content-table {
-                border-collapse: collapse;
-                margin: 25px 0;
-                font-size: 0.9em;
-                min-width: 400px;
-                border-radius: 5px 5px 0 0;
-                overflow: hidden;
-                box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-            }
+    <style>
+        .content-table {
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.9em;
+            min-width: 100%;
+            border-radius: 5px 5px 0 0;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        }
 
-            .content-table thead tr {
-                background-color: #F26522;
-                color: #ffffff;
-                text-align: left;
-                font-weight: bold;
-            }
+        .content-table thead tr {
+            background-color: #F26522;
+            color: #ffffff;
+            text-align: left;
+            font-weight: bold;
+        }
 
-            .content-table th,
-            .content-table td {
-                padding: 12px 15px;
-            }
+        .content-table th,
+        .content-table td {
+            padding: 12px 15px;
+        }
 
-            .content-table tbody tr {
-                border-bottom: 1px solid #dddddd;
-            }
+        .content-table tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
 
-            .content-table tbody tr:nth-of-type(even) {
-                background-color: #f3f3f3;
-            }
+        .content-table tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
 
-            .content-table tbody tr:last-of-type {
-                border-bottom: 2px solid #F26522;
-                ;
-            }
+        .content-table tbody tr:last-of-type {
+            border-bottom: 2px solid #F26522;
+            ;
+        }
 
-            .content-table tbody tr.active-row {
-                font-weight: bold;
-                color: #F26522;
-                ;
-            }
-        </style>
-    </head>
+        .content-table tbody tr.active-row {
+            font-weight: bold;
+            color: #F26522;
+            ;
+        }
+    </style>
+
+</head>
 
     <body class="">
 
@@ -74,7 +75,7 @@
         <script src="https://www.amcharts.com/lib/3/amcharts.js" style="color:#fff"></script>
         <script src="https://www.amcharts.com/lib/3/pie.js" style="color:#fff"></script>
         <script src="https://www.amcharts.com/lib/3/themes/light.js" style="color:#fff"></script>
-        <div id="chartdiv" style="margin-top: -100px;"></div>
+        <div id="chartdiv" style="margin-top: -100px;margin-left: -50%;"></div>
         <script>
             var chart = AmCharts.makeChart("chartdiv", {
                 "type": "pie",

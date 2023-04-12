@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Province;
 use App\Models\User;
 use App\Mail\kirimEmail;
 use App\Models\resident;

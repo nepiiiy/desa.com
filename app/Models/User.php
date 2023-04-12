@@ -7,6 +7,9 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Models\Province;
+use App\Models\Regency;
+use App\Models\District;
 
 class User extends Authenticatable
 {
@@ -38,5 +41,7 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Province::class, 'province_id');
     }
+
+    
 
 }

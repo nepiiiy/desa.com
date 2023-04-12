@@ -78,7 +78,7 @@
                 <script src="https://www.amcharts.com/lib/3/amcharts.js" style="color:#fff"></script>
                 <script src="https://www.amcharts.com/lib/3/pie.js" style="color:#fff"></script>
                 <script src="https://www.amcharts.com/lib/3/themes/light.js" style="color:#fff"></script>
-                <div id="chartdiv" style="margin-top: -100px;"></div>
+                <div id="chartdiv" style="margin-top: -100px; margin-left: -50%;"></div>
                 <script>
                     var chart = AmCharts.makeChart("chartdiv", {
                         "type": "pie",

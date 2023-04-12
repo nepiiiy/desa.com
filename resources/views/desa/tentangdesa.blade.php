@@ -1,9 +1,12 @@
 @extends('desa.nav')
 @section('maps')
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
-        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
-    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
-        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+crossorigin=""/>
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+ integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+ crossorigin=""></script>
 @endsection
 @section('isi')
     <style>
@@ -77,8 +80,8 @@
                                                 <p
                                                     style="text-align: justify; margin-left: 83px; text-indent: 3em; font-size: 17px;">
                                                     {{ $data_u->name }} adalah salah satu desa di Kecamatan
-                                                    {{ $data_u->kecamatan->name }}, Kabupaten {{ $data_u->kabupaten->name }}, Provinsi
-                                                    {{ $data_u->provinsi->name }},
+                                                    {{ $data_u->kecamatan }}, Kabupaten {{ $data_u->kabupaten }}, Provinsi
+                                                    {{ $data_u->provinsi }},
                                                     Indonesia.</p>
                                             </div>
                                             @endforeach
@@ -185,30 +188,14 @@
                     </script>
                     @endforeach
                 @section('script')
-                    @foreach ($profil as $item)
-                        <script>
-                            var map = L.map('map').setView([{{ $item->user->latitude }}, {{ $item->user->longtitude }}], 13);
-
-                            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                                maxZoom: 19,
-                                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-                            }).addTo(map);
-                            var marker = L.marker([{{ $item->user->latitude }}, {{ $item->user->longtitude }}]).addTo(map);
-                            marker.bindPopup("<b>Desa " + "{{ $item->user->name }}</b>").openPopup();
-                            var lat = {{ $item->user->latitude }};
-                            var lng = {{ $item->user->longtitude }};
-
-
-                            var googleMapsUrl = "https://www.google.com/maps?q=" + lat + "," + lng;
-
-                            tekan.on('click', function(e) {
-                                var lat = {{ $item->user->latitude }};
-                                var lng = {{ $item->user->longtitude }};
-                                var googleMapsUrl = "https://www.google.com/maps?q=" + lat + "," + lng;
-                                window.open(googleMapsUrl, '_blank');
-                            });
-                        </script>
-                    @endforeach
+                
+                <script>
+                    var map = L.map('map').setView([51.505, -0.09], 13);
+                    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    maxZoom: 19,
+                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+                </script>
                 @endsection
             </body>
         </section>

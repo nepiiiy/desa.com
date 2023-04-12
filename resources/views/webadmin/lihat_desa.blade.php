@@ -291,18 +291,18 @@
                 </div>
 
                 <div class="row" >
-                  <div class="col-lg-3 col-md-4 label">Propinsi</div>
-                  <div class="col-lg-9 col-md-8">: {{ $data->provinsi }}</div>
+                  <div class="col-lg-3 col-md-4 label">Provinsi</div>
+                  <div class="col-lg-9 col-md-8">: {{ $data->provinsi->name }}</div>
                 </div>
 
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label">Kabupaten</div>
-                  <div class="col-lg-9 col-md-8">: {{ $data->kabupaten }}</div>
+                  <div class="col-lg-9 col-md-8">: {{ $data->kabupaten->name }}</div>
                 </div>
 
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label">Kecamatan</div>
-                  <div class="col-lg-9 col-md-8">: {{ $data->kecamatan }}</div>
+                  <div class="col-lg-9 col-md-8">: {{ $data->kecamatan->name }}</div>
                 </div>
 
                 <div class="row">

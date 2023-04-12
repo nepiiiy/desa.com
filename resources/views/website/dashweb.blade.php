@@ -251,7 +251,7 @@
 
                                             @foreach ($diti as $item)
                                                 <option value="{{ $item->id }}">
-                                                    {{ $item->name }}, {{ $item->kecamatan }}, {{ $item->kabupaten }}, {{ $item->provinsi }}
+                                                    {{ $item->name }}, {{ $item->kecamatan->name }}, {{ $item->kabupaten->name }}, {{ $item->provinsi->name }}
                                                 </option>
                                             @endforeach
 

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\desa_profile;
-use Illuminate\Foundation\Auth\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -31,6 +31,7 @@ return view('desa.tentangdesa', compact('data'));
     public function tampiltentang($id)
     {
         $data_user = User::where('id',$id)->with('provinsi','kabupaten','kecamatan')->get();
+      
         $profile = desa_profile::where('user_id',$id)->get();
         
         return view('desa.tentangdesa',['data_user'=>$data_user,'profil'=>$profile]);
