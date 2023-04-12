@@ -40,6 +40,7 @@ use App\Http\Controllers\PenghargaanDesaController;
 use App\Http\Controllers\KarangTarunaDesaController;
 use App\Http\Controllers\GrafikKelaminDesaController;
 use App\Http\Controllers\GrafikPendidikanDesaController;
+use Symfony\Component\HttpFoundation\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,6 +58,28 @@ Route::middleware(['auth:sanctum','verified','admindesa','pending'])->group(func
     Route::get('/ppending/{id}',[PendingController::class,'tampilpending'])->name('pending');
     Route::post('/editpending/{id}',[PendingController::class,'updatepending'])->name('updatepending');
 });
+
+
+Route::get('/forgot-password', function () {
+    return view('auth.forgot-password');
+})->middleware('guest')->name('password.request');
+
+Route::post('/forgot-password', function (Request $request) {
+
+    $request->validate([
+        'email' => 'required|email',
+        // other input fields
+    ]);
+ 
+    $status = Password::sendResetLink(
+        $request->only('email')
+    );
+
+    return $status === Password::RESET_LINK_SENT
+                ? back()->with(['status' => __($status)])
+                : back()->withErrors(['email' => __($status)]);
+
+})->middleware('guest')->name('password.email');
 
 
 
