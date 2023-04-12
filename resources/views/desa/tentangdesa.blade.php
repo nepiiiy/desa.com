@@ -1,22 +1,20 @@
 @extends('desa.nav')
 @section('maps')
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
-integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
-crossorigin=""/>
-     <!-- Make sure you put this AFTER Leaflet's CSS -->
- <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
- integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
- crossorigin=""></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
 @endsection
 @section('isi')
-    <style>
-        #map {
-            height: 400px;
+<style>
+    #map {
+        height: 400px;
 
-            border: 0px solid #ffffff;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px 0px rgba(101, 95, 83, 0.5);
-        }
+        border: 0px solid #ffffff;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px 0px rgba(101, 95, 83, 0.5);
+    }
+</style>
     </style>
     {{-- @foreach ($data_user as $data_u) --}}
     <div class="main-content">
@@ -187,15 +185,31 @@ crossorigin=""/>
                         });
                     </script>
                     @endforeach
-                @section('script')
-                
-                <script>
-                    var map = L.map('map').setView([51.505, -0.09], 13);
-                    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                    maxZoom: 19,
-                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
-                </script>
+                    @section('script')
+                    @foreach ($profil as $item)
+                        <script>
+                            var map = L.map('map').setView([{{ $item->user->latitude }}, {{ $item->user->longtitude }}], 13);
+
+                            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                maxZoom: 19,
+                                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                            }).addTo(map);
+                            var marker = L.marker([{{ $item->user->latitude }}, {{ $item->user->longtitude }}]).addTo(map);
+                            marker.bindPopup("<b>Desa " + "{{ $item->user->name }}</b>").openPopup();
+                            var lat = {{ $item->user->latitude }};
+                            var lng = {{ $item->user->longtitude }};
+
+
+                            var googleMapsUrl = "https://www.google.com/maps?q=" + lat + "," + lng;
+
+                            tekan.on('click', function(e) {
+                                var lat = {{ $item->user->latitude }};
+                                var lng = {{ $item->user->longtitude }};
+                                var googleMapsUrl = "https://www.google.com/maps?q=" + lat + "," + lng;
+                                window.open(googleMapsUrl, '_blank');
+                            });
+                        </script>
+                    @endforeach
                 @endsection
             </body>
         </section>
