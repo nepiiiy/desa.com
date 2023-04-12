@@ -59,65 +59,74 @@
     <body class="">
 
         <!-- Section: Causes -->
-        <div class="container pb-40">
-            <div class="section-title text-center">
-                <div class="row">
-                    <h2 class="text-uppercase line-bottom-center mt-0" style="text-align:center">Grafik Jenis kelamin<br><span
-                            class="" style="color: #F26522; align:center">Desa {{ $data_user[0]->name }}
-                        </span></h2>
+        <div class="row">
+            <div class="col-2 col-md-12">
+                <div class="container pb-40">
+                    <div class="section-title text-center">
+                        <div class="row">
+                            <h2 class="text-uppercase line-bottom-center mt-0" style="text-align:center">Grafik Jenis
+                                kelamin<br><span class="" style="color: #F26522; align:center">Desa
+                                    {{ $data_user[0]->name }}
+                                </span></h2>
 
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- Section: Causes -->
-        <script src="https://www.amcharts.com/lib/3/amcharts.js" style="color:#fff"></script>
-        <script src="https://www.amcharts.com/lib/3/pie.js" style="color:#fff"></script>
-        <script src="https://www.amcharts.com/lib/3/themes/light.js" style="color:#fff"></script>
-        <div id="chartdiv" style="margin-top: -100px;margin-left: -50%;"></div>
-        <script>
-            var chart = AmCharts.makeChart("chartdiv", {
-                "type": "pie",
-                "theme": "light",
-                "dataProvider": [{
-                    "country": "Laki-Laki",
-                    "litres": {{ $laki }}
-                }, {
-                    "country": "Perempuan",
-                    "litres": {{ $perempuan }}
-                }],
-                "valueField": "litres",
-                "titleField": "country",
-                "balloon": {
-                    "fixedPosition": true
-                },
-                "export": {
-                    "enabled": true
-                }
-            });
-        </script>
-        <center>
-        <div class="col-2 col-md-5">
-          <table class="content-table col-2">
-            <thead>
-                <tr>
-                    <th>No</th>
-                    <th>Jenis</th>
-                    <th>Jumlah</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Laki-Laki</td>
-                    <td>{{ $laki }}</td>
-                </tr>
-                <tr ">
-                  <td>2</td>
-                  <td>Perempuan</td>
-                  <td>{{ $perempuan }}</td>
-                </tr>
-                
-              </tbody>
-              </table>
-        </div>
+            <!-- Section: Causes -->
+            <div class="col-2 col-md-12">
+                <script src="https://www.amcharts.com/lib/3/amcharts.js" style="color:#fff"></script>
+                <script src="https://www.amcharts.com/lib/3/pie.js" style="color:#fff"></script>
+                <script src="https://www.amcharts.com/lib/3/themes/light.js" style="color:#fff"></script>
+                <div id="chartdiv" style="margin-top: -100px;margin-left: -50%;"></div>
+                <script>
+                    var chart = AmCharts.makeChart("chartdiv", {
+                        "type": "pie",
+                        "theme": "light",
+                        "dataProvider": [{
+                            "country": "Laki-Laki",
+                            "litres": {{ $laki }}
+                        }, {
+                            "country": "Perempuan",
+                            "litres": {{ $perempuan }}
+                        }],
+                        "valueField": "litres",
+                        "titleField": "country",
+                        "balloon": {
+                            "fixedPosition": true
+                        },
+                        "export": {
+                            "enabled": true
+                        }
+                    });
+                </script>
+            </div>
+            <center>
+                <div class="col-2 col-md-5">
+                    <table class="content-table col-2">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Jenis</th>
+                                <th>Jumlah</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Laki-Laki</td>
+                                <td>{{ $laki }}</td>
+                            </tr>
+                            <tr ">
+                      <td>2</td>
+                      <td>Perempuan</td>
+                      <td>{{ $perempuan }}</td>
+                    </tr>
+                    
+                  </tbody>
+                  </table>
+            </div>
+            </center>
+            </div>
+        </body>
 @endsection

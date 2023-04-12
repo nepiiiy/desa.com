@@ -243,29 +243,27 @@
                         <br>
                         <br>
                         <form action="{{ Route('dashwebinput') }}" method="get">
-                            <div class="col-2 col-md-10">
-                            <div class="dir-search">
-                                <div class="single-query form-group">
-                                    <div class="intro">
-                                        <select name="id">
+                                <div class="dir-search col-2 col-md-10">
+                                    <div class="single-query form-group">
+                                        <div class="intro">
+                                            <select name="id">
 
-                                            @foreach ($diti as $item)
-                                                <option value="{{ $item->id }}">
-                                                    {{ $item->name }}, {{ $item->kecamatan->name }}, {{ $item->kabupaten->name }}, {{ $item->provinsi->name }}
-                                                </option>
-                                            @endforeach
+                                                @foreach ($diti as $item)
+                                                    <option value="{{ $item->id }}">
+                                                        {{ $item->name }}, {{ $item->kecamatan->name }},
+                                                        {{ $item->kabupaten->name }}, {{ $item->provinsi->name }}
+                                                    </option>
+                                                @endforeach
 
-                                        </select>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="search-btn ">
-                                    <button type="submit"> <i class="fa fa-search" aria-hidden="true"></i>
+                                <div class="search-btn col-md-3 col-2">
+                                    <button type="submit"> <i class="fa fa-search"
+                                            aria-hidden="true"></i>
                                     </button>
                                 </div>
-                            </div>
                         </form>
                     </div>
                 </div>

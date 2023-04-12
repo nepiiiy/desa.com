@@ -636,12 +636,11 @@ nav.navbar.bootsnav li.dropdown ul.dropdown-menu > li a{
 }
 .search-btn {
   float: right;
-  width: 80%;
-  margin-top: -3%;
+  margin-top: -5px;
 }
 .dir-search {
   float: left;
-  width: 100%;
+  width: 70%;
 }
 .single-query .keyword-input {
   background: #fff;
@@ -676,6 +675,7 @@ nav.navbar.bootsnav li.dropdown ul.dropdown-menu > li a{
     border: 1px solid #dbdece;
     border-radius: 0;
     position: relative;
+    margin-left: 18%;
 }
 .intro .zelected {
     font-weight: normal;
@@ -739,7 +739,7 @@ nav.navbar.bootsnav li.dropdown ul.dropdown-menu > li a{
   font-size: 16px;
   font-weight: 500;
   height: 47px;
-  width: 50%;
+  width: 50px;
 }
 .advance-search {
   background:rgba(255,255,255,0.9);
@@ -3801,7 +3801,6 @@ ul.day-open li:nth-child(3){
 	  width: 8%;
 	}
 	.search-btn {
-	  width: 16%;
 	}
 	.call-to-action {
 	  padding: 20px 0;
