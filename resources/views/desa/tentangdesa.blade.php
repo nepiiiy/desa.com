@@ -78,8 +78,8 @@
                                                 <p
                                                     style="text-align: justify; margin-left: 83px; text-indent: 3em; font-size: 17px;">
                                                     {{ $data_u->name }} adalah salah satu desa di Kecamatan
-                                                    {{ $data_u->kecamatan }}, Kabupaten {{ $data_u->kabupaten }}, Provinsi
-                                                    {{ $data_u->provinsi }},
+                                                    {{ $data_u->kecamatan->name }}, Kabupaten {{ $data_u->kabupaten->name }}, Provinsi
+                                                    {{ $data_u->provinsi->name }},
                                                     Indonesia.</p>
                                             </div>
                                             @endforeach
