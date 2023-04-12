@@ -125,7 +125,7 @@
 								<br>
 								<div class="form-group">
 									<div class="fxt-transformY-50 fxt-transition-delay-2">
-                                        <select class="form-control" name="province_id" id="provinsi">
+                                        <select class="form-control" name="province_id" id="provinsi" style="text-indent:2em;color:#777;">
                                             <option value="">Pilih Provinsi...</option>
                                             @foreach ($provinsi as $item)
                                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
@@ -149,7 +149,7 @@
 								<br>
 								<div class="form-group">
 									<div class="fxt-transformY-50 fxt-transition-delay-2">
-                                        <select class="form-control" name="regency_id" id="kabupaten">
+                                        <select class="form-control" name="regency_id" id="kabupaten" style="text-indent:2em;color:#777;">
                                           
                                         </select>
 									
@@ -170,7 +170,7 @@
 								</div>
 								<br><div class="form-group">
 									<div class="fxt-transformY-50 fxt-transition-delay-2">
-                                        <select class="form-control" name="district_id" id="kecamatan">
+                                        <select class="form-control" name="district_id" id="kecamatan" style="text-indent:2em;color:#777;">
                                           
                                         </select>
 									<svg style=" position:absolute;
@@ -207,21 +207,19 @@
 								<br>
 
 							
-						
-								<br>
 
 								
                                 <div class="col-12 ">
-                                    <div class=" @error('gambar') is-invalid @enderror">
+                                    <div class=" @error('gambar') is-invalid @enderror" >
                                         <label  >Unggah Persetujuan</label>
-                                        <input type="file"  name="gambar" >
+                                        <input type="file"  name="gambar" class="form-control">
                                     </div>
                                 </div>
                                 <br>
                                 <div class="col-12 ">
                                     <div class="custom-file @error('logo') is-invalid @enderror">
                                         <label  >Unggah logo</label><br>
-                                        <input type="file" class="" style="" name="logo" >
+                                        <input type="file" class="form-control" style="" name="logo" >
                                     </div>
                                 </div>
                             
@@ -231,10 +229,13 @@
                            
 							
 								<div class="form-group">
-									<div class="fxt-transformY-50 fxt-transition-delay-3">
-                                        <a href="/peta">back</a>
-										<button id="submit" type="submit" class="fxt-btn-fill" style="background-color:#0375b4; margin-left:66%; font-size:95%">Daftar</button>
-									</div>
+                                <br><br>
+									<div class="row">
+                                       <div class="col-md-6 col-12 float-left"> <button class="fxt-btn-fill " style="background-color:#0375b4;font-size:90%"><a href="/peta" style="color:#fff; text-decoration:none;">Kembali</a></button>
+</div>
+										<div class="col-md-6 col-12 float-right"><button id="submit" type="submit" class="fxt-btn-fill" style="background-color:#0375b4; margin-left:66%; font-size:90%">Daftar</button>
+</div>
+                                    </div>
 								</div>
 								
 							</form>

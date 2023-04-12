@@ -60,34 +60,36 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-7 col-12 order-md-1 fxt-bg-color">
-					<div class="fxt-content">
+				<div class="col-md-7 col-12 order-md-1 fxt-bg-color" >
+					<div class="fxt-content" style="margin-left:-36%;">
 						<div class="fxt-header">
-                        <center><img src="https://i.postimg.cc/XvrB6m2Z/logo-desa1-removebg-preview.png" alt="" style="width: 50%;margin-top:-15%"></center>
-						<div style="margin-bottom: 20px" id="leafletMap-registration"></div>
+                        <img src="https://i.postimg.cc/XvrB6m2Z/logo-desa1-removebg-preview.png" alt="" style="width: 50%;margin-top:-15%;">
+						<div style="width:160%; " id="leafletMap-registration"></div>
 						</div>
-							
+							<br>
 						<form action="/kekoordinat" method="post" enctype="multipart/form-data" >
                             @csrf
                          
 
     <div class="form-group">
-	<div class="row" style="width:160%; margin-left:-30%" >							
-    <div class="col-md-6 col-12">
-		<input type="text"  name="longtitude" id="longtitude" placeholder="longtitude">
+	<div class="row"  style="width:165%;">							
+    <div class="col-md-6 col-12" >
+		
+	<input type="text" style="text-indent:1em"  class="form-control" name="longtitude" id="longtitude" placeholder="longtitude" disabled>
+	<input type="hidden" name="longtitude" value="$longtitude">
 									</div>
                                     <div class="col-md-6 col-12">
-										<input type="text"  name="latitude" id="latitude" placeholder="latitude">
-		
+	<input type="text" style="text-indent:1em"  class="form-control" name="latitude" id="latitude" placeholder="latitude" disabled>
+	<input type="hidden" name="latitude" value="$latitude">
 									</div>
 								</div>
                                 </div>	
 								<br>
 								<div class="form-group">
 									<div class="fxt-transformY-50 fxt-transition-delay-3">
+                                        <label for="chk1" >Sudah punya akun ? Kembali ke <a href="/masuk" style="text-decoration: none;">login</a></label>
 										<div class="fxt-content-between">
-                                        <label for="chk1" style="margin-left:-28%" >Sudah punya akun ? Kembali ke <a href="/masuk" style="text-decoration: none;">login</a></label>
-											<button id="submit" type="submit" class="fxt-btn-fill" style="background-color:#0375b4; margin-left:97%; font-size:95%" >Berikutnya</button>
+											<button id="submit" type="submit" class="fxt-btn-fill" style="background-color:#0375b4; margin-left:130%; font-size:90%">Berikutnya</button>
 										</div>
 									</div>
 								</div>
