@@ -10,36 +10,25 @@
                   <h3><i class="fa fa-lock fa-4x"></i></h3>
                   <h2 class="text-center">Forgot Password?</h2>
                   <p>You can reset your password here.</p>
-                  @if ($errors->any())
+             
 
-<div class="alert alert-danger">
+
 
     @if ($errors->any())
-
     <div class="alert alert-danger">
-    
-    <ul>
-    
-    @foreach ($errors->all() as $error)
-    
-    <li>{{ $error }}</li>
-    
-    @endforeach
-    
+        <ul>
+        @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+        @endforeach
     </ul>
-    
     @endif
-    
-    if(session()->has('status'))
-    
+    @if(session()->has('status')) 
     <div class="alert alert-success">
-    
-    </div>
-    
-    {{ session()->get('status') }} </div>
-    
-    @endif
-                  <div class="panel-body">
+      {{ session()->get('status') }}
+     </div>
+
+      @endif
+    <div class="panel-body">
     
                     <form action="{{ route('password.email') }}"  method="post">
     @csrf

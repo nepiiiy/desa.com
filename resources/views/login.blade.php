@@ -90,6 +90,7 @@
 									<div class="fxt-transformY-50 fxt-transition-delay-3">
 										<div class="fxt-content-between">
 										<label for="chk1">Belum punya akun ? Silahkan daftar<a href="/peta" style="text-decoration: none;"> disini</a></label>
+										<label for="chk1">Lupa password klik <a href="forgot-password" style="text-decoration: none;"> disini</a></label>
 											<button id="submit" type="submit" class="fxt-btn-fill" style="background-color:#0375b4; margin-left:66%; font-size:95%">Masuk</button>
 										</div>
 									</div>

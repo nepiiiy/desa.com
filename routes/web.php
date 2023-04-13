@@ -1,8 +1,14 @@
 <?php
-
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\LoginController;
+use Illuminate\Auth\Events\PasswordReset;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
+
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\ContactController;
@@ -18,6 +24,7 @@ use App\Http\Controllers\DashAdminController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DataAdminController;
 use App\Http\Controllers\PeraturanController;
+
 use App\Http\Controllers\BeritaDesaController;
 use App\Http\Controllers\GaleriDesaController;
 use App\Http\Controllers\PariwisataController;
@@ -40,7 +47,6 @@ use App\Http\Controllers\PenghargaanDesaController;
 use App\Http\Controllers\KarangTarunaDesaController;
 use App\Http\Controllers\GrafikKelaminDesaController;
 use App\Http\Controllers\GrafikPendidikanDesaController;
-use Symfony\Component\HttpFoundation\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,27 +65,52 @@ Route::middleware(['auth:sanctum','verified','admindesa','pending'])->group(func
     Route::post('/editpending/{id}',[PendingController::class,'updatepending'])->name('updatepending');
 });
 
-
 Route::get('/forgot-password', function () {
     return view('auth.forgot-password');
 })->middleware('guest')->name('password.request');
 
 Route::post('/forgot-password', function (Request $request) {
-
-    $request->validate([
-        'email' => 'required|email',
-        // other input fields
-    ]);
+    $request->validate(['email' => 'required|email']);
  
     $status = Password::sendResetLink(
         $request->only('email')
     );
-
+ 
     return $status === Password::RESET_LINK_SENT
                 ? back()->with(['status' => __($status)])
                 : back()->withErrors(['email' => __($status)]);
-
 })->middleware('guest')->name('password.email');
+
+Route::get('/reset-password/{token}', function (string $token) {
+    return view('auth.reset-password', ['token' => $token]);
+  
+})->middleware('guest')->name('password.reset');
+
+
+Route::post('/reset-password', function (Request $request) {
+    $request->validate([
+        'token' => 'required',
+        'email' => 'required|email',
+        'password' => 'required|min:3|confirmed',
+    ]);
+ 
+    $status = Password::reset(
+        $request->only('email', 'password', 'password_confirmation', 'token'),
+        function (User $user, string $password) {
+            $user->forceFill([
+                'password' => Hash::make($password)
+            ])->setRememberToken(Str::random(60));
+ 
+            $user->save();
+ 
+            event(new PasswordReset($user));
+        }
+    );
+ 
+    return $status === Password::PASSWORD_RESET
+                ? redirect()->route('masuk')->with('status', __($status))
+                : back()->withErrors(['email' => [__($status)]]);
+})->middleware('guest')->name('password.update');
 
 
 
