@@ -27,7 +27,7 @@
     <script src="js/filter.js"></script>
     <style>
         button {
-            margin: 5px;
+            margin-top: 2%;
         }
 
         .custom-btn {
@@ -288,7 +288,7 @@
     </center>
     <div class="main">
 
-        <ul class="cards" style="margin-left:85px ">
+        <ul class="cards" style="margin-left:16%">
             @foreach ($diti->take(3) as $data)
                 <li class="cards_item">
                     <div class="card">
