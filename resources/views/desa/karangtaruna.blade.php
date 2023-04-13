@@ -243,6 +243,7 @@
                     }
                 }
             </style>
+            
             @foreach ($profil as $gambar)
                 <section class="inner-header divider layer-overlay overlay-dark-8"
                     data-bg-img="{{ asset('storage/' . $gambar->gambar2) }}">
