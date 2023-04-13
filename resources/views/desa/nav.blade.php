@@ -191,6 +191,7 @@
                                             </form>
                                         </li>
                                     </ul>
+                                </li>
                                 <li><a href="#">Data &ensp;</a>
                                     <ul class="dropdown">
                                         <li><a class="nav-link {{ Request::is('grafikusia') && Request::is('grafikkelamin') && Request::is('grafikagama') && Request::is('grafikpendidikan') && Request::is('grafikperkawinan') ? '' : 'collapsed' }} "
