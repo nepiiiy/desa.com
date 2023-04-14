@@ -35,7 +35,7 @@ class RegisterController extends Controller
 
         $kabupatens = Regency::where('province_id', $id_provinsi)->get();
 
-        $option1 = "<option> pilih kabupaten...</option>";
+        $option1 = "<option> Pilih Kabupaten...</option>";
 
 
         foreach ($kabupatens as $kabupaten) {
@@ -50,7 +50,7 @@ class RegisterController extends Controller
 
         $kecamatans = District::where('regency_id', $id_kabupaten)->get();
 
-        $option ="<option> pilih kecamtan...</option>";
+        $option ="<option> Pilih Kecamatan...</option>";
 
 
         foreach ($kecamatans as $kecamatan) {

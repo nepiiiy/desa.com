@@ -25,6 +25,10 @@
     <link rel="stylesheet" href="css/css_final.css">
 
     <script src="js/filter.js"></script>
+    <link rel="stylesheet" href="{{ asset('style.css') }}">
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         button {
             margin-top: 2%;
@@ -181,51 +185,49 @@
     <!--LOADER-->
 
     <!-- HEADER -->
-    <header id="main_header">
-        <nav class="navbar navbar-default navbar-sticky bootsnav" style="background-color: #fca311;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-2 col-md-12">
-                        <!-- Start Header Navigation -->
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle" data-toggle="collapse"
-                                data-target="#navbar-menu"> <i class="fa fa-bars"></i>
-                            </button>
-                            <a class="navbar-brand" href="/"><img
-                                    src="https://i.postimg.cc/XvrB6m2Z/logo-desa1-removebg-preview.png" class="logo"
-                                    alt="" style="width: 230px;">
-                            </a>
-                        </div>
-                        <!-- End Header Navigation -->
-                        <div class="collapse navbar-collapse" id="navbar-menu">
-                            <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
 
-                                <li> <a href="/"
-                                        style="background-color: #F26522; padding: 8px; border-radius: 5px; color: #fff; margin-top: 20px;">Beranda</a>
-                                </li>
-
-                                <li> <a href="/about">Tentang</a>
-                                </li>
-
-                                <li> <a href="/contact">Kontak</a>
-                                </li>
-                                <li>
+    <nav>
+    <div class="navbar">
+      <i class='bx bx-menu'></i>
+      <div class="logo"><img src="https://i.postimg.cc/XvrB6m2Z/logo-desa1-removebg-preview.png" style="width:200px;"></div>
+      &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+      &ensp;&ensp;&ensp;&emsp;
+      <div class="nav-links">
+        <div class="sidebar-logo">
+          <span class="logo-name"><img src="https://i.postimg.cc/XvrB6m2Z/logo-desa1-removebg-preview.png" style="width:200px;"></span>
+          <i class='bx bx-x' ></i>
+        </div>
+        <ul class="links" style="margin-left:20%">
+          <li ><a href="/">Beranda</a></li>
+          <li><a href="/about">Tentang</a></li>
+		  <li><a href="/contact">Kontak</a></li>
+          <li>
                                     @if (auth()->user() && auth()->user()->role == 'adminweb')
                                         <a href="/dashwebadmin">Admin</a>
                                     @endif
 
 
                                 </li>
-                                <li><a href="{{ Route('masuk') }}"
-                                        style="background-color: #F26522; padding: 8px; border-radius: 5px; color: #fff; margin-top: 20px;">Login</a>
+                                <li>
+                                <div class="" style="">
+                                    <a class="btn" href="{{ Route('masuk') }}"
+                                        style="background-color:#F26522; color:#fff; border-radius: 10px;">Login</a>
+                                </div>
+                                    
                                 </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </header>
+        </ul>
+      </div>
+      <div class="search-box">
+        <i class='bx bx-search' Style="color:#fca311"></i>
+        
+      </div>
+    </div>
+  </nav>
+  <script src="script.js"></script>
+
+
+
+    
     <!-- HEADER  -->
 
     <!-- Banner -->

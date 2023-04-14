@@ -1,20 +1,5 @@
 @extends('desa.nav')
-<head>
-<meta property="og:title" content="Fun with table 🏓 | responsive-table-react" />
-  <meta name="description"
-    content="Flexible & responsive table for React - A super user-friendly experience, start to use your table also on mobile!" />
-  <meta property="og:description"
-    content="Flexible & responsive table for React - A super user-friendly experience, start to use your table also on mobile!" />
-  <link rel="canonical" href="https://marcogargano.github.io/responsive-table-react/" />
-  <meta property="og:url" content="https://marcogargano.github.io/responsive-table-react/" />
-  <meta property="og:site_name" content="responsive-table-react" />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary" />
-  <meta property="twitter:title" content="Fun with table 🏓 | responsive-table-react" />
-  <link rel="stylesheet" href="src/components/ResponsiveTable.css">
-<link href="{{ asset('css/bootstrap1.min.css') }}" rel="stylesheet" />
-<script src="{{ asset('js/jquery.min.js') }}"></script>
-<script src="{{ asset('js/bootstrap1.min.js') }}"></script></head>
+
 @section('isi')
 
     <body class="">
@@ -76,8 +61,8 @@
 
                 table.rtr-table.bordered {
                     /* border: solid 1px #000;
-                    border-top: solid 1px #000;
-                    border-left: solid 1px #000; */
+                        border-top: solid 1px #000;
+                        border-left: solid 1px #000; */
                     border-radius: 0;
                     box-shadow: none;
                     padding: 0;
@@ -87,8 +72,8 @@
                 table.rtr-table.bordered tr,
                 table.rtr-table.bordered td {
                     /* border: solid 1px #000;
-                    border-bottom: solid 1px #000;
-                    border-right: solid 1px #000; */
+                        border-bottom: solid 1px #000;
+                        border-right: solid 1px #000; */
                     border-radius: 0;
                 }
 
@@ -99,7 +84,7 @@
                 @media screen and (max-width: 600px) {
                     table.rtr-table.bordered {
                         /* border: solid 1px #000;
-                        border-bottom: solid 1px #000; */
+                            border-bottom: solid 1px #000; */
                     }
 
                     table.rtr-table.bordered th,
@@ -109,8 +94,8 @@
 
                     table.rtr-table.bordered tr {
                         /* border: solid 1px #000;
-                        border-top: solid 1px #000;
-                        border-bottom: solid 1px #000; */
+                            border-top: solid 1px #000;
+                            border-bottom: solid 1px #000; */
                     }
 
                     table.rtr-table.bordered tr td:first-child {
@@ -149,7 +134,7 @@
 
                 table.rtr-table tbody td {
                     /* border-top: solid 1px #000;
-                    border-bottom: solid 1px #000; */
+                        border-bottom: solid 1px #000; */
                     /* border-radius: 0.5rem; */
                     padding: 1rem;
                     text-align: lef;
@@ -157,10 +142,10 @@
                 }
 
                 /* table.rtr-table tbody tr:hover td {
-                    box-shadow: inset 0 0 0 2px white;
-                    background-color: rgba(238, 238, 238, 0.3);
-                    color: var(--custom-color-table);
-                } */
+                        box-shadow: inset 0 0 0 2px white;
+                        background-color: rgba(238, 238, 238, 0.3);
+                        color: var(--custom-color-table);
+                    } */
 
                 @media screen and (max-width: 600px) {
                     table.rtr-table tbody td {
@@ -243,7 +228,7 @@
                     }
                 }
             </style>
-            
+
             @foreach ($profil as $gambar)
                 <section class="inner-header divider layer-overlay overlay-dark-8"
                     data-bg-img="{{ asset('storage/' . $gambar->gambar2) }}">
@@ -285,9 +270,12 @@
                         </thead>
 
                         <tbody>
-                            @foreach ($kt_struktur as $kt)
-                            <tr>
-                                    <td scope="row">{{ $loop->iteration }}</td>
+                            @php
+                                $no = 1;
+                            @endphp
+                            @foreach ($kt_struktur as $index => $kt)
+                                <tr>
+                                    <td scope="row">{{ $index + $kt_struktur->firstItem() }} </td>
                                     <td>
                                         <center><img style="width: 100px;height: 120px;"
                                                 src="{{ asset('storage/' . $kt->gambar) }}" alt=""></center>
@@ -298,27 +286,28 @@
                                     <td>
                                         <center>{{ $kt->jabatans->jabatan }}</center>
                                     </td>
-                            </tr>
+                                </tr>
                             @endforeach
 
 
                         </tbody>
                     </table>
+                    {{ $kt_struktur->links() }}
                 </center>
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"
-    integrity="sha256-a2yjHM4jnF9f54xUQakjZGaqYs/V1CYvWpoqZzC2/Bw=" crossorigin="anonymous"></script>
+            integrity="sha256-a2yjHM4jnF9f54xUQakjZGaqYs/V1CYvWpoqZzC2/Bw=" crossorigin="anonymous"></script>
         <script>
-            $("#table-bordered").click(function () {
-              $(".rtr-table").toggleClass("bordered");
+            $("#table-bordered").click(function() {
+                $(".rtr-table").toggleClass("bordered");
             });
-            $("#table-dark").click(function () {
-              $(".rtr-table").toggleClass("dark-mode");
+            $("#table-dark").click(function() {
+                $(".rtr-table").toggleClass("dark-mode");
             });
-            $(".rtr-table tr").click(function () {
-              $(this).toggleClass("open");
+            $(".rtr-table tr").click(function() {
+                $(this).toggleClass("open");
             });
-          </script>
+        </script>
         <!--END Section: Causes -->
     @endsection

@@ -274,43 +274,44 @@
                 <div class="container text-center">
                     <div class="shell">
                         <div class="container">
-                            <div class="row">
-                              <div class="col-2 col-md-12">
-                                  @foreach ($umkm as $product)
-                                    <div class="col-md-3 col-4">
-                                        <div class="wsk-cp-product">
-                                            <div class="wsk-cp-img">
-                                                <img src="/image/{{ $product->image }}" alt="Product"
-                                                    class="img-responsive" />
-                                            </div>
-                                            <div class="wsk-cp-text">
-                                                <div class="title-product">
-                                                    <h3>{{ $product->name }}</h3>
+                            <div class="row multi-row-clearfix">
+                                <div class="col-2 col-md-12">
+                                    @foreach ($umkm as $product)
+                                        <div class="col-md-3 col-sm-4">
+                                            <div class="wsk-cp-product">
+                                                <div class="wsk-cp-img">
+                                                    <img src="/image/{{ $product->image }}" alt="Product"
+                                                        class="img-responsive" />
                                                 </div>
-                                                <div class="description-prod">
-                                                    <p>{{ $product->detail }}</p>
-                                                </div>
-                                                <div class="card-footer">
-                                                    <div class="category">
-                                                        <button
-                                                            style="background-color: rgb(73, 134, 11); border: none; width:50%; height: 40px; border-radius: 10px"><a
-                                                                href="{{ $product->no_tlp }}" style="color:#fff;">Whatsapp
-                                                                Me</a></button>
-
+                                                <div class="wsk-cp-text">
+                                                    <div class="title-product">
+                                                        <h3>{{ $product->name }}</h3>
                                                     </div>
-                                                    <div class="category">
-                                                        <button
-                                                            style="background-color: #f26522; border: none; width:50%; height: 40px; border-radius: 10px;"><a
-                                                                href="{{ $product->link }}" style="color:#fff;">Link
-                                                                Olshop</a></button>
+                                                    <div class="description-prod">
+                                                        <p>{{ $product->detail }}</p>
+                                                    </div>
+                                                    <div class="card-footer">
+                                                        <div class="category">
+                                                            <button
+                                                                style="background-color: rgb(73, 134, 11); border: none; width:50%; height: 40px; border-radius: 10px"><a
+                                                                    href="{{ $product->no_tlp }}"
+                                                                    style="color:#fff;">Whatsapp
+                                                                    Me</a></button>
 
+                                                        </div>
+                                                        <div class="category">
+                                                            <button
+                                                                style="background-color: #f26522; border: none; width:50%; height: 40px; border-radius: 10px;"><a
+                                                                    href="{{ $product->link }}" style="color:#fff;">Link
+                                                                    Olshop</a></button>
+
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
                                     @endforeach
-                            </div>
+                                </div>
 
 
                             </div>
