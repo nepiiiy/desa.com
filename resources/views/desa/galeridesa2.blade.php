@@ -109,14 +109,14 @@
                                     <div class="col-sm-6 col-md-3" style="margin-top: 30px">
                                         <div class="causes bg-silver-light maxwidth300 mb-30">
                                             <div class="thumb" style="height: 200px;">
-                                                <img src="{{ asset('storage/' . $row->cover) }}" alt=""
+                                                <img src="{{ asset('storage/' . $row->cover) }}" alt="" style="width: 100%; height:100%;"
                                                     class="img-fullwidth">
                                             </div>
                                             <div class="causes-details border-1px bg-white clearfix p-20 pt-10 pb-20">
                                                 <h4 class="text-uppercase"><a
                                                         href="/lihatgal/{{ $row->id }}/{{ $data_user[0]->id }}">{{ Str::limit($row->judul, 30) }}</a>
                                                 </h4>
-
+                                                <h6 style="font-weight:100">{{$row->tanggal}}</h6>
 
                                                 <a href="/lihatgal/{{ $row->id }}/{{ $data_user[0]->id }}"
                                                     class="btn btn-default btn-xs font-16 mt-10" style="color: #F26522">Lihat

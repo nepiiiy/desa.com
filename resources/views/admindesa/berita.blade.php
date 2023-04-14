@@ -52,6 +52,7 @@
             </div>
             <div class="d-flex justify-content-center">
                 {{ $data->links('pagination::bootstrap-4') }}
+            </div>
     </section>
 
 </main><!-- End #main -->

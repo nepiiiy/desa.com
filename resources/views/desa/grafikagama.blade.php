@@ -64,7 +64,7 @@
         <div class="container pb-40">
             <div class="section-title text-center">
                 <div class="row">
-                    <div class="col-2 col-md-8 col-md-offset-2">
+                    <div class="col-2 col-md-8 col-md-offset-2" style="margin-top: 100px;">
                         <h2 class="text-uppercase line-bottom-center mt-0" style="text-align:center">Grafik Agama<br><span
                                 class="" style="color: #F26522; align:center">Desa {{ $data_user[0]->name }}
                             </span></h2>
