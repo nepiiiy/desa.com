@@ -346,6 +346,8 @@
                       <div class="invalid-feedback" style="margin-left:25%">{{ $message }}</div>
                     @enderror
                   </div>
+
+                      
   
                   <div class="row"><br>
                     <div class="col-lg-3 col-md-4 label">Kode Pos</div>
@@ -358,8 +360,8 @@
               <div style="" id="leafletMap-registration"></div>
 
                   
-                  <input type="hidden" value="{{ $data->latitude }}" name="latitude"  id="latitude">
-                  <input type="hidden" value="{{ $data->longtitude }}" name="longtitude" id="longtitude">
+                  <input type="text" value="{{ $data->latitude }}" name="latitude"  id="latitude">
+                  <input type="text" value="{{ $data->longtitude }}" name="longtitude" id="longtitude">
                   
                 </div>
               </div>
@@ -450,9 +452,17 @@ class="back-to-top d-flex align-items-center justify-content-center"
 <script src="{{asset('assets/js/main.js') }}"></script>
 
 <script>
+</script>
 
-  let lat = {{$data->latitude}}
-  let lng = {{$data->longtitude}}
+
+<script>
+  
+  let lat = {{$data->latitude}};
+let lng = {{$data->longtitude}};
+console.log("Latitude:", lat);
+console.log("Longitude:", lng);
+console.log('sadasd');
+
 
   
   // you want to get it of the window global
@@ -466,12 +476,8 @@ class="back-to-top d-flex align-items-center justify-content-center"
       pseudoFullscreen: false // if true, fullscreen to page width and height
   },
   minZoom: 5
-  }).setView([lat, lng], 15);
-  var marker = L.marker([lat, lng]).addTo(leafletMap);
-  leafletMap.on('click', function(e) {
-  // Menghapus marker
-  leafletMap.removeLayer(marker);
-});
+  }).setView([-7.9786395, 112.5617421], 14);
+ 
 
   L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
   attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
