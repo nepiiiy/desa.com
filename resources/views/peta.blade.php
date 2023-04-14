@@ -75,12 +75,8 @@
 	<div class="row"  style="width:165%;">							
     <div class="col-md-6 col-12" >
 		
-	<input type="text" style="text-indent:1em"  class="form-control" name="longtitude" id="longtitude" placeholder="longtitude" disabled>
-	<input type="hidden" name="longtitude" >
-									</div>
-                                    <div class="col-md-6 col-12">
-	<input type="text" style="text-indent:1em"  class="form-control" name="latitude" id="latitude" placeholder="latitude" disabled>
-	<input type="hidden" name="latitude">
+		<input type="text"  name="longtitude" id="longtitude" placeholder="longtitude">
+		<input type="text"  name="latitude" id="latitude" placeholder="latitude">
 									</div>
 								</div>
                                 </div>	
