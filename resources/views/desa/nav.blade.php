@@ -68,6 +68,10 @@
 
 
 <![endif]-->
+    <link rel="stylesheet" href="{{ asset('style.css') }}">
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         .bg-hover-theme-colored:hover {
             background: #F26522 !important;
@@ -91,173 +95,155 @@
             <div id="disable-preloader" class="btn btn-default btn-sm">Disable Preloader</div>
         </div> --}}
             <!-- Header -->
-            <header class="header">
-
-                <div class="header-nav">
-                    <div class="header-nav-wrapper navbar-scrolltofixed" style="background-color: #fca311 ;">
-                        <div class="container">
-                            <nav id="menuzord" class="menuzord default" style="background-color: #fca311 ;">
-                                <img src="{{ asset('storage/' . $data_user->logo) }}"
-                                    style="width: 5%; height:6%; margin-left: -67%; margin-top:5px; margin-bottom:5px;">
-                                {{-- <form action="{{ Route('dashwebinput') }}" method="get">
-                                @csrf
+            
+            <nav>
+    <div class="navbar">
+      <i class='bx bx-menu'></i>
+      <div class="logo"><img src="{{ asset('storage/' . $data_user->logo) }}" style="width:200px;">
+        @csrf
                                 <input type="hidden" value="{{ $data_user->id }}" name="id">
-                                <img src="{{ asset('storage/' . $data_user->logo) }}"
-                                    style="width: 5%; height:6%; margin-left: -630px; margin-top:5px; margin-bottom:5px;">
-                            </form> --}}
-                                <ul class="menuzord-menu">
-                                    <li style="margin-left: -60px;"><button
-                                            style="background-color: #fca311 ;border: #fca311; cursor: default;"></button>
-                                    </li>
-                                    <li>
-                                        <form action="{{ Route('dashwebinput') }}" method="get"
-                                            class="bg-hover-theme-colored" style="border-radius:100px; width:100px;">
-                                            @csrf
-                                            <input type="hidden" value="{{ $data_user->id }}" name="id"
-                                                class="bg-hover-theme-colored">
+                                <img src="{{ asset('storage/' . $data_user->logo) }}"></div>
+      <div class="nav-links">
+        <div class="sidebar-logo">
+          <span class="logo-name"><img src="{{ asset('storage/' . $data_user->logo) }}" style="width:200px;"></span>@csrf
+                                <input type="hidden" value="{{ $data_user->id }}" name="id">
+                                <img src="{{ asset('storage/' . $data_user->logo) }}">
+          <i class='bx bx-x' ></i>
+        </div>
+        <ul class="links">
+        <li><a><form action="{{ Route('dashwebinput') }}" method="get" >
+            @csrf
+            <input type="hidden" value="{{ $data_user->id }}" name="id">
+                {{-- @dd($award->user_id) --}}
+                <button style="font-family: 'Open Sans', sans-serif; " type="submit"> <div style="background-color:#fca311;font-size:16px; font-family: 'Open Sans', sans-serif;color:#000;">Beranda</div> </button>
+            </form></a>
+        </li>
 
+&ensp;&ensp;&ensp;&ensp;
 
-                                            {{-- @dd($award->user_id) --}}
+        <li><a class="nav-link {{ Request::is('tentangdesa') && Request::is('pemerintahdesa') ? '' : 'collapsed' }} "  data-bs-target="#forms-nav" href="#">Profil Desa &ensp;</a>
+            <i class='bx bxs-chevron-down js-arrow arrow '></i>
+            <ul class="js-sub-menu sub-menu" >
+                <li style="width:150px">
+                {{-- <a href="{{ route('tentangdesa') }}">Tentang Desa</a> --}}
+                    <a><form action="{{ Route('btntentang') }}" method="get">
+                     @csrf
+                        <input type="hidden" value="{{ $data_user->id }}" name="id">
+                            <button style="font-family: 'Open Sans', sans-serif; " type="submit"> 
+                                <div style="background-color:#fca311;font-size:16px; font-family: 'Open Sans', sans-serif;color:#000;">Tentang Desa</div>
+                            </button>
+                    </form></a>
+                </li>
+                <li>
+                   <a> <form action="{{ Route('kestdesa') }}" method="get">
+                        @csrf
+                            <input type="hidden" value="{{ $data_user->id }}" name="id">
+                                <button style="font-family: 'Open Sans', sans-serif; " type="submit">
+                                    <div style="background-color:#fca311;font-size:16px; font-family: 'Open Sans', sans-serif;color:#000;">Struktur Desa</div>
+                                </button>
+                    </form></a>
+                </li>
+            </ul>
+        </li>
 
-
-                                            <button class="bg-hover-theme-colored"
-                                                style="margin:2px 40px 0px 20px;margin-left: 0%;font-weight:550; color:#333333; font-size:13px; font-family: 'Open Sans', sans-serif;width:100px; background-color:#fca311; border-radius:100px;"
-                                                type="submit">
-                                                <div
-                                                    style="background-color:#fca311; border-radius:100px;width:90px;"class="bg-hover-theme-colored ">
-                                                    Beranda</div>
-                                            </button>
-                                        </form>
-                                    </li>
-                                    {{-- <li><a class="nav-link {{ Request::is('dashdesa')? '' : 'collapsed' }} "href="{{ route('dashdesa') }}" style="margin-left: 70px;">Beranda</a> --}}
-                                    <ul class="">
-                                        <ul class="">
-                                        </ul>
-                                        </li>
-                                    </ul>
-                                    </li>
-                                    <li><a class="nav-link {{ Request::is('tentangdesa') && Request::is('pemerintahdesa') ? '' : 'collapsed' }} "
-                                            data-bs-target="#forms-nav" href="#">Profil Desa &ensp;</a>
-                                        <ul class="dropdown">
-
-                                            {{-- <a href="{{ route('tentangdesa') }}">Tentang Desa</a> --}}
-                                            <form action="{{ Route('btntentang') }}" method="get">
+        <li><a class="nav-link {{ Request::is('karangtaruna') && Request::is('pkk') ? '' : 'collapsed' }} " data-bs-target="#forms-nav"href="#">Organisasi &ensp;</a>
+            <i class='bx bxs-chevron-down js-arrow arrow '></i>
+            <ul class="js-sub-menu sub-menu">
+                <li style="width:150px">
+                    <a><form action="{{ Route('kesttaruna') }}" method="get">
                                                 @csrf
                                                 <input type="hidden" value="{{ $data_user->id }}" name="id">
                                                 <button
-                                                    style="margin-left: 9%;font-weight: 550; font-size: 13px; font-family: 'Open Sans', sans-serif; color: #585656;"
-                                                    type="submit">
-                                                    <div style="background-color:#fff">Tentang Desa</div>
+                                                style="font-family: 'Open Sans', sans-serif; " type="submit">
+                                                    <div  style="background-color:#fca311;font-size:16px; font-family: 'Open Sans', sans-serif;color:#000;">Karang Taruna</div>
                                                 </button>
-                                            </form>
-                                    </li>
+                    </form></a>
+                </li>
+                <li>
+                    <a><form action="{{ Route('kepkk') }}" method="get">
+                                                @csrf
+                                                <input type="hidden" value="{{ $data_user->id }}" name="id">
+                                                <button
+                                                style="font-family: 'Open Sans', sans-serif; " type="submit">
+                                                    <div  style="background-color:#fca311;font-size:16px; font-family: 'Open Sans', sans-serif;color:#000;">PKK</div>
+                                                </button>
+                    </form></a>
+                </li>
+            </ul>
+        </li>
 
-                                    <li>
-                                        <form action="{{ Route('kestdesa') }}" method="get">
-                                            @csrf
-                                            <input type="hidden" value="{{ $data_user->id }}" name="id">
-                                            <button
-                                                style="margin-left: 9%;font-weight: 550; font-size: 13px; font-family: 'Open Sans', sans-serif; color: #585656;"
-                                                type="submit">
-                                                <div style="background-color:#fff">Struktur Desa</div>
-                                            </button>
-                                        </form>
-                                    </li>
-                                </ul>
-                                </li>
-                                <li><a class="nav-link {{ Request::is('karangtaruna') && Request::is('pkk') ? '' : 'collapsed' }} "
-                                        data-bs-target="#forms-nav"href="#">Organisasi &ensp;</a>
-                                    <ul class="dropdown">
-                                        <li>
-                                            <form action="{{ Route('kesttaruna') }}" method="get">
-                                                @csrf
-                                                <input type="hidden" value="{{ $data_user->id }}" name="id">
-                                                <button
-                                                    style="margin-left: 9%;font-weight: 550; font-size: 13px; font-family: 'Open Sans', sans-serif; color: #585656;"
-                                                    type="submit">
-                                                    <div style="background-color:#fff">Karang Taruna</div>
-                                                </button>
-                                            </form>
-                                        </li>
-                                        <li>
-                                            <form action="{{ Route('kepkk') }}" method="get">
-                                                @csrf
-                                                <input type="hidden" value="{{ $data_user->id }}" name="id">
-                                                <button
-                                                    style="margin-left: 9%;font-weight: 550; font-size: 13px; font-family: 'Open Sans', sans-serif; color: #585656;"
-                                                    type="submit">
-                                                    <div style="background-color:#fff">PKK</div>
-                                                </button>
-                                            </form>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Data &ensp;</a>
-                                    <ul class="dropdown">
-                                        <li><a class="nav-link {{ Request::is('grafikusia') && Request::is('grafikkelamin') && Request::is('grafikagama') && Request::is('grafikpendidikan') && Request::is('grafikperkawinan') ? '' : 'collapsed' }} "
+		
+		<li>
+            <a href="#">Data &ensp;</a>
+            <i class='bx bxs-chevron-down htmlcss-arrow arrow  '></i>
+            <ul class="htmlCss-sub-menu sub-menu">
+        <li class="more" style="width:225px">
+                <span><a class="nav-link {{ Request::is('grafikusia') && Request::is('grafikkelamin') && Request::is('grafikagama') && Request::is('grafikpendidikan') && Request::is('grafikperkawinan') ? '' : 'collapsed' }} "
                                                 data-bs-target="#forms-nav"href="#">Dinamika Penduduk</a>
-                                            <ul class="dropdown">
-                                                <li>
-                                                <li>
-                                                    <form action="{{ Route('kegu') }}" method="get">
+                <i class='bx bxs-chevron-right arrow more-arrow'></i>
+              </span>
+                <ul class="more-sub-menu sub-menu">
+
+                                                <li style="width:200px">
+                                                    <a><form action="{{ Route('kegu') }}" method="get">
                                                         @csrf
                                                         <input type="hidden" value="{{ $data_user->id }}"
                                                             name="id">
                                                         <button
-                                                            style="margin-left: 9%;font-weight: 550; font-size: 13px; font-family: 'Open Sans', sans-serif; color: #585656;"
+                                                            style="font-family: 'Open Sans', sans-serif; "
                                                             type="submit">
-                                                            <div style="background-color:#fff">Grafik Usia</div>
+                                                            <div style="background-color:#fca311;font-size:16px; font-family: 'Open Sans', sans-serif;color:#000;">Grafik Usia</div>
                                                         </button>
-                                                    </form>
+                                                    </form></a>
                                                 </li>
                                                 <li>
-                                                    <form action="{{ Route('kejk') }}" method="get">
+                                                    <a><form action="{{ Route('kejk') }}" method="get">
                                                         @csrf
                                                         <input type="hidden" value="{{ $data_user->id }}"
                                                             name="id">
                                                         <button
-                                                            style="margin-left: 9%;font-weight: 550; font-size: 13px; font-family: 'Open Sans', sans-serif; color: #585656;"
+                                                            style="font-family: 'Open Sans', sans-serif; "
                                                             type="submit">
-                                                            <div style="background-color:#fff">Grafik Jenis Kelamin
+                                                            <div style="background-color:#fca311;font-size:16px; font-family: 'Open Sans', sans-serif;color:#000;">Grafik Jenis Kelamin
                                                             </div>
                                                         </button>
-                                                    </form>
+                                                    </form></a>
                                                 </li>
                                                 <li>
-                                                    <form action="{{ Route('keagama') }}" method="get">
+                                                    <a><form action="{{ Route('keagama') }}" method="get">
                                                         @csrf
                                                         <input type="hidden" value="{{ $data_user->id }}"
                                                             name="id">
                                                         <button
-                                                            style="margin-left: 9%;font-weight: 550; font-size: 13px; font-family: 'Open Sans', sans-serif; color: #585656;"
+                                                            style="font-family: 'Open Sans', sans-serif; "
                                                             type="submit">
-                                                            <div style="background-color:#fff">Grafik Agama</div>
+                                                            <div style="background-color:#fca311;font-size:16px; font-family: 'Open Sans', sans-serif;color:#000;">Grafik Agama</div>
                                                         </button>
-                                                    </form>
+                                                    </form></a>
                                                 </li>
                                                 <li>
-                                                    <form action="{{ Route('kepdd') }}" method="get">
+                                                    <a><form action="{{ Route('kepdd') }}" method="get">
                                                         @csrf
                                                         <input type="hidden" value="{{ $data_user->id }}"
                                                             name="id">
                                                         <button
-                                                            style="margin-left: 9%;font-weight: 550; font-size: 13px; font-family: 'Open Sans', sans-serif; color: #585656;"
+                                                            style="font-family: 'Open Sans', sans-serif; "
                                                             type="submit">
-                                                            <div style="background-color:#fff">Grafik Pendidikan</div>
+                                                            <div style="background-color:#fca311;font-size:16px; font-family: 'Open Sans', sans-serif;color:#000;">Grafik Pendidikan</div>
                                                         </button>
-                                                    </form>
+                                                    </form></a>
                                                 </li>
                                                 <li>
-                                                    <form action="{{ Route('kekawin') }}" method="get">
+                                                    <a><form action="{{ Route('kekawin') }}" method="get">
                                                         @csrf
                                                         <input type="hidden" value="{{ $data_user->id }}"
                                                             name="id">
                                                         <button
-                                                            style="margin-left: 9%;font-weight: 550; font-size: 13px; font-family: 'Open Sans', sans-serif; color: #585656;"
+                                                            style="font-family: 'Open Sans', sans-serif; "
                                                             type="submit">
-                                                            <div style="background-color:#fff">Grafik Perkawinan</div>
+                                                            <div style="background-color:#fca311;font-size:16px; font-family: 'Open Sans', sans-serif;color:#000;">Grafik Perkawinan</div>
                                                         </button>
-                                                    </form>
+                                                    </form></a>
                                                 </li>
                                             </ul>
                                         </li>
@@ -266,41 +252,51 @@
                                                 @csrf
                                                 <input type="hidden" value="{{ $data_user->id }}" name="id">
                                                 <button
-                                                    style="margin-left: 9%;font-weight: 550; font-size: 13px; font-family: 'Open Sans', sans-serif; color: #585656;"
+                                                    style="font-family: 'Open Sans', sans-serif; "
                                                     type="submit">
-                                                    <div style="background-color:#fff">Sarana</div>
+                                                    <div style="background-color:#fca311;font-size:16px; font-family: 'Open Sans', sans-serif;color:#000;">Sarana</div>
                                                 </button>
                                             </form>
                                         </li>
                                 </li>
                                 </ul>
                                 </li>
-                                <li>
-                                    <form action="{{ Route('keperaturan') }}" method="get">
+
+
+
+
+
+
+
+           
+		  <li><form action="{{ Route('keperaturan') }}" method="get">
                                         @csrf
                                         <input type="hidden" value="{{ $data_user->id }}" name="id"
-                                            class="bg-hover-theme-colored" style="border-radius:100px; width:100px;">
-                                        <button class="bg-hover-theme-colored"
-                                            style="margin:2px 40px 0px 20px;margin-left: 0%;font-weight:550; color:#333333; font-size:13px; font-family: 'Open Sans', sans-serif;width:100px; background-color:#fca311; border-radius:100px;"
+                                            style="border-radius:100px; width:100px;">
+                                        <button
+                                        style="font-family: 'Open Sans', sans-serif; "
                                             type="submit">
                                             <div
-                                                style="background-color:#fca311; border-radius:100px;width:90px;"class="bg-hover-theme-colored ">
+                                            style="background-color:#fca311;font-size:16px; font-family: 'Open Sans', sans-serif;color:#000;">
                                                 Peraturan</div>
                                         </button>
-                                    </form>
-                                </li>
-                                <li style="margin-top: -94px; margin-left: 79%; width: 100%;"><a
+                                    </form></li>
+
+                                    &ensp;&ensp;&ensp;&ensp;&ensp;
+          
+                                    <li ><a
                                         class="nav-link {{ Request::is('umkmdesa') && Request::is('pariwisatadesa') ? '' : 'collapsed' }} "
                                         data-bs-target="#forms-nav" href="#">Potensi Desa &ensp;</a>
-                                    <ul class="dropdown">
-                                        <li>
+                                        <i class='bx bxs-chevron-down js-arrow arrow '></i>
+            <ul class="js-sub-menu sub-menu">
+                                        <li style="width:125px">
                                             <form action="{{ Route('keumkm') }}" method="get">
                                                 @csrf
                                                 <input type="hidden" value="{{ $data_user->id }}" name="id">
                                                 <button
-                                                    style="margin-left: 9%;font-weight: 550; font-size: 13px; font-family: 'Open Sans', sans-serif; color: #585656;"
+                                                style="font-family: 'Open Sans', sans-serif; "
                                                     type="submit">
-                                                    <div style="background-color:#fff">UMKM</div>
+                                                    <div style="background-color:#fca311;font-size:16px; font-family: 'Open Sans', sans-serif;color:#000;">UMKM</div>
                                                 </button>
                                             </form>
                                         </li>
@@ -309,26 +305,30 @@
                                                 @csrf
                                                 <input type="hidden" value="{{ $data_user->id }}" name="id">
                                                 <button
-                                                    style="margin-left: 9%;font-weight: 550; font-size: 13px; font-family: 'Open Sans', sans-serif; color: #585656;"
+                                                style="font-family: 'Open Sans', sans-serif; "
                                                     type="submit">
-                                                    <div style="background-color:#fff">Pariwisata</div>
+                                                    <div style="background-color:#fca311;font-size:16px; font-family: 'Open Sans', sans-serif;color:#000;">Pariwisata</div>
                                                 </button>
                                             </form>
                                         </li>
                                     </ul>
                                 </li>
-                                <li style="margin-top: -94px; margin-left: 101%; width: 100%"><a
+          
+          
+          
+                                <li ><a
                                         class="nav-link {{ Request::is('beritadesa') && Request::is('penghargaandesa') && Request::is('galeridesa') ? '' : 'collapsed' }} "
                                         data-bs-target="#forms-nav"href="#">Berita &ensp;</a>
-                                    <ul class="dropdown">
-                                        <li>
+                                        <i class='bx bxs-chevron-down js-arrow arrow '></i>
+            <ul class="js-sub-menu sub-menu">
+                                        <li style="width:150px">
                                             <form action="{{ Route('keberita') }}" method="get">
                                                 @csrf
                                                 <input type="hidden" value="{{ $data_user->id }}" name="id">
                                                 <button
-                                                    style="margin-left: 9%;font-weight: 550; font-size: 13px; font-family: 'Open Sans', sans-serif; color: #585656;"
+                                                style="font-family: 'Open Sans', sans-serif; "
                                                     type="submit">
-                                                    <div style="background-color:#fff">Berita</div>
+                                                    <div style="background-color:#fca311;font-size:16px; font-family: 'Open Sans', sans-serif;color:#000;">Berita</div>
                                                 </button>
                                             </form>
                                         </li>
@@ -337,9 +337,9 @@
                                                 @csrf
                                                 <input type="hidden" value="{{ $data_user->id }}" name="id">
                                                 <button
-                                                    style="margin-left: 9%;font-weight: 550; font-size: 13px; font-family: 'Open Sans', sans-serif; color: #585656;"
+                                                style="font-family: 'Open Sans', sans-serif; "
                                                     type="submit">
-                                                    <div style="background-color:#fff">Penghargaan</div>
+                                                    <div style="background-color:#fca311;font-size:16px; font-family: 'Open Sans', sans-serif;color:#000;">Penghargaan</div>
                                                 </button>
                                             </form>
                                         </li>
@@ -348,35 +348,37 @@
                                             @csrf
                                             <input type="hidden" value="{{ $data_user->id }}" name="id">
                                             <button
-                                                style="margin-left: 9%;font-weight: 550; font-size: 13px; font-family: 'Open Sans', sans-serif; color: #585656;"
+                                            style="font-family: 'Open Sans', sans-serif; "
                                                 type="submit">
-                                                <div style="background-color:#fff">Galeri</div>
+                                                <div style="background-color:#fca311;font-size:16px; font-family: 'Open Sans', sans-serif;color:#000;">Galeri</div>
                                             </button>
                                         </form>
                                     </li>
                                     </ul>
                                 </li>
-                                </ul>
-                                <div class="pull-right flip hidden-sm hidden-xs mt-20 pt-5">
+          <li><div class="" style="margin-top:-12px">
                                     <a class="btn" href="{{ route('dashweb') }}"
-                                        style="background-color:#F26522; color:#fff; border-radius: 10px; margin-left: 90%;"><b>Kembali</b></a>
+                                        style="background-color:#F26522; color:#fff; border-radius: 10px;"><b>Kembali</b></a>
                                 </div>
-                                <div class="pull-right flip hidden-sm hidden-xs mt-20 pt-5"
-                                    style="margin-right: -80px;">
+                                <div class=""
+                                    style="">
                                     @if (auth()->user() && auth()->user()->role == 'admindesa')
                                         <a class="btn" href="{{ route('dashboard') }}"
                                             style="background-color:#F26522; color:#fff; border-radius: 10px;"><b>Kelola
                                                 Desa</b></a>
                                     @endif
-                                </div>
-                                <div class="pull-right flip hidden-sm hidden-xs mt-20 pt-5"
-                                    style="margin-right: -0px;">
-                                </div>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </header>
+                                </div></li>
+                                    
+    
+        </ul>
+      </div>
+      <div class="search-box">
+        <i class='bx bx-search' Style="color:#fca311"></i>
+        
+      </div>
+    </div>
+  </nav>
+  <script src="{{ asset('script.js') }}"></script>
 
             @yield('isi')
 
