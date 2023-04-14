@@ -79,7 +79,8 @@
   <style>
     #leafletMap-registration {
       height: 430px;
-      width: 500px;
+      width: 700px;
+      margin-left: -80px;
     
       border-radius: 10px;
       box-shadow: 0px 0px 10px 0px rgba(101, 95, 83, 0.5);
@@ -320,6 +321,7 @@
                     @enderror</center></div></div><br><br>
                                         
 <br>
+
                   {{-- @dd($data) --}}
                   <div  >
                   <div class="row">
@@ -353,9 +355,11 @@
                       <div class="invalid-feedback" style="margin-left:25%">{{ $message }}</div>
                     @enderror
                   </div>
+              <div style="" id="leafletMap-registration"></div>
+
                   
-                  <input type="text" value="{{ $data->latitude }}">
-                  <input type="text" value="{{ $data->longtitude }}">
+                  <input type="hidden" value="{{ $data->latitude }}" name="latitude"  id="latitude">
+                  <input type="hidden" value="{{ $data->longtitude }}" name="longtitude" id="longtitude">
                   
                 </div>
               </div>
@@ -442,9 +446,15 @@ class="back-to-top d-flex align-items-center justify-content-center"
 <script src="{{asset('assets/vendor/php-email-form/validate.js') }}"></script>
 
 <!-- Template Main JS File -->
+
 <script src="{{asset('assets/js/main.js') }}"></script>
 
 <script>
+
+  let lat = {{$data->latitude}}
+  let lng = {{$data->longtitude}}
+
+  
   // you want to get it of the window global
   const providerOSM = new GeoSearch.OpenStreetMapProvider();
 
@@ -456,7 +466,12 @@ class="back-to-top d-flex align-items-center justify-content-center"
       pseudoFullscreen: false // if true, fullscreen to page width and height
   },
   minZoom: 5
-  }).setView([-7.9786395, 112.5617421], 2);
+  }).setView([lat, lng], 15);
+  var marker = L.marker([lat, lng]).addTo(leafletMap);
+  leafletMap.on('click', function(e) {
+  // Menghapus marker
+  leafletMap.removeLayer(marker);
+});
 
   L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
   attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -493,9 +508,6 @@ class="back-to-top d-flex align-items-center justify-content-center"
       retainZoomLevel: false,
       searchLabel: 'Cari....',
   });leafletMap.addControl(search);
-  
-
-
 </script>
 </body>
 </html>

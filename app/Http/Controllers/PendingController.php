@@ -24,6 +24,7 @@ class PendingController extends Controller
         // ->orderBy('created_at', 'desc')
 
         $data = User::where('id', $id)->first();
+        
         return view('pending', ['data' => $data]);
 
     }
@@ -34,18 +35,13 @@ class PendingController extends Controller
         $data = User::findOrfail($id);
         $request->validate([
             'name' => 'required',
-            'provinsi' => 'required',
-            'kabupaten' => 'required',
-            'kecamatan' => 'required',
             'email' => 'required',
             'kode_pos' => 'required|min:5|max:8',
             'gambar' => 'nullable|mimetypes:application/pdf|max:10000',
             'logo' => 'nullable|image|mimes:jpeg,jpg,png',
         ], [
                 'name.required' => 'Nama harus di isi',
-                'provinsi.required' => 'Provinsi tidak boleh kosong',
-                'kabupaten.required' => 'Kabupaten tidak boleh kosong',
-                'kecamatan.required' => 'Kecamatan tidak boleh kosong',
+               
                 'email.required' => 'Email tidak boleh kosong',
                 'kode_pos.required' => 'Kode Pos tidak boleh kosong',
                 'kode_pos.min' => 'Kode pos minimal 5 angka',
@@ -57,9 +53,8 @@ class PendingController extends Controller
             ]);
         $data->update([
             'name' => $request->name,
-            'provinsi' => $request->provinsi,
-            'kabupaten' => $request->kabupaten,
-            'kecamatan' => $request->kecamatan,
+            'longtitude' =>$request->longtitude,
+            'latitude'=>$request->latitude,
             'email' => $request->email,
             'kode_pos' => $request->kode_pos,
 

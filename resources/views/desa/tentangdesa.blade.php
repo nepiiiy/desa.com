@@ -168,6 +168,7 @@
                     </style>
                     <div class="backTop z-index-1"><i class="fa fa-chevron-circle-up fa-3x"></i></div>
                     <script>
+                        
                         $(window).on('load', function() {
                             $('.backTop').hide();
                             $(window).scroll(function() {
