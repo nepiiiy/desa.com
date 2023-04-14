@@ -19,8 +19,8 @@ return new class extends Migration
             ->on('users')
             ->onDelete('cascade')
             ->onUpdate('cascade');
-            $table->text('judul');
-            $table->text('subjudul');
+            $table->string('judul');
+            $table->string('subjudul');
             $table->date('tanggal');
             $table->string('gambar');
             $table->string('cover');

@@ -274,10 +274,10 @@
                 <div class="container text-center">
                     <div class="shell">
                         <div class="container">
-                            <div class="row multi-row-clearfix">
+                            <div class="row">
                               <div class="col-2 col-md-12">
                                   @foreach ($umkm as $product)
-                                    <div class="col-md-3 col-sm-4">
+                                    <div class="col-md-3 col-4">
                                         <div class="wsk-cp-product">
                                             <div class="wsk-cp-img">
                                                 <img src="/image/{{ $product->image }}" alt="Product"
