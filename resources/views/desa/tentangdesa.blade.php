@@ -6,15 +6,15 @@
         integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
 @endsection
 @section('isi')
-    <style>
-        #map {
-            height: 400px;
+<style>
+    #map {
+        height: 400px;
 
-            border: 0px solid #ffffff;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px 0px rgba(101, 95, 83, 0.5);
-        }
-    </style>
+        border: 0px solid #ffffff;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px 0px rgba(101, 95, 83, 0.5);
+    }
+</style>
     </style>
     {{-- @foreach ($data_user as $data_u) --}}
     <div class="main-content">
@@ -66,83 +66,93 @@
 
                     <div class="container-fluid mt-1 main-container ">
                         <div class="row">
-                            <div class="col-lg-12 col-md-12">
-                                <div class="col-md-8 col-lg-8 col-xs-12">
-                                    <div class="card fullscreen has-background-img ">
-                                        <div id="printableArea">
+                            <div class="col-md-8 col-lg-8">
+                                <div class="card fullscreen has-background-img ">
+                                    <div id="printableArea">
 
-                                            <div class="card-body">
-                                                <div class="mb-0 content-color-secondary">
+                                        <div class="card-body">
+                                            <div class="mb-0 content-color-secondary">
 
 
-                                                    <h3 style="text-align: left; margin-left: 50px;">A. Biodata Desa</h3>
-                                                    <h5 class="display-5"
-                                                        style="text-align: justify; margin-left: 83px; text-indent: 3em; font-weight:200;">
-                                                        {{ $data_u->name }} adalah salah satu desa di Kecamatan
-                                                        {{ $data_u->kecamatan->name }}, {{ $data_u->kabupaten->name }},
-                                                        Provinsi
-                                                        {{ $data_u->provinsi->name }},
-                                                        Indonesia.</h5>
-                                                </div>
-                                                @endforeach
+                                                <h3 style="text-align: left; margin-left: 50px;">A. Biodata Desa</h3>
+                                                <p
+                                                    style="text-align: justify; margin-left: 83px; text-indent: 3em; font-size: 17px;">
+                                                    {{ $data_u->name }} adalah salah satu desa di Kecamatan
+                                                    {{ $data_u->kecamatan->name }}, Kabupaten {{ $data_u->kabupaten->name }}, Provinsi
+                                                    {{ $data_u->provinsi->name }},
+                                                    Indonesia.</p>
                                             </div>
-                                            <div class="card-body">
-                                                <div class="mb-0 content-color-secondary">
-                                                    <h3 style="text-align: left; margin-left: 50px;">B. Sejarah Desa</h3>
-                                                    <h5 class="display-5"
-                                                        style="text-align: justify; margin-left: 83px; font-weight:200; text-indent: 3em;">
-                                                        {!! $data->sejarah !!}</h5>
+                                            @endforeach
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="mb-0 content-color-secondary">
+                                                <h3 style="text-align: left; margin-left: 50px;">B. Sejarah Desa</h3>
+                                                <p
+                                                    style="text-align: justify; margin-left: 83px; text-indent: 3em; font-size: 17px;">
+                                                    {!! $data->sejarah !!}</p>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <section id="about">
+                                            <div class="container ml-100 pb-sm-50 " style="text-align: justify;">
+                                                <div class="row">
+                                                    <div class="col-xs-12 col-md-4">
+                                                        <h3 class="line-bottom border-bottom mt-0 mt-sm-20">Visi
+                                                        </h3>
+                                                        <div style="font-size: 15px;">
+                                                            {{ $data->visi }}
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-xs-12 col-md-4">
+                                                        <h3 class="line-bottom border-bottom mt-0 mt-sm-20">Misi
+                                                        </h3>
+                                                        <div style="font-size: 15px;">
+                                                            {{ $data->misi }}
+                                                        </div>
+                                                    </div>
                                                 </div>
+                                            </div>
+                                        </section>
+                                        <div class="card mt-1 bg-light-primary border border-primary no-shadow">
+
+                                        </div>
+
+                                    </div>
+                                    <div class="sharethis-inline-reaction-buttons"></div>
+                                </div>
+
+
+
+                            </div>
+                            <!--  -->
+                            <div class="col-md-4 col-lg-4">
+
+                                <div class="card mb-1 z-index-1">
+                                    <div class="card-header border-bottom">
+                                        <div class="media">
+                                            <div class="media-body">
+                                                <h3 class="content-color-primary mb-0">Lokasi Desa</h3>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <br>
-                                <div class="col-md-4 col-lg-4 col-xs-12">
-
-                                    <div class="card mb-1 z-index-1 relative">
-                                        <div class="card-header border-bottom">
-                                            <div class="media">
-                                                <div class="media-body">
-                                                    <h3 class="content-color-primary mb-0">Lokasi Desa</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card-body">
-                                            <div id="map"></div>
-                                            <a href="#" onclick="window.open(googleMapsUrl, '_blank')">
-                                                <button type="button" class="btn btn-primary btn-block mt-1">Klik di
-                                                    sini</button></a>
-                                            </a>
-                                        </div>
+                                    <div class="card-body">
+                                        <div id="map"></div>
+                                        <a href="#" onclick="window.open(googleMapsUrl, '_blank')">
+                                            <button type="button" class="btn btn-primary btn-block mt-1">Klik di
+                                                sini</button></a>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
-                            <section id="about">
-                                <div class="container ml-100 pb-sm-50 " style="text-align: justify;">
-                                        <div class="col-xs-12 col-md-4">
-                                            <h3 class="line-bottom border-bottom mt-0 mt-sm-20">Visi
-                                            </h3>
-                                            <div style="font-weight:200;">
-                                                {{ $data->visi }}
-                                            </div>
-                                        </div>
-
-                                        <div class="col-xs-12 col-md-4">
-                                            <h3 class="line-bottom border-bottom mt-0 mt-sm-20">Misi
-                                            </h3>
-                                            <div style="font-weight:200;">
-                                                {{ $data->misi }}
-                                            </div>
-                                        </div>
-                                    </div>
-                            </section>
-                            <div class="sharethis-inline-reaction-buttons"></div>
-                            <!--  -->
                         </div>
                     </div>
 
                     <style>
+                        #footer {
+                            background-color: #142850;
+                        }
+
                         .backTop {
                             position: fixed;
                             bottom: 0;
@@ -176,7 +186,7 @@
                         });
                     </script>
                     @endforeach
-                @section('script')
+                    @section('script')
                     @foreach ($profil as $item)
                         <script>
                             var map = L.map('map').setView([{{ $item->user->latitude }}, {{ $item->user->longtitude }}], 13);

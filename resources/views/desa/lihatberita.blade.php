@@ -582,9 +582,11 @@ background-position: center;">
                                 style="width: 110vh; border-radius: 10px; height: 70vh;">
 
                                 <div class="fullwidth-carousel" data-nav="true">
+                                    @foreach (json_decode($berita->gambar) as $gambar)
                                         <div class="carousel-item bg-img-cover"> <img
-                                                src="{{ asset('storage/' . $berita->gambar) }}">
+                                                src="{{ asset('storage/imgberita/' . $gambar) }}">
                                         </div>
+                                    @endforeach
 
                                 </div>
                             </section>
