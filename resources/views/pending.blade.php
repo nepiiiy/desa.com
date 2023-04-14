@@ -37,6 +37,19 @@
     <!-- Template Main CSS File -->
     <link href="{{asset('assets/css/style.css')}}" rel="stylesheet" />
 
+
+    {{-- leaflet --}}
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+    crossorigin=""/>
+      <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin="">
+    </script>
+      <link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.css" />
+      <script src="https://unpkg.com/leaflet-geosearch@3.1.0/dist/geosearch.umd.js"></script>
+
     <!-- =======================================================
   * Template Name: NiceAdmin - v2.5.0
   * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
@@ -62,6 +75,17 @@
         });
         </script>
   </head>
+
+  <style>
+    #leafletMap-registration {
+      height: 430px;
+      width: 500px;
+    
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px 0px rgba(101, 95, 83, 0.5);
+      /* The height is 400 pixels */
+    }
+    </style>
 
   <body>
     <!-- ======= Header ======= -->
@@ -311,33 +335,7 @@
 
                   
   
-                  <div class="row" >
-                    <div class="col-lg-3 col-md-4 label">Provinsi</div>
-                    <input type="text" class="form-control @error('provinsi') is-invalid @enderror" style="width: 300px" id="nama" name="provinsi"
-                    value="{{ $data->provinsi }}">
-                   @error('provinsi')
-                      <div class="invalid-feedback" style="margin-left:25%">{{ $message }}</div>
-                    @enderror
-                  </div>
-  
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Kabupaten</div>
-                    <input type="text" class="form-control @error('kabupaten') is-invalid @enderror" style="width: 300px" id="nama" name="kabupaten"
-                    value="{{ $data->kabupaten }}">
-                    @error('kabupaten')
-                      <div class="invalid-feedback" style="margin-left:25%">{{ $message }}</div>
-                    @enderror
-                  </div>
-  
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Kecamatan</div>
-                    <input type="text" class="form-control @error('kecamatan') is-invalid @enderror" style="width: 300px" id="nama" name="kecamatan"
-                    value="{{ $data->kecamatan }}">
-                    @error('kecamatan')
-                      <div class="invalid-feedback" style="margin-left:25%">{{ $message }}</div>
-                    @enderror
-                  </div>
-  
+                  
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Email</div>
                     <input type="text" class="form-control @error('email') is-invalid @enderror" style="width: 300px" id="nama" name="email"
@@ -355,6 +353,10 @@
                       <div class="invalid-feedback" style="margin-left:25%">{{ $message }}</div>
                     @enderror
                   </div>
+                  
+                  <input type="text" value="{{ $data->latitude }}">
+                  <input type="text" value="{{ $data->longtitude }}">
+                  
                 </div>
               </div>
               <div style="margin-left:85%"><button class="button-79 ms-0 mb-3" type="submit" role="button" style="background-color:#0375b4; ">Kirim</button></div>
@@ -441,5 +443,59 @@ class="back-to-top d-flex align-items-center justify-content-center"
 
 <!-- Template Main JS File -->
 <script src="{{asset('assets/js/main.js') }}"></script>
+
+<script>
+  // you want to get it of the window global
+  const providerOSM = new GeoSearch.OpenStreetMapProvider();
+
+  //leaflet map
+  var leafletMap = L.map('leafletMap-registration', {
+  fullscreenControl: true,
+  // OR
+  fullscreenControl: {
+      pseudoFullscreen: false // if true, fullscreen to page width and height
+  },
+  minZoom: 5
+  }).setView([-7.9786395, 112.5617421], 2);
+
+  L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(leafletMap);
+  
+  let theMarker = {};
+
+  leafletMap.on('click',function(e) {
+      let latitude  = e.latlng.lat.toString().substring(0,15);
+      let longitude = e.latlng.lng.toString().substring(0,15);
+      // document.getElementById("latitude").value = latitude;
+      // document.getElementById("longitude").value = longitude;
+      let popup = L.popup()
+          .setLatLng([latitude,longitude])
+          .setContent("Kordinat : " + latitude +" - "+  longitude )
+          .openOn(leafletMap);
+
+      if (theMarker != undefined) {
+          leafletMap.removeLayer(theMarker)
+      }
+      
+      theMarker = L.marker([latitude,longitude]).addTo(leafletMap);  
+
+      document.querySelector("#longtitude").value = longitude;
+      document.querySelector("#latitude").value = latitude;
+  });
+
+  
+  var search = new GeoSearch.GeoSearchControl({
+      provider: providerOSM,
+      style: 'bar',
+      showMarker: false,
+      autoClose: true,
+      retainZoomLevel: false,
+      searchLabel: 'Cari....',
+  });leafletMap.addControl(search);
+  
+
+
+</script>
 </body>
 </html>
