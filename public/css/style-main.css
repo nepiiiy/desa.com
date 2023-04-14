@@ -4474,7 +4474,7 @@ blockquote p {
   min-height: 300px;
   padding-bottom: 25%;
   position: relative;
-  text-align: center;
+  /* text-align: center; */
   width: 100%;
 }
 .card:nth-child(1) {
