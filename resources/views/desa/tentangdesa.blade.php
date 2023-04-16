@@ -108,8 +108,9 @@
                                         <div class="card-body">
                                             <div id="map"></div>
                                             <a href="#" onclick="window.open(googleMapsUrl, '_blank')">
-                                                <button type="button" class="btn btn-primary btn-block mt-1">Klik di
-                                                    sini</button></a>
+                                                <button type="button" class="btn btn-primary btn-block
+                                                            mt-1" id="btn-maps">Klik di sini untuk melihat di Google
+                                                                Maps</button>
                                             </a>
                                         </div>
                                     </div>
@@ -175,28 +176,25 @@
                     @endforeach
                 @section('script')
                     @foreach ($profil as $item)
-                        <script>
-                            var map = L.map('map').setView([{{ $item->user->latitude }}, {{ $item->user->longtitude }}], 13);
-
-                            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                                maxZoom: 19,
-                                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-                            }).addTo(map);
-                            var marker = L.marker([{{ $item->user->latitude }}, {{ $item->user->longtitude }}]).addTo(map);
-                            marker.bindPopup("<b>Desa " + "{{ $item->user->name }}</b>").openPopup();
-                            var lat = {{ $item->user->latitude }};
-                            var lng = {{ $item->user->longtitude }};
-
-
-                            var googleMapsUrl = "https://www.google.com/maps?q=" + lat + "," + lng;
-
-                            tekan.on('click', function(e) {
-                                var lat = {{ $item->user->latitude }};
-                                var lng = {{ $item->user->longtitude }};
-                                var googleMapsUrl = "https://www.google.com/maps?q=" + lat + "," + lng;
-                                window.open(googleMapsUrl, '_blank');
-                            });
-                        </script>
+                    <script>
+                        const lat = {{ $item->user->latitude }}
+                        const lng = {{ $item->user->longtitude }}
+                        var map = L.map('map').setView([lng, lat], 12);
+                
+                        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                            maxZoom: 19,
+                            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                        }).addTo(map);
+                        var marker = L.marker([lng, lat]).addTo(map);
+                        marker.bindPopup("<b>Desa " + "{{ $item->user->name }}</b>").openPopup();
+                
+                
+                        var googleMapsUrl = "https://www.google.com/maps?q=" + lng + "," + lat;
+                
+                        document.getElementById('btn-maps').addEventListener('click', function() {
+                            window.open(googleMapsUrl, '_blank');
+                        });
+                    </script>
                     @endforeach
                 @endsection
             </body>

@@ -74,8 +74,8 @@
 	<div class="row"  style="width:165%;">							
     <div class="col-md-6 col-12" >
 		
-		<input type="text"  name="longtitude" id="longtitude" placeholder="longtitude">
 		<input type="text"  name="latitude" id="latitude" placeholder="latitude">
+              <input type="text"  name="longtitude" id="longtitude" placeholder="longtitude">
 									</div>
 								</div>
                                 </div>	
@@ -108,58 +108,61 @@
 
 </body>
 <script>
-    // you want to get it of the window global
-    const providerOSM = new GeoSearch.OpenStreetMapProvider();
+	// you want to get it of the window global
+	const providerOSM = new GeoSearch.OpenStreetMapProvider();
+	
+	//leaflet map
+	var leafletMap = L.map('leafletMap-registration', {
+	fullscreenControl: true,
+	// OR
+	fullscreenControl: {
+		pseudoFullscreen: false // if true, fullscreen to page width and height
+	},
+	minZoom: 5
+	}).setView([1.342269, 114.960938], 10);
 
-    //leaflet map
-    var leafletMap = L.map('leafletMap-registration', {
-    fullscreenControl: true,
-    // OR
-    fullscreenControl: {
-        pseudoFullscreen: false // if true, fullscreen to page width and height
-    },
-    minZoom: 5
-    }).setView([-7.9786395, 112.5617421], 2);
-
-    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(leafletMap);
-    
-    let theMarker = {};
-
-    leafletMap.on('click',function(e) {
-        let latitude  = e.latlng.lat.toString().substring(0,15);
-        let longitude = e.latlng.lng.toString().substring(0,15);
-        // document.getElementById("latitude").value = latitude;
-        // document.getElementById("longitude").value = longitude;
-        let popup = L.popup()
-            .setLatLng([latitude,longitude])
-            .setContent("Kordinat : " + latitude +" - "+  longitude )
-            .openOn(leafletMap);
-
-        if (theMarker != undefined) {
-            leafletMap.removeLayer(theMarker)
-        }
-        
-        theMarker = L.marker([latitude,longitude]).addTo(leafletMap);  
-
-        document.querySelector("#longtitude").value = longitude;
-        document.querySelector("#latitude").value = latitude;
-    });
-
-    
-    var search = new GeoSearch.GeoSearchControl({
-        provider: providerOSM,
-        style: 'bar',
-        showMarker: false,
-        autoClose: true,
-        retainZoomLevel: false,
-        searchLabel: 'Cari....',
-    });leafletMap.addControl(search);
-    
-
-
-</script>
+  
+	
+  
+	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+	attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+	}).addTo(leafletMap);
+	
+	let theMarker = {};
+  
+	leafletMap.on('click',function(e) {
+		let latitude  = e.latlng.lat.toString().substring(0,15);
+		let longitude = e.latlng.lng.toString().substring(0,15);
+		// document.getElementById("latitude").value = latitude;
+		// document.getElementById("longitude").value = longitude;
+		let popup = L.popup()
+			.setLatLng([latitude,longitude])
+			.setContent("Kordinat : " + latitude +" - "+  longitude )
+			.openOn(leafletMap);
+  
+		if (theMarker != undefined) {
+			leafletMap.removeLayer(theMarker)
+		}
+		
+		theMarker = L.marker([latitude,longitude]).addTo(leafletMap);  
+  
+		document.querySelector("#longtitude").value = longitude;
+		document.querySelector("#latitude").value = latitude;
+	});
+  
+	
+	var search = new GeoSearch.GeoSearchControl({
+		provider: providerOSM,
+		style: 'bar',
+		showMarker: false,
+		autoClose: true,
+		retainZoomLevel: false,
+		searchLabel: 'Cari....',
+	});leafletMap.addControl(search);
+	
+  
+  
+  </script>
 
 
 <!-- Mirrored from affixtheme.com/html/xmee/demo/register-15.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 10 Apr 2023 03:38:05 GMT -->

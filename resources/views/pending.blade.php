@@ -37,18 +37,16 @@
     <!-- Template Main CSS File -->
     <link href="{{asset('assets/css/style.css')}}" rel="stylesheet" />
 
-
-    {{-- leaflet --}}
+    {{-- leaflaet --}}
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
-    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
-    crossorigin=""/>
-      <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-      crossorigin="">
-    </script>
-      <link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.css" />
-      <script src="https://unpkg.com/leaflet-geosearch@3.1.0/dist/geosearch.umd.js"></script>
+	integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+	crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.css" />
+    <script src="https://unpkg.com/leaflet-geosearch@3.1.0/dist/geosearch.umd.js"></script>
 
     <!-- =======================================================
   * Template Name: NiceAdmin - v2.5.0
@@ -75,12 +73,10 @@
         });
         </script>
   </head>
-
   <style>
     #leafletMap-registration {
       height: 430px;
-      width: 700px;
-      margin-left: -80px;
+      width: 500px;
     
       border-radius: 10px;
       box-shadow: 0px 0px 10px 0px rgba(101, 95, 83, 0.5);
@@ -301,7 +297,7 @@
                       <div class="invalid-feedback" >{{ $message }}</div>
                     @enderror<center> </div><br>
                                        
-                                        <div style=" margin-left:90%; margin-top:-260px;" class="col-12"><div class=" label"><center>Persetujuan Desa</center></div><br><br><br>
+                                        <div style=" margin-left:90%; margin-top:-260px;" class="col-12"><div style="margin-top: 10%" class=" label"><center>Persetujuan Desa</center></div><br><br><br>
                                         <center><a data-toggle="modal"  class="clickLink btn btn-danger"href="#myModal" style="color:#fff; font-size:80%; margin-bottom:29px;">Lihat Persetujuan</a></center>
                                         <div class="modal fade" id="myModal" role="dialog" >
                                 <div class="modal-dialog modal-lg" >
@@ -321,7 +317,6 @@
                     @enderror</center></div></div><br><br>
                                         
 <br>
-
                   {{-- @dd($data) --}}
                   <div  >
                   <div class="row">
@@ -338,6 +333,7 @@
                   
   
                   
+  
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Email</div>
                     <input type="text" class="form-control @error('email') is-invalid @enderror" style="width: 300px" id="nama" name="email"
@@ -345,9 +341,8 @@
                     @error('email')
                       <div class="invalid-feedback" style="margin-left:25%">{{ $message }}</div>
                     @enderror
+                    <div id="leafletMap-registration"></div>
                   </div>
-
-                      
   
                   <div class="row"><br>
                     <div class="col-lg-3 col-md-4 label">Kode Pos</div>
@@ -357,14 +352,10 @@
                       <div class="invalid-feedback" style="margin-left:25%">{{ $message }}</div>
                     @enderror
                   </div>
-              <div style="" id="leafletMap-registration"></div>
-
-                  
-                  <input type="text" value="{{ $data->latitude }}" name="latitude"  id="latitude">
-                  <input type="text" value="{{ $data->longtitude }}" name="longtitude" id="longtitude">
-                  
                 </div>
               </div>
+              <input type="hidden"  name="longtitude" id="latitude" placeholder="latitude">
+              <input type="hidden"  name="latitude" id="longtitude" placeholder="longtitude">
               <div style="margin-left:85%"><button class="button-79 ms-0 mb-3" type="submit" role="button" style="background-color:#0375b4; ">Kirim</button></div>
   
                 <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
@@ -448,26 +439,14 @@ class="back-to-top d-flex align-items-center justify-content-center"
 <script src="{{asset('assets/vendor/php-email-form/validate.js') }}"></script>
 
 <!-- Template Main JS File -->
-
 <script src="{{asset('assets/js/main.js') }}"></script>
 
 <script>
-</script>
-
-
-<script>
-  
-  let lat = {{$data->latitude}};
-let lng = {{$data->longtitude}};
-console.log("Latitude:", lat);
-console.log("Longitude:", lng);
-console.log('sadasd');
-
-
-  
   // you want to get it of the window global
   const providerOSM = new GeoSearch.OpenStreetMapProvider();
-
+  const lat = "<?php echo $data->latitude; ?>";
+    const lng = "<?php echo $data->longtitude; ?>";
+  
   //leaflet map
   var leafletMap = L.map('leafletMap-registration', {
   fullscreenControl: true,
@@ -475,9 +454,17 @@ console.log('sadasd');
   fullscreenControl: {
       pseudoFullscreen: false // if true, fullscreen to page width and height
   },
+  
   minZoom: 5
-  }).setView([-7.9786395, 112.5617421], 14);
- 
+  
+  }).setView([lng, lat], 10);
+  var marker = L.marker([lng, lat]).addTo(leafletMap);
+  leafletMap.on('click', function(e) {
+  // Menghapus marker
+  leafletMap.removeLayer(marker);
+});
+
+  
 
   L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
   attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -514,6 +501,10 @@ console.log('sadasd');
       retainZoomLevel: false,
       searchLabel: 'Cari....',
   });leafletMap.addControl(search);
+  
+
+
 </script>
+
 </body>
 </html>
