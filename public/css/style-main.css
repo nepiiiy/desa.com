@@ -2844,7 +2844,6 @@ form .error {
   top: 45%;
 }
 .fullwidth-carousel .carousel-item {
-  min-height: 615px;
   width: 100%;
 }
 .fullwidth-carousel.blog-fullwidth-carousel .carousel-item {

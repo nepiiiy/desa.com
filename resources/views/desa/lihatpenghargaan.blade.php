@@ -551,16 +551,16 @@ background-position: center;">
                     <div class="col-md-6">
                         {{-- @dd($data_user) --}}
                         @foreach ($berita as $item)
-                            <form action="{{ Route('kepenghargaan') }}">
-                                <input type="hidden" value="{{ $item->user->id }}" name="id">
-                                <button style="margin-bottom: 50px; background-color:transparent; border:none;"><img
-                                        src="https://i.postimg.cc/gctp9m1b/left-arrow-removebg-preview.png"
-                                        style="width: 35px;"></button>
-                            </form>
-                        @endforeach
-                        @foreach ($berita as $penghargaan)
-                            <h1 class="text-white font-40 text-uppercase">{{ $penghargaan->user->name }}</h1>
-                        @endforeach
+                        <form action="{{ Route('kepenghargaan') }}">
+                            <input type="hidden" value="{{ $item->user->id }}" name="id">
+                            <button style="margin-bottom: 50px; background-color:transparent; border:none;"><img
+                                    src="https://i.postimg.cc/gctp9m1b/left-arrow-removebg-preview.png"
+                                    style="width: 35px;"></button>
+                        </form>
+                    @endforeach
+                    @foreach ($berita as $penghargaan)
+                    <h1 class="text-white font-40 text-uppercase">{{ $penghargaan->user->name }}</h1>
+                @endforeach
                     </div>
                 </div>
             </div>
@@ -568,26 +568,24 @@ background-position: center;">
     </section>
 
     <!-- Section: Causes -->
-    {{-- @dd($penghargaan) --}}
+    {{-- @dd($berita) --}}
     <section>
-        <div class="col-sm-6 col-md-3" style="margin-top: 30px">
-            <div class="container mt-30 mb-30" style="margin-left: -80px;">
+        <div class="col-sm-8 col-md-8">
+            <div class="container mt-30 mb-30">
                 <center>
                     @foreach ($berita as $peng)
-                        <div style="background-color: #f6f6f6; max-width: 850px; border-radius: 10px;">
+                        <div class="col-sm-6 col-md-12" style="margin-left: -10%;">
+                        <div style="background-color: #f6f6f6; width: 70%; border-radius: 10px; padding:3px;">
                             <h3>{{ $peng->judul }}</h3>
 
                             <div class="car pt-20 pb-20">
 
-                                <section id="home" class="divider"
-                                    style="width: 110vh; border-radius: 10px; height: 70vh;">
+                                <section id="home" class="divider" style="width: 100%; border-radius: 10px;">
 
                                     <div class="fullwidth-carousel" data-nav="true">
-                                        @foreach (json_decode($peng->gambar) as $gambar)
-                                            <div class="carousel-item bg-img-cover"> <img
-                                                    src="{{ asset('storage/imgpenghargaan/' . $gambar) }}">
-                                            </div>
-                                        @endforeach
+                                        <div class="carousel-item bg-img-cover"> <img
+                                                src="{{ asset('storage/' . $peng->gambar) }}" style="width: 90%;">
+                                        </div>
 
                                     </div>
                                 </section>
@@ -603,18 +601,19 @@ background-position: center;">
 
                                 <p>{{ $peng->tanggal }}</p>
                             </div>
-                </center>
+                        </div>
+                    </div>
+                    </center>
+                </div>
+            <div class="col-sm-6 col-md-12">
+                <div class="section mt-50 mb-50"
+                    style="background-color: #f6f6f6; padding: 20px; border-radius: 10px;">
+                    {!! $peng->isi !!}
+                </div>
             </div>
-            <div class="section mt-50 mb-50"
-                style="background-color: #f6f6f6; padding: 20px; border-radius: 10px; width: 923px; margin-left: 25px;">
-                {!! $peng->isi !!}
-            </div>
-            @endforeach
         </div>
-        </div>
-        {{-- @dd($berita) --}}
-        <div class="col-sm-6 col-md-3" style="margin-top: 25px;">
-            <div id='sidebar-wrapper' style="margin-left: 650px;">
+        <div class="col-sm-4 col-md-4">
+            <div id='sidebar-wrapper'>
                 <div class="sidebar1-wrapper">
                     <div class="sidebar1 section" id="sidebar1">
                         <div class="widget HTML" id="HTML2">
@@ -634,8 +633,8 @@ background-position: center;">
                                 <script src="/feeds/posts/default?orderby=published&amp;alt=json-in-script&amp;callback=showlatestpostswiththumbs">
                                 </script>
                                 <ul class="recent-posts-container">
-                                    {{-- @dd($peng) --}}
-                                    @foreach ($penghargaaaan as $award)
+
+                                    @foreach ($penghargaaaan->take(5) as $award)
                                         <li class="recent-posts-list">
                                             <div class="recent-post-title"><a
                                                     href="/lihatpeng/{{ $award->id }}/{{ $award->user_id }}"
@@ -659,8 +658,14 @@ background-position: center;">
                         </div>
                     </div>
                 </div>
+                <div class="sidebar2-wrapper">
+                    <div class="sidebar2 section" id="sidebar2">
+                        <div class="widget PopularPosts" id="PopularPosts1">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
-
             <script>
                 //<![CDATA[
                 $(function() {
@@ -676,8 +681,9 @@ background-position: center;">
                 //]]>
             </script>
         </div>
+        @endforeach
+        </div>
     </section>
-
 
     <!--END Section: Causes -->
 
@@ -733,6 +739,8 @@ background-position: center;">
             </div>
         </div>
     </footer>
+    <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
+    </div>
     <!-- end wrapper -->
 
     <!-- Footer Scripts -->

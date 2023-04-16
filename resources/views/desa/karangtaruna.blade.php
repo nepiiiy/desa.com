@@ -228,10 +228,10 @@
                     }
                 }
             </style>
-
-            @foreach ($profil as $gambar)
+{{-- @dd($profil) --}}
+            @foreach ($profil as $gam)
                 <section class="inner-header divider layer-overlay overlay-dark-8"
-                    data-bg-img="{{ asset('storage/' . $gambar->gambar2) }}">
+                    data-bg-img="{{asset('storage/'.$gam->gambar2)}}">
                     <div class="container pt-200 pb-40">
             @endforeach
             <!-- Section Content -->

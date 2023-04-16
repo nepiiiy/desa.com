@@ -48,7 +48,7 @@ class PariwisataController extends Controller
                 'isi.required'=>'Isi Pariwisata tiak boleh kosong',
             ]
         );
-        $gambar = Storage::disk('public')->put('coverpariwisata', $request->file('gambar'));
+        $gambar = Storage::disk('public')->put('imgpariwisata', $request->file('gambar'));
         $cover = Storage::disk('public')->put('coverpariwisata', $request->file('cover'));
         // $fotoside = implode(',',$files);
         $model  = new tour();

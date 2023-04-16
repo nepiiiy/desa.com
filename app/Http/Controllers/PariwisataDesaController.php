@@ -12,7 +12,7 @@ class PariwisataDesaController extends Controller
 {
     public function pwdesa($id){
     // dd('asdas');
-    $tour = tour::where('user_id',$id)->paginate(9);
+    $tour = tour::where('user_id',$id)->paginate(8);
     $data_user = User::where('id',$id)->get();
     $profile = desa_profile::where('user_id',$id)->get();
     return view('desa.pariwisatadesa',['data_user'=>$data_user,'tour'=>$tour, 'profil'=>$profile]);

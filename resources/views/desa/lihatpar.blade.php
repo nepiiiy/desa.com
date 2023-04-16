@@ -559,7 +559,6 @@ background-position: center;">
                             </form>
                         @endforeach
                         @foreach ($berita as $berita)
-                            {{-- @dd($berita) --}}
                             <h1 class="text-white font-40 text-uppercase">{{ $berita->user->name }}</h1>
 
                     </div>
@@ -571,55 +570,53 @@ background-position: center;">
     <!-- Section: Causes -->
     {{-- @dd($berita) --}}
     <section>
-        <div class="col-sm-6 col-md-3" style="margin-top: 30px">
-            <div class="container mt-30 mb-30" style="margin-left: -80px;">
+        <div class="col-sm-8 col-md-8">
+            <div class="container mt-30 mb-30">
                 <center>
-                    <div style="background-color: #f6f6f6; max-width: 850px; border-radius: 10px;">
-                        <h3>{{ $berita->judul }}</h3>
+                        <div class="col-sm-6 col-md-12" style="margin-left: -10%;">
+                        <div style="background-color: #f6f6f6; width: 70%; border-radius: 10px; padding:3px;">
+                            <h3>{{ $berita->judul }}</h3>
 
-                        <div class="car pt-20 pb-20">
+                            <div class="car pt-20 pb-20">
 
-                            <section id="home" class="divider"
-                                style="width: 110vh; border-radius: 10px; height: 70vh;">
+                                <section id="home" class="divider" style="width: 100%; border-radius: 10px;">
 
-                                <div class="fullwidth-carousel" data-nav="true">
-                                    @foreach (json_decode($berita->gambar) as $gambar)
+                                    <div class="fullwidth-carousel" data-nav="true">
                                         <div class="carousel-item bg-img-cover"> <img
-                                                src="{{ asset('public/imgpariwisata/' . $gambar) }}">
+                                                src="{{ asset('storage/' . $berita->gambar) }}" style="width: 90%;">
                                         </div>
-                                    @endforeach
 
-                                </div>
-                            </section>
-                            <script>
-                                $(document).ready(function() {
-                                    $('.slider').slick({
-                                        infinite: true,
-                                        slidesToShow: 3,
-                                        slidesToScroll: 1
+                                    </div>
+                                </section>
+                                <script>
+                                    $(document).ready(function() {
+                                        $('.slider').slick({
+                                            infinite: true,
+                                            slidesToShow: 3,
+                                            slidesToScroll: 1
+                                        });
                                     });
-                                });
-                            </script>
-
+                                </script>
+                            </div>
                         </div>
                     </div>
-                </center>
-            </div>
-            <div class="section mt-50 mb-50"
-                style="background-color: #f6f6f6; padding: 20px; border-radius: 10px; width: 923px; margin-left: 25px;"><b>Lokasi : </b>{{$berita->alamat}}<br>
-                {!! $berita->isi !!}
+                    </center>
+                </div>
+            <div class="col-sm-6 col-md-12">
+                <div class="section mt-50 mb-50"
+                    style="background-color: #f6f6f6; padding: 20px; border-radius: 10px;">
+                    {!! $berita->isi !!}
+                </div>
             </div>
         </div>
-
-        <div class="col-sm-6 col-md-3" style="margin-top: 23px;">
-            <div id='sidebar-wrapper' style="margin-left: 650px;">
+        <div class="col-sm-4 col-md-4">
+            <div id='sidebar-wrapper'>
                 <div class="sidebar1-wrapper">
                     <div class="sidebar1 section" id="sidebar1">
                         <div class="widget HTML" id="HTML2">
                             <h2 class="title" style="height: 60px; font-size: 14px;">Post Terakhir <br>
                                 Pariwisata Desa {{ $berita->user->name }}
                             </h2>
-                            @endforeach
 
 
                             <div class="widget-content">
@@ -633,22 +630,25 @@ background-position: center;">
                                 <script src="/feeds/posts/default?orderby=published&amp;alt=json-in-script&amp;callback=showlatestpostswiththumbs">
                                 </script>
                                 <ul class="recent-posts-container">
+
                                     @foreach($par->take(5) as $pariwisata)
-                                    <li class="recent-posts-list">
-                                        <div class="recent-post-title"><a
-                                                href="/lihatpar/{{ $pariwisata->id }}/{{ $pariwisata->user_id }}"
-                                                target="_top"><img
-                                                    src="{{asset('storage/'.$pariwisata->cover)}}"
-                                                    style="width: 90px;">
-                                                <div style="margin-left: 100px; margin-top: -69px;">{{ Str::limit($pariwisata->judul, 15) }}<div></div>
-                                            </a></div>
-                                        <div style="margin-left: 100px;">{{ Str::limit($pariwisata->alamat, 35) }}<br><br></div>
-                                        <div class="recent-posts-details">
-                                            <a class="readmorelink"
-                                                href="/lihatpar/{{ $pariwisata->id }}/{{ $pariwisata->user_id }}"
-                                                target="_top">Selengkapnya</a>
-                                        </div>
-                                    </li>
+                                        <li class="recent-posts-list">
+                                            <div class="recent-post-title"><a
+                                                    href="/lihatpar/{{ $pariwisata->id }}/{{ $pariwisata->user_id }}"
+                                                    target="_top"><img src="{{asset('storage/'.$pariwisata->cover)}}"
+                                                        style="width: 90px; height:65px;">
+                                                    <div style="margin-left: 100px; margin-top: -69px;">
+                                                        {{ Str::limit($pariwisata->judul, 15) }}</div>
+                                                </a></div>
+                                            <div style="margin-left: 100px;">
+                                                {{ Str::limit($pariwisata->alamat, 35) }}<br><br></div>
+                                            <div class="recent-posts-details">
+                                                <a
+                                                    class="readmorelink"
+                                                    href="/lihatpar/{{ $pariwisata->id }}/{{ $pariwisata->user_id }}"
+                                                    target="_top">Selengkapnya</a>
+                                            </div>
+                                        </li>
                                     @endforeach
                                 </ul>
                             </div>
@@ -677,6 +677,8 @@ background-position: center;">
                 });
                 //]]>
             </script>
+        </div>
+        @endforeach
         </div>
     </section>
 
