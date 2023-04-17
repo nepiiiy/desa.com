@@ -207,8 +207,8 @@
         </tbody>
       </table>
     </div>
-    <div class="d-flex justify-content-center">
-              {{ $data->links('pagination::bootstrap-4') }}
+    <div >
+              <center>{{ $data->links('pagination::bootstrap-4') }}</center>
           </div>
             <!-- End Primary Color Bordered Table -->
 
@@ -291,8 +291,10 @@
             @endforeach
       </table>
             <!-- End Primary Color Bordered Table -->
-            <div class="d-flex justify-content-center">
+            <div>
+              <center>
               {{ $data2->links('pagination::bootstrap-4') }}
+              </center>
           </div>
           <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"
     integrity="sha256-a2yjHM4jnF9f54xUQakjZGaqYs/V1CYvWpoqZzC2/Bw=" crossorigin="anonymous"></script>
