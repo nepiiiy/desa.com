@@ -55,9 +55,9 @@ class DataAdminController extends Controller
         Mail::to($data->email)->send(new kirimEmail());
         $user = desa_profile::create([
             'user_id' => $id,
-            'gambar1' => 'gambarprof/desacontoh123.jfif',
-            'gambar2' => 'gambarprof/desacontoh123.jfif',
-            'gambar3' => 'gambarprof/desacontoh123.jfif',
+            'gambar1' => 'gambarprof/desacontoh1.jfif',
+            'gambar2' => 'gambarprof/desacontoh2.jfif',
+            'gambar3' => 'gambarprof/desacontoh3.jfif',
             'sejarah' => 'buat sejarah desa dan ini adalah contoh sejarah desa',
             'visi' => 'ini adalah visi desa',
             'misi' => 'ini adalah misi desa',
