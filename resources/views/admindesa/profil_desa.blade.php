@@ -79,7 +79,7 @@
                                         </div>
                                     </div>
                                 </div>
-
+                                        
                                 <div class="row mb-5">
                                     <label for="inputText" class="col-sm-2 col-form-label"><b>Visi Desa :</b></label>
                                     <div class="col-sm-10">

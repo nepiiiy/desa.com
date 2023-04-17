@@ -172,6 +172,40 @@
             margin-top: 35px;
             text-align: center;
         }
+        .my-link {
+  display: inline-block;
+  position: relative;
+  font-size: 18px;
+  padding: 10px 20px;
+  border: 3px solid #FFB000;
+  background-color: #FFB000;
+  color: #fff;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  overflow: hidden;
+  transition: 0.3s ease-out;
+}
+
+.my-link:hover {
+  background-color: #FFB051;
+  border-color: #FFB051;
+}
+
+.my-link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: #FFB051;
+  transition: 0.3s ease-out;
+}
+
+.my-link:hover::before {
+  left: 0;
+}
     </style>
 </head>
 
@@ -237,7 +271,7 @@
             <div class="row">
                 <div class="col-2 col-md-12">
                     <div class="property-search">
-                        <h1>SELAMAT DATANG DI WEBSITE DESA.COM</h1>
+                        <h1>SELAMAT DATANG DI WEBSITE DesaKita</h1>
                         <p>Silahkan Cari Desa yang Anda Inginkan</p>
                         <br>
                         <br>
@@ -353,9 +387,7 @@
                                             </div>
                                             <input type="hidden" value="" name="id">
                                             <div class="popular-listing-add ">
-                                                <button type="button" class="btn "
-                                                    style="background-color: #fca311;"><a
-                                                        style=" border-radius: 5px; color: #fff;">Baca</a></button>
+                                                <a  href="/lihat/{{ $berita->id }}/{{ $berita->user_id }}" class="my-link">Baca berita</a>
                                             </div>
                                             </form>
                                         </div>
@@ -441,7 +473,7 @@
                 <div class="col-md-12">
                     <p class="text-white font-12 m-0"
                         style="color: white; font-family: 'Open Sans' sans-serif; font-size: 12px;">Copyright
-                        &copy;2023 Desa.com</p>
+                        &copy;2023 DESAKITA</p>
                 </div>
             </div>
         </div>
