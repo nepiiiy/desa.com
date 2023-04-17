@@ -30,7 +30,7 @@
     <p class="main-content__body" data-lead-id="main-content-body" style="font-size: 15px;">Salam Sejahtera, </p>
 	<p class="main-content__body" data-lead-id="main-content-body" style="font-size: 15px;">Dengan ini kami memberitahukan
         bahwa akun desa Anda berhasil
-		terdaftar. Silahkan <a href="">login disini</a> untuk melihatnya.</p>
+		terdaftar. Silahkan <a href="http://localhost:8000/masuk">login disini</a> untuk melihatnya.</p>
         <p class="main-content__body" data-lead-id="main-content-body" style="font-size: 15px;">Web Desa memberikan layanan kepada desa dan
             pengguna. Sehingga, dapat berinovasi dan berkembang sesuai perkembangan dunia saat ini. Kami berharap dapat
             menjadi penolong atau sumber inspirasi Anda.</p>

@@ -397,7 +397,7 @@
                             <div class="" style="">
                                 @if (auth()->user() && auth()->user()->role == 'admindesa')
                                     <a class="btn" href="{{ route('dashboard') }}"
-                                        style="background-color:#F26522; color:#fff; border-radius: 10px;"><b>Kelola
+                                        style="background-color:#F26522; color:#fff; border-radius: 11px; margin-bottom:10px; margin-left:4px"><b>Kelola
                                             Desa</b></a>
                                 @endif
                             </div>

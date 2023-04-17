@@ -76,7 +76,7 @@
   <style>
     #leafletMap-registration {
       height: 430px;
-      width: 500px;
+      width: 570px;
     
       border-radius: 10px;
       box-shadow: 0px 0px 10px 0px rgba(101, 95, 83, 0.5);
@@ -276,7 +276,7 @@
                 <div style="margin-left: 85px;" class="tab-pane fade show active profile-overview" id="profile-overview">
                   <h5 class="card-title" style="font-size:30px; margin-left:-12%"><center><b>Data Desa {{ $data->name }}</b></center></h5>
                   
-                  <div class="alert alert-danger" role="alert" style="width: 105%; font-size: 13px; margin-left:-10%;margin-top:-2%"><b style="font-size: 15px;">Kesalahan : </b><div style="margin-left:16%; margin-top:-3%; font-size:13px; text-align:justify">{!!$data->komen!!}</div>
+                  <div class="alert alert-danger" role="alert" style="width: 105%; font-size: 13px; margin-left:-10%;margin-top:-2%"><b style="font-size: 15px;">Kesalahan : </b><div style="margin-left:16%; margin-top:-3%; font-size:13px; text-align:justify;">{!!$data->komen!!}</div>
                   
                 </div>
                 <!-- @if ($errors->any())
@@ -289,7 +289,7 @@
                         </div>
                     @endif -->
                   <div class="col-6"><div style=" margin-left:-20%;"><div class=" label"><center>Logo Desa</center></div><br>
-                  <img src="{{asset('storage/'.$data->logo)}}" class="img-thumbnail rounded mx-auto d-block" style=" width:35%">
+                  <img src="{{asset('storage/'.$data->logo)}}" class="img-thumbnail rounded mx-auto d-block" style=" height:145px; width:50%">
                   
                   <center><input style="width: 250px;" type="file" class="form-control mt-3 @error('logo') is-invalid @enderror" name="logo" id="gambar"
                                         value="{{ $data->logo }}"> 
@@ -297,7 +297,7 @@
                       <div class="invalid-feedback" >{{ $message }}</div>
                     @enderror<center> </div><br>
                                        
-                                        <div style=" margin-left:90%; margin-top:-260px;" class="col-12"><div style="margin-top: 10%" class=" label"><center>Persetujuan Desa</center></div><br><br><br>
+                                        <div style=" margin-left:90%; margin-top:-295px;" class="col-12"><div style="margin-top: 10%" class=" label"><center>Persetujuan Desa</center></div><br><br><br>
                                         <center><a data-toggle="modal"  class="clickLink btn btn-danger"href="#myModal" style="color:#fff; font-size:80%; margin-bottom:29px;">Lihat Persetujuan</a></center>
                                         <div class="modal fade" id="myModal" role="dialog" >
                                 <div class="modal-dialog modal-lg" >
@@ -330,6 +330,15 @@
                     @enderror
                   </div>
 
+                  <div class="row"><br>
+                    <div class="col-lg-3 col-md-4 label">Kode Pos</div>
+                    <input type="text" class="form-control @error('kode_pos') is-invalid @enderror" style="width: 300px" id="nama" name="kode_pos"
+                    value="{{ $data->kode_pos }}" >
+                    @error('kode_pos')
+                      <div class="invalid-feedback" style="margin-left:25%">{{ $message }}</div>
+                    @enderror
+                  </div>
+
                   
   
                   
@@ -341,17 +350,10 @@
                     @error('email')
                       <div class="invalid-feedback" style="margin-left:25%">{{ $message }}</div>
                     @enderror
-                    <div id="leafletMap-registration"></div>
+                    <div style="margin-top:20px" id="leafletMap-registration"></div>
                   </div>
   
-                  <div class="row"><br>
-                    <div class="col-lg-3 col-md-4 label">Kode Pos</div>
-                    <input type="text" class="form-control @error('kode_pos') is-invalid @enderror" style="width: 300px" id="nama" name="kode_pos"
-                    value="{{ $data->kode_pos }}" >
-                    @error('kode_pos')
-                      <div class="invalid-feedback" style="margin-left:25%">{{ $message }}</div>
-                    @enderror
-                  </div>
+                 
                 </div>
               </div>
               <input type="hidden"  name="longtitude" id="latitude" placeholder="latitude">

@@ -74,8 +74,8 @@
 	<div class="row"  style="width:165%;">							
     <div class="col-md-6 col-12" >
 		
-		<input type="text"  name="latitude" id="latitude" placeholder="latitude">
-              <input type="text"  name="longtitude" id="longtitude" placeholder="longtitude">
+		<input type="hidden"  name="latitude" id="latitude" placeholder="latitude">
+              <input type="hidden"  name="longtitude" id="longtitude" placeholder="longtitude">
 									</div>
 								</div>
                                 </div>	
@@ -119,7 +119,7 @@
 		pseudoFullscreen: false // if true, fullscreen to page width and height
 	},
 	minZoom: 5
-	}).setView([1.342269, 114.960938], 10);
+	}).setView([-7.977914003560, 112.63416945934], 10);
 
   
 	
