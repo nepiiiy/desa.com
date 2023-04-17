@@ -532,16 +532,18 @@
 <body class="">
     <div id="wrapper" class="clearfix">
       {{-- @dd($bg) --}}
-@foreach($wpp as $gambar)
-    <section class="inner-header divider layer-overlay overlay-dark-8" data-bg-img="{{asset('storage/'.$gambar->gambar2)}}">
-      @endforeach
-        <div class="container pt-200 pb-40">
+      <section class="inner-header divider layer-overlay overlay-dark-8"
+      style="background-image: url('https://i.postimg.cc/4xJzxBgy/OIP.jpg');background-repeat: no-repeat;
+background-attachment: fixed;
+background-position: center;">
+      <div class="container pt-200 pb-40">
+          <!-- Section Content -->
           <!-- Section Content -->
           <div class="section-content">
             <div class="row">
               <div class="col-md-6">
                 @foreach ($galeri as $item)
-                    
+
                 <form action="{{ Route('kegaleri') }}">
                     <input type="hidden" value="{{ $item->user_id }}" name="id">
                     <button style="margin-bottom: 50px; background-color:transparent; border:none;"><img
@@ -573,21 +575,36 @@
                 <div class="col-md-8 col-md-offset-2">
                     <h2 class="text-uppercase line-bottom-center mt-0" style="margin-top:100px;"><center>Galeri {{ $galeri->judul }}</center></h2>
                   </div>
-                    <div class="row multi-row-clearfix">
-                      <?php $key = 0; ?>
-                      @foreach ($galeri->gambar as $gambar)
-                      <div class="col-sm-6 col-md-4" style="margin-top:100px;">
-                              <div class="event-list bg-silver-light maxwidth500 mb-30">
-                                  <div class="thumb">
-                                      <img src="{{asset('storage/imggaleri/' . $gambar->gambar) }}" alt="" class="img-fullwidth" style="height: 200px;">
-                                  </div>
-                                  <div class="image-box-details text-center p-20 pt- pb-30 bg-lighter" >
-                                    <a data-lightbox="image" href="{{asset('storage/imggaleri/' .$gambar->gambar) }}" class="btn btn-colored btn-theme-colored lightbox-besar" style="color:#fff">Lihat Gambar</a>
-                                  </div>
-                              </div>
-                          </div>
-                      @endforeach
-                  </div>
+                  <div class="row multi-row-clearfix" id="slider">
+                    <?php $key = 0; ?>
+                    @foreach ($galeri->gambar as $gambar)
+                    <div class="col-sm-6 col-md-4" style="margin-top:100px;">
+                        <div class="event-list bg-silver-light maxwidth500 mb-30">
+                            <div class="thumb">
+                                <img src="{{asset('storage/imggaleri/' . $gambar->gambar) }}" alt="" class="img-fullwidth" style="height: 200px;">
+                            </div>
+                            <div class="image-box-details text-center p-20 pt- pb-30 bg-lighter" >
+                                <a data-lightbox="image" href="{{asset('storage/imggaleri/' .$gambar->gambar) }}" class="btn btn-colored btn-theme-colored lightbox-besar" style="color:#fff">Lihat Gambar</a> &ensp;<a href="{{asset('storage/imggaleri/' .$gambar->gambar) }}" download class="btn btn-colored btn-theme-colored" style="color:#fff">Unduh Gambar</a>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+
+                <script>
+                    $(document).ready(function(){
+                        $('#slider').slick({
+                            arrows: true, //menampilkan panah navigasi
+                            autoplay: false, //autoplay slider
+                            autoplaySpeed: 3000, //waktu perpindahan slide
+                            dots: true, //menampilkan dots navigasi
+                            infinite: true, //slider berputar terus
+                            slidesToShow: 3, //jumlah slide yang ditampilkan dalam satu waktu
+                            slidesToScroll: 1 //jumlah slide yang berpindah saat tombol navigasi diklik
+                        });
+                    });
+                </script>
+
 
 
                 </div>
