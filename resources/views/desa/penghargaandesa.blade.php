@@ -68,7 +68,9 @@
                         </section>
                     </div>
                     <div class="d-flex justify-content-center">
+                        <center>
                         {{ $penghargaan->links('pagination::bootstrap-4') }}
+                        </center>
                     </div>
                 </div>
             </section>

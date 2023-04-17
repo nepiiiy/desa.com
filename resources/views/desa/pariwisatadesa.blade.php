@@ -69,7 +69,9 @@
                         </section>
                     </div>
                     <div class="d-flex justify-content-center">
-                        {{ $tour->links('pagination::bootstrap-4') }}
+                        <center>
+                            {{ $tour->links('pagination::bootstrap-4') }}
+                        </center>
                     </div>
                 </div>
             </section>

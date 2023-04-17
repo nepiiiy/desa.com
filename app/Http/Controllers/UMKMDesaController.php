@@ -17,7 +17,7 @@ class UMKMDesaController extends Controller
     }
     public function umkmdesa($id){
         $data_user = User::where('id',$id)->get();
-        $umkm = Product::where('user_id',$id)->get();
+        $umkm = Product::where('user_id',$id)->paginate(8);
         $profile = desa_profile::where('user_id',$id)->get();
         // dd($umkm);
         return view('desa/umkmdesa', ['data_user'=>$data_user, 'umkm'=>$umkm, 'profil'=>$profile]);

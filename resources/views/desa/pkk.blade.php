@@ -287,6 +287,8 @@
                             </tbody>
 
                         </table>
+                    </center>
+                    <center>
                         <div style="margin-top:10%">{{$pkk->links()}}</div>
                     </center>
                 </div>

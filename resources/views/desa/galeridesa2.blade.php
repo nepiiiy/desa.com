@@ -130,7 +130,9 @@
                         </section>
                     </div>
                     <div class="d-flex justify-content-center">
-                        {{ $galeri->links('pagination::bootstrap-4') }}
+                        <center>
+                            {{ $galeri->links('pagination::bootstrap-4') }}
+                        </center>
                     </div>
                 </div>
             </section>
