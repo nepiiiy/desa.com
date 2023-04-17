@@ -97,7 +97,10 @@
     <link rel='stylesheet' id='font-rock-salt-css' href='https://fonts.googleapis.com/css?family=Rock+Salt&#038;ver=6.1.1' type='text/css' media='all' />
     <link rel='stylesheet' id='font-quicksand-css' href='https://fonts.googleapis.com/css?family=Quicksand&#038;ver=6.1.1' type='text/css' media='all' />
     <link rel='stylesheet' id='version2-countdown-css' href='https://classic.listingprowp.com/wp-content/themes/listingpro/assets/lib/countdown/flipclock.css?ver=6.1.1' type='text/css' media='all' />
-
+    <link rel="stylesheet" href="{{ asset('style.css') }}">
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body class="">
 <div id="wrapper" class="clearfix">
@@ -105,28 +108,44 @@
 
 
   <!-- Header -->
-  <header class="header">
-    <div class="header-nav" >
-      <div class="header-nav-wrapper navbar-scrolltofixed" style="background-color: #fca311 ;">
-        <div class="container">
-          <nav id="menuzord" class="menuzord default" style="background-color: #fca311 ;">             
-            <ul class="menuzord-menu">
-              <li style="pointer-events: none;"><a href="/"><img src="https://i.postimg.cc/XvrB6m2Z/logo-desa1-removebg-preview.png" class="logo" alt="" style="width: 230px;">
-              </a></li>
-              <li style="margin-left: 570px; margin-top:10px;"><a href="/">Beranda</a>
-                <li class="active" style="margin-top:10px;"><a href="/about">Tentang</a>
-                    <li style="margin-top:10px;"><a href="/contact">Kontak</a>
-                  
-</li>
-<div class="pull-right flip hidden-sm hidden-xs mt-20 pt-5" style="margin-right: -100px; ">
-  <a class="btn btn-colored btn-flat" href="/masuk" style="background-color:#F26522; color:#fff; border-radius: 5px; margin-top:10px;" ><b>Login</b></a>
- </div>
-</ul>
-</nav>
-</div>
-</div>
-</div>
-</header>
+  <nav>
+    <div class="navbar">
+      <i class='bx bx-menu'></i>
+      <div class="logo"><img src="https://i.postimg.cc/XvrB6m2Z/logo-desa1-removebg-preview.png" style="width:200px;"></div>
+      &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+      &ensp;&ensp;&ensp;&emsp;
+      <div class="nav-links">
+        <div class="sidebar-logo">
+          <span class="logo-name"><img src="https://i.postimg.cc/XvrB6m2Z/logo-desa1-removebg-preview.png" style="width:200px;"></span>
+          <i class='bx bx-x' ></i>
+        </div>
+        <ul class="links" style="margin-left:20%">
+          <li><a href="/">Beranda</a></li>
+          <li><a href="/about">Tentang</a></li>
+		  <li><a href="/contact">Kontak</a></li>
+          <li>
+                                    @if (auth()->user() && auth()->user()->role == 'adminweb')
+                                        <a href="/dashwebadmin">Admin</a>
+                                    @endif
+
+
+                                </li>
+                                <li>
+                                <div class="" style="">
+                                    <a class="btn" href="{{ Route('masuk') }}"
+                                        style="background-color:#F26522; color:#fff; border-radius: 10px;">Login</a>
+                                </div>
+                                    
+                                </li>
+        </ul>
+      </div>
+      <div class="search-box">
+        <i class='bx bx-search' Style="color:#fca311"></i>
+        
+      </div>
+    </div>
+  </nav>
+  <script src="script.js"></script>
   
   <!-- Start main-content -->
   <div class="main-content">

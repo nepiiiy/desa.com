@@ -36,7 +36,7 @@ class BeritaDesaController extends Controller
     
        
         $data_user = User::where('id',$id)->get();
-        $berita = desa_new::where('user_id',$id)->paginate(4);
+        $berita = desa_new::where('user_id',$id)->paginate(8);
         // $berita->judul = Str::limit($berita->judul, 5);
         $profile = desa_profile::where('user_id',$id)->get();
         return view('desa.beritadesa',['data_user'=>$data_user,'berita'=>$berita, 'profil'=>$profile]);

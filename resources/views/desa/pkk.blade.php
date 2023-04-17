@@ -1,23 +1,9 @@
 @extends('desa.nav')
-<meta property="og:title" content="Fun with table 🏓 | responsive-table-react" />
-<meta name="description"
-    content="Flexible & responsive table for React - A super user-friendly experience, start to use your table also on mobile!" />
-<meta property="og:description"
-    content="Flexible & responsive table for React - A super user-friendly experience, start to use your table also on mobile!" />
-<link rel="canonical" href="https://marcogargano.github.io/responsive-table-react/" />
-<meta property="og:url" content="https://marcogargano.github.io/responsive-table-react/" />
-<meta property="og:site_name" content="responsive-table-react" />
-<meta property="og:type" content="website" />
-<meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Fun with table 🏓 | responsive-table-react" />
-<link rel="stylesheet" href="src/components/ResponsiveTable.css">
-<link href="{{ asset('css/bootstrap1.min.css') }}" rel="stylesheet" />
-<script src="{{ asset('js/jquery.min.js') }}"></script>
-<script src="{{ asset('js/bootstrap1.min.js') }}"></script>
+
 @section('isi')
 
     <body class="">
-        <div id="wrapper" class="clearfix">
+        <div >
             <style>
                 .content-table {
                     border-collapse: collapse;
@@ -283,24 +269,25 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($pkk as $pkk)
+                                @foreach ($pkk as $index=>$pkkdesa)
                                     <tr>
-                                        <td scope="row" >{{ $loop->iteration }}</td>
+                                        <td scope="row" >{{ $index + $pkk->firstItem() }}</td>
                                         <td>
                                             <center><img style="width: 100px;height: 120px;"
-                                                    src="{{ asset('storage/' . $pkk->gambar) }}" alt=""></center>
+                                                    src="{{ asset('storage/' . $pkkdesa->gambar) }}" alt=""></center>
                                         </td>
                                         <td>
-                                            <center>{{ $pkk->nama }}</center>
+                                            <center>{{ $pkkdesa->nama }}</center>
                                         </td>
                                         <td>
-                                            <center>{{ $pkk->jabatans->jabatan }}</center>
+                                            <center>{{ $pkkdesa->jabatans->jabatan }}</center>
                                         </td>
                                     </tr>
                                 @endforeach
                             </tbody>
 
                         </table>
+                        <div style="margin-top:10%">{{$pkk->links()}}</div>
                     </center>
                 </div>
             </div>

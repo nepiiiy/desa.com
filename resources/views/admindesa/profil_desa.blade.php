@@ -7,16 +7,16 @@
 @endsection
 @section('isi')
 
-@include('sweetalert::alert')
-<style>
-    #map {
-        height: 400px;
+    @include('sweetalert::alert')
+    <style>
+        #map {
+            height: 400px;
 
-        border: 0px solid #ffffff;
-        border-radius: 10px;
-        box-shadow: 0px 0px 10px 0px rgba(101, 95, 83, 0.5);
-    }
-</style>
+            border: 0px solid #ffffff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(101, 95, 83, 0.5);
+        }
+    </style>
     <main id="main" class="main">
 
         <div class="pagetitle">
@@ -37,14 +37,14 @@
                         <div class="card-body">
                             <h5 class="card-title">Profil Desa</h5>
                             @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                             <!-- General Form Elements -->
                             <form action="/updateprofildesa/{{ $data->id }}" method="POST"
                                 enctype="multipart/form-data">
@@ -95,7 +95,8 @@
                                 <div class="row mb-5">
                                     <label for="inputPassword" class="col-sm-2 col-form-label"><b>Sejarah Desa :</b></label>
                                     <div class="col-sm-10">
-                                        <textarea class="form-control" id="editor" name="sejarah" cols="30" rows="10" placeholder="Tuliskan isi pikiranmu...">{!! $data->sejarah !!}</textarea>
+                                        <textarea class="form-control" id="editor" name="sejarah" cols="30" rows="10"
+                                            placeholder="Tuliskan isi pikiranmu...">{!! $data->sejarah !!}</textarea>
                                     </div>
                                 </div>
                                 <div class="row align-items-top">
@@ -108,12 +109,14 @@
                                                     <label for="inputNumber"
                                                         class="col-sm-2 col-form-label"><b>Maps</b></label>
                                                     <div class="d-flex">
-                                                        <a href="#" onclick="window.open(googleMapsUrl, '_blank')"><button
-                                                            type="button" class="btn btn-primary btn-block mt-1">Klik di
-                                                            sini</button></a>
-                                                            <br>
+                                                        <div>
+                                                            <button type="button" class="btn btn-primary btn-block
+                                                            mt-1" id="btn-maps">Klik di sini untuk melihat di Google
+                                                                Maps</button>
                                                         </div>
-                                                        <div id="map"></div>
+                                                        <br>
+                                                    </div>
+                                                    <div id="map"></div>
                                                 </div>
                                             </div>
                                             <br>
@@ -144,23 +147,21 @@
 @endsection
 @section('script')
     <script>
-        var map = L.map('map').setView([{{ $data->user->latitude }}, {{ $data->user->longtitude }}], 13);
+        const lat = {{ $data->user->latitude }}
+        const lng = {{ $data->user->longtitude }}
+        var map = L.map('map').setView([lng, lat], 12);
 
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         }).addTo(map);
-        var marker = L.marker([{{ $data->user->latitude }}, {{ $data->user->longtitude }}]).addTo(map);
+        var marker = L.marker([lng, lat]).addTo(map);
         marker.bindPopup("<b>Desa " + "{{ $data->user->name }}</b>").openPopup();
 
-        var lat = {{ $data->user->latitude }};
-        var lng = {{ $data->user->longtitude }};
-        var googleMapsUrl = "https://www.google.com/maps?q=" + lat + "," + lng;
 
-        tekan.on('click', function(e) {
-            var lat = {{ $data->user->latitude }};
-            var lng = {{ $data->user->longtitude }};
-            var googleMapsUrl = "https://www.google.com/maps?q=" + lat + "," + lng;
+        var googleMapsUrl = "https://www.google.com/maps?q=" + lng + "," + lat;
+
+        document.getElementById('btn-maps').addEventListener('click', function() {
             window.open(googleMapsUrl, '_blank');
         });
     </script>
@@ -168,6 +169,6 @@
 @section('editor')
     <script src="{{ asset('assets/js/ckeditor/ckeditor.js') }}"></script>
     <script>
-       CKEDITOR.replace('editor');
+        CKEDITOR.replace('editor');
     </script>
 @endsection

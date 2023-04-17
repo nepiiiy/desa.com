@@ -91,9 +91,9 @@
                                 @php
                                     $no = 1;
                                 @endphp
-                                @foreach ($data as $row)
+                                @foreach ($data as $index=>$row)
                                     <tr>
-                                        <td>{{ $no++ }}</td>
+                                        <td>{{ $index + $data->firstItem() }}</td>
                                         <td>{{ $row->nomor }}</td>
                                         <td>{{ $row->tentang }}</td>
                                         <td style="text-align:center;">
@@ -103,6 +103,7 @@
                                       @endforeach
                             </tbody>
                         </table>
+                        {{$data->links()}}
                     </div>
                 </center>
             </div>

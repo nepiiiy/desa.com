@@ -224,7 +224,7 @@
                                 </div>
                             
                                 <input type="hidden" name="longtitude" value="{{ request()->query('latitude') }}">
-                                <input type="hidden" name="latitude" value=" {{ request()->query('longtitude') }}`">
+                                <input type="hidden" name="latitude" value=" {{ request()->query('longtitude') }} ">
                                 
                            
 							

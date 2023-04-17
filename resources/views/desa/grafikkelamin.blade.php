@@ -62,7 +62,7 @@
         <div class="row">
             <div class="col-2 col-md-12">
                 <div class="container pb-40">
-                    <div class="section-title text-center">
+                    <div class="section-title text-center" style="margin-top: 100px;">
                         <div class="row">
                             <h2 class="text-uppercase line-bottom-center mt-0" style="text-align:center">Grafik Jenis
                                 kelamin<br><span class="" style="color: #F26522; align:center">Desa
