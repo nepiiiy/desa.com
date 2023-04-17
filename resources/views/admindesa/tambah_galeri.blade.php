@@ -50,7 +50,7 @@
                                         <label class="upload__btn">
                                             <p class="mb-0 fw-bold">Masukkan Gambar</p>
                                             <p style="color:red" class="mb-0">(minimal 1 & maksimal 12)</p>
-                                            <input name="gambar[]" type="file" multiple="" data-max_length="20"
+                                            <input name="gambar[]"  type="file" multiple="" data-max_length="20"
                                                 class="upload__inputfile" required>
                                         </label>
                                     </div>

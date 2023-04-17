@@ -234,7 +234,7 @@
 		  <li><a href="/contact">Kontak</a></li>
           <li>
                                     @if (auth()->user() && auth()->user()->role == 'adminweb')
-                                        <a href="/dashwebadmin">Admin</a>
+                                        <a href="/dataadmin">Admin</a>
                                     @endif
 
 
@@ -244,13 +244,13 @@
                                     <a class="btn" href="{{ Route('masuk') }}"
                                         style="background-color:#F26522; color:#fff; border-radius: 10px;">Login</a>
                                 </div>
-                                    
+
                                 </li>
         </ul>
       </div>
       <div class="search-box">
         <i class='bx bx-search' Style="color:#fca311"></i>
-        
+
       </div>
     </div>
   </nav>
@@ -258,7 +258,7 @@
 
 
 
-    
+
     <!-- HEADER  -->
 
     <!-- Banner -->
