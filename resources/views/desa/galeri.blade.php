@@ -540,6 +540,15 @@
           <div class="section-content">
             <div class="row">
               <div class="col-md-6">
+                @foreach ($galeri as $item)
+                    
+                <form action="{{ Route('kegaleri') }}">
+                    <input type="hidden" value="{{ $item->user_id }}" name="id">
+                    <button style="margin-bottom: 50px; background-color:transparent; border:none;"><img
+                            src="https://i.postimg.cc/gctp9m1b/left-arrow-removebg-preview.png"
+                            style="width: 35px;"></button>
+                </form>
+            @endforeach
                 @foreach ($data_user as $data_u)
                 <h1 class="text-white font-45 text-uppercase">DESA {{ $data_u->name }} </h1>
                 @endforeach

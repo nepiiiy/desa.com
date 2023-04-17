@@ -28,7 +28,7 @@ public function lihatgal($uid, $id)
  public function galeridesa($id)
  {
     $data_user = User::where('id',$id)->get();
-    $galeri = gallery::where('user_id',$id)->paginate(4);
+    $galeri = gallery::where('user_id',$id)->paginate(8);
     // $berita->judul = Str::limit($berita->judul, 5);
     $profile = gallery::where('user_id',$id)->get();
     $bg = desa_profile::where('user_id',$id)->get();
@@ -37,3 +37,6 @@ public function lihatgal($uid, $id)
 
  }
 }
+
+
+
