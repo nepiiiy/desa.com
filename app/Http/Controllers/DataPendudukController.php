@@ -99,7 +99,7 @@ class DataPendudukController extends Controller
     public function searchh(Request $request)
     {
         $keyword = $request->searchh;
-        $data = resident::where('nama', 'LIKE', '%' . $keyword .'%')
+        $data = resident::where('nama', 'LIKE', '%' . $keyword .'%')->where('user_id',Auth::user()->id)
         ->paginate(10);
         return view('admindesa.data_penduduk', compact('data'));
     }

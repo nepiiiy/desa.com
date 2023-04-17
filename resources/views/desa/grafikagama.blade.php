@@ -150,7 +150,7 @@
                             <td>{{ $budha }}</td>
                         </tr>
                         <tr>
-                            <td>4</td>
+                            <td>6</td>
                             <td>Konghucu</td>
                             <td>{{ $konghucu }}</td>
                         </tr>

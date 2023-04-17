@@ -40,7 +40,7 @@
                             <input type="hidden" name="id_jabatan" value="{{ $jabatan->id }}">
                             <div class="col-12">
                                 <label for="inputNanme4" class="form-label fw-bold">Nama Lengkap</label>
-                                <inputB type="text" class="form-control @error('nama') is-invalid @enderror"
+                                <input type="text" class="form-control @error('nama') is-invalid @enderror"
                                     id="nama" name="nama">
                                     @error('nama')
                                         <div class="invalid-feedback">{{ $message }}</div>

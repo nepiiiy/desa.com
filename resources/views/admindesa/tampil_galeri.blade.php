@@ -46,12 +46,14 @@
                                     <input type="file" value="Masukkan Gambar disini" name="gambar"
                                         class="form-control w-75" id="defaultFormControlInput"
                                         aria-describedby="defaultFormControlHelp" />
-                                    <button  class="btn btn-warning "type="submit">&ensp;<i class="bi bi-pen">&ensp;&ensp;Edit</i>&ensp;&ensp;</button>
+                                        <div style="display: flex;">
+                                    <button  class="btn btn-warning "type="submit" style="margin-right: 2%; margin-top:2%;"><i class="bi bi-check-circle"></i></button>
                                 </form>
                                 <form method="POST" action="{{ route('hapusgambar', $gambar->id) }}" class="form-hapus">
                                     @csrf
                                     @method('DELETE')
-                                    <button  class="btn btn-danger "type="submit">&ensp;<i class="bi bi-trash">&ensp;&ensp;Hapus</i></button>
+                                    <button  class="btn btn-danger "type="submit" style="margin-top:15%;"><i class="bi bi-trash"></i></button>
+                                </div>
                                 </form>
 
                             </div>
