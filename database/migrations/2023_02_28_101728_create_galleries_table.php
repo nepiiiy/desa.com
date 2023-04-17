@@ -20,7 +20,6 @@ return new class extends Migration
             ->on('users')
             ->onDelete('cascade')
             ->onUpdate('cascade');
-            $table->string('gambar');
             $table->string('cover');
             $table->string('judul');
             $table->string('tanggal');

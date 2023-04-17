@@ -71,11 +71,11 @@ Route::get('/forgot-password', function () {
 
 Route::post('/forgot-password', function (Request $request) {
     $request->validate(['email' => 'required|email']);
- 
+
     $status = Password::sendResetLink(
         $request->only('email')
     );
- 
+
     return $status === Password::RESET_LINK_SENT
                 ? back()->with(['status' => __($status)])
                 : back()->withErrors(['email' => __($status)]);
@@ -83,7 +83,7 @@ Route::post('/forgot-password', function (Request $request) {
 
 Route::get('/reset-password/{token}', function (string $token) {
     return view('auth.reset-password', ['token' => $token]);
-  
+
 })->middleware('guest')->name('password.reset');
 
 
@@ -93,20 +93,20 @@ Route::post('/reset-password', function (Request $request) {
         'email' => 'required|email',
         'password' => 'required|min:3|confirmed',
     ]);
- 
+
     $status = Password::reset(
         $request->only('email', 'password', 'password_confirmation', 'token'),
         function (User $user, string $password) {
             $user->forceFill([
                 'password' => Hash::make($password)
             ])->setRememberToken(Str::random(60));
- 
+
             $user->save();
- 
+
             event(new PasswordReset($user));
         }
     );
- 
+
     return $status === Password::PASSWORD_RESET
                 ? redirect()->route('masuk')->with('status', __($status))
                 : back()->withErrors(['email' => [__($status)]]);
@@ -121,20 +121,20 @@ Route::get('/ads', function () {
 });
 //desa
 Route::get('/',[DashWebController::class,'dashboardwebsite'])->name('dashweb');
-Route::get('/masukan',[DashWebController::class,'dashwebinput'])->name('dashwebinput'); 
-Route::get('/dashweb/{id}',[DashWebController::class,'tampildesa'])->name('dashwebdesa'); 
+Route::get('/masukan',[DashWebController::class,'dashwebinput'])->name('dashwebinput');
+Route::get('/dashweb/{id}',[DashWebController::class,'tampildesa'])->name('dashwebdesa');
 
 //tentang desa
 Route::get('/btntentang',[TentangDesaController::class,'btntentang'])->name('btntentang');
-Route::get('/tampiltentang/{id}',[TentangDesaController::class,'tampiltentang'])->name('tampiltentang'); 
+Route::get('/tampiltentang/{id}',[TentangDesaController::class,'tampiltentang'])->name('tampiltentang');
 
 //struktur desa
 Route::get('/kestdesa',[LembagaDesaController::class,'kestdesa'])->name('kestdesa');
-Route::get('/stdesa/{id}',[LembagaDesaController::class,'stdesa'])->name('stdesa'); 
-    
+Route::get('/stdesa/{id}',[LembagaDesaController::class,'stdesa'])->name('stdesa');
+
 //karang taruna
 Route::get('/kesttaruna',[KarangTarunaDesaController::class,'kesttaruna'])->name('kesttaruna');
-Route::get('/sttaruna/{id}',[KarangTarunaDesaController::class,'sttaruna'])->name('sttaruna'); 
+Route::get('/sttaruna/{id}',[KarangTarunaDesaController::class,'sttaruna'])->name('sttaruna');
 
 //pkk
 Route::get('/kepkk',[PKKDesaController::class,'kepkk'])->name('kepkk');
@@ -243,7 +243,7 @@ Route::middleware(['auth:sanctum','verified','adminweb'])->group(function(){
 
     Route::get('/cek', [DataAdminController::class, 'lihat']);
 });
- 
+
 
 Route::middleware(['auth:sanctum','verified','admindesa','aktif'])->group(function(){
 
@@ -262,6 +262,10 @@ Route::get('/tambah_galeri',[GaleriController::class, 'tambahgaleri'])->name('ta
 Route::post('/upload', [GaleriController::class, 'upload'])->name('upload');
 Route::post('/tampilgaleri/{id}',[GaleriController::class, 'tampilgaleri'])->name('tampilgaleri');
 Route::get('/deletegaleri/{id}',[GaleriController::class, 'deletegaleri'])->name('deletegaleri');
+Route::post('/hapusgaleri/{id}', [GaleriController::class, 'hapusGambar'])->name('hapusgambar');
+Route::delete('/hapusgambar/{id}', [GaleriController::class, 'hapusGambar'])->name('hapusgambar');
+Route::post('/editgambar/{id}',[GaleriController::class, 'editGambar'])->name('editgambar');
+
 
 //data penduduk
 Route::get('/export',[DataPendudukController::class,'export'])->name('export');

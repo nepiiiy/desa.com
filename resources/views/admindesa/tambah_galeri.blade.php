@@ -1,4 +1,4 @@
-@extends('admindesa.navside')
+    @extends('admindesa.navside')
 @section('isi')
     <main id="main" class="main">
 
@@ -49,7 +49,7 @@
                                     <div class="upload__btn-box">
                                         <label class="upload__btn">
                                             <p class="mb-0 fw-bold">Masukkan Gambar</p>
-                                            <p style="color:red" class="mb-0">(minimal 1 & maksimal 12)</p>
+                                            <p style="color:red" class="mb-0 @error('gambar')" @enderror>(minimal 1 & maksimal 12)</p>
                                             <input name="gambar[]" type="file" multiple="" data-max_length="20"
                                                 class="upload__inputfile" required>
                                         </label>

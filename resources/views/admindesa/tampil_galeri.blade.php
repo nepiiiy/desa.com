@@ -30,11 +30,53 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Edit Galeri</h5>
+                    <label for="defaultFormControlInput" class="form-label mb-3 fw-bold ">Gambar</label>
+                    <div class="mb-4 row" style="margin-left: 3%">
+
+                        <?php $key = 0; ?>
+                        @if ($data->gambar)
+                        <div class="row">
+                            @foreach ($data->gambar as $gambar)
+                            <div class="col-4">
+                                <img src="{{ asset('storage/imggaleri/'.$gambar->gambar) }}" alt="" width="210px"
+                                    height="200px" class="my-3">
+                                <form method="POST" action="{{ route('editgambar', $gambar->id) }}"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    <input type="file" value="Masukkan Gambar disini" name="gambar"
+                                        class="form-control w-75" id="defaultFormControlInput"
+                                        aria-describedby="defaultFormControlHelp" />
+                                    <button  class="btn btn-warning "type="submit">&ensp;<i class="bi bi-pen">&ensp;&ensp;Edit</i>&ensp;&ensp;</button>
+                                </form>
+                                <form method="POST" action="{{ route('hapusgambar', $gambar->id) }}" class="form-hapus">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button  class="btn btn-danger "type="submit">&ensp;<i class="bi bi-trash">&ensp;&ensp;Hapus</i></button>
+                                </form>
+
+                            </div>
+                            @endforeach
+
+
+                        </div>
+                        @endif
+
+
+
+                    </div>
 
                     <!-- Vertical Form -->
                     <form class="row g-3" action="/tampilgaleri/{{ $data -> id }}" method="POST"
                         enctype="multipart/form-data">
                         @csrf
+
+                        <label for="defaultFormControlInput" class="form-label mb-3 fw-bold ">Tambah Gambar</label>
+                        <div class="col-4">
+                            <input type="file" value="Masukkan Gambar disini" name="gambar[]" class="form-control w-75"
+                                id="defaultFormControlInput" aria-describedby="defaultFormControlHelp" multiple />
+                        </div>
+                        <div></div>
+
                         <div class="col-12">
                             <label for="inputNanme4" class="form-label fw-bold">Judul</label>
                             <input type="text" class="form-control" id="nama" name="judul" value="{{ $data->judul}}">
@@ -45,53 +87,9 @@
                                 value="{{$data->tanggal}}">
                         </div>
 
-                        <label for="defaultFormControlInput" class="form-label mb-3 fw-bold ">Gambar</label>
-                        <div class="mb-4 row" style="margin-left: 3%">
-                            <?php $key = 0; ?>
-                            @if ($data->gambar)
-                            <div class="row">
-                                @foreach (json_decode($data->gambar) as $gambar)
-                                <div class="col-4">
-                                    <img src="{{ asset('storage/imggaleri/'.$gambar) }}" alt="" width="210px"
-                                        height="200px" class="my-3">
-                                    <input type="file" name="gambar[{{ $key++ }}]" class="form-control w-75"
-                                        id="defaultFormControlInput" aria-describedby="defaultFormControlHelp"
-                                        value="{{ $data->judul }}" />
-                                    <button type="button" class="btn btn-danger delete-image-btn"
-                                        name="hapus_gambar" value="{{ $key - 1 }}" >&ensp;&ensp;<i
-                                            class="bi bi-trash ">&ensp;&ensp;&ensp;Hapus&ensp;Gambar&ensp;&ensp;</i></button>
-                                    <input type="hidden" name="hapus_gambar" value="{{ $key - 1 }}">
-                                </div>
-                                @endforeach
-                            </div>
-                            @endif
 
-
-                            <script>
-                                const deleteButtons = document.querySelectorAll('.delete-image-btn');
-                          deleteButtons.forEach(button => {
-                            button.addEventListener('click', e => {
-                              const imageName = e.target.getAttribute('data-image');
-                              const imageWrapper = e.target.parentNode;
-
-                              imageWrapper.remove();
-                              fetch(`/hapus_gambar/${imageName}`, {
-                                method: 'DELETE',
-                                headers: {
-                                  'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
-                                }
-                              });
-                            });
-                          });
-                            </script>
-                        </div>
                         <!-- tambahkan input file baru -->
-                        <label for="defaultFormControlInput" class="form-label mb-3 fw-bold ">Tambah Gambar</label>
-                        <div class="col-4">
-                            <input type="file" value="Masukkan Gambar disini" name="gambar[]" class="form-control w-75"
-                                id="defaultFormControlInput" aria-describedby="defaultFormControlHelp" multiple />
-                        </div>
-                        <div></div>
+
                         <div class="col-12">
                             <label for="inputNanme4" class="form-label fw-bold fw-bold">Cover</label><br><br>
                             <img src="{{ asset('storage/' . $data->cover) }}" alt="" title="" width="200px"> <br><br>

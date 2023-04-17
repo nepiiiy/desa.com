@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\galery;
 use App\Models\gallery;
+use App\Models\gambar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -28,23 +29,19 @@ class GaleriController extends Controller
 
     public function upload(Request $request)
     {
-        $files = [];
+
         $cover = Storage::disk('public')->put('covergaleri', $request->file('cover'));
-        if ($request->hasfile('gambar')) {
-            foreach ($request->gambar as $file) {
-                $name = Str::random(10) . '.' . $file->getClientOriginalExtension();
-                $file->storeAs('public/imggaleri/', $name);
-                $files[] = $name;
-            }
-        }
+
+
+
         // $fotoside = implode(',',$files);
-        $model  = new gallery();
-        $model->judul = $request->judul;
-        $model->tanggal = $request->tanggal;
-        $model->cover=$cover;
-        $model->gambar = json_encode($files);
-        $model->user_id = Auth::user()->id;
-        $model->save();
+        $gallery  = new gallery();
+        $gallery->judul = $request->judul;
+        $gallery->tanggal = $request->tanggal;
+        $gallery->cover=$cover;
+
+        $gallery->user_id = Auth::user()->id;
+        $gallery->save();
         $this->validate(
             $request,
             [
@@ -61,6 +58,19 @@ class GaleriController extends Controller
                 'gambar.max'=>'Gambar yang diperbolehkan maksimal 12',
             ]
         );
+
+        if ($request->hasFile('gambar')) {
+            $gambar = $request->file('gambar');
+            foreach ($gambar as $image) {
+                $filename = Str::random(10) . '.' . $image->getClientOriginalExtension();
+                $image->storeAs('public/imggaleri', $filename);
+                $imageModel = new gambar();
+                $imageModel->gambar= $filename;
+                $imageModel->gallery_id = $gallery->id;
+                $imageModel->save();
+            }
+        }
+
 
         alert()->success('Sukses','Galeri    berhasil di tambahakan');
         return redirect('galeri')->with('success', 'Images uploaded successfully.');
@@ -81,8 +91,6 @@ class GaleriController extends Controller
             "tanggal" => $request->tanggal,
         ]);
 
-
-
         if ($request->hasFile('cover')) {
             $cover = Storage::disk('public')->put('covergaleri', $request->file('cover'));
             $data->update([
@@ -90,46 +98,59 @@ class GaleriController extends Controller
             ]);
         }
 
-        if ($request->has('hapus_gambar')) {
-            $hapus_gambar = explode(',', $request->hapus_gambar);
-            $gambar = [];
-            $fotoin = json_decode($data->gambar, true);
-            foreach ($hapus_gambar as $hapus_key) {
-                if (isset($fotoin[$hapus_key])) {
-                    Storage::delete('public/imggaleri/' . $fotoin[$hapus_key]);
-                    unset($fotoin[$hapus_key]);
-                }
+
+        if ($request->hasFile('gambar')) {
+            $gambar = $request->file('gambar');
+            foreach ($gambar as $image) {
+                $filename = Str::random(10) . '.' . $image->getClientOriginalExtension();
+                $image->storeAs('public/imggaleri', $filename);
+                $imageModel = new gambar();
+                $imageModel->gambar = $filename;
+                $imageModel->gallery_id = $data->id;
+                $imageModel->save();
             }
-            $data->gambar = json_encode(array_values($fotoin));
-            $data->save();
         }
 
-        if ($request->hasfile('gambar')) {
-            $keyarray1 = array_keys($request->gambar);
-            $gambar = [];
-
-            $i = 0;
 
 
-            foreach ($request->gambar as $file) {
-                $name = Str::random(10) . '.' . $file->getClientOriginalExtension();
-                $file->storeAs('public/imggaleri/', $name);
-                $gambar[$keyarray1[$i]] = $name;
-                $i++;
-            }
-
-            $fotoin = json_decode($data->gambar);
-            foreach ($keyarray1 as $key) {
-                $fotoin[$key] = $gambar[$key];
-            }
-
-            $data->gambar = json_encode(array_values($fotoin));
             $data->save();
-        }
+
 
         alert()->success('Sukses', 'Galeri berhasil di edit');
         return redirect('galeri')->with('success', 'Images Update Successfully');
     }
+
+    public function editGambar(Request $request, $id)
+{
+    $gambar = gambar::findOrFail($id);
+
+    if ($request->hasFile('gambar')) {
+
+        Storage::disk('public')->delete('imggaleri/' . $gambar->gambar);
+
+
+        $filename = Str::random(10) . '.' . $request->gambar->getClientOriginalExtension();
+        $request->gambar->storeAs('public/imggaleri', $filename);
+        $gambar->gambar = $filename;
+        $gambar->save();
+
+        return redirect()->back()->with('success', 'Gambar berhasil diupdate.');
+    }
+
+    return redirect()->back()->with('error', 'Terjadi kesalahan. Silahkan coba lagi.');
+}
+
+public function hapusGambar($id)
+{
+    $gambar = gambar::findOrFail($id);
+    $file_path = public_path().'/storage/imggaleri/'.$gambar->gambar;
+    if(file_exists($file_path)) {
+        unlink($file_path);
+    }
+    $gambar->delete();
+    return redirect()->back()->with('success', 'Gambar berhasil dihapus.');
+}
+
 
     public function deletegaleri($id)
     {
@@ -141,49 +162,4 @@ class GaleriController extends Controller
         $data->delete();
         return redirect('galeri');
     }
-    // public function hapusgambar($id)
-    // {
-
-    //     $data = gallery::find($id);
-    //     $gambar = $data->gambar;
-    //     Storage::delete('public/' . $gambar);
-    //     return redirect('admindesa.tampil_galeri')->with('success', 'Images Update Successfully');
-    // }
-    public function hapusgambar(Request $request, $imageName, $id) {
-$data = gallery::find($id);
-        // if ($gambar) {
-        //     $path = storage_path('app/public/imggaleri/') . $imageName;
-        //     if (file_exists($path)) {
-        //         unlink($path);
-        //     }
-        //     $gambar->delete();
-        // $data->update([
-        // ]);
-    if ($request->hasfile('gambar')) {
-        $keyarray1 =  array_keys($request->gambar);
-        $gambar = [];
-
-        $i = 0;
-
-        foreach ($request->gambar as $file) {
-
-            $name = Str::random(10) . '.' . $file->getClientOriginalExtension();
-            $file->storeAs('public/imggaleri/', $name);
-            $gambar[$keyarray1[$i]] = $name;
-            $i++;
-        }
-
-
-        $fotoin = json_decode($data->gambar);
-       // dd($gambar);
-        foreach ($keyarray1 as $key) {
-            $fotoin[$key] = $gambar[$key];
-        }
-
-        $data->gambar = $fotoin;
-        $data->delete();
-    }
-    return response()->json(['success' => true]);
-        }
-    }
-
+}
