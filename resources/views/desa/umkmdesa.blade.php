@@ -315,6 +315,11 @@
 
 
                             </div>
+                            <div class="d-flex justify-content-center">
+                                <center>
+                                {{ $umkm->links('pagination::bootstrap-4') }}
+                                </center>
+                            </div>
                         </div>
                     </div>
                 </div>

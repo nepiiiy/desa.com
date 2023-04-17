@@ -68,7 +68,9 @@
                         </section>
                     </div>
                     <div class="d-flex justify-content-center">
+                        <center>
                         {{ $berita->links('pagination::bootstrap-4') }}
+                        </center>
                     </div>
                 </div>
             </section>

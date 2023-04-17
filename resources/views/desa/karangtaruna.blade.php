@@ -294,6 +294,8 @@
 
                         </tbody>
                     </table>
+                </center>
+                <center>
                     {{ $kt_struktur->links() }}
                 </center>
             </div>

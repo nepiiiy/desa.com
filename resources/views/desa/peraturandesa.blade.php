@@ -103,10 +103,15 @@
                                       @endforeach
                             </tbody>
                         </table>
-                        {{$data->links()}}
                     </div>
+                </center>
+                <center>
+                {{ $data->links()}}
                 </center>
             </div>
         </div>
         <!--END Section: Causes -->
-    @endsection
+        @endsection
+
+
+        

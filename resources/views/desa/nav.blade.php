@@ -96,7 +96,7 @@
         </div> --}}
             <!-- Header -->
 
-            <nav>
+            <nav Style=" position: fixed;background: #fca311;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);">
                 <div class="navbar">
                     <i class='bx bx-menu'></i>
                     <div class="logo"><img src="{{ asset('storage/' . $data_user->logo) }}" style="width:50px;">
@@ -202,9 +202,9 @@
                                                 data-bs-target="#forms-nav"href="#">Dinamika Penduduk</a>
                                             <i class='bx bxs-chevron-right arrow more-arrow'></i>
                                         </span>
-                                        <ul class="more-sub-menu sub-menu">
+                                        <ul class="more-sub-menu sub-menu" style="">
 
-                                            <li style="width:200px">
+                                            <li style="width:200px;">
                                                 <a>
                                                     <form action="{{ Route('kegu') }}" method="get">
                                                         @csrf
@@ -397,7 +397,7 @@
                             <div class="" style="">
                                 @if (auth()->user() && auth()->user()->role == 'admindesa')
                                     <a class="btn" href="{{ route('dashboard') }}"
-                                        style="background-color:#F26522; color:#fff; border-radius: 11px; margin-bottom:10px; margin-left:4px"><b>Kelola
+                                        style="background-color:#F26522; color:#fff; border-radius: 10px;"><b>Kelola
                                             Desa</b></a>
                                 @endif
                             </div>
