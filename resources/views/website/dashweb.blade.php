@@ -175,13 +175,10 @@
         .my-link {
   display: inline-block;
   position: relative;
-  font-size: 18px;
-  padding: 10px 20px;
-  border: 3px solid #FFB000;
+  font-size: 14px;
+  padding: 7px 16px;
   background-color: #FFB000;
   color: #fff;
-  letter-spacing: 2px;
-  text-transform: uppercase;
   text-decoration: none;
   overflow: hidden;
   transition: 0.3s ease-out;
@@ -365,7 +362,7 @@
                             <div class="row">
                                 @foreach ($news->take(6) as $berita)
                                     <div class="col-md-4 col-sm-6 col-xs-12">
-                                        <div class="popular-listing-box" style="height: 400px;">
+                                        <div class="popular-listing-box" style="height: 385px;">
                                             <div class="popular-listing-img" style="height: 200px;">
                                                 {{-- width="620px"; height="349px" --}}
                                                 <figure class="effect-ming" style="width:100%;height:100%;"> <img
