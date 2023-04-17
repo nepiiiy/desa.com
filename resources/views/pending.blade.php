@@ -459,7 +459,7 @@ class="back-to-top d-flex align-items-center justify-content-center"
   
   minZoom: 5
   
-  }).setView([lng, lat], 10);
+  }).setView([lng, lat], 15);
   var marker = L.marker([lng, lat]).addTo(leafletMap);
   leafletMap.on('click', function(e) {
   // Menghapus marker
