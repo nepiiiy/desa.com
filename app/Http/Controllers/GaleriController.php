@@ -61,6 +61,10 @@ class GaleriController extends Controller
 
         if ($request->hasFile('gambar')) {
             $gambar = $request->file('gambar');
+            $totalGambar = count($gambar);
+            if ($totalGambar > 12) {
+                return redirect()->back()->withErrors(['gambar' => 'Gambar yang diperbolehkan maksimal 12']);
+            }
             foreach ($gambar as $image) {
                 $filename = Str::random(10) . '.' . $image->getClientOriginalExtension();
                 $image->storeAs('public/imggaleri', $filename);
@@ -70,6 +74,7 @@ class GaleriController extends Controller
                 $imageModel->save();
             }
         }
+
 
 
         alert()->success('Sukses','Galeri    berhasil di tambahakan');

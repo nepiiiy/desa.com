@@ -38,11 +38,11 @@
 
                             <div class="col-12">
                                 <label for="judul" class="form-label fw-bold">Judul</label>
-                                <input type="text" name="judul" class="form-control" id="judul" required>
+                                <input type="text" value="{{ old('judul') }}" name="judul" class="form-control" id="judul" required>
                             </div>
                             <div class="col-12 mb-4">
                                 <label for="tanggal" class="form-label fw-bold">Tanggal</label>
-                                <input type="date" name="tanggal" class="form-control" id="tanggal" required>
+                                <input type="date" value="{{ old('tanggal') }}"name="tanggal" class="form-control" id="tanggal" required>
                             </div>
                             <div class="mb-3">
                                 <div class="upload__box">
@@ -60,7 +60,7 @@
                             <label>
                                 <p class="mb-0 fw-bold">Masukkan Cover</p>
                                 <div class="input-group mb-3">
-                                    <input type="file" class="form-control" name="cover" id="cover" required>
+                                    <input type="file" value="{{ old('cover') }}" class="form-control" name="cover" id="cover" required>
                                 </div>
                             </label>
                             <div class="text-center mt-4">
