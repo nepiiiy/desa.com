@@ -540,7 +540,7 @@
           <div class="section-content">
             <div class="row">
               <div class="col-md-6">
-                @foreach ($data_user as $data_u)  
+                @foreach ($data_user as $data_u)
                 <h1 class="text-white font-45 text-uppercase">DESA {{ $data_u->name }} </h1>
                 @endforeach
                 <ol class="breadcrumb text-left mt-10 white">
@@ -566,14 +566,14 @@
                   </div>
                     <div class="row multi-row-clearfix">
                       <?php $key = 0; ?>
-                      @foreach (json_decode($galeri->gambar) as $gambar)
-                          <div class="col-sm-6 col-md-4" style="margin-top:100px;">
+                      @foreach ($galeri->gambar as $gambar)
+                      <div class="col-sm-6 col-md-4" style="margin-top:100px;">
                               <div class="event-list bg-silver-light maxwidth500 mb-30">
                                   <div class="thumb">
-                                      <img src="{{asset('storage/imggaleri/' . $gambar) }}" alt="" class="img-fullwidth" style="height: 200px;">
+                                      <img src="{{asset('storage/imggaleri/' . $gambar->gambar) }}" alt="" class="img-fullwidth" style="height: 200px;">
                                   </div>
                                   <div class="image-box-details text-center p-20 pt- pb-30 bg-lighter" >
-                                    <a data-lightbox="image" href="{{asset('storage/imggaleri/' . $gambar) }}" class="btn btn-colored btn-theme-colored lightbox-besar" style="color:#fff">Lihat Gambar</a>
+                                    <a data-lightbox="image" href="{{asset('storage/imggaleri/' .$gambar->gambar) }}" class="btn btn-colored btn-theme-colored lightbox-besar" style="color:#fff">Lihat Gambar</a>
                                   </div>
                               </div>
                           </div>
