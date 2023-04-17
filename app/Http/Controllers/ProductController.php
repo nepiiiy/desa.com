@@ -159,7 +159,6 @@ class ProductController extends Controller
     {
         unlink(public_path('image/'.$product->image));
         $product->delete();
-        return redirect()->route('products.index')
-                        ->with('success','Product deleted successfully');
+        return redirect()->route('products.index');
     }
 }

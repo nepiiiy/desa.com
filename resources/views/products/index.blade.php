@@ -92,7 +92,7 @@
                 })
                 .then((willDelete) => {
                     if (willDelete) {
-                        window.location = "/deletependuduk/" + umkmid + ""
+                        window.location = "/products" + ""
                         swal("Data berhasil di hapus", {
                             icon: "success",
                         });
