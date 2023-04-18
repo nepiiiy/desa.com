@@ -280,8 +280,7 @@
                                         <div class="col-md-3 col-sm-4">
                                             <div class="wsk-cp-product">
                                                 <div class="wsk-cp-img">
-                                                    <img src="/image/{{ $product->image }}" alt="Product"
-                                                        class="img-responsive" />
+                                                    <img src="/image/{{ $product->image }}" alt="Product" class="img-responsive" style="width: 500px; height: 160px;" />
                                                 </div>
                                                 <div class="wsk-cp-text">
                                                     <div class="title-product">

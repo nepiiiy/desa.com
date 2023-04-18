@@ -56,6 +56,7 @@ class GaleriController extends Controller
                 'cover.required'=>'Cover harus diisi',
                 'gambar.required'=>'Gambar harus diisi',
                 'gambar.max'=>'Gambar yang diperbolehkan maksimal 12',
+
             ]
         );
 

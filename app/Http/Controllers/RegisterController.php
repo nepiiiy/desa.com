@@ -24,12 +24,12 @@ class RegisterController extends Controller
     {
         $request->validate([
             'latitude'=>'required',
-            
+
         ],[
-        
+
             'latitude.required'=>'Anda harus memilih letak daerah anda',
-            
-            
+
+
         ]);
 
 
@@ -82,7 +82,7 @@ class RegisterController extends Controller
                 'password' => 'min:4|required_with:password_confirmation|same:password_confirmation',
                 'password_cofirmation'=>'min:4',
                 'gambar' => 'required|mimetypes:application/pdf|max:10000',
-                'logo' => 'required|image|mimes:jpeg,jpg,png',
+                'logo' => 'required|image|mimes:jpeg,jpg,png|dimensions:max_width=801,max_height=801',
                 'kode_pos' => 'required|min:5|max:8',
                 'province_id'=>'required',
                 'regency_id'=>'required',
@@ -106,6 +106,7 @@ class RegisterController extends Controller
                 'logo.mimes' => 'Gambar harus dalam bentuk jpeg,png,jpg,svg',
                 'logo.image' => 'Yang di inputkan harus gambar',
                 'logo.required'=>'Logo tidak boleh kosong',
+                'logo.dimensions' => 'Ukuran gambar harus lebih kecil dari 801 x 801 piksel.',
                 'province_id.required'=>'Anda harus memilih salah satu',
                 'regency_id.required'=>'Anda harus memilih salah satu',
                 'district_id.required'=>'Anda harus memilih salah satu',
@@ -128,7 +129,7 @@ class RegisterController extends Controller
             'longtitude' => $request->longtitude,
             'gambar' => $gambar,
             'logo' => $logo,
-            
+
             'kode_pos' => $request->kode_pos,
             'province_id'=> $request->province_id,
             'regency_id'=> $request->regency_id,
@@ -142,7 +143,7 @@ class RegisterController extends Controller
 
     public function peta()
     {
-             
+
         return view('peta');
     }
     // public function actionregister(Request $request)

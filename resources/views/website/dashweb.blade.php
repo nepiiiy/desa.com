@@ -190,7 +190,7 @@
 }
 
 .my-link::before {
-  
+
   position: absolute;
   top: 0;
   left: -100%;
@@ -248,7 +248,7 @@
                                 </li>
         </ul>
       </div>
-     
+
     </div>
   </nav>
   <script src="script.js"></script>
@@ -318,12 +318,12 @@
     </center>
     <div class="main">
 
-        <ul class="cards" style="margin-left:16%">
+        <ul class="cards" style="margin-left:5%">
             @foreach ($diti->take(3) as $data)
                 <li class="cards_item">
                     <div class="card">
                         <form action="{{ Route('dashwebinput') }}" method="get">
-                            <div class="card_image"><img style="height: 290px; width:250px"
+                            <div class="card_image"><img style="height: 290px; width:290px"
                                     src="{{ asset('storage/' . $data->logo) }}"></div>
                             <div class="card_content">
                                 <h2 style="font-size: 20px" class="card_title">{{ $data->name }}</h2>

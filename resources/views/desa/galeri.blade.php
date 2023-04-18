@@ -584,7 +584,7 @@ background-position: center;">
                                 <img src="{{asset('storage/imggaleri/' . $gambar->gambar) }}" alt="" class="img-fullwidth" style="height: 200px;">
                             </div>
                             <div class="image-box-details text-center p-20 pt- pb-30 bg-lighter" >
-                                <a data-lightbox="image" href="{{asset('storage/imggaleri/' .$gambar->gambar) }}" class="btn btn-colored btn-theme-colored lightbox-besar" style="color:#fff">Lihat Gambar</a> &ensp;<a href="{{asset('storage/imggaleri/' .$gambar->gambar) }}" download class="btn btn-colored btn-theme-colored" style="color:#fff">Unduh Gambar</a>
+                                <a data-lightbox="image" href="{{asset('storage/imggaleri/' .$gambar->gambar) }}    " class="btn btn-colored btn-theme-colored lightbox-besar" style="color:#fff; ">Lihat Gambar</a> &ensp;<a href="{{asset('storage/imggaleri/' .$gambar->gambar) }}" download class="btn btn-colored btn-theme-colored" style="color:#fff">Unduh Gambar</a>
                             </div>
                         </div>
                     </div>

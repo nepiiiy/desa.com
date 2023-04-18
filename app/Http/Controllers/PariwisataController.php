@@ -28,7 +28,7 @@ class PariwisataController extends Controller
     {
         $request->validate(
             [
-                'cover'     => 'required|image|mimes:png,jpeg,jpg,webp|max:2048',
+                'cover'     => 'required|image|mimes:png,jpeg,jpg,webp|max:2048|dimensions:max_width=200,max_height=600',
                 'judul'     => 'required',
                 'gambar'    => 'required|image|mimes:png,jpeg,jpg,webp|max:2048',
                 'alamat'=>'required',
@@ -38,6 +38,7 @@ class PariwisataController extends Controller
                 'cover.required'=>'Cover tidak boleh kosong',
                 'cover.image'=>'File yang di upload harus berupa gambar',
                 'cover.mimes'=>'File yang di upload harus berekstensi JPG, JPEG, PNG',
+                'cover.dimensions' => 'Ukuran gambar harus lebih kecil dari 800 x 600 piksel.',
                 'cover.max'=>'File yang di upload tidak lebih dari 2 MB',
                 'judul.required'=>'Judul tidak boleh kosong',
                 'gambar.required'=>'Gambar tidak boleh kosong',
