@@ -106,8 +106,8 @@
 								<br>
 								<div class="form-group">
 									<div class="fxt-transformY-50 fxt-transition-delay-1">
-									<input type="password"  style="text-indent:2em" class="form-control @error('password') is-invalid @enderror " name="password" placeholder="Password">
-                                    @error('password')
+									<input type="password"  style="text-indent:2em" class="form-control @error('password_confirmation') is-invalid @enderror " name="password" placeholder="Password">
+                                    @error('password_confirmation')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                   @enderror
 									<svg style=" position:absolute;
@@ -121,7 +121,10 @@
 								<br>
 								<div class="form-group">
 									<div class="fxt-transformY-50 fxt-transition-delay-2">
-									<input id="password_confirmation" style="text-indent:2em" class="form-control " placeholder="Konfirmasi Password" type="password" name="password_confirmation" required autocomplete="new-password">
+									<input id="password_confirmation" style="text-indent:2em" class="form-control  @error('password') is-invalid @enderror" placeholder="Konfirmasi Password" type="password" name="password_confirmation">
+                                    @error('password')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                  @enderror
 									<svg style=" position:absolute;
   left:3%;
   top:9px;
