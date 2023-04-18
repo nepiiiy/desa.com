@@ -60,7 +60,7 @@
 
 							<form action="/create" method="post" enctype="multipart/form-data">
                             @csrf
-                            @if ($errors->any())
+                            {{-- @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
             @foreach ($errors->all() as $error)
@@ -68,13 +68,16 @@
             @endforeach
         </ul>
     </div>
-@endif
+@endif --}}
 @error('name')
 <div class="invalid-feedback">{{ $message }}</div>
 @enderror
 								<div class="form-group">
 									<div class="fxt-transformY-50 fxt-transition-delay-1">
 									<input type="text"  value="{{ old('name') }}" class="form-control @error('name') is-invalid @enderror" name="name" style="text-indent:2em" placeholder="Nama Desa">
+                                    @error('name')
+                                                          <div class="invalid-feedback">{{ $message }}</div>
+                                                        @enderror
 									<svg style=" position:absolute;
   left:3%;
   top:9px;
@@ -89,6 +92,9 @@
 								<div class="form-group">
 									<div class="fxt-transformY-50 fxt-transition-delay-1">
 										<input type="text" value="{{ old('email') }}" class="form-control @error('email') is-invalid @enderror" name="email" style="text-indent:2em" placeholder="Email Desa">
+                                        @error('email')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                      @enderror
 										<svg style=" position:absolute;
   left:3%;
   top:9px;
@@ -100,7 +106,10 @@
 								<br>
 								<div class="form-group">
 									<div class="fxt-transformY-50 fxt-transition-delay-1">
-									<input type="password"  style="text-indent:2em" class="form-control @error('password') is-invalid @enderror " name="password" placeholder="Password">
+									<input type="password"  style="text-indent:2em" class="form-control @error('password_confirmation') is-invalid @enderror " name="password" placeholder="Password">
+                                    @error('password_confirmation')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                  @enderror
 									<svg style=" position:absolute;
   left:3%;
   top:9px;
@@ -112,7 +121,10 @@
 								<br>
 								<div class="form-group">
 									<div class="fxt-transformY-50 fxt-transition-delay-2">
-									<input id="password_confirmation" style="text-indent:2em" class="form-control @error('password_confirmation') is-invalid @enderror " placeholder="Konfirmasi Password" type="password" name="password_confirmation" required autocomplete="new-password">
+									<input id="password_confirmation" style="text-indent:2em" class="form-control  @error('password') is-invalid @enderror" placeholder="Konfirmasi Password" type="password" name="password_confirmation">
+                                    @error('password')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                  @enderror
 									<svg style=" position:absolute;
   left:3%;
   top:9px;
@@ -125,12 +137,15 @@
 								<br>
 								<div class="form-group">
 									<div class="fxt-transformY-50 fxt-transition-delay-2">
-                                        <select class="form-control" name="province_id" id="provinsi" style="text-indent:2em;color:#777;">
+                                        <select class="form-control @error('province_id') is-invalid @enderror" name="province_id" id="provinsi" style="text-indent:2em;color:#777;">
                                             <option value="">Pilih Provinsi...</option>
                                             @foreach ($provinsi as $item)
                                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                                             @endforeach
                                         </select>
+                                        @error('province_id')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                  @enderror
 									<svg style=" position:absolute;
   left:3%;
   top:9px;
@@ -149,10 +164,12 @@
 								<br>
 								<div class="form-group">
 									<div class="fxt-transformY-50 fxt-transition-delay-2">
-                                        <select class="form-control" name="regency_id" id="kabupaten" style="text-indent:2em;color:#777;">
+                                        <select class="form-control @error('regency_id') is-invalid @enderror" name="regency_id" id="kabupaten" style="text-indent:2em;color:#777;">
 
                                         </select>
-
+                                        @error('regency_id')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                      @enderror
 									<svg style=" position:absolute;
   left:3%;
   top:9px;
@@ -170,9 +187,12 @@
 								</div>
 								<br><div class="form-group">
 									<div class="fxt-transformY-50 fxt-transition-delay-2">
-                                        <select class="form-control" name="district_id" id="kecamatan" style="text-indent:2em;color:#777;">
+                                        <select class="form-control @error('district_id') is-invalid @enderror" name="district_id" id="kecamatan" style="text-indent:2em;color:#777;">
 
                                         </select>
+                                        @error('district_id')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                  @enderror
 									<svg style=" position:absolute;
   left:3%;
   top:9px;
@@ -193,6 +213,9 @@
 								<br><div class="form-group">
 									<div class="fxt-transformY-50 fxt-transition-delay-2">
                                     <input type="text" style="text-indent:2em" value="{{ old('kode_pos') }}" class="form-control @error('kode_pos') is-invalid @enderror" name="kode_pos" placeholder="Kode Pos">
+                                    @error('kode_pos')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                  @enderror
 									<svg style=" position:absolute;
   left:3%;
   top:9px;
@@ -210,16 +233,22 @@
 
 
                                 <div class="col-12 ">
-                                    <div class=" @error('gambar') is-invalid @enderror" value="{{ old('gambar') }}">
+                                    <div value="{{ old('gambar') }}">
                                         <label  >Unggah Persetujuan</label>
-                                        <input type="file"  name="gambar" class="form-control">
+                                        <input type="file"  name="gambar" class="form-control @error('gambar') is-invalid @enderror">
+                                        @error('gambar')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                      @enderror
                                     </div>
                                 </div>
                                 <br>
                                 <div class="col-12 ">
-                                    <div class="custom-file @error('logo') is-invalid @enderror" value="{{ old('logo') }}">
+                                    <div class="custom-file " value="{{ old('logo') }}">
                                         <label  >Unggah logo</label><br>
-                                        <input type="file" class="form-control" style="" name="logo" >
+                                        <input type="file" class="form-control @error('logo') is-invalid @enderror" style="" name="logo" >
+                                        @error('logo')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                      @enderror
                                     </div>
                                 </div>
 
