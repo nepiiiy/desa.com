@@ -43,6 +43,7 @@
                           <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
                           <input id="email" name="email" placeholder="Alamat Email" class="form-control"  type="email">
                         </div>
+                        <label for="chk1" style="margin-top: 5px">Kembali ke <a href="/masuk" style="text-decoration: none;">login</a></label>
                       </div>
                       <div class="form-group">
                         <input class="btn login_btn" style="background-color:#3498db; color:#fff;" type="submit">

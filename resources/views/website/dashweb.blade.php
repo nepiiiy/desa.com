@@ -190,7 +190,7 @@
 }
 
 .my-link::before {
-  content: "";
+  
   position: absolute;
   top: 0;
   left: -100%;
@@ -217,7 +217,7 @@
 
     <!-- HEADER -->
 
-    <nav>
+    <nav style=" position: fixed;background: #fca311;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);">
     <div class="navbar">
       <i class='bx bx-menu'></i>
       <div class="logo"><img src="https://i.postimg.cc/XvrB6m2Z/logo-desa1-removebg-preview.png" style="width:200px;"></div>
