@@ -248,10 +248,7 @@
                                 </li>
         </ul>
       </div>
-      <div class="search-box">
-        <i class='bx bx-search' Style="color:#fca311"></i>
-
-      </div>
+     
     </div>
   </nav>
   <script src="script.js"></script>
