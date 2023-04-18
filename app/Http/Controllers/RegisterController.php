@@ -22,11 +22,21 @@ class RegisterController extends Controller
 
     public function kekoordinat(Request $request)
     {
+        $request->validate([
+            'latitude'=>'required',
+            
+        ],[
+        
+            'latitude.required'=>'Anda harus memilih letak daerah anda',
+            
+            
+        ]);
+
+
         $latitude = $request->input('latitude');
         $longtitude = $request->input('longtitude');
 
         return redirect()->route('daftar', ['latitude' => $latitude, 'longtitude' => $longtitude]);
-    
     }
 
     public function getkabupaten(Request $request)
@@ -73,22 +83,28 @@ class RegisterController extends Controller
                 'gambar' => 'required|mimetypes:application/pdf|max:10000',
                 'logo' => 'required|image|mimes:jpeg,jpg,png',
                 'kode_pos' => 'required|min:5|max:8',
-                
-               
-
+                'province_id'=>'required',
+                'regency_id'=>'required',
+                'district_id'=>'required',
             ],
             [
                 'name.required' => 'Nama harus di isi',
                 'password.required' => 'Password harus di isi',
                 'password.min' => 'Password minimal 4 huruf',
-                'password.confirmed' => 'Password tidak sama.',
                 'kode_pos.min' => 'Kode pos minimal 5 angka',
                 'kode_pos.max' => 'Kode pos minimal 8 angka',
+                'kode_pos.required'=>'Kode pos harus di isi',
+                'email.required'=>'Email harus di isi',
                 'email.unique' => 'Email ada yang sama',
-                'gambar.mimes' => 'Dokumen harus dalam bentuk pdf max 10000kb',
-                'gambar.image' => 'Yang di inputkan harus pdf',
+                'gambar.mimetypes' => 'File persetujuan harus berekstensi PDF',
+                'gambar.max'=>'Besar file persetujuan tidak lebih dari 10 MB',
+                'gambar.required'=>'Persetujuan tidak boleh kosong',
                 'logo.mimes' => 'Gambar harus dalam bentuk jpeg,png,jpg,svg',
                 'logo.image' => 'Yang di inputkan harus gambar',
+                'logo.required'=>'Logo tidak boleh kosong',
+                'province_id.required'=>'Anda harus memilih salah satu',
+                'regency_id.required'=>'Anda harus memilih salah satu',
+                'district_id.required'=>'Anda harus memilih salah satu',
 
             ]
 

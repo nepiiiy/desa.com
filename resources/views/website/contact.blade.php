@@ -671,7 +671,7 @@
 </div>
             <div  class="">
     <div  class=" padding-top-60 padding-bottom-50 contact-right ">
-                            <h2 class=" lp-border-bottom padding-bottom-20 margin-bottom-20">Address</h2>
+                            <h2 class=" lp-border-bottom padding-bottom-20 margin-bottom-20">Alamat</h2>
             <div class="address-box mr-bottom-30">
                                     <p>
                     <i class="fa fa-map-marker" style="font-size: 18px;"></i>
@@ -683,7 +683,7 @@
                 </p>
                                     <p>
                     <i class="fa fa-envelope" style="font-size: 18px;"></i>
-                    <a href="mailto:xyz@example.com" style="font-size: 18px;"> <span>xyz@example.com</span></a>
+                    <a href="mailto:nevi.yuanita01@gmail.com" style="font-size: 18px;"> <span>desakita@gmail.com</span></a>
                 </p>
                                                                                         <ul class="social-icons post-socials contact-social">
                                                                                                                                                                                                                                                     
@@ -691,7 +691,7 @@
                                             
 
             </div>
-                        <h2 class="margin-top-60 margin-bottom-30 lp-border-bottom padding-bottom-20">Contact us</h2>
+                        <h2 class="margin-top-60 margin-bottom-30 lp-border-bottom padding-bottom-20">Kontak Kami</h2>
             
                         <a href="whatsapp://send?text=Link pra um artigo ó https://google.com" class="botao-wpp" style="font-size: 15px;">
                             <!-- ícone -->
