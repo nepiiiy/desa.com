@@ -99,7 +99,7 @@
             <nav style=" position: fixed;background: #fca311;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);">
                 <div class="navbar">
                     <i class='bx bx-menu'></i>
-                    <div class="logo"><img src="{{ asset('storage/' . $data_user->logo) }}" style="width:65px; height:65px;">
+                    <div class="logo"><img src="{{ asset('storage/' . $data_user->logo) }}" style="width:70px; height:70px;">
                     </div>
                     <div class="nav-links">
                         <div class="sidebar-logo">
