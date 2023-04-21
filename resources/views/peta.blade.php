@@ -30,6 +30,7 @@
         crossorigin=""></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.css" />
     <script src="https://unpkg.com/leaflet-geosearch@3.1.0/dist/geosearch.umd.js"></script>
+
 </head>
 
 <style>
@@ -170,12 +171,16 @@
     var search = new GeoSearch.GeoSearchControl({
         provider: providerOSM,
         style: 'bar',
-        showMarker: false,
-        autoClose: true,
+        // showMarker: false,
+        // autoClose: true,
         retainZoomLevel: false,
         searchLabel: 'Cari....',
     });
     leafletMap.addControl(search);
+
+    search.on('results', function(data) {
+ 
+});
 </script>
 
 

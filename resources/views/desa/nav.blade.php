@@ -416,60 +416,57 @@
 
             @yield('isi')
 
-            <footer id="footer" class="footer divider">
-                <div class="footer-top layer-overlay overlay-dark-8">
-                    <div class="container pt-60 pb-30">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="horizontal-contact-widget mt-30 pt-30 text-center">
-                                    <div class="col-sm-12 col-sm-3">
-                                        <div class="each-widget"> <img
-                                                src="https://i.postimg.cc/hG5nVkNm/sign-up-3.png">
-                                            <h5 class="text-white">Registrasi</h5>
-                                            <p>Admin memasukkan data sesuai ketentuan</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12 col-sm-3 mt-sm-50">
-                                        <div class="each-widget"> <img src="https://i.postimg.cc/bwM8nX7t/id-1.png">
-                                            <h5 class="text-white">Verifikasi</h5>
-                                            <p>Menunggu persetujuan dari admin website</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12 col-sm-3 mt-sm-50">
-                                        <div class="each-widget"> <img src="https://i.postimg.cc/9XTp5GX5/login.png">
-                                            <h5 class="text-white">Login</h5>
-                                            <p>Login dengan memasukkan email dan password</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12 col-sm-3 mt-sm-50">
-                                        <div class="each-widget"> <img
-                                                src="https://i.postimg.cc/Jzy0vQmj/complete.png">
-                                            <h5 class="text-white">Selesai</h5>
-                                            <p>Selamat admin sudah bisa mengelola akun desa tersebut</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <ul
-                                    class="list-inline styled-icons icon-hover-theme-colored icon-gray icon-circled text-center mt-30 mb-10">
-                                    <li><a href="#"><i class="fa fa-google-plus"></i></a> </li>
-                                    <li><a href="#"><i class="fa fa-youtube"></i></a> </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="container-fluid p-20" style="background-color: #e9940a;">
-                    <div class="row text-center">
-                        <div class="col-md-12">
-                            <p class="text-white font-11 m-0">Copyright &copy;2023 Desa.com</p>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+            <footer id="footer" class="footer" data-bg-img="images/footer-bg.png" data-bg-color="#262E3B">
+    <div class="container pt-70 pb-40">
+      <div class="row">
+        <div class="col-sm-6 col-md-3">
+          <div class="widget dark">
+            <div class="text-widget">
+              <p><img src="https://i.postimg.cc/x1Hnxwc2/Logo-Putih.png" style="width:70%"></p>
+            </div>
+            <ul class="styled-icons icon-sm icon-bordered icon-circled clearfix mt-20" style="color:#fff">
+              &ensp;&ensp;&ensp;&ensp;&ensp;  <li><a href="#"><i class="fa fa-whatsapp"></i></a> </li>
+              <li><a href="#"><i class="fa fa-instagram"></i></a> </li>
+              <li><a href="#"><i class="fa fa-envelope"></i></a> </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <div class="widget dark">
+            <h5 class="widget-title line-bottom">Visi</h5>
+            <ul class="list list-divider list-border" >
+              <li ><a href="#"style="color:#fff;text-align:justify;"><i class="fa fa-check-square-o mr-10 text-black-light" ></i> DENGAN SEMANGAT DAN KERJA SAMA AKAN MENGHASILKAN WEBSITE YANG BERGUNA BAGI SEMUA ORANG.</a></li>
+            </ul>
+            <h5 class="widget-title line-bottom">Misi</h5>
+            <ul class="list list-divider list-border">
+              <li><a href="#"style="color:#fff;text-align:justify;"><i class="fa fa-check-square-o mr-10 text-black-light"></i> MEMPERBAIKI KUALITAS WEBSITE AGAR LEBIH BAIK DAN LEBIH BERKEMBANG.</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <div class="widget dark">
+            <h5 class="widget-title line-bottom">Halaman</h5>
+            <ul class="list list-border">
+              <li><a href="/"style="color:#fff">Beranda</a></li>
+              <li><a href="/about"style="color:#fff">Tentang</a></li>
+              <li><a href="/contact"style="color:#fff">Kontak</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <div class="widget dark">
+            <h5 class="widget-title line-bottom">Kontak Kami</h5>
+            <ul class="list list-border">
+              <li style="color:#fff"><i class="fa fa-map-marker" style="font-size: 18px;color:#fff"></i>&ensp;Malang</li>
+              <li style="color:#fff"><i class="fa fa-phone" style="font-size: 18px;color:#fff"></i>&ensp; +008 1234 6789</li>
+              <li style="color:#fff"><i class="fa fa-envelope" style="font-size: 18px;color:#fff"></i>&ensp;xyz@example.com</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
         </div>
 @endforeach
 
