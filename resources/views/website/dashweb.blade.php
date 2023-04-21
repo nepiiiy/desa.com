@@ -324,7 +324,9 @@
                     <div class="card">
                         <form action="{{ Route('dashwebinput') }}" method="get">
                             <div class="card_image"><img style="height: 290px; width:290px"
-                                    src="{{ asset('storage/' . $data->logo) }}"></div>
+                                src="{{ asset('storage/' . $data->logo) }}"></div>
+
+
                             <div class="card_content">
                                 <h2 style="font-size: 20px" class="card_title">{{ $data->name }}</h2>
                                 <input type="hidden" value="{{ $item->id }}" name="id">
