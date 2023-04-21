@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <title>DESAKITA</title>
     <link rel="stylesheet" type="text/css" href="css/master.css">
+    
     <link rel="stylesheet" type="text/css" href="css/color/color-1.css" id="color" />
 
     <!--[if lt IE 9]>
@@ -29,6 +30,52 @@
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <!-- CSS | menuzord megamenu skins -->
+    <link id="menuzord-menu-skins" href="css/menuzord-skins/menuzord-rounded-boxed.css" rel="stylesheet" />
+    <!-- CSS | Main style file -->
+    <link href="css/style2.css" rel="stylesheet" type="text/css">
+    <!-- CSS | Preloader Styles -->
+    <link href="css/preloader.css" rel="stylesheet" type="text/css">
+    <!-- CSS | Custom Margin Padding Collection -->
+    <link href="css/custom-bootstrap-margin-padding.css" rel="stylesheet" type="text/css">
+    <!-- CSS | Responsive media queries -->
+    <link href="css/responsive.css" rel="stylesheet" type="text/css">
+    <!-- CSS | Style css. This is the file where you can place your own custom css code. Just uncomment it and use it. -->
+    <!-- <link href="css/style.css" rel="stylesheet" type="text/css"> -->
+
+    <!-- Revolution Slider 5.x CSS settings -->
+    <link href="js/revolution-slider/css/settings.css" rel="stylesheet" type="text/css" />
+    <link href="js/revolution-slider/css/layers.css" rel="stylesheet" type="text/css" />
+    <link href="js/revolution-slider/css/navigation.css" rel="stylesheet" type="text/css" />
+
+    <!-- CSS | Theme Color -->
+    <link href="css/colors/theme-skin-orange.css" rel="stylesheet" type="text/css">
+
+    <!-- external javascripts -->
+    <script src="js/jquery-2.2.4.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- JS | jquery plugin collection for this theme -->
+    <script src="js/jquery-plugin-collection.js"></script>
+
+    <!-- Revolution Slider 5.x SCRIPTS -->
+    <script src="js/revolution-slider/js/jquery.themepunch.tools.min.js"></script>
+    <script src="js/revolution-slider/js/jquery.themepunch.revolution.min.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  
+<![endif]-->
+    <link rel="stylesheet" href="{{ asset('style.css') }}">
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <style>
         button {
             margin-top: 2%;
@@ -396,82 +443,57 @@
     </section>
 
     <!-- Footer -->
-
-    <footer id="footer" class="footer divider">
-        <div class="footer-top layer-overlay overlay-dark-8">
-            <div class="container pt-60 pb-30">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="horizontal-contact-widget mt-30 pt-30 text-center">
-                            <div class="col-sm-12 col-sm-3">
-                                <div class="each-widget"> <img src="https://i.postimg.cc/hG5nVkNm/sign-up-3.png"
-                                        style="width: 30px;">
-                                    <h5 class="text-white"
-                                        style="color: white; font-family: 'Open Sans', sans-serif; font-size: 14px; margin: 10px;">
-                                        Registrasi</h5>
-                                    <p style="font-family: 'Open Sans', sans-serif; font-size: 14px; margin: 10px;">
-                                        Admin memasukkan data sesuai ketentuan</p>
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-sm-3 mt-sm-50">
-                                <div class="each-widget"> <img src="https://i.postimg.cc/bwM8nX7t/id-1.png"
-                                        style="width: 30px;">
-                                    <h5 class="text-white"
-                                        style="color: white; font-family: 'Open Sans', sans-serif; font-size: 14px; margin: 10px;">
-                                        Verifikasi</h5>
-                                    <p style="font-family: 'Open Sans', sans-serif; font-size: 14px; margin: 10px;">
-                                        Menunggu persetujuan dari admin website</p>
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-sm-3 mt-sm-50">
-                                <div class="each-widget"> <img src="https://i.postimg.cc/9XTp5GX5/login.png"
-                                        style="width: 30px;">
-                                    <h5 class="text-white"
-                                        style="color: white; font-family: 'Open Sans', sans-serif; font-size: 14px; margin: 10px;">
-                                        Login</h5>
-                                    <p style="font-family: 'Open Sans', sans-serif; font-size: 14px; margin: 10px;">
-                                        Login dengan memasukkan email dan password</p>
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-sm-3 mt-sm-50">
-                                <div class="each-widget"> <img src="https://i.postimg.cc/Jzy0vQmj/complete.png"
-                                        style="width: 30px;">
-                                    <h5 class="text-white"
-                                        style="color: white; font-family: 'Open Sans', sans-serif; font-size: 14px; margin: 10px;">
-                                        Selesai</h5>
-                                    <p style="font-family: 'Open Sans', sans-serif; font-size: 14px; margin: 10px;">
-                                        Selamat admin sudah bisa mengelola akun desa tersebut</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row ">
-                    <div class="col-md-12">
-                        <ul class="list-inline styled-icons icon-hover-theme-colored icon-gray icon-circled text-center mt-30 mb-10"
-                            style="margin: 20px;">
-                            <li><a href="#"><i class="fa fa-google-plus"
-                                        style="font-size: 25px; background-color: #fff; border-radius: 100%; padding: 7px; width: 90%;"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-youtube"
-                                        style="font-size: 25px; background-color: #fff; border-radius: 100%; padding: 7px; width: 100%;"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+    <footer id="footer" class="footer" data-bg-img="images/footer-bg.png" data-bg-color="#262E3B">
+    <div class="container pt-70 pb-40">
+      <div class="row">
+        <div class="col-sm-6 col-md-3">
+          <div class="widget dark">
+            <div class="text-widget">
+              <p><img src="https://i.postimg.cc/x1Hnxwc2/Logo-Putih.png" style="width:70%"></p>
             </div>
+            <ul class="styled-icons icon-sm icon-bordered icon-circled clearfix mt-20" style="color:#fff">
+              &ensp;&ensp;&ensp;&ensp;&ensp;  <li><a href="#"><i class="fa fa-whatsapp"></i></a> </li>
+              <li><a href="#"><i class="fa fa-instagram"></i></a> </li>
+              <li><a href="#"><i class="fa fa-envelope"></i></a> </li>
+            </ul>
+          </div>
         </div>
-        <br><br>
-        <div class="container-fluid p-20" style="background-color: #e9940a; padding: 20px;">
-            <div class="row text-center">
-                <div class="col-md-12">
-                    <p class="text-white font-12 m-0"
-                        style="color: white; font-family: 'Open Sans' sans-serif; font-size: 12px;">Copyright
-                        &copy;2023 DESAKITA</p>
-                </div>
-            </div>
+        <div class="col-sm-6 col-md-3">
+          <div class="widget dark">
+            <h5 class="widget-title line-bottom">Visi</h5>
+            <ul class="list list-divider list-border" >
+              <li ><a href="#"style="color:#fff;text-align:justify;"><i class="fa fa-check-square-o mr-10 text-black-light" ></i> DENGAN SEMANGAT DAN KERJA SAMA AKAN MENGHASILKAN WEBSITE YANG BERGUNA BAGI SEMUA ORANG.</a></li>
+            </ul>
+            <h5 class="widget-title line-bottom">Misi</h5>
+            <ul class="list list-divider list-border">
+              <li><a href="#"style="color:#fff;text-align:justify;"><i class="fa fa-check-square-o mr-10 text-black-light"></i> MEMPERBAIKI KUALITAS WEBSITE AGAR LEBIH BAIK DAN LEBIH BERKEMBANG.</a></li>
+            </ul>
+          </div>
         </div>
-    </footer>
+        <div class="col-sm-6 col-md-3">
+          <div class="widget dark">
+            <h5 class="widget-title line-bottom">Halaman</h5>
+            <ul class="list list-border">
+              <li><a href="/"style="color:#fff">Beranda</a></li>
+              <li><a href="/about"style="color:#fff">Tentang</a></li>
+              <li><a href="/contact"style="color:#fff">Kontak</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <div class="widget dark">
+            <h5 class="widget-title line-bottom">Kontak Kami</h5>
+            <ul class="list list-border">
+              <li style="color:#fff"><i class="fa fa-map-marker" style="font-size: 18px;color:#fff"></i>&ensp;Malang</li>
+              <li style="color:#fff"><i class="fa fa-phone" style="font-size: 18px;color:#fff"></i>&ensp; +008 1234 6789</li>
+              <li style="color:#fff"><i class="fa fa-envelope" style="font-size: 18px;color:#fff"></i>&ensp;xyz@example.com</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
 
     <!-- Popups -->
     <section id="best-thing-model">
