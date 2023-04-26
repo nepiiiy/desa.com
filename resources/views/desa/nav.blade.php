@@ -394,7 +394,7 @@
                                 <a class="btn" href="{{ route('dashweb') }}"
                                     style="background-color:#F26522; color:#fff; border-radius: 10px;"><b>Kembali</b></a>
                             </div>
-                            <div class="" style="">
+                            <div class="" style="margin-top:-12px; margin-left:5%;">
                                 @if (auth()->user() && auth()->user()->role == 'admindesa')
                                     <a class="btn" href="{{ route('dashboard') }}"
                                         style="background-color:#F26522; color:#fff; border-radius: 10px;"><b>Kelola

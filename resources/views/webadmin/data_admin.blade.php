@@ -64,7 +64,7 @@
     }
 
     li span {
-      width: 160px;
+      /* width: 160px; */
       display: inline-block;
     }
 
