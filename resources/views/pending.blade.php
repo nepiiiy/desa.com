@@ -404,6 +404,7 @@
     })
 
     map.setView([lng, lat], 16); // Sydney
+    var marker = L.marker([lng, lat]).addTo(map);
 
     L.esri.Vector.vectorBasemapLayer(basemapEnum, {
       apiKey: apiKey
