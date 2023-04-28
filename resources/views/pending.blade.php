@@ -39,14 +39,32 @@
 
     {{-- leaflaet --}}
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
-	integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
-	crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-    crossorigin=""></script>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.css" />
-    <script src="https://unpkg.com/leaflet-geosearch@3.1.0/dist/geosearch.umd.js"></script>
+   <!-- Load Leaflet from CDN -->
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" crossorigin="" />
+   <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" crossorigin=""></script>
+
+   <!-- Load Esri Leaflet from CDN -->
+   <script src="https://unpkg.com/esri-leaflet@3.0.10/dist/esri-leaflet.js"></script>
+   <script src="https://unpkg.com/esri-leaflet-vector@4.0.1/dist/esri-leaflet-vector.js"></script>
+
+   <!-- Load Esri Leaflet Geocoder from CDN -->
+   <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@^3.1.3/dist/esri-leaflet-geocoder.css">
+   <script src="https://unpkg.com/esri-leaflet-geocoder@^3.1.3/dist/esri-leaflet-geocoder.js"></script>
+
+   <style>
+    body {
+          margin: 0;
+          padding: 0;
+        }
+        #map {
+          
+         height: 430px;
+         width: 700px;
+ 
+         border-radius: 10px;
+         box-shadow: 0px 0px 10px 0px rgba(101, 95, 83, 0.5);
+        }
+     </style>
 
     <!-- =======================================================
   * Template Name: NiceAdmin - v2.5.0
@@ -73,16 +91,7 @@
         });
         </script>
   </head>
-  <style>
-    #leafletMap-registration {
-      height: 430px;
-      width: 570px;
-    
-      border-radius: 10px;
-      box-shadow: 0px 0px 10px 0px rgba(101, 95, 83, 0.5);
-      /* The height is 400 pixels */
-    }
-    </style>
+  
 
   <body>
     <!-- ======= Header ======= -->
@@ -350,7 +359,7 @@
                     @error('email')
                       <div class="invalid-feedback" style="margin-left:25%">{{ $message }}</div>
                     @enderror
-                    <div style="margin-top:20px" id="leafletMap-registration"></div>
+                    <div style="margin-left:-6%;margin-top:6%" id="map"></div>
                   </div>
   
                  
@@ -380,29 +389,103 @@
   </main><!-- End #main -->
 
 
-    <script>
-        $('.delete').click(function() {
-            var dataid = $(this).attr('data-id');
-            var nama = $(this).attr('data-nama');
-            swal({
-                    title: "Yakin ?",
-                    text: "Kamu akan menghapus data desa dengan nama " + nama + " ",
-                    icon: "warning",
-                    buttons: true,
-                    dangerMode: true,
-                })
-                .then((willDelete) => {
-                    if (willDelete) {
-                        window.location = "/deleteadmin/" + dataid + ""
-                        swal("Data berhasil di hapus", {
-                            icon: "success",
-                        });
-                    } else {
-                        swal("Data tidak jadi dihapus");
-                    }
-                });
+  <script>
+
+    const apiKey = "AAPK4f8785f6e76e4108b1c32d88f6f0ad32IiBITEDmC8SboRsc8w-xAlbTUoZ6y06ZlbJmaFAjPh9dTAAODIVIVaqKVXqdDHAl";
+
+    const basemapEnum = "ArcGIS:Navigation";
+
+    const lat = "<?php echo $data->latitude; ?>";
+    const lng = "<?php echo $data->longtitude; ?>";
+
+  //   untuk map.on('click', function(e) {
+    const map = L.map("map", {
+      minZoom: 2
+    })
+
+    map.setView([lng, lat], 16); // Sydney
+
+    L.esri.Vector.vectorBasemapLayer(basemapEnum, {
+      apiKey: apiKey
+    }).addTo(map);
+
+    const searchControl = L.esri.Geocoding.geosearch({
+      position: "topright",
+      placeholder: "Enter an address or place e.g. 1 York St",
+      useMapBounds: false,
+
+      providers: [
+        L.esri.Geocoding.arcgisOnlineProvider({
+          apikey: apiKey,
+          nearby: {
+            lat: -33.8688,
+            lng: 151.2093
+          }
         })
-    </script>
+      ]
+
+    }).addTo(map);
+
+    const results = L.layerGroup().addTo(map);
+
+   
+    let theMarker;
+
+    map.on('click', function(e) {
+      let latitude = e.latlng.lat.toString().substring(0, 15);
+      let longitude = e.latlng.lng.toString().substring(0, 15);
+      // document.getElementById("latitude").value = latitude;
+      // document.getElementById("longitude").value = longitude;
+      let popup = L.popup()
+          .setLatLng([latitude, longitude])
+          .setContent("Kordinat : " + latitude + " - " + longitude)
+          .openOn(map);
+
+      if (theMarker != undefined) {
+          map.removeLayer(theMarker)
+      }
+
+      theMarker = L.marker([latitude, longitude]).addTo(map);
+
+      document.querySelector("#longtitude").value = longitude;
+      document.querySelector("#latitude").value = latitude;
+  });
+
+  searchControl.on("results", (data) => {
+results.clearLayers();
+
+if (theMarker != undefined) {
+          map.removeLayer(theMarker)
+      }
+
+const latlng = data.results[0].latlng;
+const latitude = latlng.lat;
+const longitude = latlng.lng;
+
+
+// Update the input fields with the new latitude and longitude
+
+
+for (let i = data.results.length - 1; i >= 0; i--) {
+  const marker = L.marker(data.results[i].latlng);
+
+const lat = data.results[i].latlng.lat.toFixed(5);
+const lng = data.results[i].latlng.lng.toFixed(5);
+
+const lngLatString = `${lng}, ${lat}`;
+marker.bindPopup(`<b>${lngLatString}</b><p>${data.results[i].properties.LongLabel}</p>`);
+document.querySelector("#latitude").value = lat;
+document.querySelector("#longtitude").value = lng;
+
+
+  results.addLayer(marker);
+
+  marker.openPopup();
+}
+});
+
+
+  </script>
 <script src="https://code.jquery.com/jquery-3.6.3.slim.js"integrity="sha256-DKU1CmJ8kBuEwumaLuh9Tl/6ZB6jzGOBV/5YpNE2BWc=" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 

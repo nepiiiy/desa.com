@@ -23,26 +23,35 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="log/style.css">
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
-        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-        crossorigin=""></script>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.css" />
-    <script src="https://unpkg.com/leaflet-geosearch@3.1.0/dist/geosearch.umd.js"></script>
-
-</head>
-
-<style>
-    #leafletMap-registration {
+     <!-- Load Leaflet from CDN -->
+     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" crossorigin="" />
+     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" crossorigin=""></script>
+ 
+     <!-- Load Esri Leaflet from CDN -->
+     <script src="https://unpkg.com/esri-leaflet@3.0.10/dist/esri-leaflet.js"></script>
+     <script src="https://unpkg.com/esri-leaflet-vector@4.0.1/dist/esri-leaflet-vector.js"></script>
+ 
+     <!-- Load Esri Leaflet Geocoder from CDN -->
+     <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@^3.1.3/dist/esri-leaflet-geocoder.css">
+     <script src="https://unpkg.com/esri-leaflet-geocoder@^3.1.3/dist/esri-leaflet-geocoder.js"></script>
+ 
+     <style>
+       body {
+         margin: 0;
+         padding: 0;
+       }
+       #map {
         height: 430px;
-        width: 500px;
+        width: 700px;
 
         border-radius: 10px;
         box-shadow: 0px 0px 10px 0px rgba(101, 95, 83, 0.5);
-        /* The height is 400 pixels */
-    }
-</style>
+       }
+     </style>
+
+</head>
+
+
 
 <body>
     <!--[if lt IE 8]>
@@ -77,7 +86,7 @@
 									</ul>
 								</div>
 							@endif
-                            <div style="width:160%; " id="leafletMap-registration"></div>
+                            <div id="map"></div>
                         </div>
                         <br>
                         <form action="/kekoordinat" method="post" enctype="multipart/form-data">
@@ -88,8 +97,8 @@
                                 <div class="row" style="width:165%;">
                                     <div class="col-md-6 col-12">
 
-                                        <input type="hidden" name="latitude" id="latitude" placeholder="latitude">
-                                        <input type="hidden" name="longtitude" id="longtitude"
+                                        <input type="text" name="latitude" id="latitude" placeholder="latitude">
+                                        <input type="text" name="longtitude" id="longtitude"
                                             placeholder="longtitude">
                                     </div>
                                 </div>
@@ -125,64 +134,99 @@
 
 </body>
 <script>
-    // you want to get it of the window global
-    const providerOSM = new GeoSearch.OpenStreetMapProvider();
 
-    //leaflet map
-    var leafletMap = L.map('leafletMap-registration', {
-        fullscreenControl: true,
-        // OR
-        fullscreenControl: {
-            pseudoFullscreen: false // if true, fullscreen to page width and height
-        },
-        minZoom: 5
-    }).setView([-7.977914003560, 112.63416945934], 10);
+    const apiKey = "AAPK4f8785f6e76e4108b1c32d88f6f0ad32IiBITEDmC8SboRsc8w-xAlbTUoZ6y06ZlbJmaFAjPh9dTAAODIVIVaqKVXqdDHAl";
+
+    const basemapEnum = "ArcGIS:Navigation";
+
+  //   untuk map.on('click', function(e) {
+    const map = L.map("map", {
+      minZoom: 2
+    })
+
+    map.setView([-7.95623, 112.71194], 14); // Sydney
+
+    L.esri.Vector.vectorBasemapLayer(basemapEnum, {
+      apiKey: apiKey
+    }).addTo(map);
+
+    const searchControl = L.esri.Geocoding.geosearch({
+      position: "topright",
+      placeholder: "Enter an address or place e.g. 1 York St",
+      useMapBounds: false,
+
+      providers: [
+        L.esri.Geocoding.arcgisOnlineProvider({
+          apikey: apiKey,
+          nearby: {
+            lat: -33.8688,
+            lng: 151.2093
+          }
+        })
+      ]
+
+    }).addTo(map);
+
+    const results = L.layerGroup().addTo(map);
+
+   
+    let theMarker;
+
+    map.on('click', function(e) {
+      let latitude = e.latlng.lat.toString().substring(0, 15);
+      let longitude = e.latlng.lng.toString().substring(0, 15);
+      // document.getElementById("latitude").value = latitude;
+      // document.getElementById("longitude").value = longitude;
+      let popup = L.popup()
+          .setLatLng([latitude, longitude])
+          .setContent("Kordinat : " + latitude + " - " + longitude)
+          .openOn(map);
+
+      if (theMarker != undefined) {
+          map.removeLayer(theMarker)
+      }
+
+      theMarker = L.marker([latitude, longitude]).addTo(map);
+
+      document.querySelector("#longtitude").value = longitude;
+      document.querySelector("#latitude").value = latitude;
+  });
+
+  searchControl.on("results", (data) => {
+results.clearLayers();
+
+if (theMarker != undefined) {
+          map.removeLayer(theMarker)
+      }
+
+const latlng = data.results[0].latlng;
+const latitude = latlng.lat;
+const longitude = latlng.lng;
 
 
+// Update the input fields with the new latitude and longitude
 
 
-    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(leafletMap);
+for (let i = data.results.length - 1; i >= 0; i--) {
+  const marker = L.marker(data.results[i].latlng);
 
-    let theMarker = {};
+const lat = data.results[i].latlng.lat.toFixed(5);
+const lng = data.results[i].latlng.lng.toFixed(5);
 
-    leafletMap.on('click', function(e) {
-        let latitude = e.latlng.lat.toString().substring(0, 15);
-        let longitude = e.latlng.lng.toString().substring(0, 15);
-        // document.getElementById("latitude").value = latitude;
-        // document.getElementById("longitude").value = longitude;
-        let popup = L.popup()
-            .setLatLng([latitude, longitude])
-            .setContent("Kordinat : " + latitude + " - " + longitude)
-            .openOn(leafletMap);
-
-        if (theMarker != undefined) {
-            leafletMap.removeLayer(theMarker)
-        }
-
-        theMarker = L.marker([latitude, longitude]).addTo(leafletMap);
-
-        document.querySelector("#longtitude").value = longitude;
-        document.querySelector("#latitude").value = latitude;
-    });
+const lngLatString = `${lng}, ${lat}`;
+marker.bindPopup(`<b>${lngLatString}</b><p>${data.results[i].properties.LongLabel}</p>`);
+document.querySelector("#latitude").value = lat;
+document.querySelector("#longtitude").value = lng;
 
 
-    var search = new GeoSearch.GeoSearchControl({
-        provider: providerOSM,
-        style: 'bar',
-        // showMarker: false,
-        // autoClose: true,
-        retainZoomLevel: false,
-        searchLabel: 'Cari....',
-    });
-    leafletMap.addControl(search);
+  results.addLayer(marker);
 
-    search.on('results', function(data) {
- 
+  marker.openPopup();
+}
 });
-</script>
 
+
+  </script>
 
 <!-- Mirrored from affixtheme.com/html/xmee/demo/register-15.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 10 Apr 2023 03:38:05 GMT -->
 
