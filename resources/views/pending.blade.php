@@ -433,6 +433,7 @@
     let theMarker;
 
     map.on('click', function(e) {
+      results.clearLayers();
       let latitude = e.latlng.lat.toString().substring(0, 15);
       let longitude = e.latlng.lng.toString().substring(0, 15);
       // document.getElementById("latitude").value = latitude;
