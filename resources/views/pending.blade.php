@@ -365,8 +365,8 @@
                  
                 </div>
               </div>
-              <input type="hidden"  name="longtitude" id="latitude" placeholder="latitude">
-              <input type="hidden"  name="latitude" id="longtitude" placeholder="longtitude">
+              <input type="hidden" value="{{ $data->longtitude }}"  name="longtitude" id="latitude" placeholder="latitude">
+              <input type="hidden"  name="latitude" value="{{ $data->latitude }}"  id="longtitude" placeholder="longtitude">
               <div style="margin-left:85%"><button class="button-79 ms-0 mb-3" type="submit" role="button" style="background-color:#0375b4; ">Kirim</button></div>
   
                 <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
@@ -403,7 +403,7 @@
       minZoom: 2
     })
 
-    map.setView([lng, lat], 16); // Sydney
+    map.setView([lng, lat], 12); // Sydney
     var marker = L.marker([lng, lat]).addTo(map);
 
     L.esri.Vector.vectorBasemapLayer(basemapEnum, {
