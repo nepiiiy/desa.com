@@ -33,7 +33,7 @@ class PenghargaanController extends Controller
                 'subjudul'  => 'required',
                 'tanggal' => 'required',
                 'isi' => 'required',
-                'cover' => 'required|image|mimes:png,jpg,jpeg|max:2048|dimensions:max_width=815,max_height=623,min_width=760,min_height=560',
+                'cover' => 'required|image|mimes:png,jpg,jpeg|max:2048',
                 'gambar' => 'required|image|mimes:png,jpg,jpeg|max:2048',
             ],[
                 'judul.required'=>'Judul harus di isi',
