@@ -448,7 +448,7 @@
                         <div class="col-sm-6 col-md-4">
                             <div class="causes bg-silver-light maxwidth500 mb-30">
                                 <div class="thumb" style="height: 200px;">
-                                    <img src="{{asset('storage/'.$item->cover)}}" style="width:100%; height: 100%;">
+                                    <img src="{{asset('storage/'.$item->cover)}}" style="width:350px; height: 200px;object-fit:cover">
                                 </div>
                                 <div class="causes-details border-1px bg-white clearfix p-20 pt-10 pb-20" style=" height:205px; text-align: justify;">
                                     <h4 class="text-uppercase"><a href="/lihat/{{ $item->id }}/{{ $data_user[0]->id }}">{{ Str::limit($item->judul, 45) }}</a></h4>
@@ -478,7 +478,7 @@
                             <div class="col-sm-6 col-md-4">
                                 <div class="causes bg-silver-light maxwidth500 mb-30">
                                     <div class="thumb" style="height: 200px;">
-                                        <img src="{{asset('storage/'.$award->cover)}}" alt="" class="img-fullwidth" style="width:100%; height: 100%;">
+                                        <img src="{{asset('storage/'.$award->cover)}}" alt="" class="img-fullwidth" style="width:350px; height: 200px;object-fit:cover">
                                     </div>
                                     <div class="causes-details border-1px bg-white clearfix p-20 pt-10 pb-20" style=" height:205px; text-align: justify;">
                                         <h4 class="text-uppercase"><a href="/lihatpeng/{{ $award->id }}/{{ $data_user[0]->id }}">{{ Str::limit($award->judul, 45) }}</a>

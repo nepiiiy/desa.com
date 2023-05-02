@@ -581,7 +581,7 @@ background-position: center;">
                     <div class="col-sm-6 col-md-4" style="margin-top:100px;">
                         <div class="event-list bg-silver-light maxwidth500 mb-30">
                             <div class="thumb">
-                                <img src="{{asset('storage/imggaleri/' . $gambar->gambar) }}" alt="" class="img-fullwidth" style="height: 200px;">
+                                <img src="{{asset('storage/imggaleri/' . $gambar->gambar) }}" alt="" class="img-fullwidth" style="height: 200px; object-fit:cover">
                             </div>
                             <div class="image-box-details text-center p-20 pt- pb-30 bg-lighter" >
                                 <a data-lightbox="image" href="{{asset('storage/imggaleri/' .$gambar->gambar) }}    " class="btn btn-colored btn-theme-colored lightbox-besar" style="color:#fff; ">Lihat Gambar</a> &ensp;<a href="{{asset('storage/imggaleri/' .$gambar->gambar) }}" download class="btn btn-colored btn-theme-colored" style="color:#fff">Unduh Gambar</a>

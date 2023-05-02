@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <title>DESAKITA</title>
     <link rel="stylesheet" type="text/css" href="css/master.css">
-    
+
     <link rel="stylesheet" type="text/css" href="css/color/color-1.css" id="color" />
 
     <!--[if lt IE 9]>
@@ -31,7 +31,7 @@
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    
+
     <!-- CSS | menuzord megamenu skins -->
     <link id="menuzord-menu-skins" href="css/menuzord-skins/menuzord-rounded-boxed.css" rel="stylesheet" />
     <!-- CSS | Main style file -->
@@ -69,7 +69,7 @@
     <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  
+
 <![endif]-->
     <link rel="stylesheet" href="{{ asset('style.css') }}">
     <!-- Boxicons CDN Link -->
@@ -370,7 +370,7 @@
                 <li class="cards_item">
                     <div class="card">
                         <form action="{{ Route('dashwebinput') }}" method="get">
-                            <div class="card_image"><img style="height: 290px; width:290px"
+                            <div class="card_image"><img style="height: 290px; width:290px; object-fit:cover"
                                 src="{{ asset('storage/' . $data->logo) }}"></div>
 
 
@@ -411,7 +411,7 @@
                                         <div class="popular-listing-box" style="height: 385px;">
                                             <div class="popular-listing-img" style="height: 200px;">
                                                 {{-- width="620px"; height="349px" --}}
-                                                <figure class="effect-ming" style="width:100%;height:100%;"> <img
+                                                <figure class="effect-ming" style="width:350px; height: 200px;object-fit:cover"> <img
                                                         style="width:100%;height:100%;"
                                                         src="{{ asset('storage/' . $berita->cover) }}"
                                                         alt="image">
@@ -495,7 +495,7 @@
       </div>
     </div>
   </footer>
-  
+
 
     <!-- Popups -->
     <section id="best-thing-model">
