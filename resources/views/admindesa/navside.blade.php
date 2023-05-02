@@ -18,65 +18,65 @@
       box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
       background-color: #fff;
     }
-    
+
     @media (max-width: 1199px) {
       .sidebar {
         left: -300px;
       }
     }
-    
+
     .sidebar::-webkit-scrollbar {
       width: 5px;
       height: 8px;
       background-color: #fff;
     }
-    
+
     .sidebar::-webkit-scrollbar-thumb {
       background-color: #aab7cf;
     }
-    
+
     @media (min-width: 1200px) {
-    
+
       #main,
       #footer {
         margin-left: 300px;
       }
     }
-    
+
     @media (max-width: 1199px) {
       .toggle-sidebar .sidebar {
         left: 0;
       }
     }
-    
+
     @media (min-width: 1200px) {
-    
+
       .toggle-sidebar #main,
       .toggle-sidebar #footer {
         margin-left: 0;
       }
-    
+
       .toggle-sidebar .sidebar {
         left: -300px;
       }
     }
-    
+
     .sidebar-nav {
       padding: 0;
       margin: 0;
       list-style: none;
     }
-    
+
     .sidebar-nav li {
       padding: 0;
       margin: 0;
       list-style: none;
     }
-    
+
     .sidebar-nav .nav-item {
       margin-bottom: 5px;
     }
-    
+
     .sidebar-nav .nav-heading {
       font-size: 11px;
       text-transform: uppercase;
@@ -84,7 +84,7 @@
       font-weight: 600;
       margin: 10px 0 5px 15px;
     }
-    
+
     .sidebar-nav .nav-link {
       display: flex;
       align-items: center;
@@ -96,46 +96,46 @@
       padding: 10px 15px;
       border-radius: 4px;
     }
-    
+
     .sidebar-nav .nav-link i {
       font-size: 16px;
       margin-right: 10px;
       color: #4154f1;
     }
-    
+
     .sidebar-nav .nav-link.collapsed {
       color: #012970;
       background: #fff;
     }
-    
+
     .sidebar-nav .nav-link.collapsed i {
       color: #899bbd;
     }
-    
+
     .sidebar-nav .nav-link:hover {
       color: #4154f1;
       background: #f6f9ff;
     }
-    
+
     .sidebar-nav .nav-link:hover i {
       color: #4154f1;
     }
-    
+
     .sidebar-nav .nav-link .bi-chevron-down {
       margin-right: 0;
       transition: transform 0.2s ease-in-out;
     }
-    
+
     .sidebar-nav .nav-link:not(.collapsed) .bi-chevron-down {
       transform: rotate(180deg);
     }
-    
+
     .sidebar-nav .nav-content {
       padding: 5px 0 0 0;
       margin: 0;
       list-style: none;
     }
-    
+
     .sidebar-nav .nav-content a {
       display: flex;
       align-items: center;
@@ -146,19 +146,19 @@
       padding: 10px 0 10px 40px;
       transition: 0.3s;
     }
-    
+
     .sidebar-nav .nav-content a i {
       font-size: 6px;
       margin-right: 8px;
       line-height: 0;
       border-radius: 50%;
     }
-    
+
     .sidebar-nav .nav-content a:hover,
     .sidebar-nav .nav-content a.active {
       color: #4154f1;
     }
-    
+
     .sidebar-nav .nav-content a.active i {
       background-color: #4154f1;
     }
@@ -214,7 +214,7 @@
     <!-- ======= Header ======= -->
     <header id="header" class="header fixed-top d-flex align-items-center">
       <div class="d-flex align-items-center justify-content-between">
-        <a href="dashboard.html" class="logo d-flex align-items-center">
+        <a href="dashboardadmindesa" class="logo d-flex align-items-center">
           <img src="https://i.postimg.cc/XvrB6m2Z/logo-desa1-removebg-preview.png" alt="" />
         </a>
         <i class="bi bi-list toggle-sidebar-btn"></i>
