@@ -33,7 +33,7 @@ class BeritaController extends Controller
                 'subjudul'  => 'required',
                 'tanggal' => 'required',
                 'isi' => 'required',
-                'cover' => 'required|image|mimes:png,jpg,jpeg|max:2048|dimensions:max_width=800,max_height=600|dimensions:min_width=800,min_height=600',
+                'cover' => 'required|image|mimes:png,jpg,jpeg|max:2048|dimensions:max_width=815,max_height=623,min_width=800,min_height=600',
                 'gambar' => 'required|image|mimes:png,jpg,jpeg|max:2048',
             ],[
                 'judul.required'=>'Judul harus di isi',

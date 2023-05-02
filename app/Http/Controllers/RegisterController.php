@@ -82,7 +82,7 @@ class RegisterController extends Controller
                 'password' => 'min:4|required_with:password_confirmation|same:password_confirmation',
                 'password_cofirmation'=>'min:4',
                 'gambar' => 'required|mimetypes:application/pdf|max:10000',
-                'logo' => 'required|image|mimes:jpeg,jpg,png|dimensions:max_width=500,max_height=500|dimensions:min_width=500,min_height=500',
+                'logo' => 'required|image|mimes:jpeg,jpg,png|dimensions:max_width=520,max_height=520,min_width=490,min_height=490',
                 'kode_pos' => 'required|min:5|max:8',
                 'province_id'=>'required',
                 'regency_id'=>'required',
