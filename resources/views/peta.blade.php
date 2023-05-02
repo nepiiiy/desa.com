@@ -172,25 +172,7 @@
    
     let theMarker;
 
-    map.on('click', function(e) {
-      let latitude = e.latlng.lat.toString().substring(0, 15);
-      let longitude = e.latlng.lng.toString().substring(0, 15);
-      // document.getElementById("latitude").value = latitude;
-      // document.getElementById("longitude").value = longitude;
-      let popup = L.popup()
-          .setLatLng([latitude, longitude])
-          .setContent("Kordinat : " + latitude + " - " + longitude)
-          .openOn(map);
-
-      if (theMarker != undefined) {
-          map.removeLayer(theMarker)
-      }
-
-      theMarker = L.marker([latitude, longitude]).addTo(map);
-
-      document.querySelector("#longtitude").value = longitude;
-      document.querySelector("#latitude").value = latitude;
-  });
+  
 
   searchControl.on("results", (data) => {
 results.clearLayers();
@@ -223,6 +205,32 @@ document.querySelector("#longtitude").value = lng;
 
   marker.openPopup();
 }
+});
+
+map.on('click', function(e) {
+
+  results.clearLayers();
+
+if (theMarker !== undefined) {
+  map.removeLayer(theMarker);
+      }
+
+let latitude = e.latlng.lat.toString().substring(0, 15);
+let longitude = e.latlng.lng.toString().substring(0, 15);
+// document.getElementById("latitude").value = latitude;
+
+// document.getElementById("longitude").value = longitude;
+let popup = L.popup()
+    .setLatLng([latitude, longitude])
+    .setContent("Kordinat : " + latitude + " - " + longitude)
+    .openOn(map);
+
+
+
+theMarker = L.marker([latitude, longitude]).addTo(map);
+
+document.querySelector("#longtitude").value = longitude;
+document.querySelector("#latitude").value = latitude;
 });
 
 
