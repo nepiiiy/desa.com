@@ -745,7 +745,7 @@
             <div class="horizontal-contact-widget mt-30 pt-30 text-center" >
               <div class="col-sm-12 col-sm-3" >
                 <div class="each-widget" > <img src="https://i.postimg.cc/QdmndVTd/register.png">
-                  <h5 class="text-black" style="font-size: 13px; font-family: 'Open Sans', sans-serif;">Registrasi</h5>
+                  <h5 class="text-black" style="font-size: 13px; font-family: 'Open Sans', sans-serif;">Daftar</h5>
                   <p style="color: #000;">Admin memasukkan data sesuai ketentuan</p>
                 </div>
               </div>
@@ -757,7 +757,7 @@
               </div>
               <div class="col-sm-12 col-sm-3 mt-sm-50">
                 <div class="each-widget"> <img src="https://i.postimg.cc/NF7mg9zs/login.png">
-                  <h5 class="text-black" style="font-size: 13px; font-family: 'Open Sans', sans-serif;">Login</h5>
+                  <h5 class="text-black" style="font-size: 13px; font-family: 'Open Sans', sans-serif;">Masuk</h5>
                   <p style="color: #000;">Login dengan memasukkan email dan password</p>
                 </div>
               </div>
@@ -801,11 +801,11 @@
           <div class="widget dark">
             <h5 class="widget-title line-bottom">Visi</h5>
             <ul class="list list-divider list-border" >
-              <li ><a href="#"style="color:#fff;text-align:justify;"><i class="fa fa-check-square-o mr-10 text-black-light" ></i> DENGAN SEMANGAT DAN KERJA SAMA AKAN MENGHASILKAN WEBSITE YANG BERGUNA BAGI SEMUA ORANG.</a></li>
+              <li style="color:#fff;text-align:justify;"><i class="fa fa-check-square-o mr-10 text-black-light" ></i> DENGAN SEMANGAT DAN KERJA SAMA AKAN MENGHASILKAN WEBSITE YANG BERGUNA BAGI SEMUA ORANG.</li>
             </ul>
             <h5 class="widget-title line-bottom">Misi</h5>
             <ul class="list list-divider list-border">
-              <li><a href="#"style="color:#fff;text-align:justify;"><i class="fa fa-check-square-o mr-10 text-black-light"></i> MEMPERBAIKI KUALITAS WEBSITE AGAR LEBIH BAIK DAN LEBIH BERKEMBANG.</a></li>
+              <li style="color:#fff;text-align:justify;"><i class="fa fa-check-square-o mr-10 text-black-light"></i> MEMPERBAIKI KUALITAS WEBSITE AGAR LEBIH BAIK DAN LEBIH BERKEMBANG.</li>
             </ul>
           </div>
         </div>
