@@ -74,7 +74,7 @@ class PariwisataController extends Controller
         $data = tour::findOrfail($id);
         $request->validate(
             [
-                'cover'     => 'nullable|image|mimes:png,jpeg,jpg,webp|max:2048|dimensions:max_width=815,max_height=623,min_width=800,min_height=600',
+                'cover'     => 'nullable|image|mimes:png,jpeg,jpg,webp|max:2048',
                 'judul'     => 'required',
                 'gambar'    => 'nullable|image|mimes:png,jpeg,jpg,webp|max:2048',
                 'alamat'=>'required',
@@ -84,7 +84,6 @@ class PariwisataController extends Controller
                 'cover.image'=>'File yang di upload harus berupa gambar',
                 'cover.mimes'=>'File yang di upload harus berekstensi JPG, JPEG, PNG',
                 'cover.max'=>'File yang di upload tidak lebih dari 2 MB',
-                'cover.dimensions' => 'Ukuran gambar min 800x600 px dan max 815x623 px',
                 'judul.required'=>'Judul tidak boleh kosong',
                 'gambar.image'=>'File yang di upload harus berupa gambar',
                 'gambar.mimes'=>'File yang di upload harus berekstensi JPG, JPEG, PNG',

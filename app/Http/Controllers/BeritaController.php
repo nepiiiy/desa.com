@@ -33,7 +33,7 @@ class BeritaController extends Controller
                 'subjudul'  => 'required',
                 'tanggal' => 'required',
                 'isi' => 'required',
-                'cover' => 'required|image|mimes:png,jpg,jpeg|max:2048|dimensions:max_width=815,max_height=623,min_width=800,min_height=600',
+                'cover' => 'required|image|mimes:png,jpg,jpeg',
                 'gambar' => 'required|image|mimes:png,jpg,jpeg|max:2048',
             ],[
                 'judul.required'=>'Judul harus di isi',
@@ -46,7 +46,6 @@ class BeritaController extends Controller
                 'cover.max'=>'File yang di inputkan tidak lebih dari 2 MB',
                 'gambar.required'=>'Gambar harus di isi',
                 'gambar.image'=>'File yang di inputkan harus berupa gambar',
-                'cover.dimensions' => 'Ukuran gambar harus dari 800 x 600 piksel.',
                 'gambar.mimes'=>'File yang di inputkan harus berekstensi JPG, JPEG, PNG',
                 'gambar.max'=>'File yang di inputkan tidak lebih dari 2 MB',
             ]

@@ -111,7 +111,7 @@
                                                     <div class="d-flex">
                                                         <div>
                                                             <button type="button" class="btn btn-primary btn-block
-                                                            mt-1" id="btn-maps">Klik di sini untuk melihat di Google
+                                                            mt-1 mb-3" id="btn-maps">Klik di sini untuk melihat di Google
                                                                 Maps</button>
                                                         </div>
                                                         <br>
