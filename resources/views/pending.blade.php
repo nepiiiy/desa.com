@@ -298,7 +298,7 @@
                         </div>
                     @endif -->
                   <div class="col-6"><div style=" margin-left:-20%;"><div class=" label"><center>Logo Desa</center></div><br>
-                  <img src="{{asset('storage/'.$data->logo)}}" class="img-thumbnail rounded mx-auto d-block" style=" height:145px; width:50%">
+                  <img src="{{asset('storage/'.$data->logo)}}" class="img-thumbnail rounded mx-auto d-block" style=" height:50%; width:50%">
                   
                   <center><input style="width: 250px;" type="file" class="form-control mt-3 @error('logo') is-invalid @enderror" name="logo" id="gambar"
                                         value="{{ $data->logo }}"> 
@@ -306,8 +306,8 @@
                       <div class="invalid-feedback" >{{ $message }}</div>
                     @enderror<center> </div><br>
                                        
-                                        <div style=" margin-left:90%; margin-top:-295px;" class="col-12"><div style="margin-top: 10%" class=" label"><center>Persetujuan Desa</center></div><br><br><br>
-                                        <center><a data-toggle="modal"  class="clickLink btn btn-danger"href="#myModal" style="color:#fff; font-size:80%; margin-bottom:29px;">Lihat Persetujuan</a></center>
+                                        <div style=" margin-left:90%; margin-top:-98%;" class="col-12"><div style="margin-bottom:9%;" class=" label"><center>Persetujuan Desa</center></div><br><br><br>
+                                        <center><a data-toggle="modal"  class="clickLink btn btn-danger"href="#myModal" style="color:#fff; font-size:80%; margin-bottom:17%;">Lihat Persetujuan</a></center>
                                         <div class="modal fade" id="myModal" role="dialog" >
                                 <div class="modal-dialog modal-lg" >
                                 <div class="modal-content">

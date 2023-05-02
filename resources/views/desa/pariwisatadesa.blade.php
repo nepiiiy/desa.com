@@ -48,7 +48,7 @@
                                     <div class="col-sm-6 col-md-3" style="margin-top: 30px">
                                         <div class="causes bg-silver-light maxwidth300 mb-30">
                                             <div class="thumb" style="height: 200px;">
-                                                <img src="{{ asset('storage/' . $row->cover) }}" alt="" style="width:100%; height: 100%;"
+                                                <img src="{{ asset('storage/' . $row->cover) }}" alt="" style="object-fit:cover; width:200px; height: 200px;"
                                                     class="img-fullwidth">
                                             </div>
                                             <div class="causes-details border-1px bg-white clearfix p-20 pt-10 pb-20" style=" height:180px;">
