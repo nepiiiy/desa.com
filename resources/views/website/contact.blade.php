@@ -537,7 +537,7 @@
             <section>
                 <section style="width:700px; height: 500px; margin-left: 30px;">
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31668.030672749563!2d109.35274032835964!3d-7.183203589042299!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6feffdb0412969%3A0x5027a76e3564d90!2sKuta%2C%20Kec.%20Belik%2C%20Kabupaten%20Pemalang%2C%20Jawa%20Tengah!5e0!3m2!1sid!2sid!4v1676210361241!5m2!1sid!2sid"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.9520947184465!2d112.60431107492114!3d-7.900073992122916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7881c2c4637501%3A0x10433eaf1fb2fb4c!2sHummasoft%20Technology!5e0!3m2!1sid!2sid!4v1682992002239!5m2!1sid!2sid"
                         width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
 
@@ -623,11 +623,11 @@
           <div class="widget dark">
             <h5 class="widget-title line-bottom">Visi</h5>
             <ul class="list list-divider list-border" >
-              <li ><a href="#"style="color:#fff;text-align:justify;"><i class="fa fa-check-square-o mr-10 text-black-light" ></i> DENGAN SEMANGAT DAN KERJA SAMA AKAN MENGHASILKAN WEBSITE YANG BERGUNA BAGI SEMUA ORANG.</a></li>
+              <li style="color:#fff;text-align:justify;"><i class="fa fa-check-square-o mr-10 text-black-light" ></i> DENGAN SEMANGAT DAN KERJA SAMA AKAN MENGHASILKAN WEBSITE YANG BERGUNA BAGI SEMUA ORANG.</li>
             </ul>
             <h5 class="widget-title line-bottom">Misi</h5>
             <ul class="list list-divider list-border">
-              <li><a href="#"style="color:#fff;text-align:justify;"><i class="fa fa-check-square-o mr-10 text-black-light"></i> MEMPERBAIKI KUALITAS WEBSITE AGAR LEBIH BAIK DAN LEBIH BERKEMBANG.</a></li>
+              <li style="color:#fff;text-align:justify;"><i class="fa fa-check-square-o mr-10 text-black-light"></i> MEMPERBAIKI KUALITAS WEBSITE AGAR LEBIH BAIK DAN LEBIH BERKEMBANG.</li>
             </ul>
           </div>
         </div>

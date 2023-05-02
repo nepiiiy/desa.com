@@ -435,11 +435,11 @@
           <div class="widget dark">
             <h5 class="widget-title line-bottom">Visi</h5>
             <ul class="list list-divider list-border" >
-              <li ><a href="#"style="color:#fff;text-align:justify;"><i class="fa fa-check-square-o mr-10 text-black-light" ></i> DENGAN SEMANGAT DAN KERJA SAMA AKAN MENGHASILKAN WEBSITE YANG BERGUNA BAGI SEMUA ORANG.</a></li>
+              <li style="color:#fff;text-align:justify;"><i class="fa fa-check-square-o mr-10 text-black-light" ></i> DENGAN SEMANGAT DAN KERJA SAMA AKAN MENGHASILKAN WEBSITE YANG BERGUNA BAGI SEMUA ORANG.</li>
             </ul>
             <h5 class="widget-title line-bottom">Misi</h5>
             <ul class="list list-divider list-border">
-              <li><a href="#"style="color:#fff;text-align:justify;"><i class="fa fa-check-square-o mr-10 text-black-light"></i> MEMPERBAIKI KUALITAS WEBSITE AGAR LEBIH BAIK DAN LEBIH BERKEMBANG.</a></li>
+              <li style="color:#fff;text-align:justify;"><i class="fa fa-check-square-o mr-10 text-black-light"></i> MEMPERBAIKI KUALITAS WEBSITE AGAR LEBIH BAIK DAN LEBIH BERKEMBANG.</li>
             </ul>
           </div>
         </div>
