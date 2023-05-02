@@ -46,7 +46,7 @@ class BeritaController extends Controller
                 'cover.max'=>'File yang di inputkan tidak lebih dari 2 MB',
                 'gambar.required'=>'Gambar harus di isi',
                 'gambar.image'=>'File yang di inputkan harus berupa gambar',
-                'gambar.dimensions' => 'Ukuran gambar harus dari 800 x 600 piksel.',
+                'cover.dimensions' => 'Ukuran gambar harus dari 800 x 600 piksel.',
                 'gambar.mimes'=>'File yang di inputkan harus berekstensi JPG, JPEG, PNG',
                 'gambar.max'=>'File yang di inputkan tidak lebih dari 2 MB',
             ]
