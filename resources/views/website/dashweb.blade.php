@@ -322,7 +322,7 @@
                         <form action="{{ Route('dashwebinput') }}" method="get">
                                 <div class="dir-search col-2 col-md-10">
                                     <div class="single-query form-group">
-                                        <div class="intro">
+                                        <div class="intro" style="margin-left: 125px;">
                                             <select name="id">
 
                                                 @foreach ($diti as $item)
@@ -375,9 +375,9 @@
 
 
                             <div class="card_content">
-                                <h2 style="font-size: 20px" class="card_title">{{ $data->name }}</h2>
-                                <input type="hidden" value="{{ $item->id }}" name="id">
-                                <button type="submit" value="{{ $item->id }}" class="btn card_btn">Lihat</button>
+                                <h2 style="font-size: 20px" class="card_title">{{ Str::limit($data->name, 15) }}</h2>
+                                <input type="hidden" value="{{ $data->id }}" name="id">
+                                <button type="submit" value="{{ $data->id }}" class="btn card_btn">Lihat</button>
                         </form>
                     </div>
     </div>

@@ -298,7 +298,7 @@
                         </div>
                     @endif -->
                   <div class="col-6"><div style=" margin-left:-20%;"><div class=" label"><center>Logo Desa</center></div><br>
-                  <img src="{{asset('storage/'.$data->logo)}}" class="img-thumbnail rounded mx-auto d-block" style=" height:50%; width:50%">
+                  <img src="{{asset('storage/'.$data->logo)}}" class="img-thumbnail rounded mx-auto d-block" style="object-fit:cover; height:201px; width:201px">
                   
                   <center><input style="width: 250px;" type="file" class="form-control mt-3 @error('logo') is-invalid @enderror" name="logo" id="gambar"
                                         value="{{ $data->logo }}"> 

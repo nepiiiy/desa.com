@@ -26,10 +26,10 @@ class DataAdminController extends Controller
 {  
     public function DataAdmin()
     {
-        $data = User::where('status', 'pending')->with('provinsi','kabupaten','kecamatan')->paginate(4);
+        $data = User::where('status', 'pending')->with('provinsi','kabupaten','kecamatan')->paginate(10);
 
 
-        $data2 = User::where('status', 'aktif')->with('provinsi','kabupaten','kecamatan')->paginate(4);
+        $data2 = User::where('status', 'aktif')->with('provinsi','kabupaten','kecamatan')->paginate(10);
 
         return view('webadmin.data_admin',compact('data', 'data2'));
 
