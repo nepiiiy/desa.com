@@ -36,15 +36,7 @@ class GaleriController extends Controller
 
         // $fotoside = implode(',',$files);
         $gallery  = new gallery();
-        $gallery->judul = $request->judul;
-        $gallery->tanggal = $request->tanggal;
-        $gallery->cover=$cover;
-
-        $gallery->user_id = Auth::user()->id;
-        $gallery->save();
-        $this->validate(
-            $request,
-            [
+        $request->validate([
                 'gambar' => 'required|min:1|max:12 ',
                 'judul' => 'required',
                 'tanggal' => 'required',
@@ -59,6 +51,12 @@ class GaleriController extends Controller
 
             ]
         );
+        $gallery->judul = $request->judul;
+        $gallery->tanggal = $request->tanggal;
+        $gallery->cover=$cover;
+
+        $gallery->user_id = Auth::user()->id;
+        $gallery->save();
 
         if ($request->hasFile('gambar')) {
             $gambar = $request->file('gambar');

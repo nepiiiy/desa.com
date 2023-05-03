@@ -273,7 +273,7 @@
                                     <tr>
                                         <td scope="row" >{{ $index + $pkk->firstItem() }}</td>
                                         <td>
-                                            <center><img style="width: 100px;height: 120px;"
+                                            <center><img style="object-fit:cover; width: 100px;height: 120px;"
                                                     src="{{ asset('storage/' . $pkkdesa->gambar) }}" alt=""></center>
                                         </td>
                                         <td>

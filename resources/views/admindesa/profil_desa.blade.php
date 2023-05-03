@@ -36,15 +36,6 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Profil Desa</h5>
-                            @if ($errors->any())
-                                <div class="alert alert-danger">
-                                    <ul>
-                                        @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            @endif
                             <!-- General Form Elements -->
                             <form action="/updateprofildesa/{{ $data->id }}" method="POST"
                                 enctype="multipart/form-data">
@@ -57,24 +48,33 @@
                                                 <img src="{{ asset('storage/' . $data->gambar1) }}"
                                                     class="img-fluid rounded-start col-10 mx-auto" alt="..."
                                                     style="border-radius: 6px; width:80%; height: 70%;">
-                                                <input class="ms-0" type="file" style="margin: 3% 0% 3% 0%;"
+                                                <input class="ms-0 @error('gambar1') is-invalid @enderror" type="file" style="margin: 3% 0% 3% 0%;"
                                                     name="gambar1">
+                                                    @error('gambar1')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                                             </div>
                                             <div class="col-3 mx-auto">
                                                 <label for="" class="d-block fw-bold">Gambar 2</label>
                                                 <img src="{{ asset('storage/' . $data->gambar2) }}"
                                                     class="img-fluid rounded-start col-10 mx-auto" alt="..."
                                                     style="border-radius: 6px; width:80%; height: 70%;">
-                                                <input class="ms-0" type="file" style="margin: 3% 0% 3% 0%;"
+                                                <input class="ms-0 @error('gambar2') is-invalid @enderror" type="file" style="margin: 3% 0% 3% 0%;"
                                                     name="gambar2">
+                                                    @error('gambar2')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                                             </div>
                                             <div class="col-3 mx-auto">
                                                 <label for="" class="d-block fw-bold">Gambar 3</label>
                                                 <img src="{{ asset('storage/' . $data->gambar3) }}"
                                                     class="img-fluid rounded-start col-10 mx-auto" alt="..."
                                                     style="border-radius: 6px; width:80%; height: 70%;">
-                                                <input class="ms-0" type="file" style="margin: 3% 0% 3% 0%;"
+                                                <input class="ms-0 @error('gambar3') is-invalid @enderror" type="file" style="margin: 3% 0% 3% 0%;"
                                                     name="gambar3">
+                                                    @error('gambar3')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -83,20 +83,29 @@
                                 <div class="row mb-5">
                                     <label for="inputText" class="col-sm-2 col-form-label"><b>Visi Desa :</b></label>
                                     <div class="col-sm-10">
-                                        <textarea class="form-control" placeholder="" id="floatingTextarea" style="height: 100px;" name="visi">{{ $data->visi }}</textarea>
+                                        <textarea class="form-control @error('visi') is-invalid @enderror" placeholder="" id="floatingTextarea" style="height: 100px;" name="visi">{{ $data->visi }}</textarea>
+                                        @error('visi')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                                     </div>
                                 </div>
                                 <div class="row mb-5">
                                     <label for="inputEmail" class="col-sm-2 col-form-label"><b>Misi Desa :</b></label>
                                     <div class="col-sm-10">
-                                        <textarea class="form-control" placeholder="" id="floatingTextarea" style="height: 100px;" name="misi">{{ $data->misi }}</textarea>
+                                        <textarea class="form-control @error('misi') is-invalid @enderror" placeholder="" id="floatingTextarea" style="height: 100px;" name="misi">{{ $data->misi }}</textarea>
+                                        @error('misi')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                                     </div>
                                 </div>
                                 <div class="row mb-5">
                                     <label for="inputPassword" class="col-sm-2 col-form-label"><b>Sejarah Desa :</b></label>
                                     <div class="col-sm-10">
-                                        <textarea class="form-control" id="editor" name="sejarah" cols="30" rows="10"
+                                        <textarea class="form-control @error('sejarah') is-invalid @enderror" id="editor" name="sejarah" cols="30" rows="10"
                                             placeholder="Tuliskan isi pikiranmu...">{!! $data->sejarah !!}</textarea>
+                                            @error('sejarah')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror   
                                     </div>
                                 </div>
                                 <div class="row align-items-top">

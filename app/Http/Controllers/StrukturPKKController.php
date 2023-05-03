@@ -64,7 +64,7 @@ class StrukturPKKController extends Controller
             'gambar.required'=>'Gambar tidak boleh kosong',
             'gambar.image'=>'Yang di inputkan harus berupa gambar',
             'gambar.mimes'=>'File harus berekstensi PNG, JPEG, JPG, WEBP',
-            'gambar.max'=>'Ukuran file tidak lwbih dari 2 MB',
+            'gambar.max'=>'Ukuran file tidak lebih dari 2 MB',
         ]);
         $pkk = pkk_structure::find($id);
         $data = pkk_structure::find($id);
